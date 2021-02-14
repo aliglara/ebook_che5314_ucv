@@ -79,3 +79,55 @@ It is essential to know that:
 
 1. If temperature increase the $k_0(T)$ will be increased.
 2. $k_0(T)$ will be more sensitive to temperature changes at higher activation energy.
+
+#### Reversible Reaction
+
+Consider next reversible reaction
+
+<center>
+![](figures/eq1.png){width=30%}
+</center>
+
+The forward rate reaction in terms of molar concentrations of reactants A and B will be: 
+\begin{gather*}
+    r_f = k_f(T)\,C_A^\alpha\,C_B^\beta \\
+    k_f(T) = k_{0_f}(T) \exp{\left(-E_f/R/T\right)}
+\end{gather*}
+
+The reverse rate reaction will be: 
+\begin{gather*}
+    r_r = k_r(T)\,C_C^\gamma\\
+    k_r(T) = k_{0_r}(T) \exp{\left(-E_R/R/T\right)}
+\end{gather*}
+
+The net overall rate reaction will be: 
+\begin{equation*}
+  r = r_F - r_R = k_F(T)\,C_A^\alpha\,C_B^\beta - k_R(T)\,C_C^\gamma
+\end{equation*}
+
+Under chemical equilibrium conditions, the net overall rate reaction is equal to zero, which leads to: 
+\begin{gather*}
+  K_\text{eq} = \frac{k_f(T)}{k_r(T)} = \frac{C_A^\alpha\,C_B^\beta}{C_C^\gamma} \\
+   K_\text{eq} = \frac{k_{0_r}(T) \exp{\left(-E_r/R/T\right)}}{k_{0_r}(T) \exp{\left(-E_r/R/T\right)}} = \frac{k_{0_f}}{k_{0_r}}\,\exp\left(\frac{E_r-E_f}{RT}\right)
+\end{gather*}
+
+
+It is important to know that:
+
+- If $E_R = E_F$, then $K_\text{eq}$ is independent of temperature
+
+- If $E_R > E_F$, then the process is exothermic, so if temperature increases, then the exponential factor decreases and $K_\text{eq}$ decreases.
+
+- If $E_R < E_F$, then the process is endothermic (energy is required in order to transform reactants into products), so if temperature increases, then the exponential factor increases, and $K_\text{eq}$ increases.
+
+The van't Hoff equation of thermodynamics gives the temperature dependence of the chemical equilibrium constant.
+\begin{gather*}
+  \frac{d\,\ln K_\text{eq}}{d\,T} = \frac{\Delta H_R^\circ (T)}{R\,T^2} \\
+  \Delta H_R^\circ(T) = E_f - E_r
+\end{gather*}
+
+### Multiple Reactions
+In a reacting system might occur more than one chemical reaction. 
+We are frequently interested in just one called the principal, while others are side-reactions. The latter produce undesired components that diminish the yield of the desired product.
+
+

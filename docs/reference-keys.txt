@@ -2,6 +2,8 @@ intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
 irreversible-reaction
+reversible-reaction
+multiple-reactions
 literature
 methods
 applications
