@@ -1,7 +1,7 @@
 bookdown::gitbook:
   css: style.css
+  toc_depth: 5
   config:
-    toc_depth: 4
     toc:
       before: |
         <li><a href="./">Personal notes for Che5314</a></li>
