@@ -1,0 +1,5 @@
+book_filename: "ebook_notes_5314"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
