@@ -68,7 +68,7 @@ The temperature-dependent specific reaction $k(T)$ is represented by Arrhenius e
 \begin{equation*}
   k(T) = k_0(T) \exp\left[{\left(-E/R/T\right)}\right]
 \end{equation*}
-where $k0(T)$ is the pre-exponential factor, usually a big positive number that has units with respect to each component based on the concentration units and the order of the reaction, $E$ is the activation energy, $R$ is the universal gas-constant, and $T$ is the absolute temperature.
+where $k_0(T)$ is the pre-exponential factor, usually a big positive number that has units with respect to each component based on the concentration units and the order of the reaction, $E$ is the activation energy, $R$ is the universal gas-constant, and $T$ is the absolute temperature.
 
 If $n = \alpha + \beta$ then
 \begin{equation*}
@@ -129,5 +129,44 @@ The van't Hoff equation of thermodynamics gives the temperature dependence of th
 ### Multiple Reactions
 In a reacting system might occur more than one chemical reaction. 
 We are frequently interested in just one called the principal, while others are side-reactions. The latter produce undesired components that diminish the yield of the desired product.
+
+#### Parallel Reactions
+
+In this case, the reactants form other undesired products in parallel with the primary reaction. For example:
+
+<center>
+![](figures/eq2.png){width=50%}
+</center>
+
+If we assume first-order kinetics, the reactions occur in a simple batch isothermal reactor at volume constant. The concentrations of each component could be express as:
+
+\begin{align*}
+  \frac{d\,C_A}{dt} &= -\left(k_B+k_C\right)\,C_A \\
+  \frac{d\,C_B}{dt} &= k_B\,C_A \\
+  \frac{d\,C_C}{dt} &= k_C\,C_A
+\end{align*}
+
+If at $t=0$, $C_A = C_{A0}$, $C_B=0$ and $C_C = 0$ then
+\begin{align*}
+  \frac{C_A}{C_{A0}} &= e^{-\left(k_B+k_C\right)\,t} \\
+  \frac{C_B}{C_{A0}} &= \frac{k_B}{k_B+k_C}\,\left(1-e^{-\left(k_B+k_C\right)\,t} \right)\\
+  \frac{C_C}{C_{A0}} &= \frac{k_C}{k_B+k_C}\,\left(1-e^{-\left(k_B+k_C\right)\,t} \right)
+\end{align*}
+
+The graphical solution for this sample is (file)
+
+<center>
+![Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4](figures/sollect01.png){width=50%}
+</center>
+
+In figure \@ref(figures), we could see that more product B is generated at higher $k_B$ values concerning $k_C$. This behavior is represented in terms of the **Selectivity (S)** to the desired product:
+
+\begin{equation*}
+  S =\frac{C_B}{C_C}
+\end{equation*}	
+
+Our job as engineers is to optimize the reactor's operation, so in this case, we must find the best operating temperature to maximize selectivity. In the case the reactor has more than one reactant, the selectivity is affected by their concentrations. 
+
+
 
 
