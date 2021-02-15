@@ -177,6 +177,152 @@ In figure \@ref(fig:sollect01), we could see that more product B is generated at
 
 Our job as engineers is to optimize the reactor's operation, so in this case, we must find the best operating temperature to maximize selectivity. In the case the reactor has more than one reactant, the selectivity is affected by their concentrations. 
 
+#### Series Reactions
 
+For series reactions, an intermediate is formed that can then further react. For a reaction system: 
+ 
+The reactions in standard form are: 
 
+For a batch reactor, the mass balances on A, B, and C are: 
 
+$A \xrightarrow{k_B} B \xrightarrow{k_C} C$
+
+The reactions in standard form are:
+
+\begin{align*}
+	& A \xrightarrow{k_B} B && r_1 = k_B\,C_A \\
+	& B \xrightarrow{k_C} C && r_2 = k_C\,C_B 
+\end{align*}
+
+For a batch reactor, the mass balances on A, B, and C are: 
+
+\begin{align*}
+  \frac{d\,C_A}{dt} &= -k_B\,C_A \\
+  \frac{d\,C_B}{dt} &= k_B\,C_A - k_C\,C_C\\
+  \frac{d\,C_C}{dt} &= k_C\,C_B
+\end{align*}
+
+If at $t=0$, $C_A = C_{A0}$, $C_B=0$ and $C_C = 0$ then
+\begin{align*}
+  \frac{C_A}{C_{A0}} &= e^{-k_B\,t} \\
+  \frac{C_B}{C_{A0}} &= \frac{k_B}{k_C-k_B}\,\left(e^{-k_B\,t} - e^{-k_C\,t} \right)\\
+  \frac{C_C}{C_{A0}} &= 1 -\frac{C_A(t)}{C_{A0}} -\frac{C_B(t)}{C_{A0}}
+\end{align*}
+
+The graphical solution for this sample is available ([file](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_002BatchReactorSeries.ipynb)).
+
+```{r sollect02, out.width = "80%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for series reactions. Left, kb = 2, Right: kb = 4', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/sollect02.png")
+grid.raster(img)
+```
+
+The figure \@ref(fig:sollect02) shows typical composition profiles. And on the $C_B$ profile, we notice that there is a peak at some point in time. Therefore, the batch should be stopped at that time to maximize selectivity.
+
+## Temperature effects over chemical kinetics 
+
+Temperature changes affect the reaction rate, and hence the mode of reactor operation in two ways: temperature dependence of (1) the rate parameters and (2) the equilibrium constant. Several kinds of behavior occur, some of which are represented in fig. \@ref(fig:temperature_effect). 
+
+The temperature dependence of reactions rate constants will meet the Arrhenius law 
+where A is the pre-exponential factor and E is the activation energy. 
+
+```{r arrehnius, out.width = "35%", echo=FALSE, fig.align='center', fig.cap='Typical Arrehnius plot', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_01_arrehnius.png")
+grid.raster(img)
+```
+
+Whereas the exponential dependence of rate constants on temperature means that the reaction rate changes rapidly as temperature changes. Moreover, the larger the value of activation energy, the more significant the reaction rate difference for a given temperature change. 
+
+The temperature dependence of the chemical equilibrium constant ($K$) is given by the van’t Hoff equation. 
+\begin{equation*}
+\frac{d\, \ln K}{dT} = \frac{\Delta H_R}{R\,T^2}
+\end{equation*}
+
+Thus for an exothermic reaction, an increase in temperature decreases the equilibrium yield and vice-versa. 
+
+```{r temperatureeffect, out.width = "70%", echo=FALSE, fig.align='center', fig.cap='Effect of temperature on reaction rate [@walas1989]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_000a.png")
+grid.raster(img)
+```
+
+In Figure \@ref(fig:temperatureeffect), (a) Normal behavior, kinetic rate increases rapidly with rising temperature. (b) The behavior of particular heterogeneous reactions dominated by resistance to diffusion between phases. (c) Typical explosions, where the rapid rise takes place at the ignition temperature. (d) Catalytic reactions are controlled by the rate of adsorption (in which the amount of adsorption decreases at elevated temperatures) and enzyme reactions (where high temperatures destroy the enzyme). (e) Some reactions, such as oxidation of carbon, are complicated by side reaction, which becomes significant as the temperature rises. (f) Diminishing rate with increasing temperature, for example, the reaction between oxygen and nitric oxide where the equilibrium conversion is favored by lower temperatures. The rates appear to depend on the displacement from equilibrium.
+
+The values of the heat of reaction $\Delta H_{R,j}(T)$ must be known, which must be calculated from 
+
+\begin{equation*}
+  \Delta H_R (T^\circ) = \sum_i \nu_i \Delta H_{fi}^\circ
+\end{equation*}
+where the superscript ``$^\circ$'' denotes the standard conditions.
+
+Except in unusual cases, e.g., reactions at supercritical conditions, a temperature correction is the only thing that is necessary to calculate the value of $\Delta H_{R}(T)$ from $\Delta H_R (T^\circ)$ using,
+\begin{equation*}
+ \Delta H_{R}(T) = \Delta H_R(T^\circ) + \int_{T^\circ}^T \nu_i C_{Pi}\,dT
+\end{equation*} 
+
+Which equation is valid on the assumption that no phase change takes place between $T^\circ$ and $T$
+
+## Equation rate when density of fluid is variable
+
+Changes in the volume yield a difference in concentrations. For example, let us consider the following reaction is taking place in a gas-phase. 
+\begin{equation}
+	A + \frac{b}{a} B \xrightarrow{k} \frac{c}{a}C + \frac{d}{a}D 
+\end{equation}
+
+At any time, and at any point inside the reactor, it is known that:
+\begin{equation}
+  P\,V = Z\,R\, n\,T
+\end{equation}
+
+Therefore, it is possible to correlate the volume $V$ at $t = 0$ with any $t = t$ by
+\begin{equation}
+  V = V_0 \left(\frac{P}{P_0}\right)\,\frac{T}{T_0}\,\left(\frac{Z}{Z_0}\right)\,\frac{n_T}{n_{T0}}
+\end{equation}
+
+The stoichiometric coefficients in reaction represent the increase in the total number of moles per mole of A reacted by symbol $\delta$
+\begin{equation}
+  \delta = \frac{d}{a} + \frac{c}{a} - \frac{b}{a} - 1
+\end{equation}
+
+Therefore, using this parameter $\delta$ is possible to calculate the total of moles ($n$) at any time t by 
+\begin{equation}
+  n = n_0 + \delta \, n_{A0} \, X_A
+\end{equation}
+
+where $n_0$ represents the total moles at $t = 0$, $N_{A0}$ initial moles of $A$ and $X$ is the fractional conversion of $A$.
+
+Combining this relationship with the previous volume equation
+\begin{equation}
+   V = V_0 \left(\frac{P}{P_0}\right)\,\frac{T}{T_0}\,\left(\frac{Z}{Z_0}\right)\,\left(1 + \varepsilon_A\,X_A\right)
+\end{equation}
+
+where $\varepsilon_A = \delta \, y_{A0}$ and it represents the change in the total number of moles for complete conversion to the total number of moles fed to the reactor.
+
+The concentrations to be substituted into the rate equation can be expressed as 
+\begin{equation}
+   C_A = \frac{N_A}{V} = \frac{N_{A0}}{V_0} \frac{\left(1-X_A\right)}{\left(1 + \varepsilon_A\,X\right)} \left(\frac{P}{P_0}\right)\,\frac{T}{T_0}\,\left(\frac{Z}{Z_0}\right)
+\end{equation}
+
+and in terms of the partial pressures,
+\begin{align}
+   P_A & = P \,\frac{N_A}{N} = P\,\frac{N_{A0}}{N_0} \frac{\left(1-X_A\right)}{\left(1 + \varepsilon_A\,X\right)} \\ \notag
+   & = P_{A0}\,\frac{\left(1-X_A\right)}{\left(1 + \varepsilon_A\,X\right)}\left( \frac{P}{P_0} \right)
+\end{align}
+
+When a reactor operates under isothermal conditions, and the pressure drop is neglected, thus 
+\begin{equation}
+   V = V_0 \left(1 + \varepsilon_A\,X_A \right)
+\end{equation}
+
+## Ideal Reactors
+Industrial chemical reactors can be large and complex pieces of equipment. However, many of these reactors can be modeled with reasonable accuracy using an ideal reactor model. There are two types of ideal reactors, stirred tanks for liquids' reactions and tubular for gas or liquid reactions.
+
+Stirred-tank reactors include batch reactor, semi-batch reactor, and continuous stirred-tank reactors (CSTRs). The criterion for ideality in-tank reactors is that the liquid is perfectly mixed, which means no gradients in the vessel's temperature or concentration.
+
+Tubular reactors are considered ideal if there is a plug flow of fluid. There are no radial gradients of concentration or velocity, nor is there no axial diffusion or conduction.
+
+Although these ideal conditions are impossible to reach into real industrial reactors, the classical idealizations can be used for studying both steady-state design and the dynamic control of chemical reactors. In this class, we discuss the classical types of reactors qualitatively: batch reactor (BR), continuous stirred-tank reactor (CSRT), plug flow reactor (PFR). 

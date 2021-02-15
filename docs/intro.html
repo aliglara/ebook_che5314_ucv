@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-14" />
+<meta name="date" content="2021-02-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="literature.html"/>
+<link rel="next" href="ideal-chemical-reactor-design.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -83,10 +83,14 @@
 <li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#multiple-reactions"><i class="fa fa-check"></i><b>1.1.2</b> Multiple Reactions</a>
 <ul>
 <li class="chapter" data-level="1.1.2.1" data-path="intro.html"><a href="intro.html#parallel-reactions"><i class="fa fa-check"></i><b>1.1.2.1</b> Parallel Reactions</a></li>
+<li class="chapter" data-level="1.1.2.2" data-path="intro.html"><a href="intro.html#series-reactions"><i class="fa fa-check"></i><b>1.1.2.2</b> Series Reactions</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#temperature-effects-over-chemical-kinetics"><i class="fa fa-check"></i><b>1.2</b> Temperature effects over chemical kinetics</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#equation-rate-when-density-of-fluid-is-variable"><i class="fa fa-check"></i><b>1.3</b> Equation rate when density of fluid is variable</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#ideal-reactors"><i class="fa fa-check"></i><b>1.4</b> Ideal Reactors</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
+<li class="chapter" data-level="2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html"><i class="fa fa-check"></i><b>2</b> Ideal Chemical Reactor Design</a></li>
 <li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a>
 <ul>
@@ -257,9 +261,125 @@ Figure 1.1: Concentrations vs time for parallel reactions. Left, k1 = 2, Right: 
   S =\frac{C_B}{C_C}
 \end{equation*}\]</span></p>
 <p>Our job as engineers is to optimize the reactor’s operation, so in this case, we must find the best operating temperature to maximize selectivity. In the case the reactor has more than one reactant, the selectivity is affected by their concentrations.</p>
+</div>
+<div id="series-reactions" class="section level4" number="1.1.2.2">
+<h4><span class="header-section-number">1.1.2.2</span> Series Reactions</h4>
+<p>For series reactions, an intermediate is formed that can then further react. For a reaction system:</p>
+<p>The reactions in standard form are:</p>
+<p>For a batch reactor, the mass balances on A, B, and C are:</p>
+<p><span class="math inline">\(A \xrightarrow{k_B} B \xrightarrow{k_C} C\)</span></p>
+<p>The reactions in standard form are:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp; A \xrightarrow{k_B} B &amp;&amp; r_1 = k_B\,C_A \\
+    &amp; B \xrightarrow{k_C} C &amp;&amp; r_2 = k_C\,C_B 
+\end{align*}\]</span></p>
+<p>For a batch reactor, the mass balances on A, B, and C are:</p>
+<p><span class="math display">\[\begin{align*}
+  \frac{d\,C_A}{dt} &amp;= -k_B\,C_A \\
+  \frac{d\,C_B}{dt} &amp;= k_B\,C_A - k_C\,C_C\\
+  \frac{d\,C_C}{dt} &amp;= k_C\,C_B
+\end{align*}\]</span></p>
+<p>If at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(C_A = C_{A0}\)</span>, <span class="math inline">\(C_B=0\)</span> and <span class="math inline">\(C_C = 0\)</span> then
+<span class="math display">\[\begin{align*}
+  \frac{C_A}{C_{A0}} &amp;= e^{-k_B\,t} \\
+  \frac{C_B}{C_{A0}} &amp;= \frac{k_B}{k_C-k_B}\,\left(e^{-k_B\,t} - e^{-k_C\,t} \right)\\
+  \frac{C_C}{C_{A0}} &amp;= 1 -\frac{C_A(t)}{C_{A0}} -\frac{C_B(t)}{C_{A0}}
+\end{align*}\]</span></p>
+<p>The graphical solution for this sample is available (<a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_002BatchReactorSeries.ipynb">file</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:sollect02"></span>
+<img src="ebook_notes_5314_files/figure-html/sollect02-1.png" alt="Concentrations vs time for series reactions. Left, kb = 2, Right: kb = 4" width="80%" />
+<p class="caption">
+Figure 1.2: Concentrations vs time for series reactions. Left, kb = 2, Right: kb = 4
+</p>
+</div>
+<p>The figure <a href="intro.html#fig:sollect02">1.2</a> shows typical composition profiles. And on the <span class="math inline">\(C_B\)</span> profile, we notice that there is a peak at some point in time. Therefore, the batch should be stopped at that time to maximize selectivity.</p>
+</div>
+</div>
+</div>
+<div id="temperature-effects-over-chemical-kinetics" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Temperature effects over chemical kinetics</h2>
+<p>Temperature changes affect the reaction rate, and hence the mode of reactor operation in two ways: temperature dependence of (1) the rate parameters and (2) the equilibrium constant. Several kinds of behavior occur, some of which are represented in fig. @ref(fig:temperature_effect).</p>
+<p>The temperature dependence of reactions rate constants will meet the Arrhenius law
+where A is the pre-exponential factor and E is the activation energy.</p>
+<div class="figure" style="text-align: center"><span id="fig:arrehnius"></span>
+<img src="ebook_notes_5314_files/figure-html/arrehnius-1.png" alt="Typical Arrehnius plot" width="35%" />
+<p class="caption">
+Figure 1.3: Typical Arrehnius plot
+</p>
+</div>
+<p>Whereas the exponential dependence of rate constants on temperature means that the reaction rate changes rapidly as temperature changes. Moreover, the larger the value of activation energy, the more significant the reaction rate difference for a given temperature change.</p>
+<p>The temperature dependence of the chemical equilibrium constant (<span class="math inline">\(K\)</span>) is given by the van’t Hoff equation.
+<span class="math display">\[\begin{equation*}
+\frac{d\, \ln K}{dT} = \frac{\Delta H_R}{R\,T^2}
+\end{equation*}\]</span></p>
+<p>Thus for an exothermic reaction, an increase in temperature decreases the equilibrium yield and vice-versa.</p>
+<div class="figure" style="text-align: center"><span id="fig:temperatureeffect"></span>
+<img src="ebook_notes_5314_files/figure-html/temperatureeffect-1.png" alt="Effect of temperature on reaction rate [@walas1989]" width="70%" />
+<p class="caption">
+Figure 1.4: Effect of temperature on reaction rate <span class="citation">(<a href="references.html#ref-walas1989" role="doc-biblioref">Walas 1989</a>)</span>
+</p>
+</div>
+<p>In Figure <a href="intro.html#fig:temperatureeffect">1.4</a>, (a) Normal behavior, kinetic rate increases rapidly with rising temperature. (b) The behavior of particular heterogeneous reactions dominated by resistance to diffusion between phases. (c) Typical explosions, where the rapid rise takes place at the ignition temperature. (d) Catalytic reactions are controlled by the rate of adsorption (in which the amount of adsorption decreases at elevated temperatures) and enzyme reactions (where high temperatures destroy the enzyme). (e) Some reactions, such as oxidation of carbon, are complicated by side reaction, which becomes significant as the temperature rises. (f) Diminishing rate with increasing temperature, for example, the reaction between oxygen and nitric oxide where the equilibrium conversion is favored by lower temperatures. The rates appear to depend on the displacement from equilibrium.</p>
+<p>The values of the heat of reaction <span class="math inline">\(\Delta H_{R,j}(T)\)</span> must be known, which must be calculated from</p>
+<p><span class="math display">\[\begin{equation*}
+  \Delta H_R (T^\circ) = \sum_i \nu_i \Delta H_{fi}^\circ
+\end{equation*}\]</span>
+where the superscript ``<span class="math inline">\(^\circ\)</span>’’ denotes the standard conditions.</p>
+<p>Except in unusual cases, e.g., reactions at supercritical conditions, a temperature correction is the only thing that is necessary to calculate the value of <span class="math inline">\(\Delta H_{R}(T)\)</span> from <span class="math inline">\(\Delta H_R (T^\circ)\)</span> using,
+<span class="math display">\[\begin{equation*}
+ \Delta H_{R}(T) = \Delta H_R(T^\circ) + \int_{T^\circ}^T \nu_i C_{Pi}\,dT
+\end{equation*}\]</span></p>
+<p>Which equation is valid on the assumption that no phase change takes place between <span class="math inline">\(T^\circ\)</span> and <span class="math inline">\(T\)</span></p>
+</div>
+<div id="equation-rate-when-density-of-fluid-is-variable" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Equation rate when density of fluid is variable</h2>
+<p>Changes in the volume yield a difference in concentrations. For example, let us consider the following reaction is taking place in a gas-phase.
+<span class="math display">\[\begin{equation}
+    A + \frac{b}{a} B \xrightarrow{k} \frac{c}{a}C + \frac{d}{a}D 
+\end{equation}\]</span></p>
+<p>At any time, and at any point inside the reactor, it is known that:
+<span class="math display">\[\begin{equation}
+  P\,V = Z\,R\, n\,T
+\end{equation}\]</span></p>
+<p>Therefore, it is possible to correlate the volume <span class="math inline">\(V\)</span> at <span class="math inline">\(t = 0\)</span> with any <span class="math inline">\(t = t\)</span> by
+<span class="math display">\[\begin{equation}
+  V = V_0 \left(\frac{P}{P_0}\right)\,\frac{T}{T_0}\,\left(\frac{Z}{Z_0}\right)\,\frac{n_T}{n_{T0}}
+\end{equation}\]</span></p>
+<p>The stoichiometric coefficients in reaction represent the increase in the total number of moles per mole of A reacted by symbol <span class="math inline">\(\delta\)</span>
+<span class="math display">\[\begin{equation}
+  \delta = \frac{d}{a} + \frac{c}{a} - \frac{b}{a} - 1
+\end{equation}\]</span></p>
+<p>Therefore, using this parameter <span class="math inline">\(\delta\)</span> is possible to calculate the total of moles (<span class="math inline">\(n\)</span>) at any time t by
+<span class="math display">\[\begin{equation}
+  n = n_0 + \delta \, n_{A0} \, X_A
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(n_0\)</span> represents the total moles at <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(N_{A0}\)</span> initial moles of <span class="math inline">\(A\)</span> and <span class="math inline">\(X\)</span> is the fractional conversion of <span class="math inline">\(A\)</span>.</p>
+<p>Combining this relationship with the previous volume equation
+<span class="math display">\[\begin{equation}
+   V = V_0 \left(\frac{P}{P_0}\right)\,\frac{T}{T_0}\,\left(\frac{Z}{Z_0}\right)\,\left(1 + \varepsilon_A\,X_A\right)
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\varepsilon_A = \delta \, y_{A0}\)</span> and it represents the change in the total number of moles for complete conversion to the total number of moles fed to the reactor.</p>
+<p>The concentrations to be substituted into the rate equation can be expressed as
+<span class="math display">\[\begin{equation}
+   C_A = \frac{N_A}{V} = \frac{N_{A0}}{V_0} \frac{\left(1-X_A\right)}{\left(1 + \varepsilon_A\,X\right)} \left(\frac{P}{P_0}\right)\,\frac{T}{T_0}\,\left(\frac{Z}{Z_0}\right)
+\end{equation}\]</span></p>
+<p>and in terms of the partial pressures,
+<span class="math display">\[\begin{align}
+   P_A &amp; = P \,\frac{N_A}{N} = P\,\frac{N_{A0}}{N_0} \frac{\left(1-X_A\right)}{\left(1 + \varepsilon_A\,X\right)} \\ \notag
+   &amp; = P_{A0}\,\frac{\left(1-X_A\right)}{\left(1 + \varepsilon_A\,X\right)}\left( \frac{P}{P_0} \right)
+\end{align}\]</span></p>
+<p>When a reactor operates under isothermal conditions, and the pressure drop is neglected, thus
+<span class="math display">\[\begin{equation}
+   V = V_0 \left(1 + \varepsilon_A\,X_A \right)
+\end{equation}\]</span></p>
+</div>
+<div id="ideal-reactors" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Ideal Reactors</h2>
+<p>Industrial chemical reactors can be large and complex pieces of equipment. However, many of these reactors can be modeled with reasonable accuracy using an ideal reactor model. There are two types of ideal reactors, stirred tanks for liquids’ reactions and tubular for gas or liquid reactions.</p>
+<p>Stirred-tank reactors include batch reactor, semi-batch reactor, and continuous stirred-tank reactors (CSTRs). The criterion for ideality in-tank reactors is that the liquid is perfectly mixed, which means no gradients in the vessel’s temperature or concentration.</p>
+<p>Tubular reactors are considered ideal if there is a plug flow of fluid. There are no radial gradients of concentration or velocity, nor is there no axial diffusion or conduction.</p>
+<p>Although these ideal conditions are impossible to reach into real industrial reactors, the classical idealizations can be used for studying both steady-state design and the dynamic control of chemical reactors. In this class, we discuss the classical types of reactors qualitatively: batch reactor (BR), continuous stirred-tank reactor (CSRT), plug flow reactor (PFR).</p>
 
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -268,7 +388,7 @@ Figure 1.1: Concentrations vs time for parallel reactions. Left, k1 = 2, Right: 
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ideal-chemical-reactor-design.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

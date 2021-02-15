@@ -1,4 +1,8 @@
 fig:sollect01
+fig:sollect02
+fig:arrehnius
+fig:temperatureeffect
+fig:mindmap
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -6,7 +10,11 @@ irreversible-reaction
 reversible-reaction
 multiple-reactions
 parallel-reactions
-literature
+series-reactions
+temperature-effects-over-chemical-kinetics
+equation-rate-when-density-of-fluid-is-variable
+ideal-reactors
+ideal-chemical-reactor-design
 methods
 applications
 example-one
