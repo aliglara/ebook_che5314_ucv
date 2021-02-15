@@ -70,7 +70,7 @@
 <li><a href="./">Personal notes for Che5314</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducion</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Key concepts related to Chemical Reactors Design</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#fundamental-of-kinetics-and-reaction-equilibrium"><i class="fa fa-check"></i><b>1.1</b> Fundamental of Kinetics and Reaction Equilibrium</a>
@@ -80,7 +80,10 @@
 <li class="chapter" data-level="1.1.1.1" data-path="intro.html"><a href="intro.html#irreversible-reaction"><i class="fa fa-check"></i><b>1.1.1.1</b> Irreversible Reaction</a></li>
 <li class="chapter" data-level="1.1.1.2" data-path="intro.html"><a href="intro.html#reversible-reaction"><i class="fa fa-check"></i><b>1.1.1.2</b> Reversible Reaction</a></li>
 </ul></li>
-<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#multiple-reactions"><i class="fa fa-check"></i><b>1.1.2</b> Multiple Reactions</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#multiple-reactions"><i class="fa fa-check"></i><b>1.1.2</b> Multiple Reactions</a>
+<ul>
+<li class="chapter" data-level="1.1.2.1" data-path="intro.html"><a href="intro.html#parallel-reactions"><i class="fa fa-check"></i><b>1.1.2.1</b> Parallel Reactions</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
@@ -168,7 +171,7 @@ where <span class="math inline">\(\alpha\)</span> and <span class="math inline">
 <span class="math display">\[\begin{equation*}
   k(T) = k_0(T) \exp\left[{\left(-E/R/T\right)}\right]
 \end{equation*}\]</span>
-where <span class="math inline">\(k0(T)\)</span> is the pre-exponential factor, usually a big positive number that has units with respect to each component based on the concentration units and the order of the reaction, <span class="math inline">\(E\)</span> is the activation energy, <span class="math inline">\(R\)</span> is the universal gas-constant, and <span class="math inline">\(T\)</span> is the absolute temperature.</p>
+where <span class="math inline">\(k_0(T)\)</span> is the pre-exponential factor, usually a big positive number that has units with respect to each component based on the concentration units and the order of the reaction, <span class="math inline">\(E\)</span> is the activation energy, <span class="math inline">\(R\)</span> is the universal gas-constant, and <span class="math inline">\(T\)</span> is the absolute temperature.</p>
 <p>If <span class="math inline">\(n = \alpha + \beta\)</span> then
 <span class="math display">\[\begin{equation*}
   k(T) = \frac{\left[\text{Concentration}^{\left(1-n\right)}\right]}{\text{time}}
@@ -183,7 +186,7 @@ where <span class="math inline">\(k0(T)\)</span> is the pre-exponential factor, 
 <h4><span class="header-section-number">1.1.1.2</span> Reversible Reaction</h4>
 <p>Consider next reversible reaction</p>
 <center>
-<img src="figures/eq1.png" style="width:50.0%" />
+<img src="figures/eq1.png" style="width:30.0%" />
 </center>
 <p>The forward rate reaction in terms of molar concentrations of reactants A and B will be:
 <span class="math display">\[\begin{gather*}
@@ -221,7 +224,41 @@ where <span class="math inline">\(k0(T)\)</span> is the pre-exponential factor, 
 <h3><span class="header-section-number">1.1.2</span> Multiple Reactions</h3>
 <p>In a reacting system might occur more than one chemical reaction.
 We are frequently interested in just one called the principal, while others are side-reactions. The latter produce undesired components that diminish the yield of the desired product.</p>
+<div id="parallel-reactions" class="section level4" number="1.1.2.1">
+<h4><span class="header-section-number">1.1.2.1</span> Parallel Reactions</h4>
+<p>In this case, the reactants form other undesired products in parallel with the primary reaction. For example:</p>
+<center>
+<img src="figures/eq2.png" style="width:15.0%" />
+</center>
+<p>If we assume first-order kinetics, the reactions occur in a simple batch isothermal reactor at volume constant. The concentrations of each component could be express as:</p>
+<p><span class="math display">\[\begin{align*}
+  \frac{d\,C_A}{dt} &amp;= -\left(k_B+k_C\right)\,C_A \\
+  \frac{d\,C_B}{dt} &amp;= k_B\,C_A \\
+  \frac{d\,C_C}{dt} &amp;= k_C\,C_A
+\end{align*}\]</span></p>
+<p>If at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(C_A = C_{A0}\)</span>, <span class="math inline">\(C_B=0\)</span> and <span class="math inline">\(C_C = 0\)</span> then
+<span class="math display">\[\begin{align*}
+  \frac{C_A}{C_{A0}} &amp;= e^{-\left(k_B+k_C\right)\,t} \\
+  \frac{C_B}{C_{A0}} &amp;= \frac{k_B}{k_B+k_C}\,\left(1-e^{-\left(k_B+k_C\right)\,t} \right)\\
+  \frac{C_C}{C_{A0}} &amp;= \frac{k_C}{k_B+k_C}\,\left(1-e^{-\left(k_B+k_C\right)\,t} \right)
+\end{align*}\]</span></p>
+<p>From <strong>scypi.integrate</strong>, we can use the function <strong>solve_ivp</strong> to solve ODEs using several Runge-Kutta’s methods.</p>
+<pre><code>solution = solve_ivp(fun, (0, tfin), c0, 
+                    t_eval=np.linspace(0, tfin, 100))</code></pre>
+<p>The graphical solution for this sample is available (<a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_001BatchReactorParallel.ipynb">file</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:sollect01"></span>
+<img src="ebook_notes_5314_files/figure-html/sollect01-1.png" alt="Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4" width="70%" />
+<p class="caption">
+Figure 1.1: Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4
+</p>
+</div>
+<p>In figure <a href="intro.html#fig:sollect01">1.1</a>, we could see that more product B is generated at higher <span class="math inline">\(k_B\)</span> values concerning <span class="math inline">\(k_C\)</span>. This behavior is represented in terms of the <strong>Selectivity (S)</strong> to the desired product:</p>
+<p><span class="math display">\[\begin{equation*}
+  S =\frac{C_B}{C_C}
+\end{equation*}\]</span></p>
+<p>Our job as engineers is to optimize the reactor’s operation, so in this case, we must find the best operating temperature to maximize selectivity. In the case the reactor has more than one reactant, the selectivity is affected by their concentrations.</p>
 
+</div>
 </div>
 </div>
 </div>

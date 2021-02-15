@@ -85,7 +85,7 @@ It is essential to know that:
 Consider next reversible reaction
 
 <center>
-![](figures/eq1.png){width=50%}
+![](figures/eq1.png){width=30%}
 </center>
 
 The forward rate reaction in terms of molar concentrations of reactants A and B will be: 
@@ -135,7 +135,7 @@ We are frequently interested in just one called the principal, while others are 
 In this case, the reactants form other undesired products in parallel with the primary reaction. For example:
 
 <center>
-![](figures/eq2.png){width=50%}
+![](figures/eq2.png){width=15%}
 </center>
 
 If we assume first-order kinetics, the reactions occur in a simple batch isothermal reactor at volume constant. The concentrations of each component could be express as:
@@ -153,13 +153,23 @@ If at $t=0$, $C_A = C_{A0}$, $C_B=0$ and $C_C = 0$ then
   \frac{C_C}{C_{A0}} &= \frac{k_C}{k_B+k_C}\,\left(1-e^{-\left(k_B+k_C\right)\,t} \right)
 \end{align*}
 
-The graphical solution for this sample is (file)
+From **scypi.integrate**, we can use the function **solve_ivp** to solve ODEs using several Runge-Kutta's methods.
 
-<center>
-![Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4](figures/sollect01.png){width=50%}
-</center>
+```
+solution = solve_ivp(fun, (0, tfin), c0, 
+                    t_eval=np.linspace(0, tfin, 100))
+```
 
-In figure \@ref(figures), we could see that more product B is generated at higher $k_B$ values concerning $k_C$. This behavior is represented in terms of the **Selectivity (S)** to the desired product:
+The graphical solution for this sample is available ([file](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_001BatchReactorParallel.ipynb)). 
+
+```{r sollect01, out.width = "70%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/sollect01.png")
+grid.raster(img)
+```
+
+In figure \@ref(fig:sollect01), we could see that more product B is generated at higher $k_B$ values concerning $k_C$. This behavior is represented in terms of the **Selectivity (S)** to the desired product:
 
 \begin{equation*}
   S =\frac{C_B}{C_C}

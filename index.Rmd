@@ -10,7 +10,7 @@ link-citations: yes
 description: "This is my notes recopilation for the course of Chemical Reaction design at Central University of Venezuela."
 ---
 
-# Introducion {-}
+# Introduction {-}
 
 This is an _online_ book written in **Markdown** and **LaTeX** where I published the personal notes that I used to use while I was lecturing Chemical Reactor Design at the Central University of Venezuela, Caracas, Venezuela.
 

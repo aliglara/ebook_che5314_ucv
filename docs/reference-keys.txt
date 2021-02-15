@@ -1,9 +1,11 @@
+fig:sollect01
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
 irreversible-reaction
 reversible-reaction
 multiple-reactions
+parallel-reactions
 literature
 methods
 applications
