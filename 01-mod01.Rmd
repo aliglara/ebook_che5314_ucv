@@ -85,7 +85,7 @@ It is essential to know that:
 Consider next reversible reaction
 
 <center>
-![](figures/eq1.png){width=30%}
+![](figures/eq1.png){width=50%}
 </center>
 
 The forward rate reaction in terms of molar concentrations of reactants A and B will be: 
@@ -135,7 +135,7 @@ We are frequently interested in just one called the principal, while others are 
 In this case, the reactants form other undesired products in parallel with the primary reaction. For example:
 
 <center>
-![](figures/eq2.png){width=15%}
+![](figures/eq2.png){width=30%}
 </center>
 
 If we assume first-order kinetics, the reactions occur in a simple batch isothermal reactor at volume constant. The concentrations of each component could be express as:
@@ -162,7 +162,7 @@ solution = solve_ivp(fun, (0, tfin), c0,
 
 The graphical solution for this sample is available ([file](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_001BatchReactorParallel.ipynb)). 
 
-```{r sollect01, out.width = "70%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4', fig.lp='fig:'}
+```{r sollect01, out.width = "80%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/sollect01.png")
