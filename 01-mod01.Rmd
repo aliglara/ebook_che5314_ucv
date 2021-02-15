@@ -85,7 +85,7 @@ It is essential to know that:
 Consider next reversible reaction
 
 <center>
-![](figures/eq1.png){width=30%}
+![](figures/eq1.png){width=50%}
 </center>
 
 The forward rate reaction in terms of molar concentrations of reactants A and B will be: 
