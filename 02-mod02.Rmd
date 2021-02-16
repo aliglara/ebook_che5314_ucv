@@ -285,3 +285,131 @@ Another parameter commonly used for CSTR design is the inverse of $\tau$, called
 
 Space velocity is more useful in the field of heterogeneous catalysis. Its definition is not unique. For example, it can also be defined as GHSV, which means gas-hourly space velocity. It may be defined as the volumetric flow rate of gas entering the catalyst divided by the catalyst's weight. 
 
+#### Variable-Density System 
+For variable-density cases, the design equation for a CSTR is: 
+\begin{align}
+  \frac{V}{\upsilon} = \tau & = \frac{V}{\upsilon_0 \left( 1 + \varepsilon_A\, X_A \right)
+} = \frac{C_{A0} - C_A}{r_A(C_A)} \notag \\
+ \tau & = \left( 1 + \varepsilon_A\, X_A \right)\,\frac{C_{A0} - C_A}{r_A(C_A)}
+\end{align}
+
+### CSTR in series
+
+#### CSTRs of equal sizes in series {-}
+Consider a system of $N$ CSTRs connected in series, as shown in the figure \@ref(fig:fig002012). Though the concentration is uniform in each reactor, there is a change in concentration as fluid moves from one reactor to another.
+
+```{r fig002012, out.width = "60%", echo=FALSE, fig.align='center', fig.cap='Sketch of ideal CSTRs in series', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/002_CSTR_01.png")
+grid.raster(img)
+```
+
+The feed molar flow rate of reactant A is $F_{A0}$, the effluent conversion of A from the first reactor is $X_{A1}$, while the output conversion of A from the second reactor is $X_{A2}$ so on.
+
+:::: {.blackbox data-latex=""}
+It is crucial to be consistent in defining the fractional conversion for a series of reactors.
+::::
+
+For a series of three CSRTs in serie
+\begin{align*}
+	X_{A,1} = \left(F_{A0} - F_{A,1} \right)/(F_{A0}) \\
+    X_{A,2} = \left(F_{A0} - F_{A,2} \right)/(F_{A0}) \\
+	X_{A,3} = \left(F_{A0} - F_{A,3} \right)/(F_{A0})
+\end{align*}
+
+The conversion $X_{A1}$ is the fractional conversion of A in the stream leaving the first reactor. In contrast, $X_A2$ is the overall conversion of A in the second reactor's effluent, which means the conversion for the first and second reactors combined. Thus, the overall conversion for the series of three CSTRs is equal to $X_{A3}$. [@roberts2009]
+
+The mole balance for reactant $A$ can be written for any reactor $j$ in the series will be
+\begin{equation}
+- r_{A,j} = \frac{F_{A,j-1} - F_{A,j}}{V_j}
+\end{equation}
+
+The molar flow rates from a reactor $j$ and $j-1$ expressed in terms of conversion are:
+\begin{align*} 
+    F_{A,j-1}   & = F_{A0} {\left(1 - X_{A,j-1} \right) }\\
+    F_{A,j} & = F_{A0} {\left(1 - X_{A,j} \right)}
+\end{align*}
+
+The change in the molar flow rate of A in any reactor is defined as
+\begin{equation*}
+  F_{A,j-1} - F_{A,j} = F_{A0}\left(X_{A,j} - X_{A,j-1}\right)
+\end{equation*}
+
+Therefore, the design equation for a reactor $j$ is written in terms of conversion as:
+\begin{equation}
+  	\frac{V_j}{F_{A0}}= \frac{\left(X_{A,j} - X_{A,j-1}\right)}{- r_A\left(X_{A,j}\right)}
+  	(\#eq:002044b)
+\end{equation}
+
+This equation can be rearranged in terms of the conversion from reactor $j$
+\begin{equation}
+  	X_{A,j} = X_{A,j-1} - \frac{r_{A,j}\:V_j}{F_{A0}}
+  	(\#eq:002044c)
+\end{equation}
+
+Equation \@ref(eq:002044c) can be solved for each reactor sequentially to calculate the incremental conversion from each reactor. Equation \@ref(eq:002044d) can be generalized to apply to the Nth reactor in a series of CSTRs
+
+\begin{equation}\label{ec:002_044d}
+  	\frac{V_N}{F_{A0}}= \frac{\left(X_{A,N} - X_{A,N-1}\right)}{- r_A\left(X_{A,N}\right)}
+  	(\#eq:002044d)
+\end{equation}
+
+A typical case is to evaluate the behavior of a series of N equal-size CSTRs that operate isothermally, with a first-order kinetic and no volume change $\left( \upsilon = \upsilon_0 \right)$.
+
+In this case, it is convenient to write mass balances on specie A in terms of concentrations and $\tau$ instead of fractional conversion.
+
+\begin{align*}
+	C_{A0} - C_{A1} &= \tau_1\,r (C_{A1}) \\
+    C_{A1} - C_{A2} &= \tau_2\,r (C_{A2}) \\
+	C_{A2} - C_{A3} &= \tau_3\,r (C_{A3}) \\
+	&\vdots \\
+	C_{A,n-1} - C_{An} &= \tau_n\,r (C_{An})  
+\end{align*}
+
+Usually the initial concentration of A is known. Therefore, the system of equations can be rewritten as:
+\begin{align*}
+	C_{A1} &= \frac{C_{A0}}{\left( 1 + \tau_1 k \right)} \\
+	C_{A2} &= \frac{C_{A0}}{\left( 1 + \tau_1\, k\right)\left( 1 + \tau_2\, k\right)} \\	
+		&\vdots \\
+	C_{Ai} &= \frac{C_{A(i-1)}}{\left( 1 + \tau_i\, k\right)} = \frac{C_{A0}}{\prod_k \left( 1 + \tau_k\, k\right)}
+\end{align*}
+
+In general, 
+\begin{equation}
+	\frac{C_{A,i-1}}{C_{A,i}} = 1 + k\,\tau_i \qquad \text{or} \qquad \tau_i = \frac{C_{A,i-1}-C_{A,i}}{k\,C_{A,i}}
+	(\#eq:002044a)
+\end{equation}
+
+Assuming all reactors have the same volume ($V_i$), which means they have the same $\tau$, then the total residence time in the series of _N_ equal-residence-time CSTR is equal $\sum\nolimits_{k} \tau_{k} = N\, \tau$ and $C_{A,N}$, the concentration from the _N_-th reactor is given in terms of $C_{A0}$ by:
+
+\begin{equation}
+	\boxed{\frac{C_{A,N}}{C_{A0}} = \frac{C_{A,1}}{C_{A0}} \frac{C_{A,2}}{C_{A,1}} \cdots \frac{C_{A,N-1}}{C_{A,N}} = \frac{1}{{\left( 1 + \tau_N\, k\right)}^N}}
+(\#eq:002045)
+\end{equation}
+
+Substituting for $C_{A,N}$ in terms of conversion
+\begin{equation}
+C_{A0}\:{\left(1 - X_{A,N} \right)} = \frac{C_{A0}}{{\left( 1 + \tau_N\, k \right)}^N} \Rightarrow X_{A,N} = 1 - \frac{1}{{\left( 1 + \tau_N\, k\right)}^N}
+(\#eq:eq002045a)
+\end{equation}
+
+Figure \@ref(fig:002014) shows the variation of conversion vs. the number of reactors in series for a first-order reaction. Figure \@ref(fig:002014)(a) also indicates that the Damkholer number is a crucial parameter to decide the optimal number of CSTRs required to reach an overall conversion.
+
+In general, while the Damkholer number increases, the system will require fewer CSTRs to get the desired level of conversion. [solution](\href{file:\folder/lect_004CSTRSeries.m}{$m$ file})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

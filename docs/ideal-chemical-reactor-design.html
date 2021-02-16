@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-15" />
+<meta name="date" content="2021-02-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,18 +100,16 @@
 <li class="chapter" data-level="2.4.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-design-equation-for-a-cstr"><i class="fa fa-check"></i><b>2.4.1</b> The design equation for a CSTR</a>
 <ul>
 <li class="chapter" data-level="2.4.1.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system"><i class="fa fa-check"></i><b>2.4.1.1</b> Constant-Density System</a></li>
+<li class="chapter" data-level="2.4.1.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-density-system"><i class="fa fa-check"></i><b>2.4.1.2</b> Variable-Density System</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstr-in-series"><i class="fa fa-check"></i><b>2.4.2</b> CSTR in series</a>
+<ul>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstrs-of-equal-sizes-in-series"><i class="fa fa-check"></i>CSTRs of equal sizes in series</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
-<li class="chapter" data-level="4" data-path="introduction-to-heterogeneous-catalysis.html"><a href="introduction-to-heterogeneous-catalysis.html"><i class="fa fa-check"></i><b>4</b> Introduction to Heterogeneous Catalysis</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="introduction-to-heterogeneous-catalysis.html"><a href="introduction-to-heterogeneous-catalysis.html#reaction-rate-expressions-for-heterogeneous-catalytic-reactions"><i class="fa fa-check"></i><b>4.1</b> Reaction rate expressions for heterogeneous catalytic reactions</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-heterogeneous-catalysis.html"><a href="introduction-to-heterogeneous-catalysis.html#step-1-transport-of-reactants-and-energy-to-the-catalyst-surface"><i class="fa fa-check"></i>Step 1: Transport of Reactants and energy to the Catalyst Surface</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -351,6 +349,100 @@ Figure 2.3: Graphical representation of the performance equations for CSTR
     \tag{2.15}
 \end{gather}\]</span></p>
 <p>Space velocity is more useful in the field of heterogeneous catalysis. Its definition is not unique. For example, it can also be defined as GHSV, which means gas-hourly space velocity. It may be defined as the volumetric flow rate of gas entering the catalyst divided by the catalyst’s weight.</p>
+</div>
+<div id="variable-density-system" class="section level4" number="2.4.1.2">
+<h4><span class="header-section-number">2.4.1.2</span> Variable-Density System</h4>
+<p>For variable-density cases, the design equation for a CSTR is:
+<span class="math display">\[\begin{align}
+  \frac{V}{\upsilon} = \tau &amp; = \frac{V}{\upsilon_0 \left( 1 + \varepsilon_A\, X_A \right)
+} = \frac{C_{A0} - C_A}{r_A(C_A)} \notag \\
+ \tau &amp; = \left( 1 + \varepsilon_A\, X_A \right)\,\frac{C_{A0} - C_A}{r_A(C_A)}
+\end{align}\]</span></p>
+</div>
+</div>
+<div id="cstr-in-series" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> CSTR in series</h3>
+<div id="cstrs-of-equal-sizes-in-series" class="section level4 unnumbered">
+<h4>CSTRs of equal sizes in series</h4>
+<p>Consider a system of <span class="math inline">\(N\)</span> CSTRs connected in series, as shown in the figure <a href="ideal-chemical-reactor-design.html#fig:fig002012">2.4</a>. Though the concentration is uniform in each reactor, there is a change in concentration as fluid moves from one reactor to another.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig002012"></span>
+<img src="ebook_notes_5314_files/figure-html/fig002012-1.png" alt="Sketch of ideal CSTRs in series" width="60%" />
+<p class="caption">
+Figure 2.4: Sketch of ideal CSTRs in series
+</p>
+</div>
+<p>The feed molar flow rate of reactant A is <span class="math inline">\(F_{A0}\)</span>, the effluent conversion of A from the first reactor is <span class="math inline">\(X_{A1}\)</span>, while the output conversion of A from the second reactor is <span class="math inline">\(X_{A2}\)</span> so on.</p>
+<div class="blackbox">
+<p>It is crucial to be consistent in defining the fractional conversion for a series of reactors.</p>
+</div>
+<p>For a series of three CSRTs in serie
+<span class="math display">\[\begin{align*}
+    X_{A,1} = \left(F_{A0} - F_{A,1} \right)/(F_{A0}) \\
+    X_{A,2} = \left(F_{A0} - F_{A,2} \right)/(F_{A0}) \\
+    X_{A,3} = \left(F_{A0} - F_{A,3} \right)/(F_{A0})
+\end{align*}\]</span></p>
+<p>The conversion <span class="math inline">\(X_{A1}\)</span> is the fractional conversion of A in the stream leaving the first reactor. In contrast, <span class="math inline">\(X_A2\)</span> is the overall conversion of A in the second reactor’s effluent, which means the conversion for the first and second reactors combined. Thus, the overall conversion for the series of three CSTRs is equal to <span class="math inline">\(X_{A3}\)</span>. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>The mole balance for reactant <span class="math inline">\(A\)</span> can be written for any reactor <span class="math inline">\(j\)</span> in the series will be
+<span class="math display">\[\begin{equation}
+- r_{A,j} = \frac{F_{A,j-1} - F_{A,j}}{V_j}
+\end{equation}\]</span></p>
+<p>The molar flow rates from a reactor <span class="math inline">\(j\)</span> and <span class="math inline">\(j-1\)</span> expressed in terms of conversion are:
+<span class="math display">\[\begin{align*} 
+    F_{A,j-1}   &amp; = F_{A0} {\left(1 - X_{A,j-1} \right) }\\
+    F_{A,j} &amp; = F_{A0} {\left(1 - X_{A,j} \right)}
+\end{align*}\]</span></p>
+<p>The change in the molar flow rate of A in any reactor is defined as
+<span class="math display">\[\begin{equation*}
+  F_{A,j-1} - F_{A,j} = F_{A0}\left(X_{A,j} - X_{A,j-1}\right)
+\end{equation*}\]</span></p>
+<p>Therefore, the design equation for a reactor <span class="math inline">\(j\)</span> is written in terms of conversion as:
+<span class="math display" id="eq:002044b">\[\begin{equation}
+    \frac{V_j}{F_{A0}}= \frac{\left(X_{A,j} - X_{A,j-1}\right)}{- r_A\left(X_{A,j}\right)}
+    \tag{2.16}
+\end{equation}\]</span></p>
+<p>This equation can be rearranged in terms of the conversion from reactor <span class="math inline">\(j\)</span>
+<span class="math display" id="eq:002044c">\[\begin{equation}
+    X_{A,j} = X_{A,j-1} - \frac{r_{A,j}\:V_j}{F_{A0}}
+    \tag{2.17}
+\end{equation}\]</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:002044c">(2.17)</a> can be solved for each reactor sequentially to calculate the incremental conversion from each reactor. Equation <a href="ideal-chemical-reactor-design.html#eq:002044d">(2.18)</a> can be generalized to apply to the Nth reactor in a series of CSTRs</p>
+<p><span class="math display" id="eq:002044d">\[\begin{equation}\label{ec:002_044d}
+    \frac{V_N}{F_{A0}}= \frac{\left(X_{A,N} - X_{A,N-1}\right)}{- r_A\left(X_{A,N}\right)}
+    \tag{2.18}
+\end{equation}\]</span></p>
+<p>A typical case is to evaluate the behavior of a series of N equal-size CSTRs that operate isothermally, with a first-order kinetic and no volume change <span class="math inline">\(\left( \upsilon = \upsilon_0 \right)\)</span>.</p>
+<p>In this case, it is convenient to write mass balances on specie A in terms of concentrations and <span class="math inline">\(\tau\)</span> instead of fractional conversion.</p>
+<p><span class="math display">\[\begin{align*}
+    C_{A0} - C_{A1} &amp;= \tau_1\,r (C_{A1}) \\
+    C_{A1} - C_{A2} &amp;= \tau_2\,r (C_{A2}) \\
+    C_{A2} - C_{A3} &amp;= \tau_3\,r (C_{A3}) \\
+    &amp;\vdots \\
+    C_{A,n-1} - C_{An} &amp;= \tau_n\,r (C_{An})  
+\end{align*}\]</span></p>
+<p>Usually the initial concentration of A is known. Therefore, the system of equations can be rewritten as:
+<span class="math display">\[\begin{align*}
+    C_{A1} &amp;= \frac{C_{A0}}{\left( 1 + \tau_1 k \right)} \\
+    C_{A2} &amp;= \frac{C_{A0}}{\left( 1 + \tau_1\, k\right)\left( 1 + \tau_2\, k\right)} \\    
+        &amp;\vdots \\
+    C_{Ai} &amp;= \frac{C_{A(i-1)}}{\left( 1 + \tau_i\, k\right)} = \frac{C_{A0}}{\prod_k \left( 1 + \tau_k\, k\right)}
+\end{align*}\]</span></p>
+<p>In general,
+<span class="math display" id="eq:002044a">\[\begin{equation}
+    \frac{C_{A,i-1}}{C_{A,i}} = 1 + k\,\tau_i \qquad \text{or} \qquad \tau_i = \frac{C_{A,i-1}-C_{A,i}}{k\,C_{A,i}}
+    \tag{2.19}
+\end{equation}\]</span></p>
+<p>Assuming all reactors have the same volume (<span class="math inline">\(V_i\)</span>), which means they have the same <span class="math inline">\(\tau\)</span>, then the total residence time in the series of <em>N</em> equal-residence-time CSTR is equal <span class="math inline">\(\sum\nolimits_{k} \tau_{k} = N\, \tau\)</span> and <span class="math inline">\(C_{A,N}\)</span>, the concentration from the <em>N</em>-th reactor is given in terms of <span class="math inline">\(C_{A0}\)</span> by:</p>
+<p><span class="math display" id="eq:002045">\[\begin{equation}
+    \boxed{\frac{C_{A,N}}{C_{A0}} = \frac{C_{A,1}}{C_{A0}} \frac{C_{A,2}}{C_{A,1}} \cdots \frac{C_{A,N-1}}{C_{A,N}} = \frac{1}{{\left( 1 + \tau_N\, k\right)}^N}}
+\tag{2.20}
+\end{equation}\]</span></p>
+<p>Substituting for <span class="math inline">\(C_{A,N}\)</span> in terms of conversion
+<span class="math display" id="eq:eq002045a">\[\begin{equation}
+C_{A0}\:{\left(1 - X_{A,N} \right)} = \frac{C_{A0}}{{\left( 1 + \tau_N\, k \right)}^N} \Rightarrow X_{A,N} = 1 - \frac{1}{{\left( 1 + \tau_N\, k\right)}^N}
+\tag{2.21}
+\end{equation}\]</span></p>
+<p>Figure <a href="#fig:002014"><strong>??</strong></a> shows the variation of conversion vs. the number of reactors in series for a first-order reaction. Figure <a href="#fig:002014"><strong>??</strong></a>(a) also indicates that the Damkholer number is a crucial parameter to decide the optimal number of CSTRs required to reach an overall conversion.</p>
+<p>In general, while the Damkholer number increases, the system will require fewer CSTRs to get the desired level of conversion. <a href="\href%7Bfile:\folder/lect_004CSTRSeries.m%7D%7B$m$%20file%7D">solution</a></p>
 
 </div>
 </div>
