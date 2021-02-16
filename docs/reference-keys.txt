@@ -20,6 +20,15 @@ eq:eq002033a
 eq:eq002034
 fig:fig002011
 eq:eq002034a
+tab:catalyticreactions
+fig:005mechanisms
+eq:fick
+eq:masstransfer
+eq:masstransfersetp1
+eq:heatdl
+eq:heattransfer
+tab:correlationjd
+eq:limitk
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -40,4 +49,5 @@ the-design-equation-for-a-cstr
 constant-density-system
 distribution-of-residences-times
 introduction-to-heterogeneous-catalysis
+reaction-rate-expressions-for-heterogeneous-catalytic-reactions
 final-words
