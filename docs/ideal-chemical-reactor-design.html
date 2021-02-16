@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="intro.html"/>
-<link rel="next" href="methods.html"/>
+<link rel="next" href="distribution-of-residences-times.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -90,13 +90,21 @@
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#equation-rate-when-density-of-fluid-is-variable"><i class="fa fa-check"></i><b>1.3</b> Equation rate when density of fluid is variable</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#ideal-reactors"><i class="fa fa-check"></i><b>1.4</b> Ideal Reactors</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html"><i class="fa fa-check"></i><b>2</b> Ideal Chemical Reactor Design</a></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
-<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a>
+<li class="chapter" data-level="2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html"><i class="fa fa-check"></i><b>2</b> Ideal Chemical Reactor Design</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+<li class="chapter" data-level="2.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#material-balance"><i class="fa fa-check"></i><b>2.1</b> Material Balance</a></li>
+<li class="chapter" data-level="2.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#energy-balance"><i class="fa fa-check"></i><b>2.2</b> Energy Balance</a></li>
+<li class="chapter" data-level="2.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#momentum-balance"><i class="fa fa-check"></i><b>2.3</b> Momentum Balance</a></li>
+<li class="chapter" data-level="2.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-continuous-stirred-tank-reactor-cstr"><i class="fa fa-check"></i><b>2.4</b> The Continuous-Stirred-Tank Reactor (CSTR)</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-design-equation-for-a-cstr"><i class="fa fa-check"></i><b>2.4.1</b> The design equation for a CSTR</a>
+<ul>
+<li class="chapter" data-level="2.4.1.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system"><i class="fa fa-check"></i><b>2.4.1.1</b> Constant-Density System</a></li>
 </ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
+<li class="chapter" data-level="4" data-path="introduction-to-heterogeneous-catalysis.html"><a href="introduction-to-heterogeneous-catalysis.html"><i class="fa fa-check"></i><b>4</b> Introduction to Heterogeneous Catalysis</a></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -131,7 +139,216 @@ Figure 2.1: Conceptual Map of Chemical Reactor Design
 <p>In this course, we will focus on the phenomena taking place in basic reactor types.</p>
 <p>The phenomena occurring in a reactor may be broken down into reaction, mass, heat, and momentum transfer. Therefore, reactors’ modeling and design are based on the reaction rate equation, the continuity, energy, and momentum equations. The modeling and design of reactors are based on the equations describing these phenomena: the reaction rate equation and the continuity, energy, and momentum equations <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span>.</p>
 <p>Additionally, we will study two situations (1) the design of a new chemical reactor for a new process, (2) the analysis of the performance of an existing reactor for a current process. In many cases, as chemical engineers, we must consider several items shown in figure <a href="ideal-chemical-reactor-design.html#fig:mindmap">2.1</a> when starts the design or analysis of a reactor.</p>
+<div id="material-balance" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Material Balance</h2>
+<p>As a chemical engineer, our main modeling tools are the material balance and energy balance. We should remember two aspects: the material balance of a reactor must consider the rate at which species are converted from one chemical form to another and the rate at which energy is transformed by the process.</p>
+<p>We will perform a mole balance on species <span class="math inline">\(j\)</span> in a system volume, where <span class="math inline">\(j\)</span> represents the particular chemical species of interest.</p>
+<div class="figure" style="text-align: center"><span id="fig:arbitrarysystem"></span>
+<img src="ebook_notes_5314_files/figure-html/arbitrarysystem-1.png" alt="System volume scheme" width="30%" />
+<p class="caption">
+Figure 2.2: System volume scheme
+</p>
+</div>
+<p>Based on figure <a href="ideal-chemical-reactor-design.html#fig:arbitrarysystem">2.2</a>, the mole balance expressed in mole/time would be</p>
+<p><span class="math display" id="eq:continuidad">\[\begin{equation}
+ F_{j0}  +  G_j   - {F_j } =  \frac{dN_j}{dt}
+\tag{2.1}
+\end{equation}\]</span>
+where <span class="math inline">\(F_{j0}\)</span> is rate flow in <span class="math inline">\(j\)</span>, <span class="math inline">\(G_j\)</span> is the generation rate of <span class="math inline">\(j\)</span> by chemical reaction, <span class="math inline">\(F_{j}\)</span> is rate flow out <span class="math inline">\(j\)</span>, and <span class="math inline">\(dN_j/dt\)</span> means accumulation rate of <span class="math inline">\(j\)</span>.</p>
+<p>In equation <a href="ideal-chemical-reactor-design.html#eq:continuidad">(2.1)</a>, the generation/consumption of <span class="math inline">\(j\)</span> (<span class="math inline">\(G_j\)</span>) will be expressed as the product of the reaction volume, <span class="math inline">\(V\)</span>, and the rate of reaction, <span class="math inline">\(r\)</span>.</p>
+<p>The symbol <span class="math inline">\(r\)</span> is expressed in molar units per unit time and volume, and it is always <strong>positive</strong> when the reaction proceeds in the direction of the arrow. Thus, the integral form of the general mole balance for any chemical specie <span class="math inline">\(j\)</span> yields.
+<span class="math display" id="eq:genbal">\[\begin{equation}
+  F_{j0} - F_j + \int_{0}^V {r_j\,dV} = \frac{dN_j}{dt}
+  \tag{2.2}
+\end{equation}\]</span></p>
+<p>In mathematical terms, the equation <a href="ideal-chemical-reactor-design.html#eq:genbal">(2.2)</a> is called the continuity equation for <span class="math inline">\(j\)</span>. If <span class="math inline">\(j\)</span> reacts in more than one phase, such an equation is needed for each phase. This equation will develop the design equations for different ideal reactors: batch, semi-batch, and continuous-flow.</p>
+<p>The mechanisms by which <span class="math inline">\(j\)</span> can enter or leave the volume element are flow and molecular diffusion, and they are irrelevant. However, it is essential to realize that a fluid’s motion is not really ordered and challenging to describe.</p>
+<p>For this reason, as a first approach, it is therefore natural to consider two extreme conceptual cases: first, where there is no mixing of the streamlines, and second, where the mixing is complete. These two extremes may be formulated with sufficient approximation by the tubular plug flow reactor, and the continuous flow stirred tank with complete mixing.</p>
+<p>In a plug flow reactor, all fluids elements move with equal velocity along parallel streamlines. The plug flow is the only mechanism for mass transport, and there is no mixing between fluid elements. The reaction leads to a concentration gradient in the axial flow direction.</p>
+<p>Reactors with complete mixing may be subdivided into batch and continuous types. In batch-reactor types with complete mixing, the composition is uniform throughout the reactor. Consequently, the continuity equations may be written for the entire contents, not over a volume element. As the bulk composition varies with time, a first-order ordinary differential equation is obtained, with time as a variable. The form of this equation is analogous to that for the plug flow case.</p>
+<p>In the continuous flow type, an element of the entering fluid is instantaneously mixed with the reactor’s contents so that it loses its identity. This type also operates at a constant concentration level. In the steady-state, the continuity equations are algebraic.</p>
+<p>Both types of continuous reactors considered are idealized conceptual cases. They are important cases because they are easy to calculate and give the extreme values of the conversions between those realized in a real reactor. With its intermediate level of mixing, the design of a real reactor requires information about this mixing.<span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+</div>
+<div id="energy-balance" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Energy Balance</h2>
+<p>The real chemical reactors are almost operated under nonisothermal conditions because reactions generate or absorb large amounts of heat. Detailed reactor sizing and analysis require the energy balance to be solved in conjunction with one or more material balances.</p>
+<p>For a generic open system, the energy balance is:
+<span class="math display">\[\begin{equation*}
+ Q -  {W_s} + \dot{H}_\text{in} - \dot{H}_\text{out}  =  \frac{dE}{dt}
+\end{equation*}\]</span></p>
+<p>The terms in energy balances have the following meanings:</p>
+<ul>
+<li><span class="math inline">\(Q\)</span> is the rate of heat transfer <strong>into</strong> the reactor.</li>
+<li><span class="math inline">\(W_s\)</span> means the rate at which shaft work is done by the system on the surrounding. If shaft work is done on the contents of the reactor, e.g., by an agitator, the value of <span class="math inline">\(W_s\)</span> is negative.</li>
+<li><span class="math inline">\(\dot{H}_\text{in}\)</span> is the rate at which enthalpy is transported into the reactor.</li>
+<li><span class="math inline">\(\dot{H}_\text{out}\)</span> is the rate at which enthalpy is transported out of the reactor.</li>
+<li><span class="math inline">\(dE/dt\)</span> is the rate at which the system’s total energy, <span class="math inline">\(E\)</span>, changes with time.</li>
+</ul>
+<p>In chemical reactors, it is typically assumed the internal energy is the dominant contribution over the kinetic and potential energies. Thus, the general energy balance will be</p>
+<p><span class="math display" id="eq:energybal">\[\begin{equation}
+\frac{dU}{dt}= Q - W_s + \dot{H}_{\text{in}} - \dot{H}_\text{out}
+  \tag{2.3}
+\end{equation}\]</span></p>
+<p>For single reactors, the inlet and outlet molar flow are related through the extents of reaction (<span class="math inline">\(\xi\)</span>). If “<span class="math inline">\(R\)</span>” independent reactions occur, and if the extents of reaction are zero in the stream that enters the reactor.<span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p><span class="math display">\[\begin{equation*}
+  F_i - F_{i0} = {\sum}_{j=1}^{R} \nu_{j,i}\,\xi_j
+\end{equation*}\]</span>
+where <span class="math inline">\(\nu_{j,i}\)</span> refers to stoichiometric coefficient of the component  in the reaction .</p>
+<p>Therefore,
+<span class="math display">\[\begin{equation*}
+\dot{H}_{\text{in}} - \dot{H}_{\text{out}} = \sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{H}_{i0} - {{\sum_{i=1}^\mathcal{C}}} \left(F_{i0} + \sum_{j=1}^{R} \nu_{j,i}\,\xi_j\right)\,\overline{H}_i
+\end{equation*}\]</span>
+where <span class="math inline">\(\overline H_i\)</span> refers to the partial molar enthalpy of the component .</p>
+<p>Assuming that feed and product streams are ideal solutions, the partial molar enthalpies <span class="math inline">\(\overline{H}_i\)</span> can be replaced by pure component enthalpies, <span class="math inline">\(H_i\)</span>, Thus,
+<span class="math display">\[\begin{equation*}
+\dot{H}_{\text{in}} - \dot{H}_{\text{out}} = \sum\limits_{i=1}^\mathcal{C} F_{i0}\,\left({H}_{i0} - H_i\right) - {{\sum_{j=1}^R}} \xi_j\,\left(\sum_{i=1}^{\mathcal{C}} \nu_{i,j}\,{H}_i (T)\right)
+\end{equation*}\]</span>
+The term <span class="math inline">\(\sum \nu_{i,j}\,{H}^\circ_i\)</span> is just the enthalpy of reaction for reaction <span class="math inline">\(j\)</span>, evaluated at exit conditions. Since the temperature of the effluent stream is <span class="math inline">\(T\)</span>,
+<span class="math display">\[\begin{equation*}
+  \sum_{i=1}^{\mathcal{C}} \nu_{i,j}\,{H}_i = \Delta H_{R,j}(T)
+\end{equation*}\]</span>
+where <span class="math inline">\(\Delta H_{R_j}(T)\)</span> is the heat of reaction <span class="math inline">\(j\)</span>, evaluated at the temperature <span class="math inline">\(T\)</span>.</p>
+<p>If the pressure difference between the feed and the product streams is not substancial, and if there are no phase changes
+<span class="math display">\[\begin{equation*}
+  H_{i0} - H_i = \int_T^{T_0} {C_{P_i}\,dT} \approx \overline{C}_{P_i} \left(T_0 - T\right)
+\end{equation*}\]</span>
+where, <span class="math inline">\(T_0\)</span> is the temperature of the inlet stream, <span class="math inline">\(C_{P_i}\)</span> is the constant-pressure molar heat capacity of specie <em>i</em>, and <span class="math inline">\(\overline{C}_{P_i}\)</span> is the average constant-pressure molar heat capacity over the temperature range <span class="math inline">\(T_0\)</span> to <span class="math inline">\(T\)</span></p>
+<p>So, eq. <a href="ideal-chemical-reactor-design.html#eq:energybal">(2.3)</a> becomes to
+<span class="math display" id="eq:energybala">\[\begin{equation}
+\frac{dU}{dt}= Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) - {\sum_{j=1}^R} \xi_j\,\Delta H_{R,j}(T)
+\tag{2.4}
+\end{equation}\]</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> is the energy balance for a whole reactor in which multiple reactions are taken place. In this equation, the term <span class="math inline">\(\left(\sum F_{i0}\,\int{C_{P_i}\,dT}\right)\)</span> represents the rate of sensible heat, and it is usually written on a <strong>molar</strong> basis. The term <span class="math inline">\(\sum \xi_j\,\Delta H_{R,j}(T)\)</span>), means the heat rate (generated or consumed) related to the reaction.<span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>If only one reaction is taking place, eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> can be written in terms of the fractional conversion. For a single reaction, where <span class="math inline">\(A\)</span> is a reactant,
+<span class="math display">\[\begin{equation*}
+  \xi = - \frac{F_{A0} - F_A}{\nu_A} = - \frac{F_{A0}\,X_A}{\nu_A}
+\end{equation*}\]</span></p>
+<p>Substituting this relationship into eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> and assuming steady-state condition gives <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p><span class="math display" id="eq:energybalb">\[\begin{equation}
+ Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) + F_{A0}\,X_A\,\frac{\Delta H_{R}(T)}{\nu_A} = 0
+ \tag{2.5}
+\end{equation}\]</span>
+or
+<span class="math display">\[\begin{equation*}
+Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) - \frac{\Delta H_{R}(T)}{\nu_A}\,r_A V =0
+\end{equation*}\]</span></p>
+<div class="blackbox">
+<p>When <span class="math inline">\(\nu_A = −1\)</span> is chosen, the basis for <span class="math inline">\(\Delta H_R\)</span> has been fixed to 1 mole of A,
+i.e., the units of <span class="math inline">\(\Delta H_R\)</span> must be energy/mole of A</p>
+</div>
+<p>The form of the energy balance results from considerations closely related to those for different continuity equations. When the mixing is so intense that the concentration is uniform over the reactor, it may be accepted that the temperature is also uniform.</p>
+<p>When plug flow is postulated, it is natural to accept that the concentration in a section perpendicular to flow is considered to be uniform. It is natural to also consider the temperature to be uniform in this section. It follows that when the heat is exchanged with the surroundings, the temperature gradient has to be situated entirely in a thin “film” along the wall. This also implies that the resistance to heat transfer in the central core is zero in a direction perpendicular to the flow, which is not right for certain catalytic reactors.</p>
+</div>
+<div id="momentum-balance" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Momentum Balance</h2>
+<p>The momentum balance can be obtained by the application of Newton’s second law on a moving fluid.</p>
+<p>In a chemical reactor, only pressure drop and friction forces have to be considered in most cases. Several specific pressure drop equations will be discussed later on PFR and on a fixed catalytic reactor.</p>
+</div>
+<div id="the-continuous-stirred-tank-reactor-cstr" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> The Continuous-Stirred-Tank Reactor (CSTR)</h2>
+<p>When the demand for a single chemical product reaches a high level, there will be an economic incentive to continuously manufacture it, using a reactor dedicated to that product. One of those is The <em>Continuous-Stirred-Tank Reactor or CSTR</em>.</p>
+<p><img src="ebook_notes_5314_files/figure-html/cstrdraw-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>The CSTR is a well-mixed vessel consisting of a baffled tank with mixing induced by an impeller and operates at a steady-state. The mass flow rate into the tank is equal to the mass flow rate out of it at steady-state, and the feed and product properties are not functions of time. Furthermore, the reactor volume is constant.</p>
+<p>A well-mixed vessel means a working fluid with neither radial, axial, nor angular gradients in properties. In other words, both the composition and temperature of the fluid are uniform over the entire volume. That is, they do not vary with position. Those assumptions are</p>
+<p>The central assumption is that the incoming fluid concentration will become instantaneously equal to outgoing upon entering the vessel. As a consequence of well-mixing behavior, the effluent stream must have precisely the same composition and temperature as the contents of the reactor. The feed must be immediately mixed with the reactor’s contents in a time interval that is very small compared to the mean residence time of the fluid flowing through the vessel to meet this ideal mixing pattern. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p>The CSTR is frequently chosen when temperature control is a critical aspect when the conversion must occur at constant composition, when a reaction between two phases has to be carried out, or when a catalyst must be kept in suspension. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<div class="blackbox">
+<p>In practice, it is possible to reach a perfect mixing condition if the mixing time is much less than the residence time inside the reactor, usually when the fluid is low viscosity.</p>
+</div>
+<div id="the-design-equation-for-a-cstr" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> The design equation for a CSTR</h3>
+<p>An ideal CSTR is quite similar to a perfectly mixed batch reactor. The most significant difference is that mass flows into and out of a CSTR. Thus, the mass flow in and out of the reactor in eq. <a href="ideal-chemical-reactor-design.html#eq:continuidad">(2.1)</a> will not cancel.</p>
+<p>Writing the material balance for this system:
+<span class="math display" id="eq:eq002028a">\[\begin{equation}
+    \frac{dN_j}{dt} = F_{\text{in},j} - F_{j} + r_j V
+    \tag{2.6}
+\end{equation}\]</span>
+where <span class="math inline">\(F_{\text{in},j}\)</span> is the molar flow in of <span class="math inline">\(j\)</span>, <span class="math inline">\(F_{j}\)</span>is the molar flow out of <span class="math inline">\(j\)</span>, <span class="math inline">\(V\)</span> is the reactor volume, <span class="math inline">\(r_{j}\)</span> is the production rate of specie <span class="math inline">\(j\)</span>, and <span class="math inline">\(N_{j}\)</span> means the number of moles of specie <span class="math inline">\(j\)</span></p>
+<p>At steady-state, the left-hand side of eq. <a href="ideal-chemical-reactor-design.html#eq:eq002028a">(2.6)</a> is zero, thus
+<span class="math display" id="eq:eq002028b">\[\begin{gather}
+    F_{\text{in},j} - F_{j} + r_j V = 0 \notag \\
+    V = \frac{F_{\text{in},j} - F_{j}}{- r_j}
+    \tag{2.7}
+\end{gather}\]</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:eq002028b">(2.7)</a> is <strong>the design equation</strong> for an ideal CSTR. For a single reaction, it is useful to write it down in terms of the conversion of reactant A.
+<span class="math display">\[\begin{align*} 
+    F_{A,\text{in}}   &amp; = F_{A0} {\left(1 - X_{A,\text{in}} \right) }\\
+    F_{A} &amp; = F_{A0} {\left(1 - X_{A} \right)}
+\end{align*}\]</span></p>
+<p>leading to
+<span class="math display" id="eq:eq002031">\[\begin{equation}
+    \frac{V}{F_{A0}} = \frac{X_{A} - X_{A,\text{in}}}{-r_A}, \quad r_A = - r 
+    \tag{2.8}
+\end{equation}\]</span>
+where <span class="math inline">\(\nu_A\)</span> represents moles of <em>A</em>, and <span class="math inline">\(r\)</span> the global rate equation.</p>
+<div class="blackbox">
+<p>The material balance equation is usually solved for V in steady-state operation or determines the changes of outlet properties concerning time in the unsteady-state process for a particular V.</p>
+</div>
+<p>These characteristics of a CSTR generates an inherent weakness in its operation related to the fractional conversion:
+<span class="math display">\[\begin{equation*}
+  X_A = \frac{C_{A0} - C_A}{C_{A0}}
+\end{equation*}\]</span></p>
+<p>If a high conversion is desired, the reactant concentration must be small. But the reaction rate depends directly on the reactant concentration, so to compensate for this restriction, we must design larger reactors.</p>
+<div id="constant-density-system" class="section level4" number="2.4.1.1">
+<h4><span class="header-section-number">2.4.1.1</span> Constant-Density System</h4>
+<p>If the reactor volume is constant and the volumetric flow rate of the inflow and outflow streams are the same, the eq. <a href="ideal-chemical-reactor-design.html#eq:eq002028a">(2.6)</a> in terms of volumetric flow rates, is</p>
+<p><span class="math display" id="eq:eq002031a">\[\begin{gather}
+    F_j = \upsilon \,C_j \notag \\
+    \frac{dC_j}{dt} = \frac{1}{\overline t}\left(C_{j,0} - C_{j} \right)+ r_j
+    \tag{2.9}
+\end{gather}\]</span>
+where <span class="math inline">\(C_{0,j}\)</span> is the concentration of specie <span class="math inline">\(j\)</span> at initial conditions, <span class="math inline">\(C_j\)</span> is the concentration into the reactor, and <span class="math inline">\(\overline t\)</span> is used to refer to the <strong>mean residence time</strong>, which is given by
+<span class="math display" id="eq:eq002032">\[\begin{equation}
+    \overline t = \frac{V}{\upsilon}
+    \tag{2.10}
+\end{equation}\]</span>
+where <span class="math inline">\(\upsilon\)</span> is the volumetric flow rate evaluated at exit conditions.</p>
+<p>For <span class="math inline">\(X_{A,\text{in}} = 0\)</span>, the effluent volumetric flow rate can be related to inlet flow rate by
+<span class="math display" id="eq:eq002032a">\[\begin{equation}
+    \upsilon = \upsilon_0 \left( 1 + \nu\, X_A \right)
+    \tag{2.11}
+\end{equation}\]</span>
+where <span class="math inline">\(\upsilon_0\)</span> is the volumetric flow rate evaluated at entrance conditions, and <span class="math inline">\(\nu = \sum\nolimits_j \nu_j\)</span></p>
+<p>Since the volumetric flow rate is a function of <span class="math inline">\(X\)</span>, <span class="math inline">\(T\)</span>, and <span class="math inline">\(P\)</span>, the mean residence time, <span class="math inline">\(\overline t\)</span>, depends on those variables. Instead of using the reactor residence time to describe performance, an equal quantity called <strong>space-time</strong> define as:
+<span class="math display" id="eq:eq002033">\[\begin{equation}
+    \tau = \frac{V}{\upsilon_0}
+    \tag{2.12}
+\end{equation}\]</span>
+This definition of space-time applies to any continuous reactor.</p>
+<p>For a homogeneous reaction, space-time has the dimension of time. It is related to the average time a volume element of fluid spends in the reactor.</p>
+<p>Although space-time is not necessarily equal to the mean residence time, they behave similarly, and it is possible to relate eq. <a href="ideal-chemical-reactor-design.html#eq:eq002032">(2.10)</a> and eq. <a href="ideal-chemical-reactor-design.html#eq:eq002033">(2.12)</a>
+<span class="math display" id="eq:eq002033a">\[\begin{equation}
+    \overline t = \frac{\tau}{1 + \varepsilon_A\, X_A}
+    \tag{2.13}
+\end{equation}\]</span></p>
+<p>If the volume change in the reactor is negligible, then <span class="math inline">\(\varepsilon_A = 0\)</span>. Finally, if the working fluid has constant density
+<span class="math display" id="eq:eq002034">\[\begin{gather}
+    V = \frac{\left(C_{A0} - C_A\right) \upsilon}{r_A}  \notag \\
+    \overline t = \tau
+    \tag{2.14}
+\end{gather}\]</span></p>
+<p>Space-time influences reaction behavior in a continuous reactor in the same way that real-time does on a batch reactor’s behavior. In both cases, the fractional conversion will increase if reactants spend more time or space-time increases.</p>
+<p>Therefore, if the fluid density is constant, eq. <a href="ideal-chemical-reactor-design.html#eq:eq002031">(2.8)</a> becomes
+<span class="math display">\[\begin{equation}
+    \tau = \frac{C_{A0} - C_{A}}{-r_A}, \quad r_A = - r 
+\end{equation}\]</span></p>
+<p>The equation <a href="ideal-chemical-reactor-design.html#eq:eq002031">(2.8)</a> may be interpreted graphically from a plot of reciprocal rate <span class="math inline">\(1/(−r_A)\)</span> as function of <span class="math inline">\(X_A\)</span>, as shown by curve EB in fig. <a href="ideal-chemical-reactor-design.html#fig:fig002011">2.3</a>. Point B is the <em>operating point</em> of the reactor, which represents the steady-state condition in the reactor. Area ABCD represents the ratio <span class="math inline">\(V/F_{A0}\)</span> for the CSTR.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig002011"></span>
+<img src="ebook_notes_5314_files/figure-html/fig002011-1.png" alt="Graphical representation of the performance equations for CSTR" width="60%" />
+<p class="caption">
+Figure 2.3: Graphical representation of the performance equations for CSTR
+</p>
+</div>
+<p>Another parameter commonly used for CSTR design is the inverse of <span class="math inline">\(\tau\)</span>, called <strong>space velocity</strong>, which can be regarded as the number of reactor volumes of feed processed per unit time at the feed conditions.
+<span class="math display" id="eq:eq002034a">\[\begin{gather}
+    \text{SV} = \frac{\upsilon_0}{V} = \frac{1}{\tau}
+    \tag{2.15}
+\end{gather}\]</span></p>
+<p>Space velocity is more useful in the field of heterogeneous catalysis. Its definition is not unique. For example, it can also be defined as GHSV, which means gas-hourly space velocity. It may be defined as the volumetric flow rate of gas entering the catalyst divided by the catalyst’s weight.</p>
 
+</div>
+</div>
+</div>
 </div>
             </section>
 
@@ -139,7 +356,7 @@ Figure 2.1: Conceptual Map of Chemical Reactor Design
         </div>
       </div>
 <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distribution-of-residences-times.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

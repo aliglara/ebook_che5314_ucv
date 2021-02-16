@@ -1,6 +1,8 @@
 bookdown::gitbook:
   css: style.css
   toc_depth: 5
+  header_includes:
+    \usepackage{relsize}
   config:
     toc:
       before: |

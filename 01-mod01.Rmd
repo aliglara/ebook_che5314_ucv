@@ -162,7 +162,7 @@ solution = solve_ivp(fun, (0, tfin), c0,
 
 The graphical solution for this sample is available ([file](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_001BatchReactorParallel.ipynb)). 
 
-```{r sollect01, out.width = "80%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for parallel reactions. Left, k1 = 2, Right: k1 = 4', fig.lp='fig:'}
+```{r sollect01, out.width = "80%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for parallel reactions.', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/sollect01.png")
@@ -211,7 +211,7 @@ If at $t=0$, $C_A = C_{A0}$, $C_B=0$ and $C_C = 0$ then
 
 The graphical solution for this sample is available ([file](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_002BatchReactorSeries.ipynb)).
 
-```{r sollect02, out.width = "80%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for series reactions. Left, kb = 2, Right: kb = 4', fig.lp='fig:'}
+```{r sollect02, out.width = "80%", echo=FALSE, fig.align='center', fig.cap='Concentrations vs time for series reactions.', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/sollect02.png")
