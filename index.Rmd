@@ -14,7 +14,7 @@ description: "This is my notes recopilation for the course of Chemical Reaction 
 
 This is an _online_ book written in **Markdown** and **LaTeX** where I published the personal notes that I used to use while I was lecturing Chemical Reactor Design at the Central University of Venezuela, Caracas, Venezuela.
 
-Because it is an informal recompilation of my notes, this material is not a comprehensive book where you will find details in concepts of the area. However, it is a relatively straightforward guide for an intermediate undergraduate student of Chemical Engineering who has taking an introductory course on Chemical reaction kinetics.
+Because it is an informal recompilation of my notes, this material is not a comprehensive book where you will find details in concepts of the area. However, it is a relatively straightforward guide for an intermediate undergraduate student of Chemical Engineering who has taken an introductory course on Chemical reaction kinetics.
 
-Besides concepts and mathematical deductions, I added several typical problems solved in Python. Most of the illustrations given are modifications of examples taken from classic textbooks like [Fogler](https://www.google.com/books/edition/Essentials_of_Chemical_Reaction_Engineer/eyGKAwAAQBAJ?hl=en&gbpv=0) or [Roberts](https://www.google.com/books/edition/Chemical_Reactions_and_Chemical_Reactors/8jBuDwAAQBAJ?hl=en&gbpv=0).
+Besides concepts and mathematical deductions, I added typical problems solved in Python. Most of the illustrations given are modifications of examples taken from classic textbooks like [Fogler](https://www.google.com/books/edition/Essentials_of_Chemical_Reaction_Engineer/eyGKAwAAQBAJ?hl=en&gbpv=0) or [Roberts](https://www.google.com/books/edition/Chemical_Reactions_and_Chemical_Reactors/8jBuDwAAQBAJ?hl=en&gbpv=0).
 
