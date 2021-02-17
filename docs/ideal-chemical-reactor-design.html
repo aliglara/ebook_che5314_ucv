@@ -433,7 +433,7 @@ Figure 2.4: Sketch of ideal CSTRs in series
 \end{equation}\]</span></p>
 <p>Assuming all reactors have the same volume (<span class="math inline">\(V_i\)</span>), which means they have the same <span class="math inline">\(\tau\)</span>, then the total residence time in the series of <em>N</em> equal-residence-time CSTR is equal <span class="math inline">\(\sum\nolimits_{k} \tau_{k} = N\, \tau\)</span> and <span class="math inline">\(C_{A,N}\)</span>, the concentration from the <em>N</em>-th reactor is given in terms of <span class="math inline">\(C_{A0}\)</span> by:</p>
 <p><span class="math display" id="eq:002045">\[\begin{equation}
-    \boxed{\frac{C_{A,N}}{C_{A0}} = \frac{C_{A,1}}{C_{A0}} \frac{C_{A,2}}{C_{A,1}} \cdots \frac{C_{A,N-1}}{C_{A,N}} = \frac{1}{{\left( 1 + \tau_N\, k\right)}^N}}
+\frac{C_{A,N}}{C_{A0}} = \frac{C_{A,1}}{C_{A0}} \frac{C_{A,2}}{C_{A,1}} \cdots \frac{C_{A,N-1}}{C_{A,N}} = \frac{1}{{\left( 1 + \tau_N\, k\right)}^N}
 \tag{2.20}
 \end{equation}\]</span></p>
 <p>Substituting for <span class="math inline">\(C_{A,N}\)</span> in terms of conversion
@@ -441,8 +441,18 @@ Figure 2.4: Sketch of ideal CSTRs in series
 C_{A0}\:{\left(1 - X_{A,N} \right)} = \frac{C_{A0}}{{\left( 1 + \tau_N\, k \right)}^N} \Rightarrow X_{A,N} = 1 - \frac{1}{{\left( 1 + \tau_N\, k\right)}^N}
 \tag{2.21}
 \end{equation}\]</span></p>
-<p>Figure <a href="#fig:002014"><strong>??</strong></a> shows the variation of conversion vs. the number of reactors in series for a first-order reaction. Figure <a href="#fig:002014"><strong>??</strong></a>(a) also indicates that the Damkholer number is a crucial parameter to decide the optimal number of CSTRs required to reach an overall conversion.</p>
-<p>In general, while the Damkholer number increases, the system will require fewer CSTRs to get the desired level of conversion. <a href="\href%7Bfile:\folder/lect_004CSTRSeries.m%7D%7B$m$%20file%7D">solution</a></p>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig002014">2.5</a> shows the variation of conversion vs. the number of reactors in series for a first-order reaction. It also indicates that the Damkholer number is a crucial parameter to decide the optimal number of CSTRs required to reach an overall conversion.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig002014"></span>
+<img src="ebook_notes_5314_files/figure-html/fig002014-1.png" alt="Plot of conversion as function of number of CSTRs in serie" width="60%" />
+<p class="caption">
+Figure 2.5: Plot of conversion as function of number of CSTRs in serie
+</p>
+</div>
+<p>In general, while the Damkholer number increases, the system will require fewer CSTRs to get the desired level of conversion. <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_004CSTRSeries.ipynb">solution</a></p>
+<p>The total capital cost is an important parameter rather than the total reactor volume in a practical situation. Increasing the number of CSTRs in series will reduce the total cost by reducing the required volume. However, it will also increase the price since more agitators, valves, piping, etc., will be required. The economic optimum usually occurs at a value of <span class="math inline">\(N\)</span> as low as 2 or 3. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<div class="blackbox">
+<p>The optimal operation of a multistage CSTR can be considered from the point of view of minimizing the total volume V for a given throughput (<span class="math inline">\(F_{A0}\)</span>) and fractional conversion (<span class="math inline">\(X_A\)</span>). So it will be necessary an objective function for <span class="math inline">\(V\)</span> from the material balance together with a rate law and energy balance as required</p>
+</div>
 
 </div>
 </div>
