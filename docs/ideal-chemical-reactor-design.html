@@ -105,6 +105,7 @@
 <li class="chapter" data-level="2.4.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstr-in-series"><i class="fa fa-check"></i><b>2.4.2</b> CSTR in series</a>
 <ul>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstrs-of-equal-sizes-in-series"><i class="fa fa-check"></i>CSTRs of equal sizes in series</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstrs-of-different-sizes-in-series"><i class="fa fa-check"></i>CSTRs of different sizes in series</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -448,11 +449,95 @@ C_{A0}\:{\left(1 - X_{A,N} \right)} = \frac{C_{A0}}{{\left( 1 + \tau_N\, k \righ
 Figure 2.5: Plot of conversion as function of number of CSTRs in serie
 </p>
 </div>
-<p>In general, while the Damkholer number increases, the system will require fewer CSTRs to get the desired level of conversion. <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_004CSTRSeries.ipynb">solution</a></p>
+<p>In general, while the Damkholer number increases, the system will require fewer CSTRs to get the desired level of conversion. <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_004CSTRSeries.ipynb">(Numerical solution)</a></p>
 <p>The total capital cost is an important parameter rather than the total reactor volume in a practical situation. Increasing the number of CSTRs in series will reduce the total cost by reducing the required volume. However, it will also increase the price since more agitators, valves, piping, etc., will be required. The economic optimum usually occurs at a value of <span class="math inline">\(N\)</span> as low as 2 or 3. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <div class="blackbox">
 <p>The optimal operation of a multistage CSTR can be considered from the point of view of minimizing the total volume V for a given throughput (<span class="math inline">\(F_{A0}\)</span>) and fractional conversion (<span class="math inline">\(X_A\)</span>). So it will be necessary an objective function for <span class="math inline">\(V\)</span> from the material balance together with a rate law and energy balance as required</p>
 </div>
+</div>
+<div id="cstrs-of-different-sizes-in-series" class="section level4 unnumbered">
+<h4>CSTRs of different sizes in series</h4>
+<p>For reactions with slight density change is possible to find the outlet composition from a series of CSTRs by a graphical procedure due to the design equation of each CSTRs could be written as:
+<span class="math display">\[\begin{equation}
+-\frac{1}{\tau_N} = \frac{(-r_A)_N}{C_{A,N} - C_{A,N-1}}
+\end{equation}\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:fig002015"></span>
+<img src="ebook_notes_5314_files/figure-html/fig002015-1.png" alt="Graphical solution for multistage CSTRs - first-order reaction" width="60%" />
+<p class="caption">
+Figure 2.6: Graphical solution for multistage CSTRs - first-order reaction
+</p>
+</div>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig002015">2.6</a> shows a way to represent the material balances for each stage from a plot <span class="math inline">\(1/(-r_A)\)</span> as a function of <span class="math inline">\(C_A\)</span>.</p>
+<p>Another interesting situation is finding the best setup to achieve a given conversion. Let us illustrate the use of this method considering two CSTRs in series under isothermal conditions, as shown in the Figure <a href="ideal-chemical-reactor-design.html#fig:CSTRseriesdifV">2.7</a></p>
+<div class="figure" style="text-align: center"><span id="fig:CSTRseriesdifV"></span>
+<img src="ebook_notes_5314_files/figure-html/CSTRseriesdifV-1.png" alt="Graphical representation of two CSTRs in series" width="40%" />
+<p class="caption">
+Figure 2.7: Graphical representation of two CSTRs in series
+</p>
+</div>
+<p>For the first CSTR, the design equation becomes
+<span class="math display">\[\begin{equation}
+\frac{V_1}{F_{A0}} = \frac{X_{A1}}{-r_A(X_{A1})}
+\end{equation}\]</span></p>
+<p>while for the second one is:
+<span class="math display">\[\begin{equation}
+\frac{V_2}{F_{A0}} = \frac{X_{A2} - X_{A1}}{-r_A(X_{A2})}
+\end{equation}\]</span></p>
+<p>These relations are graphically represented in the Figure @ref(fig:CSTR_series_difV2). The cascade of CSTRs operates between known initial and final conversion levels, and the total reaction volume is represented by the sum of the shaded areas.</p>
+<div class="figure" style="text-align: center"><span id="fig:CSTRseriesdifV2"></span>
+<img src="ebook_notes_5314_files/figure-html/CSTRseriesdifV2-1.png" alt="Graphical representation of two CSTRs in series" width="40%" />
+<p class="caption">
+Figure 2.8: Graphical representation of two CSTRs in series
+</p>
+</div>
+<p>When the rectangle <em>KLMN</em> is made as large as possible, the overall volume is minimized. Therefore, point <span class="math inline">\(X_{A1}\)</span> is the critical parameter to get the reactors’ optimal size.</p>
+<p>For reaction rate expressions of the _n_th-order form, it can be shown that there is always one and only one point that minimizes the total volume when <span class="math inline">\(n&gt;0\)</span>. <span class="citation">(<a href="references.html#ref-hill2014" role="doc-biblioref">Hill and Root 2014</a>)</span></p>
+<p>The total reaction volume is:
+<span class="math display" id="eq:totalVolume">\[\begin{equation}
+V_1 + V_2 = F_{A0}\:\frac{X_{A1}}{(-r_A)_1} + F_{A0}\:\frac{X_{A2} - X_{A1}}{(-r_A)_2}
+\tag{2.22}
+\end{equation}\]</span></p>
+<p>The derivative of eq. #ref(eq:totalVolume) respects to <span class="math inline">\(X_{A1}\)</span> is:
+<span class="math display">\[\begin{equation}
+\frac{d\:\left(V_1 + V_2\right)}{dX_{A1}} = \frac{F_{A0}}{(-r_A)_1} + F_{A0}\:X_{A1}\left(\frac{d\:\left(1/(-r_A)_1\right)}{dX_{A1}}\right) - \frac{F_{A0}}{(-r_A)_2} = 0
+\end{equation}\]</span>
+simplifying leads to
+<span class="math display">\[\begin{equation}
+\frac{d\left(1/(-r_A)_1\right)}{dX_{A1}} = \frac{1/(-r_A)_2 - 1/(-r_A)_1}{dX_{A1}}
+\end{equation}\]</span></p>
+<p>Therefore, the minimum reaction volume will be found when the intermediate fractional conversion <span class="math inline">\(X_{A1}\)</span> is selected. The slope of the reaction rate curve at this conversion level is equal to the slope of the rectangle’s diagonal KLMN, as is shown in figure <a href="ideal-chemical-reactor-design.html#fig:CSTRseriesminV">2.9</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:CSTRseriesminV"></span>
+<img src="ebook_notes_5314_files/figure-html/CSTRseriesminV-1.png" alt="Graphical representation of the minimum total reaction volume for two CSTRs in series" width="40%" />
+<p class="caption">
+Figure 2.9: Graphical representation of the minimum total reaction volume for two CSTRs in series
+</p>
+</div>
+<p>Generally, the optimum size ratio is dependent on the form of the reaction rate expression and on the conversion task specified. Table <a href="ideal-chemical-reactor-design.html#tab:thumbRulesCSTRinSerie">2.1</a> summarizes the optimal configuration for CSTRs in series from a kinetic-order point of view.</p>
+<table>
+<caption><span id="tab:thumbRulesCSTRinSerie">Table 2.1: </span> Thumb-rules for optimal configuration for CSTRs in serie</caption>
+<thead>
+<tr class="header">
+<th>kinetic-order <em>n</em></th>
+<th>Optimal configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(n = 1\)</span></td>
+<td>same size</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(n &gt; 1\)</span></td>
+<td>first tank with &lt; volume</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(n &lt; 1\)</span></td>
+<td>first tank with &gt; volume</td>
+</tr>
+</tbody>
+</table>
+<p>In engineering practice, the designer tends to select CSTRs with the same volume to minimize installation and operational costs.</p>
+<p><strong>Work in Progress</strong></p>
 
 </div>
 </div>

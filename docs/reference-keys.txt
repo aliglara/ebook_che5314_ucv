@@ -28,6 +28,12 @@ eq:002044a
 eq:002045
 eq:eq002045a
 fig:fig002014
+fig:fig002015
+fig:CSTRseriesdifV
+fig:CSTRseriesdifV2
+eq:totalVolume
+fig:CSTRseriesminV
+tab:thumbRulesCSTRinSerie
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
