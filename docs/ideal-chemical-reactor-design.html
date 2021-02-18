@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-16" />
+<meta name="date" content="2021-02-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -106,6 +106,10 @@
 <ul>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstrs-of-equal-sizes-in-series"><i class="fa fa-check"></i>CSTRs of equal sizes in series</a></li>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstrs-of-different-sizes-in-series"><i class="fa fa-check"></i>CSTRs of different sizes in series</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#energy-balance-1"><i class="fa fa-check"></i><b>2.4.3</b> Energy Balance</a>
+<ul>
+<li class="chapter" data-level="2.4.3.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#jacket-cooled"><i class="fa fa-check"></i><b>2.4.3.1</b> Jacket-Cooled</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -483,7 +487,7 @@ Figure 2.7: Graphical representation of two CSTRs in series
 <span class="math display">\[\begin{equation}
 \frac{V_2}{F_{A0}} = \frac{X_{A2} - X_{A1}}{-r_A(X_{A2})}
 \end{equation}\]</span></p>
-<p>These relations are graphically represented in the Figure @ref(fig:CSTR_series_difV2). The cascade of CSTRs operates between known initial and final conversion levels, and the total reaction volume is represented by the sum of the shaded areas.</p>
+<p>These relations are graphically represented in the Figure <a href="ideal-chemical-reactor-design.html#fig:CSTRseriesdifV2">2.8</a>. The cascade of CSTRs operates between known initial and final conversion levels, and the total reaction volume is represented by the sum of the shaded areas.</p>
 <div class="figure" style="text-align: center"><span id="fig:CSTRseriesdifV2"></span>
 <img src="ebook_notes_5314_files/figure-html/CSTRseriesdifV2-1.png" alt="Graphical representation of two CSTRs in series" width="40%" />
 <p class="caption">
@@ -537,6 +541,45 @@ Figure 2.9: Graphical representation of the minimum total reaction volume for tw
 </tbody>
 </table>
 <p>In engineering practice, the designer tends to select CSTRs with the same volume to minimize installation and operational costs.</p>
+</div>
+</div>
+<div id="energy-balance-1" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Energy Balance</h3>
+<p>Now let us find out how to apply the general energy balance (eq.<a href="ideal-chemical-reactor-design.html#eq:energybal">(2.3)</a>) to a CSTR. Usually, for an ideal CSTR operating at a steady-state (<span class="math inline">\(dU/dt = 0\)</span>), it is considered the work done by the stirrer neglected, so the energy balance yields to:</p>
+<p><span class="math display" id="eq:ec003017">\[\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - \sum\limits_{j = 1}^r \xi_j \, \Delta H_{R_j}(T) = 0
+\tag{2.23}
+\end{equation}\]</span>
+From thermodynamics, we know that for a reaction <span class="math inline">\(j\)</span>
+<span class="math display">\[\begin{equation}
+\xi_j = \frac{F_i  - F_{i0}}{\nu_i} = - \frac{F_{i,0}\,X_i}{\nu_i}
+\end{equation}\]</span></p>
+<p>Thus
+<span class="math display" id="eq:ec003018">\[\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \sum\limits_{j = 1}^R {\left(\frac{F_{i,0}\,X_i}{\nu_i}\right)}_j \, \Delta H_{R_j}(T) = 0
+\tag{2.24}
+\end{equation}\]</span></p>
+<p>This equation written for a reactant A (<span class="math inline">\(\nu_A=-1\)</span>), considering only one chemical reaction is taken place, becomes to
+<span class="math display" id="eq:ec003019">\[\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
+\tag{2.25}
+\end{equation}\]</span>
+or
+<span class="math display" id="eq:ec003019a">\[\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \Delta H_{R}(T)\,r_A\,V = 0
+\tag{2.26}
+\end{equation}\]</span></p>
+<p>while for a product <span class="math inline">\(P\)</span>
+<span class="math display" id="eq:ec003020">\[\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \frac{\nu_P}{\nu_A}\,F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
+\tag{2.27}
+\end{equation}\]</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:ec003019">(2.25)</a> (or <a href="ideal-chemical-reactor-design.html#eq:ec003020">(2.27)</a>), if the system’s heat transfer characteristic is known, requires a reaction rate expression and the design equation to determine the fluid’s temperature and composition leaving the reactor.</p>
+<p>Using the energy balance to analyze the performance or sizing an ideal CSTR is not as complicated mathematically, so let us consider some typical heat transfer modes.</p>
+<div id="jacket-cooled" class="section level4" number="2.4.3.1">
+<h4><span class="header-section-number">2.4.3.1</span> Jacket-Cooled</h4>
+<p>Consider the ideal CSTR shown in Figure <a href="#fig:fig003005a"><strong>??</strong></a>. Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket.
+Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.</p>
 <p><strong>Work in Progress</strong></p>
 
 </div>

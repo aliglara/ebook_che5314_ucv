@@ -34,6 +34,11 @@ fig:CSTRseriesdifV2
 eq:totalVolume
 fig:CSTRseriesminV
 tab:thumbRulesCSTRinSerie
+eq:ec003017
+eq:ec003018
+eq:ec003019
+eq:ec003019a
+eq:ec003020
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -54,5 +59,7 @@ the-design-equation-for-a-cstr
 constant-density-system
 variable-density-system
 cstr-in-series
+energy-balance-1
+jacket-cooled
 distribution-of-residences-times
 final-words

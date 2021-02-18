@@ -420,7 +420,7 @@ For reactions with slight density change is possible to find the outlet composit
 ```{r fig002015, out.width = "60%", echo=FALSE, fig.align='center', fig.cap='Graphical solution for multistage CSTRs - first-order reaction', fig.lp='fig:'}
 library(png)
 library(grid)
-img <- readPNG("figures/002_17.png")
+img <- readPNG("figures/002_cstr_11.png")
 grid.raster(img)
 ```
 
@@ -445,7 +445,7 @@ while for the second one is:
 \frac{V_2}{F_{A0}} = \frac{X_{A2} - X_{A1}}{-r_A(X_{A2})}
 \end{equation}
 
-These relations are graphically represented in the Figure \@ref(fig:CSTR_series_difV2). The cascade of CSTRs operates between known initial and final conversion levels, and the total reaction volume is represented by the sum of the shaded areas.
+These relations are graphically represented in the Figure \@ref(fig:CSTRseriesdifV2). The cascade of CSTRs operates between known initial and final conversion levels, and the total reaction volume is represented by the sum of the shaded areas.
 
 ```{r CSTRseriesdifV2, out.width = "40%", echo=FALSE, fig.align='center', fig.cap='Graphical representation of two CSTRs in series', fig.lp='fig:'}
 library(png)
@@ -493,6 +493,51 @@ $n < 1$	| first tank with > volume
 Table: (\#tab:thumbRulesCSTRinSerie) Thumb-rules for optimal configuration for CSTRs in serie
 
 In engineering practice, the designer tends to select CSTRs with the same volume to minimize installation and operational costs.
+
+### Energy Balance
+Now let us find out how to apply the general energy balance (eq.\@ref(eq:energybal)) to a CSTR.  Usually, for an ideal CSTR operating at a steady-state ($dU/dt = 0$), it is considered the work done by the stirrer neglected, so the energy balance yields to:
+
+\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - \sum\limits_{j = 1}^r \xi_j \, \Delta H_{R_j}(T) = 0
+(\#eq:ec003017)
+\end{equation}
+From thermodynamics, we know that for a reaction $j$
+\begin{equation}
+\xi_j = \frac{F_i  - F_{i0}}{\nu_i} = - \frac{F_{i,0}\,X_i}{\nu_i}
+\end{equation}
+
+Thus
+\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \sum\limits_{j = 1}^R {\left(\frac{F_{i,0}\,X_i}{\nu_i}\right)}_j \, \Delta H_{R_j}(T) = 0
+(\#eq:ec003018)
+\end{equation}
+
+This equation written for a reactant A ($\nu_A=-1$), considering only one chemical reaction is taken place, becomes to
+\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
+(\#eq:ec003019)
+\end{equation}
+or
+\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \Delta H_{R}(T)\,r_A\,V = 0
+(\#eq:ec003019a)
+\end{equation}
+
+while for a product $P$
+\begin{equation}
+Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \frac{\nu_P}{\nu_A}\,F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
+(\#eq:ec003020)
+\end{equation}
+
+Equation \@ref(eq:ec003019) (or \@ref(eq:ec003020)), if the system's heat transfer characteristic is known, requires a reaction rate expression and the design equation to determine the fluid's temperature and composition leaving the reactor.
+
+Using the energy balance to analyze the performance or sizing an ideal CSTR is not as complicated mathematically, so let us consider some typical heat transfer modes.
+
+#### Jacket-Cooled
+Consider the ideal CSTR shown in Figure \@ref(fig:fig003005a). Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket. 
+Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.
+
+
 
 **Work in Progress**
 
