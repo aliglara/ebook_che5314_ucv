@@ -39,6 +39,8 @@ eq:ec003018
 eq:ec003019
 eq:ec003019a
 eq:ec003020
+fig:fig003005a
+eq:ec003020a
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics

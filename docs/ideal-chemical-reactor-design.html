@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-17" />
+<meta name="date" content="2021-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -578,8 +578,30 @@ Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right
 <p>Using the energy balance to analyze the performance or sizing an ideal CSTR is not as complicated mathematically, so let us consider some typical heat transfer modes.</p>
 <div id="jacket-cooled" class="section level4" number="2.4.3.1">
 <h4><span class="header-section-number">2.4.3.1</span> Jacket-Cooled</h4>
-<p>Consider the ideal CSTR shown in Figure <a href="#fig:fig003005a"><strong>??</strong></a>. Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket.
+<p>Consider the ideal CSTR shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005a">2.10</a>. Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket.
 Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003005a"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003005a-1.png" alt="Schematic diagram of an ideal CSTR with heat transfer through a heating/cooling jacket" width="40%" />
+<p class="caption">
+Figure 2.10: Schematic diagram of an ideal CSTR with heat transfer through a heating/cooling jacket
+</p>
+</div>
+<p>The transit energy rate is <span class="math inline">\(\dot{W}\)</span>. The temperature of the fluid at a point in the jacket is <span class="math inline">\(T_c\)</span>. The fluid enters the jacket at <span class="math inline">\(T_{c,i}\)</span> and leaves at <span class="math inline">\(T_{c,o}\)</span>. The feed enters the reactor at temperature <span class="math inline">\(T_0\)</span>. The molar flow rates of each component of the feed are designated <span class="math inline">\(F_{i,0}\)</span>, and its corresponding concentrations are designated <span class="math inline">\(C_{i,0}\)</span>. The reactor operates at a temperature, <em>T</em>, which is the effluent temperature too. The molar flow rates in the output stream are designated <span class="math inline">\(F_i\)</span>, and the corresponding concentrations are <span class="math inline">\(C_i\)</span>.</p>
+<p>If a single reaction occurs in a CSTR and one mole of reactant <em>A</em> is consumed in an elemental first-order reaction, the eq. <a href="ideal-chemical-reactor-design.html#eq:ec003020a">(2.28)</a> yields to:
+<span class="math display" id="eq:ec003020a">\[\begin{equation}
+Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right) - F_{A0}\,X_A \, \Delta H_{R}(T) = 0
+\tag{2.28}
+\end{equation}\]</span></p>
+<p>The <em>Q</em> term in eq. <a href="ideal-chemical-reactor-design.html#eq:ec003020a">(2.28)</a> depends on the removal scheme used. In general, the rate for heat transfer is:
+<span class="math display">\[\begin{equation*}
+    q = U \left(T_c - T\right)
+\end{equation*}\]</span>
+where: <em>q</em> is the heat flux into the reactor <span class="math inline">\(\left(\text{J}/\text{m}^2-\text{h}\right)\)</span>, and <em>U</em> means the overall heat-transfer coefficient <span class="math inline">\(\left(\text{J}/\text{m}^2-\text{h}-\text{K}\right)\)</span>.</p>
+<p>If <span class="math inline">\(T&lt;Tc\)</span>, heat is transferred into the reactor and <span class="math inline">\(q&gt;0\)</span>. The total heat transfer rate, <em>Q</em>, is obtained by integrating the flux, <em>q</em>, over the whole area of the exchanger. For example, if the temperature of the fluid is the same at every point in the exchanger.
+<span class="math display">\[\begin{equation*}
+    Q = U\,A_{J} \left(\overline{T}_c - T\right)
+\end{equation*}\]</span>
+where <span class="math inline">\(\overline{T}_c\)</span> is the constant temperature of the heat-transfer fluid, and it is equal to the outlet temperature, <span class="math inline">\(T_{c,o}\)</span>, <span class="math inline">\(A_J\)</span> is the total area of the heat exchanger.</p>
 <p><strong>Work in Progress</strong></p>
 
 </div>

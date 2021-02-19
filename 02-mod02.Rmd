@@ -537,6 +537,32 @@ Using the energy balance to analyze the performance or sizing an ideal CSTR is n
 Consider the ideal CSTR shown in Figure \@ref(fig:fig003005a). Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket. 
 Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.
 
+```{r fig003005a, out.width = "40%", echo=FALSE, fig.align='center', fig.cap='Schematic diagram of an ideal CSTR with heat transfer through a heating/cooling jacket', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_000.png")
+grid.raster(img)
+```
+The transit energy rate is $\dot{W}$. The temperature of the fluid at a point in the jacket is $T_c$. The fluid enters the jacket at $T_{c,i}$ and leaves at $T_{c,o}$. The feed enters the reactor at temperature $T_0$. The molar flow rates of each component of the feed are designated $F_{i,0}$, and its corresponding concentrations are designated $C_{i,0}$. The reactor operates at a temperature, _T_, which is the effluent temperature too. The molar flow rates in the output stream are designated $F_i$, and the corresponding concentrations are $C_i$.
+
+If a single reaction occurs in a CSTR and one mole of reactant _A_ is consumed in an elemental first-order reaction, the eq. \@ref(eq:ec003020a) yields to:
+\begin{equation}
+Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right) - F_{A0}\,X_A \, \Delta H_{R}(T) = 0
+(\#eq:ec003020a)
+\end{equation}
+
+The _Q_ term in eq. \@ref(eq:ec003020a) depends on the removal scheme used. In general, the rate for heat transfer is:
+\begin{equation*}
+	q = U \left(T_c - T\right)
+\end{equation*}
+where: _q_ is the heat flux into the reactor $\left(\text{J}/\text{m}^2-\text{h}\right)$, and _U_ means the overall heat-transfer coefficient $\left(\text{J}/\text{m}^2-\text{h}-\text{K}\right)$.
+
+If $T<Tc$, heat is transferred into the reactor and $q>0$. The total heat transfer rate, _Q_, is obtained by integrating the flux, _q_, over the whole area of the exchanger. For example, if the temperature of the fluid is the same at every point in the exchanger.
+\begin{equation*}
+	Q = U\,A_{J} \left(\overline{T}_c - T\right)
+\end{equation*}
+where $\overline{T}_c$ is the constant temperature of the heat-transfer fluid, and it is equal to the outlet temperature, $T_{c,o}$, $A_J$ is the total area of the heat exchanger.
+
 
 
 **Work in Progress**
