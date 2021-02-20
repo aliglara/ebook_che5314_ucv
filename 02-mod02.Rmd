@@ -563,7 +563,70 @@ If $T<Tc$, heat is transferred into the reactor and $q>0$. The total heat transf
 \end{equation*}
 where $\overline{T}_c$ is the constant temperature of the heat-transfer fluid, and it is equal to the outlet temperature, $T_{c,o}$, $A_J$ is the total area of the heat exchanger.
 
+Substituting in \@ref(eq:ec003020a),
+\begin{equation}
+- F_{A0}\,X_A \, \Delta H_{R}(T)
+= U\,A_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
+(\#eq:ec003021)
+\end{equation}
 
+To understand the physical meaning of the terms in eq. \@ref(eq:ec003021), consider an exothermic reaction. The term $\left[- F_{A0}\,X_A \, \Delta H_{R}^\circ(T)\right]$ represents the enthalpy change related to change in composition because of the chemical reaction. While $U\,A_{J} \left(T - T_c\right)$ is the rate at which heat is transferred out of the CSTR. Finally, $\left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)$ represents the increase in sensible heat of the feed as it goes from $T_0$ to _T_.
+
+Now, we define two functions corresponding to the left-hand side and right-hand of eq. \@ref(eq:ec003021), respectively.
+
+The first function is:
+\begin{equation}
+ HPR(T) = - F_{A0}\,X_A\,\Delta H_R(T)
+ (\#eq:ec003022)
+\end{equation}
+
+The function _HPR(T)_ represents the **heat generation* rate in the reactor, proportional to the reaction heat ($\Delta H_R$) and conversion degree ($X_A$). For an exothermic reaction, this term will be > 0 and a strong temperature function.
+
+The second function, _HWR(T)_, is defined from two right-hands terms of the eq. \@ref(eq:ec003023).
+\begin{equation}
+HWR(T)  = UA_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
+(\#eq:ec003023)
+\end{equation}
+
+Eq \@ref(eq:ec003023) is called the **removal** term because it represents the total heat transfer rate per unit volume of the reaction mixture. In summary, it represents the sensible heat from $T_0$ to _T_ and the heat transferred to the heat-transfer fluid.
+
+Both _HPR(T)_ and _HWR(T)_ allow identifying when the CSRT operates under steady-state conditions and which of them is stable. If _HPR(T)_ $\neq$ _HWR(T)_, the CSTR is **not** at steady-state.
+
+Figure \@ref(fig:fig003005aaa) shows a typical _HPR(T)_ and _HRW(T)_ vs _T_ plot for an ideal CSTR, assuming an irreversible, exothermic and first-order reaction is taking place.
+
+```{r fig003005aaa, out.width = "50%", echo=FALSE, fig.align='center', fig.cap='Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for \\ an irreversible, exothermic reaction in an ideal CSTR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_006.png")
+grid.raster(img)
+```
+
+The intersection of the _HPR(T)_ curve with the _HWR(T)_ line is the reactor's operating point. Therefore it is a **graphical** solution to the design equation and the energy balance for the CSTR.
+
+The \textit{HWR(T)} is linear when $C_P$ is assumed constant, while the \textit{HPR(T)} curve is generated following pseudo-algorithm: 
+
+
+| **INPUT:** Assumed reaction temperature, T;  
+| **OUTPUT:** HPR-HWR curve;  
+| 
+| **WHILE** output is **not** generated
+|   select T from input;
+|   calculate kinetic constants with input;
+|   solve design equation for $X_A$;
+|   calculate _HPR(T)_
+|   plot _HPR(T)_ vs. _T_
+|   **IF** output_is_True:  
+|     end;
+
+For reasons of convenience, several different expressions for heat production and heat removal are used. For the heat production with constant density reactions, we have:
+
+1. the heat production per unit time: $\left(-\Delta H_r\right) \upsilon C_{A0} X_A$
+2. the heat production per unit of volume of reaction mixture: $\left(-\Delta H_r\right) C_{A0} X_A$ 
+3. the heat production per unit of volume of reaction mixture divided by $\rho C_P$, the sensible heat per unit of volume of the reaction: $\left(-\Delta H_r\right) C_{A0} X_A/\rho C_P$. This represents the fraction of the maximum possible temperature increase, which is reached in the reactor.
+
+For heat removal, similar expressions can be defined. As long as the HPR and HWR are unit-consistent, all will lead to the same conclusions concerning the reactor design and operation. [@westerterp1984]
+
+### Multiple steady-states analysis
 
 **Work in Progress**
 

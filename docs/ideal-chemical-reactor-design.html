@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-18" />
+<meta name="date" content="2021-02-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -111,6 +111,7 @@
 <ul>
 <li class="chapter" data-level="2.4.3.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#jacket-cooled"><i class="fa fa-check"></i><b>2.4.3.1</b> Jacket-Cooled</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#multiple-steady-states-analysis"><i class="fa fa-check"></i><b>2.4.4</b> Multiple steady-states analysis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
@@ -602,9 +603,60 @@ where: <em>q</em> is the heat flux into the reactor <span class="math inline">\(
     Q = U\,A_{J} \left(\overline{T}_c - T\right)
 \end{equation*}\]</span>
 where <span class="math inline">\(\overline{T}_c\)</span> is the constant temperature of the heat-transfer fluid, and it is equal to the outlet temperature, <span class="math inline">\(T_{c,o}\)</span>, <span class="math inline">\(A_J\)</span> is the total area of the heat exchanger.</p>
+<p>Substituting in <a href="ideal-chemical-reactor-design.html#eq:ec003020a">(2.28)</a>,
+<span class="math display" id="eq:ec003021">\[\begin{equation}
+- F_{A0}\,X_A \, \Delta H_{R}(T)
+= U\,A_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
+\tag{2.29}
+\end{equation}\]</span></p>
+<p>To understand the physical meaning of the terms in eq. <a href="ideal-chemical-reactor-design.html#eq:ec003021">(2.29)</a>, consider an exothermic reaction. The term <span class="math inline">\(\left[- F_{A0}\,X_A \, \Delta H_{R}^\circ(T)\right]\)</span> represents the enthalpy change related to change in composition because of the chemical reaction. While <span class="math inline">\(U\,A_{J} \left(T - T_c\right)\)</span> is the rate at which heat is transferred out of the CSTR. Finally, <span class="math inline">\(\left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)\)</span> represents the increase in sensible heat of the feed as it goes from <span class="math inline">\(T_0\)</span> to <em>T</em>.</p>
+<p>Now, we define two functions corresponding to the left-hand side and right-hand of eq. <a href="ideal-chemical-reactor-design.html#eq:ec003021">(2.29)</a>, respectively.</p>
+<p>The first function is:
+<span class="math display" id="eq:ec003022">\[\begin{equation}
+ HPR(T) = - F_{A0}\,X_A\,\Delta H_R(T)
+ \tag{2.30}
+\end{equation}\]</span></p>
+<p>The function <em>HPR(T)</em> represents the **heat generation* rate in the reactor, proportional to the reaction heat (<span class="math inline">\(\Delta H_R\)</span>) and conversion degree (<span class="math inline">\(X_A\)</span>). For an exothermic reaction, this term will be &gt; 0 and a strong temperature function.</p>
+<p>The second function, <em>HWR(T)</em>, is defined from two right-hands terms of the eq. <a href="ideal-chemical-reactor-design.html#eq:ec003023">(2.31)</a>.
+<span class="math display" id="eq:ec003023">\[\begin{equation}
+HWR(T)  = UA_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
+\tag{2.31}
+\end{equation}\]</span></p>
+<p>Eq <a href="ideal-chemical-reactor-design.html#eq:ec003023">(2.31)</a> is called the <strong>removal</strong> term because it represents the total heat transfer rate per unit volume of the reaction mixture. In summary, it represents the sensible heat from <span class="math inline">\(T_0\)</span> to <em>T</em> and the heat transferred to the heat-transfer fluid.</p>
+<p>Both <em>HPR(T)</em> and <em>HWR(T)</em> allow identifying when the CSRT operates under steady-state conditions and which of them is stable. If <em>HPR(T)</em> <span class="math inline">\(\neq\)</span> <em>HWR(T)</em>, the CSTR is <strong>not</strong> at steady-state.</p>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005aaa">2.11</a> shows a typical <em>HPR(T)</em> and <em>HRW(T)</em> vs <em>T</em> plot for an ideal CSTR, assuming an irreversible, exothermic and first-order reaction is taking place.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003005aaa"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003005aaa-1.png" alt="Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for \ an irreversible, exothermic reaction in an ideal CSTR" width="50%" />
+<p class="caption">
+Figure 2.11: Typical <span class="math inline">\(HPR(T)\)</span> and <span class="math inline">\(HWR(T)\)</span> curves versus temperature, <span class="math inline">\(T\)</span>, for  an irreversible, exothermic reaction in an ideal CSTR
+</p>
+</div>
+<p>The intersection of the <em>HPR(T)</em> curve with the <em>HWR(T)</em> line is the reactor’s operating point. Therefore it is a <strong>graphical</strong> solution to the design equation and the energy balance for the CSTR.</p>
+<p>The  is linear when <span class="math inline">\(C_P\)</span> is assumed constant, while the  curve is generated following pseudo-algorithm:</p>
+<div class="line-block"><strong>INPUT:</strong> Assumed reaction temperature, T;<br />
+<strong>OUTPUT:</strong> HPR-HWR curve;<br />
+<br />
+<strong>WHILE</strong> output is <strong>not</strong> generated<br />
+  select T from input;<br />
+  calculate kinetic constants with input;<br />
+  solve design equation for <span class="math inline">\(X_A\)</span>;<br />
+  calculate <em>HPR(T)</em><br />
+  plot <em>HPR(T)</em> vs. <em>T</em><br />
+  <strong>IF</strong> output_is_True:<br />
+    end;</div>
+<p>For reasons of convenience, several different expressions for heat production and heat removal are used. For the heat production with constant density reactions, we have:</p>
+<ol style="list-style-type: decimal">
+<li>the heat production per unit time: <span class="math inline">\(\left(-\Delta H_r\right) \upsilon C_{A0} X_A\)</span></li>
+<li>the heat production per unit of volume of reaction mixture: <span class="math inline">\(\left(-\Delta H_r\right) C_{A0} X_A\)</span></li>
+<li>the heat production per unit of volume of reaction mixture divided by <span class="math inline">\(\rho C_P\)</span>, the sensible heat per unit of volume of the reaction: <span class="math inline">\(\left(-\Delta H_r\right) C_{A0} X_A/\rho C_P\)</span>. This represents the fraction of the maximum possible temperature increase, which is reached in the reactor.</li>
+</ol>
+<p>For heat removal, similar expressions can be defined. As long as the HPR and HWR are unit-consistent, all will lead to the same conclusions concerning the reactor design and operation. <span class="citation">(<a href="references.html#ref-westerterp1984" role="doc-biblioref">Westertep, Van Swaaij, and Beenackers 1984</a>)</span></p>
+</div>
+</div>
+<div id="multiple-steady-states-analysis" class="section level3" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Multiple steady-states analysis</h3>
 <p><strong>Work in Progress</strong></p>
 
-</div>
 </div>
 </div>
 </div>

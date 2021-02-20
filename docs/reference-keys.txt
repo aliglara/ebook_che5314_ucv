@@ -41,6 +41,10 @@ eq:ec003019a
 eq:ec003020
 fig:fig003005a
 eq:ec003020a
+eq:ec003021
+eq:ec003022
+eq:ec003023
+fig:fig003005aaa
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -63,5 +67,6 @@ variable-density-system
 cstr-in-series
 energy-balance-1
 jacket-cooled
+multiple-steady-states-analysis
 distribution-of-residences-times
 final-words
