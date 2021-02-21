@@ -628,6 +628,26 @@ For heat removal, similar expressions can be defined. As long as the HPR and HWR
 
 ### Multiple steady-states analysis
 
+Another essential aspect of CSRT design is to determine if multiple steady-states are raised. This situation is possible because a non-linear equation can have more than one solution. Nevertheless, how is it possible to determine this particular situation?
+
+Let us consider some changes to the situation shown in Figure \@ref(fig:fig003005aaa). Suppose that the temperature of the feed, $T_0$, or the cooling fluid temperature, _Tc_, is reduced. The result of this modification will be to increase the intercept of the HWR(T) line on the y-axis without changing the slope of the line. It means that HWR(T) line shifts to the left, parallel to the original curve, so that it could be more than one operating point. This situation is known as **multiple steady-states** 
+
+In order to determine if there are multiple steady-states for a CSTR. We are going to follow the next steps:
+
+1. Let us fixed inlet conditions.
+2. Let us establish a range for _T_ we are interested in.
+3. For each _T_ in the temperature range, let calculate _k_ and $X_A$ (or $C_A$).
+4. Again, for each _T_, the cooling fluid temperature _Tc_ is calculated.
+5. Finally, the set of values for _T_, $X_A$, and _Tc_ is substituted into the reactor energy balance. 
+When the left-hand side of equation \@ref(eq:ec003020a) is equal to 0, a steady-state will have been reached.
+
+The heat-transfer fluid consumption is calculated from an energy balance around the perfectly mixed jacket at temperature $T_J$. Constant physical properties of the cooling medium are assumed.
+
+\begin{equation}
+	F_c\,\rho_c\,C_{P_c} T_{c,\text{in}} = F_c\,\rho_c\,C_{P_c} T_J - Q
+	(\#eq:ec003024)
+\end{equation}
+
 **Work in Progress**
 
 
