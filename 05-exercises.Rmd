@@ -3,4 +3,4 @@
 '`
 Exercises | Name | Solution
 - | - | -
-\@ref(exr:it003001) |Operation of a cooled exothermic CSTR| link
+\@ref(exr:it003001) |Operation of a cooled exothermic CSTR| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_005CSTRStability.ipynb)
