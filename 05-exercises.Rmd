@@ -1,0 +1,6 @@
+`r if (knitr::is_html_output()) '
+# List of Exercises {-}
+'`
+Exercises | Name | Solution
+- | - | -
+\@ref(exr:it003001) |Operation of a cooled exothermic CSTR| link

@@ -594,7 +594,7 @@ Both _HPR(T)_ and _HWR(T)_ allow identifying when the CSRT operates under steady
 
 Figure \@ref(fig:fig003005aaa) shows a typical _HPR(T)_ and _HRW(T)_ vs _T_ plot for an ideal CSTR, assuming an irreversible, exothermic and first-order reaction is taking place.
 
-```{r fig003005aaa, out.width = "50%", echo=FALSE, fig.align='center', fig.cap='Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for \\ an irreversible, exothermic reaction in an ideal CSTR', fig.lp='fig:'}
+```{r fig003005aaa, out.width = "50%", echo=FALSE, fig.align='center', fig.cap='Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for an irreversible, exothermic reaction in an ideal CSTR', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_draw_006.png")
@@ -647,6 +647,45 @@ The heat-transfer fluid consumption is calculated from an energy balance around 
 	F_c\,\rho_c\,C_{P_c} T_{c,\text{in}} = F_c\,\rho_c\,C_{P_c} T_J - Q
 	(\#eq:ec003024)
 \end{equation}
+where $F_c$ is flow rate of coolant  $\left(\text{m}^{3}/\text{s}\right)$, $\rho_{c}$ means density of coolant  $\left(\text{kg}/\text{m}^{3}\right)$, $C_{P_c}$ is heat capacity of coolant $\left(\text{J}\,\text{kg}^{-1}\,\text{K}^{-1}\right)$, $T_{c,\text{in}}$ represents the supply temperature of cooling medium (K), and $T_{J}$ is the output temperature of cooling medium (K).
+
+The typical reactor design situation is given the feed conditions, the kinetic information, and the desired conversion. The problem is to determine the temperature and the size of the reactor. The next illustrations show how the principles described above are applied in the design of a CSTR. See Exercise \@ref(exr:it003001)
+
+```{exercise, it003001, name="Operation of a cooled exothermic CSTR"}
+  An irreversible exothermic reaction is carried out in a CSTR.
+  \[A \xrightarrow{k} {B}\]
+  		
+  The reaction is first-order in reactant $A$ and has a heat reaction given by $\Delta H_R$ which is based on reactant $A$. 
+  Negligible heat losses and constant densities can be assumed. A well-mixed cooling jacket surrounds the reactor to remove the heat of reaction. 
+  Cooling water is added to the jacket at a rate of $F_J$ and at an inlet temperature of $T_{J0}$.
+  
+  ```{r fig-margin, fig.margin=TRUE, out.width = "30%", echo=FALSE}
+      library(png)
+      library(grid)
+      img <- readPNG("figures/003_02_cstr.png")
+      grid.raster(img)
+  ```
+  	 
+  The volume $V$ of the contents of the reactor and the volume $V_J$ of water in the jacket are both constant. The reaction rate constant changes as function of the temperature according to the equation.
+  \begin{equation*}
+  k = k_0\,\exp\left( -E/R\,T\right)
+  \end{equation*}
+  The feed flow rate $F_0$ and the cooling water flow rate $F_J$ are constant.
+  The jacket water is assumed to be completely mixed.
+  Heat transfer from the reactor to the jacket can be calculated from:
+  \begin{equation*}
+  Q = U\,A_J\left(T_J - T \right)
+  \end{equation*}
+  where $Q$ is the heat transfer rate, $U$ is the overall heat transfer coefficient, and $A_J$ is the heat transfer area.
+  
+  1. Formulate the material and energy balances that apply to the CSTR and the cooling jacket.
+  2. Calculate the steady-state value of $C_A$, $T_J$, and $T$ for the operating conditions.
+  3. Identify all possible steady-state operating conditions, as this system may exhibit multiples steady states.
+  4. Solve the unsteady-state material and energy balances to identify if any of the possible multiple steady states are unstable.
+```
+
+_solution_
+
 
 **Work in Progress**
 

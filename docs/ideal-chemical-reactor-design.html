@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-20" />
+<meta name="date" content="2021-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -116,6 +116,7 @@
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="list-of-exercises.html"><a href="list-of-exercises.html"><i class="fa fa-check"></i>List of Exercises</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -626,9 +627,9 @@ HWR(T)  = UA_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i
 <p>Both <em>HPR(T)</em> and <em>HWR(T)</em> allow identifying when the CSRT operates under steady-state conditions and which of them is stable. If <em>HPR(T)</em> <span class="math inline">\(\neq\)</span> <em>HWR(T)</em>, the CSTR is <strong>not</strong> at steady-state.</p>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005aaa">2.11</a> shows a typical <em>HPR(T)</em> and <em>HRW(T)</em> vs <em>T</em> plot for an ideal CSTR, assuming an irreversible, exothermic and first-order reaction is taking place.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig003005aaa"></span>
-<img src="ebook_notes_5314_files/figure-html/fig003005aaa-1.png" alt="Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for \ an irreversible, exothermic reaction in an ideal CSTR" width="50%" />
+<img src="ebook_notes_5314_files/figure-html/fig003005aaa-1.png" alt="Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for an irreversible, exothermic reaction in an ideal CSTR" width="50%" />
 <p class="caption">
-Figure 2.11: Typical <span class="math inline">\(HPR(T)\)</span> and <span class="math inline">\(HWR(T)\)</span> curves versus temperature, <span class="math inline">\(T\)</span>, for  an irreversible, exothermic reaction in an ideal CSTR
+Figure 2.11: Typical <span class="math inline">\(HPR(T)\)</span> and <span class="math inline">\(HWR(T)\)</span> curves versus temperature, <span class="math inline">\(T\)</span>, for an irreversible, exothermic reaction in an ideal CSTR
 </p>
 </div>
 <p>The intersection of the <em>HPR(T)</em> curve with the <em>HWR(T)</em> line is the reactor’s operating point. Therefore it is a <strong>graphical</strong> solution to the design equation and the energy balance for the CSTR.</p>
@@ -670,7 +671,37 @@ When the left-hand side of equation <a href="ideal-chemical-reactor-design.html#
 <p><span class="math display" id="eq:ec003024">\[\begin{equation}
     F_c\,\rho_c\,C_{P_c} T_{c,\text{in}} = F_c\,\rho_c\,C_{P_c} T_J - Q
     \tag{2.32}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
+where <span class="math inline">\(F_c\)</span> is flow rate of coolant <span class="math inline">\(\left(\text{m}^{3}/\text{s}\right)\)</span>, <span class="math inline">\(\rho_{c}\)</span> means density of coolant <span class="math inline">\(\left(\text{kg}/\text{m}^{3}\right)\)</span>, <span class="math inline">\(C_{P_c}\)</span> is heat capacity of coolant <span class="math inline">\(\left(\text{J}\,\text{kg}^{-1}\,\text{K}^{-1}\right)\)</span>, <span class="math inline">\(T_{c,\text{in}}\)</span> represents the supply temperature of cooling medium (K), and <span class="math inline">\(T_{J}\)</span> is the output temperature of cooling medium (K).</p>
+<p>The typical reactor design situation is given the feed conditions, the kinetic information, and the desired conversion. The problem is to determine the temperature and the size of the reactor. The next illustrations show how the principles described above are applied in the design of a CSTR. See Exercise <a href="ideal-chemical-reactor-design.html#exr:it003001">2.1</a></p>
+
+<div class="exercise">
+<p><span id="exr:it003001" class="exercise"><strong>Exercise 2.1  (Operation of a cooled exothermic CSTR)  </strong></span> An irreversible exothermic reaction is carried out in a CSTR.
+<span class="math display">\[A \xrightarrow{k} {B}\]</span></p>
+The reaction is first-order in reactant <span class="math inline">\(A\)</span> and has a heat reaction given by <span class="math inline">\(\Delta H_R\)</span> which is based on reactant <span class="math inline">\(A\)</span>.
+Negligible heat losses and constant densities can be assumed. A well-mixed cooling jacket surrounds the reactor to remove the heat of reaction.
+Cooling water is added to the jacket at a rate of <span class="math inline">\(F_J\)</span> and at an inlet temperature of <span class="math inline">\(T_{J0}\)</span>.
+</div>
+<p><img src="ebook_notes_5314_files/figure-html/fig-margin-1.png" width="30%" /></p>
+<p>The volume <span class="math inline">\(V\)</span> of the contents of the reactor and the volume <span class="math inline">\(V_J\)</span> of water in the jacket are both constant. The reaction rate constant changes as function of the temperature according to the equation.
+<span class="math display">\[\begin{equation*}
+  k = k_0\,\exp\left( -E/R\,T\right)
+  \end{equation*}\]</span>
+The feed flow rate <span class="math inline">\(F_0\)</span> and the cooling water flow rate <span class="math inline">\(F_J\)</span> are constant.
+The jacket water is assumed to be completely mixed.
+Heat transfer from the reactor to the jacket can be calculated from:
+<span class="math display">\[\begin{equation*}
+  Q = U\,A_J\left(T_J - T \right)
+  \end{equation*}\]</span>
+where <span class="math inline">\(Q\)</span> is the heat transfer rate, <span class="math inline">\(U\)</span> is the overall heat transfer coefficient, and <span class="math inline">\(A_J\)</span> is the heat transfer area.</p>
+<ol style="list-style-type: decimal">
+<li>Formulate the material and energy balances that apply to the CSTR and the cooling jacket.</li>
+<li>Calculate the steady-state value of <span class="math inline">\(C_A\)</span>, <span class="math inline">\(T_J\)</span>, and <span class="math inline">\(T\)</span> for the operating conditions.</li>
+<li>Identify all possible steady-state operating conditions, as this system may exhibit multiples steady states.</li>
+<li>Solve the unsteady-state material and energy balances to identify if any of the possible multiple steady states are unstable.
+```</li>
+</ol>
+<p><em>solution</em></p>
 <p><strong>Work in Progress</strong></p>
 
 </div>
