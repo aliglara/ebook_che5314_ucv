@@ -686,6 +686,62 @@ The typical reactor design situation is given the feed conditions, the kinetic i
 
 _solution_
 
+(a) There are three balance equations that can be written for the reactor (respect to reactant $A$) and the cooling jacket.\@ref(exr:it003001)
+\begin{gather*}
+F_{0}C_{A0} - F\,C_A - k\,C_A\,V = 0 \\
+\rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right) = 0 \\
+\rho_J\,C_{P_J}F_J\left(T_{J_0} - T_J \right) - U\,A_J\left(T_J-T\right) = 0
+\end{gather*}
+
+(b) The operation conditions for the reactor are:
+
+Sym|Value|Sym|Value
+-|-|-|-
+$F_0$ 	| 40 ft$^3$/h 			| $U$ 			| 150 btu/h-ft$^2$-R
+$F$ 		| 40 ft$^3$/h 			| $A_J$ 		| 250 ft$^2$ 
+$C_{A0}$ 	| 0.55 lbmol/ft$^3$ 	|$T_{J0}$ 		| 530 R 
+$V$ 		| 48 ft$^3$ 			| $T_{0}$ 		| 530 R
+$F_J$ 	| 49.9 ft$^3$/h 		| $\Delta H_R$ 	| $-30\,000$ btu/lbmol 
+$C_P$		| 0.75 btu/lb-R 		| $C_{P_J}$ 	|1 btu/lb-R 
+$k_0$ 	| 7.08E10 h$^{-1}$ 		| $E$ 			| $30\,000$ btu/lbmol 
+$\rho$ 	| 50 lb/ft$^3$ 			| $\rho_J$ 		| $62.3$ lb/ft$^3$ 
+$R$ 		| 1.9872 btu/lbmol-R 	| 	&nbsp;			| &nbsp;
+  		
+All these values were implemented into modeling equations into a Python script [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_005CSTRStability.ipynb). The solution obtained was:
+
+Variable | Value
+-|-
+$C_A$ (lbmol/ft$^3$) 	| 0.521  
+$T$ (R)				| 537.25 
+$T_{J}$ (R)			| 537.25 
+
+When we are dealing with exothermic reactions, several steady states may be possible in a CSTR, which can easily calculate them if we rewrite the equations like so:
+
+\begin{align*}
+C_A &= \frac{F_0\,C_{A0}}{F+V\,k} \\
+T_J &= \frac{\rho_J\,C_{P_J}F_J\,T_{J_0} + U\,A_J\,T}{\rho_J\,C_{P_J}\,F_J+ U\,A_J}
+\end{align*}
+
+Now, these equations are solved for a range $500 \leq T \leq 700$, next their results are evaluated into energy balance function (eq. \@ref{eq:ec003020b}) on the reactor.
+
+\begin{equation}
+f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right) 
+\#ref(eq:ec003020b)
+\end{equation}
+
+These equations are solved for a range from 500 to 700. Next, their results are evaluated into energy balance function on the reactor. The results obtained are plotted vs $T_R$ in figure \@ref(fig:fig003007).
+
+```{r fig003007, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical indication of multiple steady-states solutions', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_04_001.png")
+grid.raster(img)
+```
+
+Figure \@ref(fig:fig003007) shows the system has three operating-points. Now, how a CSTR can operate at multiple steady-states is necessary to know which is (or which of them) stable for the operating condition.
+Thus, the next step in designing a non-isothermal CSTR must be to carry out a steady-state analysis.
+
+Usually, the stability analysis can be done from the plot _HPR(T)_-_HWR(T)_ vs. reaction temperature.
 
 **Work in Progress**
 

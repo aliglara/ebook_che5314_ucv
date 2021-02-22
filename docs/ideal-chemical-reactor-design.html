@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-21" />
+<meta name="date" content="2021-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -702,6 +702,124 @@ where <span class="math inline">\(Q\)</span> is the heat transfer rate, <span cl
 ```</li>
 </ol>
 <p><em>solution</em></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>There are three balance equations that can be written for the reactor (respect to reactant <span class="math inline">\(A\)</span>) and the cooling jacket.<a href="ideal-chemical-reactor-design.html#exr:it003001">2.1</a>
+<span class="math display">\[\begin{gather*}
+F_{0}C_{A0} - F\,C_A - k\,C_A\,V = 0 \\
+\rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right) = 0 \\
+\rho_J\,C_{P_J}F_J\left(T_{J_0} - T_J \right) - U\,A_J\left(T_J-T\right) = 0
+\end{gather*}\]</span></p></li>
+<li><p>The operation conditions for the reactor are:</p></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Sym</th>
+<th>Value</th>
+<th>Sym</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(F_0\)</span></td>
+<td>40 ft<span class="math inline">\(^3\)</span>/h</td>
+<td><span class="math inline">\(U\)</span></td>
+<td>150 btu/h-ft<span class="math inline">\(^2\)</span>-R</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(F\)</span></td>
+<td>40 ft<span class="math inline">\(^3\)</span>/h</td>
+<td><span class="math inline">\(A_J\)</span></td>
+<td>250 ft<span class="math inline">\(^2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C_{A0}\)</span></td>
+<td>0.55 lbmol/ft<span class="math inline">\(^3\)</span></td>
+<td><span class="math inline">\(T_{J0}\)</span></td>
+<td>530 R</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(V\)</span></td>
+<td>48 ft<span class="math inline">\(^3\)</span></td>
+<td><span class="math inline">\(T_{0}\)</span></td>
+<td>530 R</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(F_J\)</span></td>
+<td>49.9 ft<span class="math inline">\(^3\)</span>/h</td>
+<td><span class="math inline">\(\Delta H_R\)</span></td>
+<td><span class="math inline">\(-30\,000\)</span> btu/lbmol</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_P\)</span></td>
+<td>0.75 btu/lb-R</td>
+<td><span class="math inline">\(C_{P_J}\)</span></td>
+<td>1 btu/lb-R</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(k_0\)</span></td>
+<td>7.08E10 h<span class="math inline">\(^{-1}\)</span></td>
+<td><span class="math inline">\(E\)</span></td>
+<td><span class="math inline">\(30\,000\)</span> btu/lbmol</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho\)</span></td>
+<td>50 lb/ft<span class="math inline">\(^3\)</span></td>
+<td><span class="math inline">\(\rho_J\)</span></td>
+<td><span class="math inline">\(62.3\)</span> lb/ft<span class="math inline">\(^3\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R\)</span></td>
+<td>1.9872 btu/lbmol-R</td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<p>All these values were implemented into modeling equations into a Python script <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_005CSTRStability.ipynb">link</a>. The solution obtained was:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(C_A\)</span> (lbmol/ft<span class="math inline">\(^3\)</span>)</td>
+<td>0.521</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(T\)</span> (R)</td>
+<td>537.25</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(T_{J}\)</span> (R)</td>
+<td>537.25</td>
+</tr>
+</tbody>
+</table>
+<p>When we are dealing with exothermic reactions, several steady states may be possible in a CSTR, which can easily calculate them if we rewrite the equations like so:</p>
+<p><span class="math display">\[\begin{align*}
+C_A &amp;= \frac{F_0\,C_{A0}}{F+V\,k} \\
+T_J &amp;= \frac{\rho_J\,C_{P_J}F_J\,T_{J_0} + U\,A_J\,T}{\rho_J\,C_{P_J}\,F_J+ U\,A_J}
+\end{align*}\]</span></p>
+<p>Now, these equations are solved for a range <span class="math inline">\(500 \leq T \leq 700\)</span>, next their results are evaluated into energy balance function (eq. @ref{eq:ec003020b}) on the reactor.</p>
+<p><span class="math display">\[\begin{equation}
+f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right) 
+\#ref(eq:ec003020b)
+\end{equation}\]</span></p>
+<p>These equations are solved for a range from 500 to 700. Next, their results are evaluated into energy balance function on the reactor. The results obtained are plotted vs <span class="math inline">\(T_R\)</span> in figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003007"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003007-1.png" alt="Graphical indication of multiple steady-states solutions" width="65%" />
+<p class="caption">
+Figure 2.12: Graphical indication of multiple steady-states solutions
+</p>
+</div>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a> shows the system has three operating-points. Now, how a CSTR can operate at multiple steady-states is necessary to know which is (or which of them) stable for the operating condition.
+Thus, the next step in designing a non-isothermal CSTR must be to carry out a steady-state analysis.</p>
+<p>Usually, the stability analysis can be done from the plot <em>HPR(T)</em>-<em>HWR(T)</em> vs. reaction temperature.</p>
 <p><strong>Work in Progress</strong></p>
 
 </div>
