@@ -217,7 +217,7 @@ These characteristics of a CSTR generates an inherent weakness in its operation 
 
 If a high conversion is desired, the reactant concentration must be small. But the reaction rate depends directly on the reactant concentration, so to compensate for this restriction, we must design larger reactors. 
 
-#### Constant-Density System 
+#### Constant-Density System {-}
 If the reactor volume is constant and the volumetric flow rate of the inflow and outflow streams are the same, the eq. \@ref(eq:eq002028a) in terms of volumetric flow rates, is
 
 \begin{gather}
@@ -285,7 +285,7 @@ Another parameter commonly used for CSTR design is the inverse of $\tau$, called
 
 Space velocity is more useful in the field of heterogeneous catalysis. Its definition is not unique. For example, it can also be defined as GHSV, which means gas-hourly space velocity. It may be defined as the volumetric flow rate of gas entering the catalyst divided by the catalyst's weight. 
 
-#### Variable-Density System 
+#### Variable-Density System {-}
 For variable-density cases, the design equation for a CSTR is: 
 \begin{align}
   \frac{V}{\upsilon} = \tau & = \frac{V}{\upsilon_0 \left( 1 + \varepsilon_A\, X_A \right)
@@ -533,7 +533,7 @@ Equation \@ref(eq:ec003019) (or \@ref(eq:ec003020)), if the system's heat transf
 
 Using the energy balance to analyze the performance or sizing an ideal CSTR is not as complicated mathematically, so let us consider some typical heat transfer modes.
 
-#### Jacket-Cooled
+#### Jacket-Cooled {-}
 Consider the ideal CSTR shown in Figure \@ref(fig:fig003005a). Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket. 
 Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.
 
@@ -626,7 +626,7 @@ For reasons of convenience, several different expressions for heat production an
 
 For heat removal, similar expressions can be defined. As long as the HPR and HWR are unit-consistent, all will lead to the same conclusions concerning the reactor design and operation. [@westerterp1984]
 
-### Multiple steady-states analysis
+#### Multiple steady-states analysis {-}
 
 Another essential aspect of CSRT design is to determine if multiple steady-states are raised. This situation is possible because a non-linear equation can have more than one solution. Nevertheless, how is it possible to determine this particular situation?
 
@@ -725,8 +725,7 @@ T_J &= \frac{\rho_J\,C_{P_J}F_J\,T_{J_0} + U\,A_J\,T}{\rho_J\,C_{P_J}\,F_J+ U\,A
 Now, these equations are solved for a range $500 \leq T \leq 700$, next their results are evaluated into energy balance function (eq. \@ref{eq:ec003020b}) on the reactor.
 
 \begin{equation}
-f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right) 
-\#ref(eq:ec003020b)
+f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right) 	(\#eq:ec003020b)
 \end{equation}
 
 These equations are solved for a range from 500 to 700. Next, their results are evaluated into energy balance function on the reactor. The results obtained are plotted vs $T_R$ in figure \@ref(fig:fig003007).
@@ -743,6 +742,127 @@ Thus, the next step in designing a non-isothermal CSTR must be to carry out a st
 
 Usually, the stability analysis can be done from the plot _HPR(T)_-_HWR(T)_ vs. reaction temperature.
 
+```{r fig003008, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical solutions of the heat balance for a CSTR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_04_002.png")
+grid.raster(img)
+```
+
+Figure \@ref(fig:fig003008) shows _HPR_ is a sigmoidal curve because of the rate constant's exponential temperature dependence. The shape of the curve depends in large part on the value of the activation energy.
+
+All possible reactor operating temperatures must satisfy both functions, _HPR_ and _HWR_, such that the two functions have equal values. These operating points are represented in Fig. \@ref(fig:fig003008) by circles.
+
+Additionally, Figure \@ref(fig:fig003008) shows that the _HWR_ line intercepts the _HPR_ curve in three points at the same temperatures shown in Figure \@ref(fig:fig003007).
+Gray dots represent stable conditions, and especially the latter point is of practical interest since it represents a high degree of conversion.
+
+The stable conditions are related to the fact that the heat removal line's slope should be greater than that of the heat production line. Under that condition, more heat is removed on a positive deviation from the operating point than produced heat so that the reaction temperature will return to the steady-state value.
+
+Figure \@ref(fig:fig003008)'s black circle is an unstable operating condition because the situation is reversed than for gray dots. Since the heat production curve slope is here more significant than that of the heat removal line, any positive temperature deviation will be amplified until the reactor works in the upper stable operating point and vice versa.
+
+In summary, the lower stable steady-state operating point in Figure \@ref(fig:fig003007) corresponds to low rates of heat generation and removal. This combination may result from one or more of the following factors:
+
+1. Small values of $\Delta H_R$;
+2. Low value of the reaction rate constant;
+3. Short average residence time;
+4. Small value of the feed rate, and
+5. Fast removal of heat from the reactor, which does not cause the temperature to rise to higher values.
+
+On the other hand, the higher stable steady-state operating point in Figure \@ref(fig:fig003007) corresponds to the reactant's nearly complete consumption. This outcome is favored by:
+
+a. An enormous value of $\Delta H_R$;
+b. A more considerable value of the reaction rate constant;
+c. Longer average residence time;
+d. Larger reactant throughput, and
+e. A slower heat removal regime by a heat exchanger.
+
+Whether the reactor operates at a lower or higher stable point depends on how it is started up. The **unsteady energy** and material balances must be solved simultaneously to determine the effect of startup conditions.
+
+The type of stability analysis carried out above is not mathematically rigorous. However, it is a handy way to understand the concept of stable and unstable operating points. In mathematical terms, the above analysis has shown that a steady-state operating will be unstable if
+\begin{equation*}
+  \left[\frac{\partial HPR(T)}{\partial T}\right]_\text{operating point} > \left[\frac{\partial HWR(T)}{\partial T}\right]_\text{operating point}
+\end{equation*}
+
+and will be stable if
+\begin{equation*}
+  \left[\frac{\partial HPR(T)}{\partial T}\right]_\text{operating point} < \left[\frac{\partial HWR(T)}{\partial T}\right]_\text{operating point}
+\end{equation*}
+
+The first inequality is a sufficient criterion for instability so that the operating point will be intrinsically unstable in this situation. The second inequality is a sufficient criterion for stability, provided that the CSTR is adiabatic. If the reactor is not adiabatic, the second condition is necessary but not sufficient.
+
+It is important to remark that the curve HPR/HRW vs. _T_ performed in Fig. \@ref(fig:fig003007) corresponds to a simple reaction rate expression $r_A = - k\,C_A$.
+As the reaction change's characteristics, the shape of that curve will change, and the resulting analysis will need to be accordingly modified.
+
+Figure \@ref(fig:fig003009) presents qualitative forms of the HPW/HWR curve for (a) a reversible reaction, (b) a pair of consecutive exothermic reactions, and (c) for two consecutive reactions, where the first is exothermic and the second is endothermic.
+
+```{r fig003009, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Qualitative shape of HPR/HPWR curve for several kind of reactions', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/CSTR_draw_05.png")
+grid.raster(img)
+```
+#### Internal Coil {-}
+If an internal coil is used, the cooling medium flows in plug flow through the coil. 
+The temperature differential driving force for heat transfer is a log mean average of the differential temperatures at the coil's two ends.
+
+\begin{gather}
+\Delta T_\text{in} = T_R - T_{C,\text{in}} \notag \\
+\Delta T_\text{out} = T_R - T_{C,\text{out}} \\
+{\left(\Delta T\right)}_{LM} = \cfrac{\Delta T_\text{in} - \Delta T_\text{out}}{\ln\left(\cfrac{\Delta T_\text{in}}{\Delta T_\text{out}}\right)} \notag
+(\#eq:ec003025)
+\end{gather}
+where:
+ 	$T_{C,\text{in}}$ is the supply temperature of cooling medium (K) and $T_{C,\text{out}}$ is the temperature of cooling medium leaving the coil (K).
+
+The energy balance on the coil is again given by the eq. \@ref(eq:ec003024).
+While the heat transfer rate is given by
+\begin{equation}
+Q_\text{coil} = U\,A_\text{coil}\Delta T_{LM}
+(\#eq:ec003026)
+\end{equation}
+There are several issues to be resolved in the design of a cooling coil but these will not be considered for this course.
+
+```{exercise, it003002, name="Non-rigorous coil design for a CSTR"}
+  As illustration, let us design (non-rigorous) a coil heat exchanger for a CSTR presented in part 1 of the illustration \@ref(exr:it003001).
+The following coil specification are used in this illustration:
+
+1. the pipe diameter is 5/8 in.
+2. the loop diameter constitutes 80\% of the diameter of the vessel.
+3. The spacing between the loop flights is the diameter of the pipe.
+4. Only one coil is used.
+5. The reactor vessel has an aspect ratio (L/D) of 2.
+```
+_solution_
+
+In order to solve this problem, it is required two iterative calculations. One to determine the size of the reactor, including the coil heat exchanger, and the second one to determine the coolant flow rate required
+
+In the first iterative calculation, it must include following equations:
+\begin{align*}
+&\text{Length of the reactor} && L_R = 2\,D_R \\
+&\text{Number of coils} && N = \frac{L_R}{2D_\text{coil}}\\
+&\text{Length of coil} && L_\text{coil} = 0.8\,D_R\,\pi\,N \\
+&\text{Volume of coil} && V_\text{coil} = \frac{\pi D_\text{coil}^2}{4}\,L_\text{coil}
+\end{align*}  
+This problem was implemented in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_006CSTRCoil.ipynb) and the results obtained were:
+
+Reactor size parameters including coil heat exchanger:\
+Reactor diameter: 1.55 m\
+Reactor volume: 6.0 m
+
+Coil heat exchanger parameters:\
+Transfer area: 19.09 m$^2$\
+Number of loops: 98 \
+Coil volume: 0.08 m$^3$\
+Coil length: 382.87 m
+
+Cooling fluid parameters:\
+Exit temperature: 436.15 K\
+Log-mean temperature difference: 7.10 K\
+Coolant flowrate: 34.88 cm$^3$/s
+
+The main advantage of a coil over a jacket is more transfer area.
+
+### Reactors in series {-}
 **Work in Progress**
 
 

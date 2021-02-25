@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-22" />
+<meta name="date" content="2021-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -99,8 +99,8 @@
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-design-equation-for-a-cstr"><i class="fa fa-check"></i><b>2.4.1</b> The design equation for a CSTR</a>
 <ul>
-<li class="chapter" data-level="2.4.1.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system"><i class="fa fa-check"></i><b>2.4.1.1</b> Constant-Density System</a></li>
-<li class="chapter" data-level="2.4.1.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-density-system"><i class="fa fa-check"></i><b>2.4.1.2</b> Variable-Density System</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system"><i class="fa fa-check"></i>Constant-Density System</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-density-system"><i class="fa fa-check"></i>Variable-Density System</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#cstr-in-series"><i class="fa fa-check"></i><b>2.4.2</b> CSTR in series</a>
 <ul>
@@ -109,9 +109,11 @@
 </ul></li>
 <li class="chapter" data-level="2.4.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#energy-balance-1"><i class="fa fa-check"></i><b>2.4.3</b> Energy Balance</a>
 <ul>
-<li class="chapter" data-level="2.4.3.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#jacket-cooled"><i class="fa fa-check"></i><b>2.4.3.1</b> Jacket-Cooled</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#jacket-cooled"><i class="fa fa-check"></i>Jacket-Cooled</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#multiple-steady-states-analysis"><i class="fa fa-check"></i>Multiple steady-states analysis</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#internal-coil"><i class="fa fa-check"></i>Internal Coil</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#multiple-steady-states-analysis"><i class="fa fa-check"></i><b>2.4.4</b> Multiple steady-states analysis</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#reactors-in-series"><i class="fa fa-check"></i>Reactors in series</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
@@ -300,8 +302,8 @@ where <span class="math inline">\(\nu_A\)</span> represents moles of <em>A</em>,
   X_A = \frac{C_{A0} - C_A}{C_{A0}}
 \end{equation*}\]</span></p>
 <p>If a high conversion is desired, the reactant concentration must be small. But the reaction rate depends directly on the reactant concentration, so to compensate for this restriction, we must design larger reactors.</p>
-<div id="constant-density-system" class="section level4" number="2.4.1.1">
-<h4><span class="header-section-number">2.4.1.1</span> Constant-Density System</h4>
+<div id="constant-density-system" class="section level4 unnumbered">
+<h4>Constant-Density System</h4>
 <p>If the reactor volume is constant and the volumetric flow rate of the inflow and outflow streams are the same, the eq. <a href="ideal-chemical-reactor-design.html#eq:eq002028a">(2.6)</a> in terms of volumetric flow rates, is</p>
 <p><span class="math display" id="eq:eq002031a">\[\begin{gather}
     F_j = \upsilon \,C_j \notag \\
@@ -357,8 +359,8 @@ Figure 2.3: Graphical representation of the performance equations for CSTR
 \end{gather}\]</span></p>
 <p>Space velocity is more useful in the field of heterogeneous catalysis. Its definition is not unique. For example, it can also be defined as GHSV, which means gas-hourly space velocity. It may be defined as the volumetric flow rate of gas entering the catalyst divided by the catalyst’s weight.</p>
 </div>
-<div id="variable-density-system" class="section level4" number="2.4.1.2">
-<h4><span class="header-section-number">2.4.1.2</span> Variable-Density System</h4>
+<div id="variable-density-system" class="section level4 unnumbered">
+<h4>Variable-Density System</h4>
 <p>For variable-density cases, the design equation for a CSTR is:
 <span class="math display">\[\begin{align}
   \frac{V}{\upsilon} = \tau &amp; = \frac{V}{\upsilon_0 \left( 1 + \varepsilon_A\, X_A \right)
@@ -578,8 +580,8 @@ Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right
 \end{equation}\]</span></p>
 <p>Equation <a href="ideal-chemical-reactor-design.html#eq:ec003019">(2.25)</a> (or <a href="ideal-chemical-reactor-design.html#eq:ec003020">(2.27)</a>), if the system’s heat transfer characteristic is known, requires a reaction rate expression and the design equation to determine the fluid’s temperature and composition leaving the reactor.</p>
 <p>Using the energy balance to analyze the performance or sizing an ideal CSTR is not as complicated mathematically, so let us consider some typical heat transfer modes.</p>
-<div id="jacket-cooled" class="section level4" number="2.4.3.1">
-<h4><span class="header-section-number">2.4.3.1</span> Jacket-Cooled</h4>
+<div id="jacket-cooled" class="section level4 unnumbered">
+<h4>Jacket-Cooled</h4>
 <p>Consider the ideal CSTR shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005a">2.10</a>. Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket.
 Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig003005a"></span>
@@ -653,9 +655,8 @@ Figure 2.11: Typical <span class="math inline">\(HPR(T)\)</span> and <span class
 </ol>
 <p>For heat removal, similar expressions can be defined. As long as the HPR and HWR are unit-consistent, all will lead to the same conclusions concerning the reactor design and operation. <span class="citation">(<a href="references.html#ref-westerterp1984" role="doc-biblioref">Westertep, Van Swaaij, and Beenackers 1984</a>)</span></p>
 </div>
-</div>
-<div id="multiple-steady-states-analysis" class="section level3" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> Multiple steady-states analysis</h3>
+<div id="multiple-steady-states-analysis" class="section level4 unnumbered">
+<h4>Multiple steady-states analysis</h4>
 <p>Another essential aspect of CSRT design is to determine if multiple steady-states are raised. This situation is possible because a non-linear equation can have more than one solution. Nevertheless, how is it possible to determine this particular situation?</p>
 <p>Let us consider some changes to the situation shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005aaa">2.11</a>. Suppose that the temperature of the feed, <span class="math inline">\(T_0\)</span>, or the cooling fluid temperature, <em>Tc</em>, is reduced. The result of this modification will be to increase the intercept of the HWR(T) line on the y-axis without changing the slope of the line. It means that HWR(T) line shifts to the left, parallel to the original curve, so that it could be more than one operating point. This situation is known as <strong>multiple steady-states</strong></p>
 <p>In order to determine if there are multiple steady-states for a CSTR. We are going to follow the next steps:</p>
@@ -806,9 +807,8 @@ C_A &amp;= \frac{F_0\,C_{A0}}{F+V\,k} \\
 T_J &amp;= \frac{\rho_J\,C_{P_J}F_J\,T_{J_0} + U\,A_J\,T}{\rho_J\,C_{P_J}\,F_J+ U\,A_J}
 \end{align*}\]</span></p>
 <p>Now, these equations are solved for a range <span class="math inline">\(500 \leq T \leq 700\)</span>, next their results are evaluated into energy balance function (eq. @ref{eq:ec003020b}) on the reactor.</p>
-<p><span class="math display">\[\begin{equation}
-f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right) 
-\#ref(eq:ec003020b)
+<p><span class="math display" id="eq:ec003020b">\[\begin{equation}
+f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right)   \tag{2.33}
 \end{equation}\]</span></p>
 <p>These equations are solved for a range from 500 to 700. Next, their results are evaluated into energy balance function on the reactor. The results obtained are plotted vs <span class="math inline">\(T_R\)</span> in figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig003007"></span>
@@ -820,6 +820,112 @@ Figure 2.12: Graphical indication of multiple steady-states solutions
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a> shows the system has three operating-points. Now, how a CSTR can operate at multiple steady-states is necessary to know which is (or which of them) stable for the operating condition.
 Thus, the next step in designing a non-isothermal CSTR must be to carry out a steady-state analysis.</p>
 <p>Usually, the stability analysis can be done from the plot <em>HPR(T)</em>-<em>HWR(T)</em> vs. reaction temperature.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003008"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003008-1.png" alt="Graphical solutions of the heat balance for a CSTR" width="65%" />
+<p class="caption">
+Figure 2.13: Graphical solutions of the heat balance for a CSTR
+</p>
+</div>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003008">2.13</a> shows <em>HPR</em> is a sigmoidal curve because of the rate constant’s exponential temperature dependence. The shape of the curve depends in large part on the value of the activation energy.</p>
+<p>All possible reactor operating temperatures must satisfy both functions, <em>HPR</em> and <em>HWR</em>, such that the two functions have equal values. These operating points are represented in Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003008">2.13</a> by circles.</p>
+<p>Additionally, Figure <a href="ideal-chemical-reactor-design.html#fig:fig003008">2.13</a> shows that the <em>HWR</em> line intercepts the <em>HPR</em> curve in three points at the same temperatures shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a>.
+Gray dots represent stable conditions, and especially the latter point is of practical interest since it represents a high degree of conversion.</p>
+<p>The stable conditions are related to the fact that the heat removal line’s slope should be greater than that of the heat production line. Under that condition, more heat is removed on a positive deviation from the operating point than produced heat so that the reaction temperature will return to the steady-state value.</p>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003008">2.13</a>’s black circle is an unstable operating condition because the situation is reversed than for gray dots. Since the heat production curve slope is here more significant than that of the heat removal line, any positive temperature deviation will be amplified until the reactor works in the upper stable operating point and vice versa.</p>
+<p>In summary, the lower stable steady-state operating point in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a> corresponds to low rates of heat generation and removal. This combination may result from one or more of the following factors:</p>
+<ol style="list-style-type: decimal">
+<li>Small values of <span class="math inline">\(\Delta H_R\)</span>;</li>
+<li>Low value of the reaction rate constant;</li>
+<li>Short average residence time;</li>
+<li>Small value of the feed rate, and</li>
+<li>Fast removal of heat from the reactor, which does not cause the temperature to rise to higher values.</li>
+</ol>
+<p>On the other hand, the higher stable steady-state operating point in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a> corresponds to the reactant’s nearly complete consumption. This outcome is favored by:</p>
+<ol style="list-style-type: lower-alpha">
+<li>An enormous value of <span class="math inline">\(\Delta H_R\)</span>;</li>
+<li>A more considerable value of the reaction rate constant;</li>
+<li>Longer average residence time;</li>
+<li>Larger reactant throughput, and</li>
+<li>A slower heat removal regime by a heat exchanger.</li>
+</ol>
+<p>Whether the reactor operates at a lower or higher stable point depends on how it is started up. The <strong>unsteady energy</strong> and material balances must be solved simultaneously to determine the effect of startup conditions.</p>
+<p>The type of stability analysis carried out above is not mathematically rigorous. However, it is a handy way to understand the concept of stable and unstable operating points. In mathematical terms, the above analysis has shown that a steady-state operating will be unstable if
+<span class="math display">\[\begin{equation*}
+  \left[\frac{\partial HPR(T)}{\partial T}\right]_\text{operating point} &gt; \left[\frac{\partial HWR(T)}{\partial T}\right]_\text{operating point}
+\end{equation*}\]</span></p>
+<p>and will be stable if
+<span class="math display">\[\begin{equation*}
+  \left[\frac{\partial HPR(T)}{\partial T}\right]_\text{operating point} &lt; \left[\frac{\partial HWR(T)}{\partial T}\right]_\text{operating point}
+\end{equation*}\]</span></p>
+<p>The first inequality is a sufficient criterion for instability so that the operating point will be intrinsically unstable in this situation. The second inequality is a sufficient criterion for stability, provided that the CSTR is adiabatic. If the reactor is not adiabatic, the second condition is necessary but not sufficient.</p>
+<p>It is important to remark that the curve HPR/HRW vs. <em>T</em> performed in Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a> corresponds to a simple reaction rate expression <span class="math inline">\(r_A = - k\,C_A\)</span>.
+As the reaction change’s characteristics, the shape of that curve will change, and the resulting analysis will need to be accordingly modified.</p>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003009">2.14</a> presents qualitative forms of the HPW/HWR curve for (a) a reversible reaction, (b) a pair of consecutive exothermic reactions, and (c) for two consecutive reactions, where the first is exothermic and the second is endothermic.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003009"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003009-1.png" alt="Qualitative shape of HPR/HPWR curve for several kind of reactions" width="65%" />
+<p class="caption">
+Figure 2.14: Qualitative shape of HPR/HPWR curve for several kind of reactions
+</p>
+</div>
+</div>
+<div id="internal-coil" class="section level4 unnumbered">
+<h4>Internal Coil</h4>
+<p>If an internal coil is used, the cooling medium flows in plug flow through the coil.
+The temperature differential driving force for heat transfer is a log mean average of the differential temperatures at the coil’s two ends.</p>
+<p><span class="math display" id="eq:ec003025">\[\begin{gather}
+\Delta T_\text{in} = T_R - T_{C,\text{in}} \notag \\
+\Delta T_\text{out} = T_R - T_{C,\text{out}} \\
+{\left(\Delta T\right)}_{LM} = \cfrac{\Delta T_\text{in} - \Delta T_\text{out}}{\ln\left(\cfrac{\Delta T_\text{in}}{\Delta T_\text{out}}\right)} \notag
+\tag{2.34}
+\end{gather}\]</span>
+where:
+<span class="math inline">\(T_{C,\text{in}}\)</span> is the supply temperature of cooling medium (K) and <span class="math inline">\(T_{C,\text{out}}\)</span> is the temperature of cooling medium leaving the coil (K).</p>
+<p>The energy balance on the coil is again given by the eq. <a href="ideal-chemical-reactor-design.html#eq:ec003024">(2.32)</a>.
+While the heat transfer rate is given by
+<span class="math display" id="eq:ec003026">\[\begin{equation}
+Q_\text{coil} = U\,A_\text{coil}\Delta T_{LM}
+\tag{2.35}
+\end{equation}\]</span>
+There are several issues to be resolved in the design of a cooling coil but these will not be considered for this course.</p>
+
+<div class="exercise">
+<p><span id="exr:it003002" class="exercise"><strong>Exercise 2.2  (Non-rigorous coil design for a CSTR)  </strong></span> As illustration, let us design (non-rigorous) a coil heat exchanger for a CSTR presented in part 1 of the illustration <a href="ideal-chemical-reactor-design.html#exr:it003001">2.1</a>.
+The following coil specification are used in this illustration:</p>
+<ol style="list-style-type: decimal">
+<li>the pipe diameter is 5/8 in.</li>
+<li>the loop diameter constitutes 80% of the diameter of the vessel.</li>
+<li>The spacing between the loop flights is the diameter of the pipe.</li>
+<li>Only one coil is used.</li>
+<li>The reactor vessel has an aspect ratio (L/D) of 2.
+</div>
+<em>solution</em></li>
+</ol>
+<p>In order to solve this problem, it is required two iterative calculations. One to determine the size of the reactor, including the coil heat exchanger, and the second one to determine the coolant flow rate required</p>
+<p>In the first iterative calculation, it must include following equations:
+<span class="math display">\[\begin{align*}
+&amp;\text{Length of the reactor} &amp;&amp; L_R = 2\,D_R \\
+&amp;\text{Number of coils} &amp;&amp; N = \frac{L_R}{2D_\text{coil}}\\
+&amp;\text{Length of coil} &amp;&amp; L_\text{coil} = 0.8\,D_R\,\pi\,N \\
+&amp;\text{Volume of coil} &amp;&amp; V_\text{coil} = \frac{\pi D_\text{coil}^2}{4}\,L_\text{coil}
+\end{align*}\]</span><br />
+This problem was implemented in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_006CSTRCoil.ipynb">Python</a> and the results obtained were:</p>
+<p>Reactor size parameters including coil heat exchanger:<br />
+Reactor diameter: 1.55 m<br />
+Reactor volume: 6.0 m</p>
+<p>Coil heat exchanger parameters:<br />
+Transfer area: 19.09 m<span class="math inline">\(^2\)</span><br />
+Number of loops: 98<br />
+Coil volume: 0.08 m<span class="math inline">\(^3\)</span><br />
+Coil length: 382.87 m</p>
+<p>Cooling fluid parameters:<br />
+Exit temperature: 436.15 K<br />
+Log-mean temperature difference: 7.10 K<br />
+Coolant flowrate: 34.88 cm<span class="math inline">\(^3\)</span>/s</p>
+<p>The main advantage of a coil over a jacket is more transfer area.</p>
+</div>
+</div>
+<div id="reactors-in-series" class="section level3 unnumbered">
+<h3>Reactors in series</h3>
 <p><strong>Work in Progress</strong></p>
 
 </div>

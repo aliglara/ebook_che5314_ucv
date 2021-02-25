@@ -47,7 +47,13 @@ eq:ec003023
 fig:fig003005aaa
 eq:ec003024
 exr:it003001
+eq:ec003020b
 fig:fig003007
+fig:fig003008
+fig:fig003009
+eq:ec003025
+eq:ec003026
+exr:it003002
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -65,11 +71,7 @@ energy-balance
 momentum-balance
 the-continuous-stirred-tank-reactor-cstr
 the-design-equation-for-a-cstr
-constant-density-system
-variable-density-system
 cstr-in-series
 energy-balance-1
-jacket-cooled
-multiple-steady-states-analysis
 distribution-of-residences-times
 final-words
