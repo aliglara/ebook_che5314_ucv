@@ -897,7 +897,7 @@ An irreversible exothermic reaction
 
 Both A and B are liquids at room temperature ad both have too high boiling points.
 Consider the possibility of using one or more CSTRs operating in series. 
-If each CSTR is to operate at 163C and if the feed stream consists of pure A entering at 20C.
+If each CSTR operates at 163C and if the feed stream consists of pure A entering at 20C.
 
 Determine the reactor volumes and heat transfer requirements to produce 2 million pounds in 7000 h for
 
@@ -972,6 +972,54 @@ Finally,
 \end{align*} 
 
 ## Plug-flow reactor (PFR)
+Plug flow is a simplified and idealized picture of a fluid's motion, whereby all the fluid elements move with a uniform velocity along parallel streamlines. This perfectly ordered flow is the only transport mechanism accounted for in the plug flow reactor model.
+
+In summary, the essential features of a PFR are:
+
+1. The volumetric flow may vary continuously in the direction of the flow because of a change in density, 
+2. Each element of fluid is a closed system; that is, there is no axial mixing (it seems a CSTR),
+3. fluid properties may change continuously in the axial direction but are constant radially at a given axial position, 
+4. Each element of fluid has the same residence time, t, as any other.
+
+This kind of reactor is usually used:
+
+1. When a high flow rate of the reacting system is needed (fast reactions).
+2. Large scale.
+3. High temperature.
+4. Homogeneous or heterogeneous reactions.
+5. Continuous operations.
+
+In a PFR, the composition of the fluid varies from point to point along a flow path. Thus the material balance for a reaction component must be made for a differential element dV, as shown in Figure X.
+
+```{r fig002016, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Plug-flow reactor volume element', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/002_pfr_01.png")
+grid.raster(img)
+```
+
+Under steady-state operation, the material balance is expressed in terms of the molar flow.
+\begin{equation}
+    dV = \frac{dF_A}{r_A}
+    (\#eq:ec002050)
+\end{equation}
+Equation \@ref(eq:ec002050) is the **_design equation_** for an ideal PFR.
+
+For a single reaction, it may be convenient to write Eq. \@ref(eq:ec002050) in terms of fractional conversion of a key reactant
+\begin{align}
+  F_A =& F_{A0}\left(1-X_A\right) \\ \notag
+  dF_A =& - F_{A0}\,d X_A \\ \notag
+  \frac{dV}{F_{A0}} =& - \frac{dX_A}{r_A}
+  (\#eq:ec002051)
+\end{align}
+
+Under the traditional approach for sizing reactors, the equation X is rewritten depending on the reacting fluid density. As I understand, nowadays, it is unnecessary because of software like Python or Matlab.
+Despite that, let us study how the equation design changes on a constant- and variable- density fluid. 
+
+### Constant-Density System {-}
+
+
+
 **Work in Progress**
 
 

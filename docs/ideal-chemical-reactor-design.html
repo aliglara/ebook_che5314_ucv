@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-25" />
+<meta name="date" content="2021-02-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -115,7 +115,10 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#reactors-in-series"><i class="fa fa-check"></i>Reactors in series</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#plug-flow-reactor-pfr"><i class="fa fa-check"></i><b>2.5</b> Plug-flow reactor (PFR)</a></li>
+<li class="chapter" data-level="2.5" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#plug-flow-reactor-pfr"><i class="fa fa-check"></i><b>2.5</b> Plug-flow reactor (PFR)</a>
+<ul>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system-1"><i class="fa fa-check"></i>Constant-Density System</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
@@ -953,7 +956,7 @@ An irreversible exothermic reaction
 \end{equation*}\]</span></p>
 <p>Both A and B are liquids at room temperature ad both have too high boiling points.
 Consider the possibility of using one or more CSTRs operating in series.
-If each CSTR is to operate at 163C and if the feed stream consists of pure A entering at 20C.</p>
+If each CSTR operates at 163C and if the feed stream consists of pure A entering at 20C.</p>
 <p>Determine the reactor volumes and heat transfer requirements to produce 2 million pounds in 7000 h for</p>
 <ol style="list-style-type: decimal">
 <li>A single CSTR.</li>
@@ -1023,8 +1026,49 @@ Thus,
 </div>
 <div id="plug-flow-reactor-pfr" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Plug-flow reactor (PFR)</h2>
+<p>Plug flow is a simplified and idealized picture of a fluid’s motion, whereby all the fluid elements move with a uniform velocity along parallel streamlines. This perfectly ordered flow is the only transport mechanism accounted for in the plug flow reactor model.</p>
+<p>In summary, the essential features of a PFR are:</p>
+<ol style="list-style-type: decimal">
+<li>The volumetric flow may vary continuously in the direction of the flow because of a change in density,</li>
+<li>Each element of fluid is a closed system; that is, there is no axial mixing (it seems a CSTR),</li>
+<li>fluid properties may change continuously in the axial direction but are constant radially at a given axial position,</li>
+<li>Each element of fluid has the same residence time, t, as any other.</li>
+</ol>
+<p>This kind of reactor is usually used:</p>
+<ol style="list-style-type: decimal">
+<li>When a high flow rate of the reacting system is needed (fast reactions).</li>
+<li>Large scale.</li>
+<li>High temperature.</li>
+<li>Homogeneous or heterogeneous reactions.</li>
+<li>Continuous operations.</li>
+</ol>
+<p>In a PFR, the composition of the fluid varies from point to point along a flow path. Thus the material balance for a reaction component must be made for a differential element dV, as shown in Figure X.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig002016"></span>
+<img src="ebook_notes_5314_files/figure-html/fig002016-1.png" alt="Plug-flow reactor volume element" width="65%" />
+<p class="caption">
+Figure 2.15: Plug-flow reactor volume element
+</p>
+</div>
+<p>Under steady-state operation, the material balance is expressed in terms of the molar flow.
+<span class="math display" id="eq:ec002050">\[\begin{equation}
+    dV = \frac{dF_A}{r_A}
+    \tag{2.38}
+\end{equation}\]</span>
+Equation <a href="ideal-chemical-reactor-design.html#eq:ec002050">(2.38)</a> is the <strong><em>design equation</em></strong> for an ideal PFR.</p>
+<p>For a single reaction, it may be convenient to write Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002050">(2.38)</a> in terms of fractional conversion of a key reactant
+<span class="math display" id="eq:ec002051">\[\begin{align}
+  F_A =&amp; F_{A0}\left(1-X_A\right) \\ \notag
+  dF_A =&amp; - F_{A0}\,d X_A \\ \notag
+  \frac{dV}{F_{A0}} =&amp; - \frac{dX_A}{r_A}
+  \tag{2.39}
+\end{align}\]</span></p>
+<p>Under the traditional approach for sizing reactors, the equation X is rewritten depending on the reacting fluid density. As I understand, nowadays, it is unnecessary because of software like Python or Matlab.
+Despite that, let us study how the equation design changes on a constant- and variable- density fluid.</p>
+<div id="constant-density-system-1" class="section level3 unnumbered">
+<h3>Constant-Density System</h3>
 <p><strong>Work in Progress</strong></p>
 
+</div>
 </div>
 </div>
             </section>
