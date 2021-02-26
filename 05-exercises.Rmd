@@ -5,3 +5,4 @@ Exercises | Name | Solution
 - | - | -
 \@ref(exr:it003001) |Operation of a cooled exothermic CSTR| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_005CSTRStability.ipynb)
 \@ref(exr:it003002) |Non-rigorous coil design for a CSTR| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_006CSTRCoil.ipynb)
+\@ref(exr:it003003) |Heat transfer requirement for multiple CSTRs| &nbsp;

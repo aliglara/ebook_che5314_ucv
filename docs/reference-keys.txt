@@ -54,6 +54,9 @@ fig:fig003009
 eq:ec003025
 eq:ec003026
 exr:it003002
+eq:ec003026a
+eq:ec003026b
+exr:it003003
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -73,5 +76,6 @@ the-continuous-stirred-tank-reactor-cstr
 the-design-equation-for-a-cstr
 cstr-in-series
 energy-balance-1
+plug-flow-reactor-pfr
 distribution-of-residences-times
 final-words

@@ -863,6 +863,115 @@ Coolant flowrate: 34.88 cm$^3$/s
 The main advantage of a coil over a jacket is more transfer area.
 
 ### Reactors in series {-}
+
+In the general energy balance (eq. \@ref(eq:energybala)), the extent of reaction, $\xi_j$, in the inlet stream was taken to be zero. When dealing with CSTRs in series, this balance must include the change in extension of reaction or fractional conversion per each CSRT referred to in the first reactor. [@roberts2009]
+
+Then, if only one reaction is taking place, the Eq. \@ref(eq:energybala) becomes
+\begin{equation}
+Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right) \left(T_{\text{out}} - T_{\text{in}}\right) - F_{A0}\left(X_{A,out} - X_{A,in} \right)\Delta H_{R}(T) = 0
+(\#eq:ec003026a)
+\end{equation}
+
+If more than one reaction occurs, and if the extents of reaction in the feed to a reactor or segment are denoted $\xi_k^0$, then eq. \@ref(eq:energybala) becomes
+
+\begin{equation}
+\frac{dU}{dt}= Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T_\text{out} - T_\text{in}\right) - {\sum_{j=1}^R} \left(\xi_j - \xi_j^0\right) \,\Delta H_{R,j}(T)
+(\#eq:ec003026b)
+\end{equation}
+
+It is essential to point out that in Eqs. \@ref(eq:ec003026a) and \@ref(eq:ec003026b), _Q_ is the rate at which heat is transferred into the reactor section under consideration, i.e., for which the inlet temperature is $T_\text{in}$, and the outlet temperature is $T_\text{out}$.
+
+Finally, it is necessary, the temperature correction for the heat of reactions is based on:
+\begin{equation*}
+ \Delta H_{R,j}(T) = \Delta H^\circ_R(T^\circ) + \int_{T^\circ}^T \sum\nu_i C_{p,i}\,dT
+\end{equation*}
+
+where $\Delta H^\circ_R(T^\circ)$ is usually calculated from enthalpies of the formation of components involved in the chemical reaction.
+
+```{exercise, it003003, name="Heat transfer requirement for multiple CSTRs"}
+Reactant A undergoes an essentially irreversible isomerization reaction that obeys first-order kinetics.
+An irreversible exothermic reaction 
+\begin{equation*}
+		A \rightarrow B
+\end{equation*}	
+
+Both A and B are liquids at room temperature ad both have too high boiling points.
+Consider the possibility of using one or more CSTRs operating in series. 
+If each CSTR is to operate at 163C and if the feed stream consists of pure A entering at 20C.
+
+Determine the reactor volumes and heat transfer requirements to produce 2 million pounds in 7000 h for
+
+1. A single CSTR.
+2. Three identical CSTRs in series.
+
+**Data and assumptions**
+
+1. Reaction rate expression: $r = k\,C_A$.
+2. Rate constant at 163C = 0.8 h<sup>-1</sup>.
+3. Heat of reaction = -83 cal/g.
+4. Molecular weight = 250.
+
+The heat capacities of species A and B may be assumed to be identical and equal to 0.5 cal/g-C. 
+Their densities may be assumed to be equal to 0.9 g/cm<sup>3</sup>.
+The conversion final is 97%
+```
+
+_Solution_
+
+1. For a CSTR. From the CSTR's design equation
+\begin{equation*}
+{C_A}={\frac {{C_{A0}}}{1+k\tau}}
+\end{equation*}
+
+Additionally,
+\begin{equation*}
+{X_A}={1-\frac{C_A}{C_{A0}}}
+\end{equation*}
+
+So, combining two last equations with $k$ and $X_A$ values
+\begin{equation*}
+ 0.97=-\frac{1}{1+ 0.8\,\tau}+1 \Rightarrow \tau = 40.42 \;\text{h}
+\end{equation*}
+
+From problem data given:
+\begin{align*}
+F_{A0} &= 1.297\cdot 10^5 \;\frac{\text{g}}{\text{h}} \\
+\upsilon &= 144.13 \;\frac{\text{L}}{\text{h}} \\
+\mathbf{ V_R} &= \mathbf{5825.13} \;\textbf{L}
+\end{align*}
+
+The $Q$ is calculated from Eq. \@ref(eq:ec003020)
+\begin{equation*}
+\mathbf{Q} = - \,1.1687 \cdot 10^6 \;\frac{\text{cal}}{\text{h}} = \mathbf{-\,4634.85} \;\frac{\textbf{btu}}{\textbf{h}}  
+\end{equation*}
+
+2. For a three-CSTR series
+For the last reactor,
+\begin{equation*}
+C_{A3}=\frac{C_{A0}}{{\left( 1+k\tau \right)}^{3}}
+\end{equation*}
+
+This equation could be rewritten in
+\begin{equation*}
+X_{A3} =- {\left( 1+k\tau \right)}^{-3}+1
+\end{equation*}
+Thus, $\boldsymbol{\tau} = \mathbf{2.77}$ h, therefore $\mathbf{V_R = 399.645}$ L
+
+The heat requirement for each reactor is calculated from $\tau$ and the fractional conversion reached in each of them.
+Thus,
+\begin{align*}
+	C_{A1}&=\frac{C_{A0}}{1+k\tau} \Rightarrow &&\mathbf{X_{A1} = 0.689} &&\\
+	C_{A2}&=\frac{C_{A0}}{{\left(1+k\tau\right)}^2} \Rightarrow && \mathbf{X_{A2} = 0.9034}&&
+\end{align*}
+
+Finally,
+\begin{align*}
+	\mathbf{Q_1} &= \left( F_{A0} \int\limits_{20}^{163} C_P\,dT + F_{A0} \,X_{A1} \,\Delta H_R\right) \frac{1}{252.16} = \mathbf{7350.97} \;\frac{\textbf{btu}}{\textbf{h}} \\
+	\mathbf{Q_2} &= \left(F_{A0} \left[X_{A2} -X_{A1}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,9144.44} \;\frac{\textbf{btu}}{\textbf{h}} \\
+	\mathbf{Q_3} &= \left(F_{A0} \left[X_{A3} -X_{A2}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,2841.39} \;\frac{\textbf{btu}}{\textbf{h}}
+\end{align*} 
+
+## Plug-flow reactor (PFR)
 **Work in Progress**
 
 

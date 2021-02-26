@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-24" />
+<meta name="date" content="2021-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -115,6 +115,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#reactors-in-series"><i class="fa fa-check"></i>Reactors in series</a></li>
 </ul></li>
+<li class="chapter" data-level="2.5" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#plug-flow-reactor-pfr"><i class="fa fa-check"></i><b>2.5</b> Plug-flow reactor (PFR)</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
@@ -926,9 +927,104 @@ Coolant flowrate: 34.88 cm<span class="math inline">\(^3\)</span>/s</p>
 </div>
 <div id="reactors-in-series" class="section level3 unnumbered">
 <h3>Reactors in series</h3>
+<p>In the general energy balance (eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a>), the extent of reaction, <span class="math inline">\(\xi_j\)</span>, in the inlet stream was taken to be zero. When dealing with CSTRs in series, this balance must include the change in extension of reaction or fractional conversion per each CSRT referred to in the first reactor. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>Then, if only one reaction is taking place, the Eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> becomes
+<span class="math display" id="eq:ec003026a">\[\begin{equation}
+Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right) \left(T_{\text{out}} - T_{\text{in}}\right) - F_{A0}\left(X_{A,out} - X_{A,in} \right)\Delta H_{R}(T) = 0
+\tag{2.36}
+\end{equation}\]</span></p>
+<p>If more than one reaction occurs, and if the extents of reaction in the feed to a reactor or segment are denoted <span class="math inline">\(\xi_k^0\)</span>, then eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> becomes</p>
+<p><span class="math display" id="eq:ec003026b">\[\begin{equation}
+\frac{dU}{dt}= Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T_\text{out} - T_\text{in}\right) - {\sum_{j=1}^R} \left(\xi_j - \xi_j^0\right) \,\Delta H_{R,j}(T)
+\tag{2.37}
+\end{equation}\]</span></p>
+<p>It is essential to point out that in Eqs. <a href="ideal-chemical-reactor-design.html#eq:ec003026a">(2.36)</a> and <a href="ideal-chemical-reactor-design.html#eq:ec003026b">(2.37)</a>, <em>Q</em> is the rate at which heat is transferred into the reactor section under consideration, i.e., for which the inlet temperature is <span class="math inline">\(T_\text{in}\)</span>, and the outlet temperature is <span class="math inline">\(T_\text{out}\)</span>.</p>
+<p>Finally, it is necessary, the temperature correction for the heat of reactions is based on:
+<span class="math display">\[\begin{equation*}
+ \Delta H_{R,j}(T) = \Delta H^\circ_R(T^\circ) + \int_{T^\circ}^T \sum\nu_i C_{p,i}\,dT
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(\Delta H^\circ_R(T^\circ)\)</span> is usually calculated from enthalpies of the formation of components involved in the chemical reaction.</p>
+
+<div class="exercise">
+<p><span id="exr:it003003" class="exercise"><strong>Exercise 2.3  (Heat transfer requirement for multiple CSTRs)  </strong></span>Reactant A undergoes an essentially irreversible isomerization reaction that obeys first-order kinetics.
+An irreversible exothermic reaction
+<span class="math display">\[\begin{equation*}
+        A \rightarrow B
+\end{equation*}\]</span></p>
+<p>Both A and B are liquids at room temperature ad both have too high boiling points.
+Consider the possibility of using one or more CSTRs operating in series.
+If each CSTR is to operate at 163C and if the feed stream consists of pure A entering at 20C.</p>
+<p>Determine the reactor volumes and heat transfer requirements to produce 2 million pounds in 7000 h for</p>
+<ol style="list-style-type: decimal">
+<li>A single CSTR.</li>
+<li>Three identical CSTRs in series.</li>
+</ol>
+<p><strong>Data and assumptions</strong></p>
+<ol style="list-style-type: decimal">
+<li>Reaction rate expression: <span class="math inline">\(r = k\,C_A\)</span>.</li>
+<li>Rate constant at 163C = 0.8 h<sup>-1</sup>.</li>
+<li>Heat of reaction = -83 cal/g.</li>
+<li>Molecular weight = 250.</li>
+</ol>
+The heat capacities of species A and B may be assumed to be identical and equal to 0.5 cal/g-C.
+Their densities may be assumed to be equal to 0.9 g/cm<sup>3</sup>.
+The conversion final is 97%
+</div>
+<p><em>Solution</em></p>
+<ol style="list-style-type: decimal">
+<li>For a CSTR. From the CSTR’s design equation
+<span class="math display">\[\begin{equation*}
+{C_A}={\frac {{C_{A0}}}{1+k\tau}}
+\end{equation*}\]</span></li>
+</ol>
+<p>Additionally,
+<span class="math display">\[\begin{equation*}
+{X_A}={1-\frac{C_A}{C_{A0}}}
+\end{equation*}\]</span></p>
+<p>So, combining two last equations with <span class="math inline">\(k\)</span> and <span class="math inline">\(X_A\)</span> values
+<span class="math display">\[\begin{equation*}
+ 0.97=-\frac{1}{1+ 0.8\,\tau}+1 \Rightarrow \tau = 40.42 \;\text{h}
+\end{equation*}\]</span></p>
+<p>From problem data given:
+<span class="math display">\[\begin{align*}
+F_{A0} &amp;= 1.297\cdot 10^5 \;\frac{\text{g}}{\text{h}} \\
+\upsilon &amp;= 144.13 \;\frac{\text{L}}{\text{h}} \\
+\mathbf{ V_R} &amp;= \mathbf{5825.13} \;\textbf{L}
+\end{align*}\]</span></p>
+<p>The <span class="math inline">\(Q\)</span> is calculated from Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003020">(2.27)</a>
+<span class="math display">\[\begin{equation*}
+\mathbf{Q} = - \,1.1687 \cdot 10^6 \;\frac{\text{cal}}{\text{h}} = \mathbf{-\,4634.85} \;\frac{\textbf{btu}}{\textbf{h}}  
+\end{equation*}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>For a three-CSTR series
+For the last reactor,
+<span class="math display">\[\begin{equation*}
+C_{A3}=\frac{C_{A0}}{{\left( 1+k\tau \right)}^{3}}
+\end{equation*}\]</span></li>
+</ol>
+<p>This equation could be rewritten in
+<span class="math display">\[\begin{equation*}
+X_{A3} =- {\left( 1+k\tau \right)}^{-3}+1
+\end{equation*}\]</span>
+Thus, <span class="math inline">\(\boldsymbol{\tau} = \mathbf{2.77}\)</span> h, therefore <span class="math inline">\(\mathbf{V_R = 399.645}\)</span> L</p>
+<p>The heat requirement for each reactor is calculated from <span class="math inline">\(\tau\)</span> and the fractional conversion reached in each of them.
+Thus,
+<span class="math display">\[\begin{align*}
+    C_{A1}&amp;=\frac{C_{A0}}{1+k\tau} \Rightarrow &amp;&amp;\mathbf{X_{A1} = 0.689} &amp;&amp;\\
+    C_{A2}&amp;=\frac{C_{A0}}{{\left(1+k\tau\right)}^2} \Rightarrow &amp;&amp; \mathbf{X_{A2} = 0.9034}&amp;&amp;
+\end{align*}\]</span></p>
+<p>Finally,
+<span class="math display">\[\begin{align*}
+    \mathbf{Q_1} &amp;= \left( F_{A0} \int\limits_{20}^{163} C_P\,dT + F_{A0} \,X_{A1} \,\Delta H_R\right) \frac{1}{252.16} = \mathbf{7350.97} \;\frac{\textbf{btu}}{\textbf{h}} \\
+    \mathbf{Q_2} &amp;= \left(F_{A0} \left[X_{A2} -X_{A1}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,9144.44} \;\frac{\textbf{btu}}{\textbf{h}} \\
+    \mathbf{Q_3} &amp;= \left(F_{A0} \left[X_{A3} -X_{A2}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,2841.39} \;\frac{\textbf{btu}}{\textbf{h}}
+\end{align*}\]</span></p>
+</div>
+</div>
+<div id="plug-flow-reactor-pfr" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Plug-flow reactor (PFR)</h2>
 <p><strong>Work in Progress</strong></p>
 
-</div>
 </div>
 </div>
             </section>
