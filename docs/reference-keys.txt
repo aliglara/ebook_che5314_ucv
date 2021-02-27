@@ -63,6 +63,10 @@ eq:ec002051
 eq:ec002054
 eq:ec002052
 fig:fig002017
+eq:ec002054a
+eq:ec002056
+exr:it003004
+eq:eq058
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -84,5 +88,5 @@ the-design-equation-for-a-cstr
 cstr-in-series
 energy-balance-1
 plug-flow-reactor-pfr
-distribution-of-residences-times
+distribution-of-residence-times
 final-words

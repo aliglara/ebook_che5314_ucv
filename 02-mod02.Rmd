@@ -833,8 +833,8 @@ The following coil specification are used in this illustration:
 4. Only one coil is used.
 5. The reactor vessel has an aspect ratio (L/D) of 2.
 ```
-_solution_
 
+```{solution}
 In order to solve this problem, it is required two iterative calculations. One to determine the size of the reactor, including the coil heat exchanger, and the second one to determine the coolant flow rate required
 
 In the first iterative calculation, it must include following equations:
@@ -862,6 +862,7 @@ Log-mean temperature difference: 7.10 K\
 Coolant flowrate: 34.88 cm$^3$/s
 
 The main advantage of a coil over a jacket is more transfer area.
+```
 
 ### Reactors in series {-}
 
@@ -917,8 +918,7 @@ Their densities may be assumed to be equal to 0.9 g/cm<sup>3</sup>.
 The conversion final is 97%
 ```
 
-_Solution_
-
+```{solution}
 1. For a CSTR. From the CSTR's design equation
 \begin{equation*}
 {C_A}={\frac {{C_{A0}}}{1+k\tau}}
@@ -971,6 +971,7 @@ Finally,
 	\mathbf{Q_2} &= \left(F_{A0} \left[X_{A2} -X_{A1}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,9144.44} \;\frac{\textbf{btu}}{\textbf{h}} \\
 	\mathbf{Q_3} &= \left(F_{A0} \left[X_{A3} -X_{A2}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,2841.39} \;\frac{\textbf{btu}}{\textbf{h}}
 \end{align*} 
+```
 
 ## Plug-flow reactor (PFR)
 Plug flow is a simplified and idealized picture of a fluid's motion, whereby all the fluid elements move with a uniform velocity along parallel streamlines. This perfectly ordered flow is the only transport mechanism accounted for in the plug flow reactor model.
@@ -1040,6 +1041,89 @@ img <- readPNG("figures/002_pfr_02.png")
 grid.raster(img)
 ```
 
+The shape of figure \@ref(fig:fig002017) is based on the assumption that $-r_A$ decreases as $X_A$ increases. Thus equation \@ref(eq:ec002051) states that $(V/F_{A0})$ for an ideal PFR is the area under the curve of $(1/-r_A)$ vs. $X_A$, between the inlet and outlet fractional conversion.
+
+### Variable-Density System {-}
+When the reacting system's density is not constant throughout a PFR, the size of a PFR must be calculated using the general design equation (Eq. \@ref(eq:ec002051)).
+
+For example for an irreversible first-order reaction, which $r_A = - k\,C_A$. The kinetic equation will be written as
+\begin{equation*}
+  r_A = - k\,C_A = -k\,\frac{F_A}{\upsilon} = - k\,F_{A0}\:\frac{\left(1-X_A\right)}{\upsilon}
+\end{equation*}
+
+Thus, the equation design is
+\begin{equation}
+\tau = - C_{A0} \int_0^{X_A} \frac{d\,X_A}{r_A} = C_{A0} \int_0^{X_A} \frac{\upsilon\:d\,X_A}{k\:F_{A0}\:\left(1-X_A\right)} = \frac{1}{k\:\upsilon_0} \int_0^{X_A} \frac{\upsilon\:d\,X_A}{1-X_A}
+(\#eq:ec002054a)
+\end{equation}
+
+Taking into account that, in this case, $\upsilon = \upsilon_0 \left(1 + \varepsilon_A\,X_A\right)$ then \@ref(eq:ec002054a) becomes
+\begin{equation}
+\tau = \frac{1}{k} \int_0^{X_A} \frac{\left(1 + \varepsilon_A X_A\right)}{1-X_A}\:dX_A
+  (\#eq:ec002054)
+\end{equation}
+
+As it was mentioned before, for ideal PFR, all fluid elements take the same length of time in the reactor. This time is called **mean residence time** ($\overline t$) and, in general, it could be calculated by:
+\begin{equation}
+    \overline{t} = \int_{0}^{V} \frac{dV}{\upsilon}
+    (\#eq:ec002056)
+\end{equation}
+where $\upsilon$ is the volumetric flow rate.
+
+The space-time and the mean residence time are identical when there is no density change in the reactor.
+For analyzing kinetic data obtained from tubular reactors, the $\tau$ is a more useful variable than _t_ because the former is an independent variable. In contrast, the latter only can be obtained if the progressive changes occurring within the reactor are known beforehand. 
+
+:::: {.infobox .info data-latex="information"}
+
+For systems of constant density, the performance equations are identical for a BR and PFR, which means $\tau$ for PFR is equivalent to $t$ for the BR
+
+::::
+
+To demonstrate how to use the expressions for PFR, let us solve the next problem.
+
+```{exercise, it003004, name="Effect of the rate laws over PFR performance"}
+Consider the effect of reaction on conversion in a PFR whose volume is $1.5$ dm$^3$. The irreversible liquid phase reaction $A \rightarrow B$ is taking place in which the feed concentration is $C_{A0} = 1.0$ mol/dm$^3$ and the volumetric flow rate is $\upsilon_0 = 0.9$ dm$^3$/min. The reaction rate constant for various reaction orders is fixed at 1.1 for this comparison with units consistent with the concentration mentioned above and flow rate.
+    
+1. Plot the conversion in a PFR as a function of reactor volume for zero-, first-, second-, and third-order reaction to a reactor volume of $1.5$ dm$^3$.
+2. Repeat for feed concentrations of $C_{A0}$ at 0.5 and 2.0 mol/dm$^3$.
+```
+
+```{solution}
+For the PFR, a differential mole balance gives the following differential equation for converting _A_
+\begin{equation}
+	\frac{dX}{dV} = - \frac{r_A}{F_{A0}}
+(\#eq:eq058)
+\end{equation}
+
+where the rate law is 
+\begin{equation*}
+	r_A = - k\,{C_{A}}^n
+\end{equation*}
+and n = 0, 1, 2, or 3 according to the reaction's order. As an initial condition for eq. \@ref(eq:eq058) is that there is no conversion at the reactor inlet. Additionally, if constant temperature and pressure are considered, then the concentration of reactant A could be expressed using conversion as:
+\begin{equation*}
+	C_A = C_{A0} \left( 1 - X_A \right)
+\end{equation*}
+
+Part 1 of this problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_007PFRisoNorders.ipynb), and the graphical results are given
+
+<p align="center">
+![Fractional conversion vs volume for various reaction orders](figures/lect007_01.png){width=55%}
+</p>
+
+Figure shows clearly the effect of reaction on conversion in a PFR, for zero-order kinetic will obtain higher conversion than other cases. As we expect, for a zero-order kinetic, fractional conversion shows an independent behavior of concentration _A_. That is why a linear function is observed when the fractional conversion is less than one.
+
+In those cases, when order-kinetic is more significant than zero, fractional conversion shows an exponential behavior, and the final conversion value decreases inversely to order-kinetic.
+
+The results for item 2 were plotted. When the initial concentration of A decreases to 0.5 mol/dm$^3$, fractional conversion changes in the same way. The main difference with item 1 is that final conversion values, for order-kinetic greater than zero, are less.
+
+The results obtained when the initial concentration of A was increased to 2.0 mol/dm$^3$ are shown.
+
+(a) $C_{A0} = 0.5$ mol/dm$^3$           |  (b) $C_{A0} = 2.0$ mol/dm$^3$
+:-------------------------:|:-------------------------:
+![](figures/lect007_02.png)  |  ![](figures/lect007_03.png)
+
+
+```
 **Work in Progress**
 
 

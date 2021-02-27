@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="intro.html"/>
-<link rel="next" href="distribution-of-residences-times.html"/>
+<link rel="next" href="distribution-of-residence-times.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -121,9 +121,10 @@
 <li class="chapter" data-level="2.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#plug-flow-reactor-pfr"><i class="fa fa-check"></i><b>2.3</b> Plug-flow reactor (PFR)</a>
 <ul>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system-1"><i class="fa fa-check"></i>Constant-Density System</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-density-system-1"><i class="fa fa-check"></i>Variable-Density System</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="distribution-of-residences-times.html"><a href="distribution-of-residences-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residences times</a></li>
+<li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="list-of-exercises.html"><a href="list-of-exercises.html"><i class="fa fa-check"></i>List of Exercises</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -907,10 +908,11 @@ The following coil specification are used in this illustration:</p>
 <li>The spacing between the loop flights is the diameter of the pipe.</li>
 <li>Only one coil is used.</li>
 <li>The reactor vessel has an aspect ratio (L/D) of 2.
-</div>
-<em>solution</em></li>
+</div></li>
 </ol>
-<p>In order to solve this problem, it is required two iterative calculations. One to determine the size of the reactor, including the coil heat exchanger, and the second one to determine the coolant flow rate required</p>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> In order to solve this problem, it is required two iterative calculations. One to determine the size of the reactor, including the coil heat exchanger, and the second one to determine the coolant flow rate required</p>
 <p>In the first iterative calculation, it must include following equations:
 <span class="math display">\[\begin{align*}
 &amp;\text{Length of the reactor} &amp;&amp; L_R = 2\,D_R \\
@@ -931,7 +933,8 @@ Coil length: 382.87 m</p>
 Exit temperature: 436.15 K<br />
 Log-mean temperature difference: 7.10 K<br />
 Coolant flowrate: 34.88 cm<span class="math inline">\(^3\)</span>/s</p>
-<p>The main advantage of a coil over a jacket is more transfer area.</p>
+The main advantage of a coil over a jacket is more transfer area.
+</div>
 </div>
 </div>
 <div id="reactors-in-series" class="section level3 unnumbered">
@@ -979,13 +982,12 @@ The heat capacities of species A and B may be assumed to be identical and equal 
 Their densities may be assumed to be equal to 0.9 g/cm<sup>3</sup>.
 The conversion final is 97%
 </div>
-<p><em>Solution</em></p>
-<ol style="list-style-type: decimal">
-<li>For a CSTR. From the CSTR’s design equation
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> 1. For a CSTR. From the CSTR’s design equation
 <span class="math display">\[\begin{equation*}
 {C_A}={\frac {{C_{A0}}}{1+k\tau}}
-\end{equation*}\]</span></li>
-</ol>
+\end{equation*}\]</span></p>
 <p>Additionally,
 <span class="math display">\[\begin{equation*}
 {X_A}={1-\frac{C_A}{C_{A0}}}
@@ -1022,12 +1024,13 @@ Thus,
     C_{A1}&amp;=\frac{C_{A0}}{1+k\tau} \Rightarrow &amp;&amp;\mathbf{X_{A1} = 0.689} &amp;&amp;\\
     C_{A2}&amp;=\frac{C_{A0}}{{\left(1+k\tau\right)}^2} \Rightarrow &amp;&amp; \mathbf{X_{A2} = 0.9034}&amp;&amp;
 \end{align*}\]</span></p>
-<p>Finally,
+Finally,
 <span class="math display">\[\begin{align*}
     \mathbf{Q_1} &amp;= \left( F_{A0} \int\limits_{20}^{163} C_P\,dT + F_{A0} \,X_{A1} \,\Delta H_R\right) \frac{1}{252.16} = \mathbf{7350.97} \;\frac{\textbf{btu}}{\textbf{h}} \\
     \mathbf{Q_2} &amp;= \left(F_{A0} \left[X_{A2} -X_{A1}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,9144.44} \;\frac{\textbf{btu}}{\textbf{h}} \\
     \mathbf{Q_3} &amp;= \left(F_{A0} \left[X_{A3} -X_{A2}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,2841.39} \;\frac{\textbf{btu}}{\textbf{h}}
-\end{align*}\]</span></p>
+\end{align*}\]</span>
+</div>
 </div>
 </div>
 <div id="plug-flow-reactor-pfr" class="section level2" number="2.3">
@@ -1090,6 +1093,83 @@ Despite that, let us study how the equation design changes on a constant- and va
 Figure 2.16: Graphical interpretation of design equation for a PFR
 </p>
 </div>
+<p>The shape of figure <a href="ideal-chemical-reactor-design.html#fig:fig002017">2.16</a> is based on the assumption that <span class="math inline">\(-r_A\)</span> decreases as <span class="math inline">\(X_A\)</span> increases. Thus equation <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> states that <span class="math inline">\((V/F_{A0})\)</span> for an ideal PFR is the area under the curve of <span class="math inline">\((1/-r_A)\)</span> vs. <span class="math inline">\(X_A\)</span>, between the inlet and outlet fractional conversion.</p>
+</div>
+<div id="variable-density-system-1" class="section level3 unnumbered">
+<h3>Variable-Density System</h3>
+<p>When the reacting system’s density is not constant throughout a PFR, the size of a PFR must be calculated using the general design equation (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a>).</p>
+<p>For example for an irreversible first-order reaction, which <span class="math inline">\(r_A = - k\,C_A\)</span>. The kinetic equation will be written as
+<span class="math display">\[\begin{equation*}
+  r_A = - k\,C_A = -k\,\frac{F_A}{\upsilon} = - k\,F_{A0}\:\frac{\left(1-X_A\right)}{\upsilon}
+\end{equation*}\]</span></p>
+<p>Thus, the equation design is
+<span class="math display" id="eq:ec002054a">\[\begin{equation}
+\tau = - C_{A0} \int_0^{X_A} \frac{d\,X_A}{r_A} = C_{A0} \int_0^{X_A} \frac{\upsilon\:d\,X_A}{k\:F_{A0}\:\left(1-X_A\right)} = \frac{1}{k\:\upsilon_0} \int_0^{X_A} \frac{\upsilon\:d\,X_A}{1-X_A}
+\tag{2.42}
+\end{equation}\]</span></p>
+<p>Taking into account that, in this case, <span class="math inline">\(\upsilon = \upsilon_0 \left(1 + \varepsilon_A\,X_A\right)\)</span> then <a href="ideal-chemical-reactor-design.html#eq:ec002054a">(2.42)</a> becomes
+<span class="math display" id="eq:ec002054">\[\begin{equation}
+\tau = \frac{1}{k} \int_0^{X_A} \frac{\left(1 + \varepsilon_A X_A\right)}{1-X_A}\:dX_A
+  \tag{2.40}
+\end{equation}\]</span></p>
+<p>As it was mentioned before, for ideal PFR, all fluid elements take the same length of time in the reactor. This time is called <strong>mean residence time</strong> (<span class="math inline">\(\overline t\)</span>) and, in general, it could be calculated by:
+<span class="math display" id="eq:ec002056">\[\begin{equation}
+    \overline{t} = \int_{0}^{V} \frac{dV}{\upsilon}
+    \tag{2.43}
+\end{equation}\]</span>
+where <span class="math inline">\(\upsilon\)</span> is the volumetric flow rate.</p>
+<p>The space-time and the mean residence time are identical when there is no density change in the reactor.
+For analyzing kinetic data obtained from tubular reactors, the <span class="math inline">\(\tau\)</span> is a more useful variable than <em>t</em> because the former is an independent variable. In contrast, the latter only can be obtained if the progressive changes occurring within the reactor are known beforehand.</p>
+<div class="infobox info">
+<p>For systems of constant density, the performance equations are identical for a BR and PFR, which means <span class="math inline">\(\tau\)</span> for PFR is equivalent to <span class="math inline">\(t\)</span> for the BR</p>
+</div>
+<p>To demonstrate how to use the expressions for PFR, let us solve the next problem.</p>
+
+<div class="exercise">
+<p><span id="exr:it003004" class="exercise"><strong>Exercise 2.4  (Effect of the rate laws over PFR performance)  </strong></span>Consider the effect of reaction on conversion in a PFR whose volume is <span class="math inline">\(1.5\)</span> dm<span class="math inline">\(^3\)</span>. The irreversible liquid phase reaction <span class="math inline">\(A \rightarrow B\)</span> is taking place in which the feed concentration is <span class="math inline">\(C_{A0} = 1.0\)</span> mol/dm<span class="math inline">\(^3\)</span> and the volumetric flow rate is <span class="math inline">\(\upsilon_0 = 0.9\)</span> dm<span class="math inline">\(^3\)</span>/min. The reaction rate constant for various reaction orders is fixed at 1.1 for this comparison with units consistent with the concentration mentioned above and flow rate.</p>
+<ol style="list-style-type: decimal">
+<li>Plot the conversion in a PFR as a function of reactor volume for zero-, first-, second-, and third-order reaction to a reactor volume of <span class="math inline">\(1.5\)</span> dm<span class="math inline">\(^3\)</span>.</li>
+<li>Repeat for feed concentrations of <span class="math inline">\(C_{A0}\)</span> at 0.5 and 2.0 mol/dm<span class="math inline">\(^3\)</span>.
+</div></li>
+</ol>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> For the PFR, a differential mole balance gives the following differential equation for converting <em>A</em>
+<span class="math display" id="eq:eq058">\[\begin{equation}
+    \frac{dX}{dV} = - \frac{r_A}{F_{A0}}
+\tag{2.44}
+\end{equation}\]</span></p>
+<p>where the rate law is
+<span class="math display">\[\begin{equation*}
+    r_A = - k\,{C_{A}}^n
+\end{equation*}\]</span>
+and n = 0, 1, 2, or 3 according to the reaction’s order. As an initial condition for eq. <a href="ideal-chemical-reactor-design.html#eq:eq058">(2.44)</a> is that there is no conversion at the reactor inlet. Additionally, if constant temperature and pressure are considered, then the concentration of reactant A could be expressed using conversion as:
+<span class="math display">\[\begin{equation*}
+    C_A = C_{A0} \left( 1 - X_A \right)
+\end{equation*}\]</span></p>
+<p>Part 1 of this problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_007PFRisoNorders.ipynb">Python</a>, and the graphical results are given</p>
+<p align="center">
+<img src="figures/lect007_01.png" title="fig:" style="width:55.0%" alt="Fractional conversion vs volume for various reaction orders" />
+</p>
+<p>Figure shows clearly the effect of reaction on conversion in a PFR, for zero-order kinetic will obtain higher conversion than other cases. As we expect, for a zero-order kinetic, fractional conversion shows an independent behavior of concentration <em>A</em>. That is why a linear function is observed when the fractional conversion is less than one.</p>
+<p>In those cases, when order-kinetic is more significant than zero, fractional conversion shows an exponential behavior, and the final conversion value decreases inversely to order-kinetic.</p>
+<p>The results for item 2 were plotted. When the initial concentration of A decreases to 0.5 mol/dm<span class="math inline">\(^3\)</span>, fractional conversion changes in the same way. The main difference with item 1 is that final conversion values, for order-kinetic greater than zero, are less.</p>
+<p>The results obtained when the initial concentration of A was increased to 2.0 mol/dm<span class="math inline">\(^3\)</span> are shown.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">(a) <span class="math inline">\(C_{A0} = 0.5\)</span> mol/dm<span class="math inline">\(^3\)</span></th>
+<th align="center">(b) <span class="math inline">\(C_{A0} = 2.0\)</span> mol/dm<span class="math inline">\(^3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="figures/lect007_02.png" /></td>
+<td align="center"><img src="figures/lect007_03.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><strong>Work in Progress</strong></p>
 
 </div>
@@ -1101,7 +1181,7 @@ Figure 2.16: Graphical interpretation of design equation for a PFR
         </div>
       </div>
 <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="distribution-of-residences-times.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distribution-of-residence-times.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
