@@ -1124,6 +1124,8 @@ The results obtained when the initial concentration of A was increased to 2.0 mo
 
 
 ```
+
+### Energy balance
 **Work in Progress**
 
 
