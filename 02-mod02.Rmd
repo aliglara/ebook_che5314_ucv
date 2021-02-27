@@ -15,7 +15,8 @@ The phenomena occurring in a reactor may be broken down into reaction, mass, hea
 
 Additionally, we will study two situations (1) the design of a new chemical reactor for a new process, (2) the analysis of the performance of an existing reactor for a current process. In many cases, as chemical engineers, we must consider several items shown in figure \@ref(fig:mindmap) when starts the design or analysis of a reactor.
 
-## Material Balance
+## Fundamental Balances
+### Material Balance
 
 As a chemical engineer, our main modeling tools are the material balance and energy balance. We should remember two aspects: the material balance of a reactor must consider the rate at which species are converted from one chemical form to another and the rate at which energy is transformed by the process.
 
@@ -58,7 +59,7 @@ In the continuous flow type, an element of the entering fluid is instantaneously
 
 Both types of continuous reactors considered are idealized conceptual cases. They are important cases because they are easy to calculate and give the extreme values of the conversions between those realized in a real reactor. With its intermediate level of mixing, the design of a real reactor requires information about this mixing.[@froment2011]
 
-## Energy Balance
+### Energy Balance
 
 The real chemical reactors are almost operated under nonisothermal conditions because reactions generate or absorb large amounts of heat. Detailed reactor sizing and analysis require the energy balance to be solved in conjunction with one or more material balances. 
 
@@ -146,7 +147,7 @@ The form of the energy balance results from considerations closely related to th
 
 When plug flow is postulated, it is natural to accept that the concentration in a section perpendicular to flow is considered to be uniform. It is natural to also consider the temperature to be uniform in this section. It follows that when the heat is exchanged with the surroundings, the temperature gradient has to be situated entirely in a thin "film" along the wall. This also implies that the resistance to heat transfer in the central core is zero in a direction perpendicular to the flow, which is not right for certain catalytic reactors. 
 
-## Momentum Balance
+### Momentum Balance
 
 The momentum balance can be obtained by the application of Newton’s second law on a moving fluid.
 
@@ -1013,12 +1014,31 @@ For a single reaction, it may be convenient to write Eq. \@ref(eq:ec002050) in t
   (\#eq:ec002051)
 \end{align}
 
-Under the traditional approach for sizing reactors, the equation X is rewritten depending on the reacting fluid density. As I understand, nowadays, it is unnecessary because of software like Python or Matlab.
+The equation \@ref(eq:ec002051) could be rewritten as a differential equation representing the gradient of $X_A$ for a position (_z_) in a PFR.
+Assuming that the reactor is a cylinder of radius R. The volume of the reactor from the inlet to position is $V(z) = \pi R^2 z$, so:
+\begin{equation}
+    \frac{dX_A}{dz} = - \frac{\pi\,R^2\,r_A}{F_{A0}}
+    (\#eq:ec002054)
+\end{equation}
+
+Under the traditional approach for sizing reactors, the equation \@ref(eq:ec002051) is rewritten depending on the reacting fluid density. As far as I understand, it is unnecessary because of software like Python or Matlab, making more straighforward numerical calculations.
 Despite that, let us study how the equation design changes on a constant- and variable- density fluid. 
 
 ### Constant-Density System {-}
+If the reacting fluid keeps its density constant during the chemical reaction, then Equation \@ref(eq:ec002051) can be written in terms of the initial concentration of limiting reactant ($C_{A0}$) and the spacial time ($\tau$)
+\begin{equation}
+    d\,\tau = - C_{A0}\frac{dX_A}{r_A} \equiv \frac{dC_A}{r_A}
+    (\#eq:ec002052)
+\end{equation}
 
+A graphical interpretation of equations \@ref(eq:ec002051) and \@ref(eq:ec002052) is illustrated in Figure \@ref(fig:fig002017)
 
+```{r fig002017, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical interpretation of design equation for a PFR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/002_pfr_02.png")
+grid.raster(img)
+```
 
 **Work in Progress**
 

@@ -60,6 +60,9 @@ exr:it003003
 fig:fig002016
 eq:ec002050
 eq:ec002051
+eq:ec002054
+eq:ec002052
+fig:fig002017
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -72,6 +75,7 @@ temperature-effects-over-chemical-kinetics
 equation-rate-when-density-of-fluid-is-variable
 ideal-reactors
 ideal-chemical-reactor-design
+fundamental-balances
 material-balance
 energy-balance
 momentum-balance
