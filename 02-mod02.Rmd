@@ -1126,6 +1126,214 @@ The results obtained when the initial concentration of A was increased to 2.0 mo
 ```
 
 ### Energy balance
+
+This section will derive an energy balance for a PFR, considering the volume element in Figure \@ref(fig:fig003009a). Additionally, it will be assumed temperature and composition of the reaction mixture are uniform over the cross-section of the PFR and depend only on the distance L from the feed point.
+
+```{r fig003009a, out.width = "45%", echo=FALSE, fig.align='center', fig.cap='PFR reactor volume element', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_007.png")
+grid.raster(img)
+```
+
+According to Fig. \@ref(fig:fig003009a), the steady-state energy balance over a differential volume of the reactor becomes, if any work done by the reaction mixture is neglected:
+\begin{equation}
+\frac{dQ}{dV} - \frac{d}{dV}\left(\sum\limits_{i=1}^\mathcal{C} F_{i} \, H_i \right)= 0
+(\#eq:ec003027)
+\end{equation}
+
+The enthalpy term can be broken apart into two terms:
+\begin{equation}
+\frac{dQ}{dV} - \sum\limits_{i=1}^\mathcal{C} \left(\frac{dF_{i}}{dV} \, H_i\right) -\sum\limits_{i=1}^\mathcal{C} \left(F_i \, \frac{dH_{i}}{dV} \right)= 0
+(\#eq:ec003028)
+\end{equation}
+
+The differential of enthalpy is
+\begin{equation}
+  \frac{dH_i}{dV} = C_{Pi}\,\frac{dT}{dV} + \left[V_i-T\left(\frac{\partial V_i}{\partial T}\right)_P\right]\frac{dP}{dV}
+  (\#eq:ec003028a)
+\end{equation}
+
+If the pressure changes over enthalpy are neglected
+\begin{equation}
+  \frac{dH_i}{dV} = C_{Pi}\,\frac{dT}{dV}
+  (\#eq:ec003028b)
+\end{equation}
+
+The second term in Fig. \@ref(eq:ec003027) is related to a molar balance over specie _i_. If we consider that only one reaction is taking place in the PFR:
+\begin{equation}
+  \frac{dF_i}{dV} = \nu_i \, r
+  (\#eq:ec003028c)
+\end{equation}
+
+Substituting  \@ref(eq:ec003028c),  \@ref(eq:ec003028b) into  \@ref(eq:ec003028) to give
+\begin{equation}
+\frac{dQ}{dV} - \sum\limits_{i=1}^\mathcal{C} \left(H_i\,\nu_i\right)r -\sum\limits_{i=1}^\mathcal{C} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dV} = 0
+ (\#eq:ec003028d)
+\end{equation}
+This equation is equivalent to:
+\begin{equation}
+\frac{dQ}{dV} = \Delta H_R\,r  + \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV}
+(\#eq:ec003028e)
+\end{equation}
+
+Equation \@ref(eq:ec003028e) provided the concentration and temperature profiles in the PFR as a function of _V_, solving it simultaneously with Eq. \@ref(eq:ec003028c), when the rate of heat transfer to the reactor is known.
+
+In most cases, the equation \@ref(eq:ec003028e)  is written in terms of 1 mole of the key reactant A.
+\begin{equation}
+\frac{dQ}{dV} = \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\:r_A , \quad r_A = - r
+(\#eq:ec003028f)
+\end{equation}
+
+Therefore,
+\begin{equation}
+\frac{dT}{dV} = \cfrac{\cfrac{dQ}{dV} + \Delta H_{R,A}\,r_A}{\sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)}, \quad r_A = - r
+(\#eq:ec003028g)
+\end{equation}
+
+### Temperature and concentration profiles as function of PFR length {-}
+In case that the tube diameter is constant, it could be useful to express Eq. \@ref(eq:ec003028e) considering the differential element of length (_dL_() rather than the differential element of volume, _dV_. 
+
+The volume of the reactor is related to the axial length, _L_, and the vessel diameter, _D_. Thus, over a differential element of volume:
+\begin{equation}
+  dV  = \frac{\pi\,D^2}{4}\,dL = A_t\,dL
+  (\#eq:ec003028h)
+\end{equation}
+where $A_t$ is the cross-sectional tube area.
+
+Substituting this relationship into Eq. \@ref(eq:ec003028c), the molar-balance equation then becomes for _A_
+\begin{equation}
+  \frac{dF_A}{dL} = \frac{\pi\,D^2}{4}\,r_A
+  (\#eq:ec003028i)
+\end{equation}
+
+or, for constant-density, considering that $F_i = A_t\,u\,C_i$ 
+\begin{equation}
+  u \frac{d\,C_i}{dL} = \nu_i\,r
+  (\#eq:ec003028ea)
+\end{equation}
+where $u$ is the linear velocity with which the fluid flows through the tube, and $C_i$ is the concentration of the specie _i_.
+
+Incorporating Eq. \@ref(eq:ec003028h) into the energy balance, \@ref(eq:ec003028e), gives
+\begin{equation}
+\frac{dQ}{dL} = \sum\limits_{i=1}^\mathcal{C} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dL} - \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A
+(\#eq:ec003028j)
+\end{equation}
+
+Now, the simultaneous solution of Eq. \@ref(eq:ec003028i) and Eq. \@ref(eq:ec003028j) gives the temperature and concentration profiles along the reactor's axial length, provided that the rate of external heat transfer is known.
+
+### External Heat Transfer to PFR {-}
+In such cases, when a PFR operates with heat transfer to the surroundings to control the temperature within a specified range, it is possible to impose a constant heat flux at the reactor's wall, which could be implemented example, electrical heating.
+
+The rate of heat transfer depends on the local temperature difference between the fluid in the reactor and the heat transfer fluid, as follow:
+\begin{equation}
+  \frac{dQ}{dV} = U \left( T_{\infty} - T\right) \frac{dA}{dV}
+  (\#eq:ec003028k)
+\end{equation}
+
+where: U is overall heat transfer coefficient, $T_{\infty}$ is the temperature of the surrounding heat transfer fluid, _T_ is the temperature inside of the reactor, _A_ is the heat transfer area of the reactor upon which _U_ is based.
+
+_A_ represents the heat transfer area of the external wall of the tube, thus.
+\begin{equation}
+  d\,A = p_w \, dL
+\end{equation}
+$p_w$ is the perimeter length of the tube wall. Suppose the tube is cylindrical, then $A = \pi\,D$. 
+Thus, for a typical PFR illustrated in Figure \@ref(fig:fig003009a), with a length equals to _dL_
+\begin{equation}
+  \frac{dQ}{dV} = U \left( T_{\infty} - T\right) \frac{\pi\,D\,dL}{\left(\pi D^2/4\right)dL} = U \left( T_{\infty} - T\right) \frac{4}{D}
+  (\#eq:ec003029)
+\end{equation}
+
+Substituting Eq. \@ref(eq:ec003029) into Eq. \@ref(eq:ec003028d)
+\begin{equation}
+U \left( T_{\infty} - T\right) \frac{4}{D}=  \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\,r_A
+(\#eq:ec003030)
+\end{equation}
+
+This equation is one form of the energy balance for a PFR with external heat exchange. It is widespread to rewrite the energy balance as
+\begin{equation}
+\frac{dT}{dV} = \frac{1}{{\sum_{i=1}^\mathcal{C}} F_{i} \,C_{P_i}}\left({\frac{4U\left(T_{\infty}-T\right)}{D} + \Delta H_{R,A}\,r_A}\right)
+(\#eq:ec003031)
+\end{equation}
+
+Writing Eq. \@ref(eq:ec003031) in terms of the length by substituting Eq. \@ref(eq:ec003028f)
+\begin{equation}
+\frac{dT}{dL} = \frac{1}{{\sum_{i=1}^\mathcal{C}} F_{i} \,C_{P_i}}\left(\pi\,U\,D\left(T_{\infty}-T\right) + \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A\right)
+(\#eq:ec003032)
+\end{equation}
+
+Any form of energy balance equation must be combined with the molar balance over PFR to obtain the temperature and concentration profiles along the reactor. In cases in which pressure could not be neglected, the momentum balance must be added.
+
+One standard method of reactor operation is having a phase change taking place in the heat transfer fluid, that is, a boiling or condensing fluid use. In this operating mode, $T_\infty$ is constant, and the energy balance equation is solving based on that supposition.
+
+Another useful assumption is considering an average heat capacity value (composition independent) which gives the following equation.
+\begin{equation*}
+\frac{dT}{dL} = \frac{\pi\,U\,D}{\dot{m}\,\overline{C}_P}\left(T_{\infty}-T\right) + \frac{\pi\,D^2}{4 \dot{m}\,\overline{C}_P}\Delta H_{R,A}\,r_A
+\end{equation*}
+
+From temperature analysis, there are four essential differences between PFRs and CSTRs.
+
+1. The variation properties with axial position down the length of the reactor. In CSTR, the maximum reaction temperature is reached at the exit of the reactor under steady-state conditions.
+However, in a PFR, the peak temperature usually occurs at an intermediate axial position in the reactor. (assuming irreversible and exothermic reaction).
+2. In a CSTR, a change over an input variable has an immediate effect on variables inside the reactor. In contrast, a PFR takes time for the disturbance to work its way through the reactor to exit. Thus there are significant dynamic lags and dead time between changes made at the inlet of the reactor and temperatures and compositions further down the reactor's length.
+3. It is mechanically impossible to control the reaction temperature at each axial position down the PFR. Only a single temperature can be controlled, which can be the peak temperature or exit temperature.
+4. In CSTR, the inlet temperature is not the most critical process variable but, in the case of a PFR, it is a design and control variable.
+
+The primary assumption about flow pattern in a PFR is relatively reasonable for an adiabatic reactor. 
+However, for non-adiabatic reactors, radial temperature gradients are inherent features.
+However, if tube diameters are kept small, the plug flow assumption is more suitable.
+
+```{exercise, it003005, name="Heat transfer requirement for a PFR"}
+Consider a reaction 
+\begin{equation*}
+		A \rightarrow B
+\end{equation*}
+Feed contains 80\% $A$ and 20\% inert by weight.
+The molecular weight of $A$ is 160 and that of inert is 80.
+The feed comes at a mass flow rate of 1 kg/s.
+The reaction is second order in $A$.
+
+Reaction data:
+
+- The rate constant is $k = 10^4 \exp\left(9000/T_R\right)$ m$^3$ mol$^{-1}$ s$^{-1}$.
+- The specific heat capacity of $A$ and $B$ are 100 J/mol/K and 200 J/mol/K, respectively.
+- The heat of reaction is $20\,000$ J/mol A reacted.
+- The feed temperature is 400 K and the volumetric flow rate at the inlet is 1 L/s.
+
+  
+1.  If it is adiabatically in a PFR of 1 m$^3$, what is conversion?
+2.  If heating coil are employed, and we are given that $U = 3\times 10^2$ W m$^{-2}$, $A = 2$~m$^2$ per m$^3$ of PFR and $T_J$ = 500 K, what is the conversion?
+```
+
+```{solution}
+The solution of this problem is available in this [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_008PFRadiabatico.ipynb)
+
+Since it is a liquid-phase reaction, no significant change in density is assumed.
+
+1. Under adiabatic conditions, we have to solve two equations:
+  \begin{gather*}
+	\frac{dX_A}{dV} = - \frac{r_A}{F_{A0}} \\
+	\cfrac{dT}{dV} = \cfrac{\Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
+\end{gather*}
+
+This system of equations was solved, and the reaction temperature was 351 K, while the conversion of A equals 48.89%.
+
+In the next figure is shown the temperature and conversion profile obtained.
+In the beginning, the temperature is high, as well as the concentration of A. Later both temperature and conversion drop drastically, so the reaction rate is slowing down a lot.
+
+2. When the heating coil is used, the heat balance must change to include the quantity of heat-related to the heat exchanger.
+\begin{equation*}
+	\frac{dT}{dV} = \frac{U\left(\frac{A}{V_\text{max}}\right)\left(T_J-T\right) + \Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
+\end{equation*}
+
+In this case, the output is at 394 K, and the conversion is 76.53%. Temperature and conversion profiles are shown in figure Y
+
+Without heat exchanger    |  With heat exchanger
+:-------------------------:|:-------------------------:
+![](figures/lect008_01.png)|![](figures/lect008_02.png)
+
+```
+
 **Work in Progress**
 
 

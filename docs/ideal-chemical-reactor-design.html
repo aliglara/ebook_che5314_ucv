@@ -122,6 +122,9 @@
 <ul>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system-1"><i class="fa fa-check"></i>Constant-Density System</a></li>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-density-system-1"><i class="fa fa-check"></i>Variable-Density System</a></li>
+<li class="chapter" data-level="2.3.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#energy-balance-2"><i class="fa fa-check"></i><b>2.3.1</b> Energy balance</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#temperature-and-concentration-profiles-as-function-of-pfr-length"><i class="fa fa-check"></i>Temperature and concentration profiles as function of PFR length</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#external-heat-transfer-to-pfr"><i class="fa fa-check"></i>External Heat Transfer to PFR</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
@@ -1166,6 +1169,199 @@ and n = 0, 1, 2, or 3 according to the reaction’s order. As an initial conditi
 <tr class="odd">
 <td align="center"><img src="figures/lect007_02.png" /></td>
 <td align="center"><img src="figures/lect007_03.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="energy-balance-2" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Energy balance</h3>
+<p>This section will derive an energy balance for a PFR, considering the volume element in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003009a">2.17</a>. Additionally, it will be assumed temperature and composition of the reaction mixture are uniform over the cross-section of the PFR and depend only on the distance L from the feed point.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003009a"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003009a-1.png" alt="PFR reactor volume element" width="45%" />
+<p class="caption">
+Figure 2.17: PFR reactor volume element
+</p>
+</div>
+<p>According to Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003009a">2.17</a>, the steady-state energy balance over a differential volume of the reactor becomes, if any work done by the reaction mixture is neglected:
+<span class="math display" id="eq:ec003027">\[\begin{equation}
+\frac{dQ}{dV} - \frac{d}{dV}\left(\sum\limits_{i=1}^\mathcal{C} F_{i} \, H_i \right)= 0
+\tag{2.45}
+\end{equation}\]</span></p>
+<p>The enthalpy term can be broken apart into two terms:
+<span class="math display" id="eq:ec003028">\[\begin{equation}
+\frac{dQ}{dV} - \sum\limits_{i=1}^\mathcal{C} \left(\frac{dF_{i}}{dV} \, H_i\right) -\sum\limits_{i=1}^\mathcal{C} \left(F_i \, \frac{dH_{i}}{dV} \right)= 0
+\tag{2.46}
+\end{equation}\]</span></p>
+<p>The differential of enthalpy is
+<span class="math display" id="eq:ec003028a">\[\begin{equation}
+  \frac{dH_i}{dV} = C_{Pi}\,\frac{dT}{dV} + \left[V_i-T\left(\frac{\partial V_i}{\partial T}\right)_P\right]\frac{dP}{dV}
+  \tag{2.47}
+\end{equation}\]</span></p>
+<p>If the pressure changes over enthalpy are neglected
+<span class="math display" id="eq:ec003028b">\[\begin{equation}
+  \frac{dH_i}{dV} = C_{Pi}\,\frac{dT}{dV}
+  \tag{2.48}
+\end{equation}\]</span></p>
+<p>The second term in Fig. <a href="ideal-chemical-reactor-design.html#eq:ec003027">(2.45)</a> is related to a molar balance over specie <em>i</em>. If we consider that only one reaction is taking place in the PFR:
+<span class="math display" id="eq:ec003028c">\[\begin{equation}
+  \frac{dF_i}{dV} = \nu_i \, r
+  \tag{2.49}
+\end{equation}\]</span></p>
+<p>Substituting <a href="ideal-chemical-reactor-design.html#eq:ec003028c">(2.49)</a>, <a href="ideal-chemical-reactor-design.html#eq:ec003028b">(2.48)</a> into <a href="ideal-chemical-reactor-design.html#eq:ec003028">(2.46)</a> to give
+<span class="math display" id="eq:ec003028d">\[\begin{equation}
+\frac{dQ}{dV} - \sum\limits_{i=1}^\mathcal{C} \left(H_i\,\nu_i\right)r -\sum\limits_{i=1}^\mathcal{C} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dV} = 0
+ \tag{2.50}
+\end{equation}\]</span>
+This equation is equivalent to:
+<span class="math display" id="eq:ec003028e">\[\begin{equation}
+\frac{dQ}{dV} = \Delta H_R\,r  + \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV}
+\tag{2.51}
+\end{equation}\]</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:ec003028e">(2.51)</a> provided the concentration and temperature profiles in the PFR as a function of <em>V</em>, solving it simultaneously with Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028c">(2.49)</a>, when the rate of heat transfer to the reactor is known.</p>
+<p>In most cases, the equation <a href="ideal-chemical-reactor-design.html#eq:ec003028e">(2.51)</a> is written in terms of 1 mole of the key reactant A.
+<span class="math display" id="eq:ec003028f">\[\begin{equation}
+\frac{dQ}{dV} = \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\:r_A , \quad r_A = - r
+\tag{2.52}
+\end{equation}\]</span></p>
+<p>Therefore,
+<span class="math display" id="eq:ec003028g">\[\begin{equation}
+\frac{dT}{dV} = \cfrac{\cfrac{dQ}{dV} + \Delta H_{R,A}\,r_A}{\sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)}, \quad r_A = - r
+\tag{2.53}
+\end{equation}\]</span></p>
+</div>
+<div id="temperature-and-concentration-profiles-as-function-of-pfr-length" class="section level3 unnumbered">
+<h3>Temperature and concentration profiles as function of PFR length</h3>
+<p>In case that the tube diameter is constant, it could be useful to express Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028e">(2.51)</a> considering the differential element of length (<em>dL</em>() rather than the differential element of volume, <em>dV</em>.</p>
+<p>The volume of the reactor is related to the axial length, <em>L</em>, and the vessel diameter, <em>D</em>. Thus, over a differential element of volume:
+<span class="math display" id="eq:ec003028h">\[\begin{equation}
+  dV  = \frac{\pi\,D^2}{4}\,dL = A_t\,dL
+  \tag{2.54}
+\end{equation}\]</span>
+where <span class="math inline">\(A_t\)</span> is the cross-sectional tube area.</p>
+<p>Substituting this relationship into Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028c">(2.49)</a>, the molar-balance equation then becomes for <em>A</em>
+<span class="math display" id="eq:ec003028i">\[\begin{equation}
+  \frac{dF_A}{dL} = \frac{\pi\,D^2}{4}\,r_A
+  \tag{2.55}
+\end{equation}\]</span></p>
+<p>or, for constant-density, considering that <span class="math inline">\(F_i = A_t\,u\,C_i\)</span>
+<span class="math display" id="eq:ec003028ea">\[\begin{equation}
+  u \frac{d\,C_i}{dL} = \nu_i\,r
+  \tag{2.56}
+\end{equation}\]</span>
+where <span class="math inline">\(u\)</span> is the linear velocity with which the fluid flows through the tube, and <span class="math inline">\(C_i\)</span> is the concentration of the specie <em>i</em>.</p>
+<p>Incorporating Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028h">(2.54)</a> into the energy balance, <a href="ideal-chemical-reactor-design.html#eq:ec003028e">(2.51)</a>, gives
+<span class="math display" id="eq:ec003028j">\[\begin{equation}
+\frac{dQ}{dL} = \sum\limits_{i=1}^\mathcal{C} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dL} - \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A
+\tag{2.57}
+\end{equation}\]</span></p>
+<p>Now, the simultaneous solution of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028i">(2.55)</a> and Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028j">(2.57)</a> gives the temperature and concentration profiles along the reactor’s axial length, provided that the rate of external heat transfer is known.</p>
+</div>
+<div id="external-heat-transfer-to-pfr" class="section level3 unnumbered">
+<h3>External Heat Transfer to PFR</h3>
+<p>In such cases, when a PFR operates with heat transfer to the surroundings to control the temperature within a specified range, it is possible to impose a constant heat flux at the reactor’s wall, which could be implemented example, electrical heating.</p>
+<p>The rate of heat transfer depends on the local temperature difference between the fluid in the reactor and the heat transfer fluid, as follow:
+<span class="math display" id="eq:ec003028k">\[\begin{equation}
+  \frac{dQ}{dV} = U \left( T_{\infty} - T\right) \frac{dA}{dV}
+  \tag{2.58}
+\end{equation}\]</span></p>
+<p>where: U is overall heat transfer coefficient, <span class="math inline">\(T_{\infty}\)</span> is the temperature of the surrounding heat transfer fluid, <em>T</em> is the temperature inside of the reactor, <em>A</em> is the heat transfer area of the reactor upon which <em>U</em> is based.</p>
+<p><em>A</em> represents the heat transfer area of the external wall of the tube, thus.
+<span class="math display">\[\begin{equation}
+  d\,A = p_w \, dL
+\end{equation}\]</span>
+<span class="math inline">\(p_w\)</span> is the perimeter length of the tube wall. Suppose the tube is cylindrical, then <span class="math inline">\(A = \pi\,D\)</span>.
+Thus, for a typical PFR illustrated in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003009a">2.17</a>, with a length equals to <em>dL</em>
+<span class="math display" id="eq:ec003029">\[\begin{equation}
+  \frac{dQ}{dV} = U \left( T_{\infty} - T\right) \frac{\pi\,D\,dL}{\left(\pi D^2/4\right)dL} = U \left( T_{\infty} - T\right) \frac{4}{D}
+  \tag{2.59}
+\end{equation}\]</span></p>
+<p>Substituting Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003029">(2.59)</a> into Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028d">(2.50)</a>
+<span class="math display" id="eq:ec003030">\[\begin{equation}
+U \left( T_{\infty} - T\right) \frac{4}{D}=  \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\,r_A
+\tag{2.60}
+\end{equation}\]</span></p>
+<p>This equation is one form of the energy balance for a PFR with external heat exchange. It is widespread to rewrite the energy balance as
+<span class="math display" id="eq:ec003031">\[\begin{equation}
+\frac{dT}{dV} = \frac{1}{{\sum_{i=1}^\mathcal{C}} F_{i} \,C_{P_i}}\left({\frac{4U\left(T_{\infty}-T\right)}{D} + \Delta H_{R,A}\,r_A}\right)
+\tag{2.61}
+\end{equation}\]</span></p>
+<p>Writing Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003031">(2.61)</a> in terms of the length by substituting Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028f">(2.52)</a>
+<span class="math display" id="eq:ec003032">\[\begin{equation}
+\frac{dT}{dL} = \frac{1}{{\sum_{i=1}^\mathcal{C}} F_{i} \,C_{P_i}}\left(\pi\,U\,D\left(T_{\infty}-T\right) + \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A\right)
+\tag{2.62}
+\end{equation}\]</span></p>
+<p>Any form of energy balance equation must be combined with the molar balance over PFR to obtain the temperature and concentration profiles along the reactor. In cases in which pressure could not be neglected, the momentum balance must be added.</p>
+<p>One standard method of reactor operation is having a phase change taking place in the heat transfer fluid, that is, a boiling or condensing fluid use. In this operating mode, <span class="math inline">\(T_\infty\)</span> is constant, and the energy balance equation is solving based on that supposition.</p>
+<p>Another useful assumption is considering an average heat capacity value (composition independent) which gives the following equation.
+<span class="math display">\[\begin{equation*}
+\frac{dT}{dL} = \frac{\pi\,U\,D}{\dot{m}\,\overline{C}_P}\left(T_{\infty}-T\right) + \frac{\pi\,D^2}{4 \dot{m}\,\overline{C}_P}\Delta H_{R,A}\,r_A
+\end{equation*}\]</span></p>
+<p>From temperature analysis, there are four essential differences between PFRs and CSTRs.</p>
+<ol style="list-style-type: decimal">
+<li>The variation properties with axial position down the length of the reactor. In CSTR, the maximum reaction temperature is reached at the exit of the reactor under steady-state conditions.
+However, in a PFR, the peak temperature usually occurs at an intermediate axial position in the reactor. (assuming irreversible and exothermic reaction).</li>
+<li>In a CSTR, a change over an input variable has an immediate effect on variables inside the reactor. In contrast, a PFR takes time for the disturbance to work its way through the reactor to exit. Thus there are significant dynamic lags and dead time between changes made at the inlet of the reactor and temperatures and compositions further down the reactor’s length.</li>
+<li>It is mechanically impossible to control the reaction temperature at each axial position down the PFR. Only a single temperature can be controlled, which can be the peak temperature or exit temperature.</li>
+<li>In CSTR, the inlet temperature is not the most critical process variable but, in the case of a PFR, it is a design and control variable.</li>
+</ol>
+<p>The primary assumption about flow pattern in a PFR is relatively reasonable for an adiabatic reactor.
+However, for non-adiabatic reactors, radial temperature gradients are inherent features.
+However, if tube diameters are kept small, the plug flow assumption is more suitable.</p>
+
+<div class="exercise">
+<p><span id="exr:it003005" class="exercise"><strong>Exercise 2.5  (Heat transfer requirement for a PFR)  </strong></span>Consider a reaction
+<span class="math display">\[\begin{equation*}
+        A \rightarrow B
+\end{equation*}\]</span>
+Feed contains 80% <span class="math inline">\(A\)</span> and 20% inert by weight.
+The molecular weight of <span class="math inline">\(A\)</span> is 160 and that of inert is 80.
+The feed comes at a mass flow rate of 1 kg/s.
+The reaction is second order in <span class="math inline">\(A\)</span>.</p>
+<p>Reaction data:</p>
+<ul>
+<li>The rate constant is <span class="math inline">\(k = 10^4 \exp\left(9000/T_R\right)\)</span> m<span class="math inline">\(^3\)</span> mol<span class="math inline">\(^{-1}\)</span> s<span class="math inline">\(^{-1}\)</span>.</li>
+<li>The specific heat capacity of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are 100 J/mol/K and 200 J/mol/K, respectively.</li>
+<li>The heat of reaction is <span class="math inline">\(20\,000\)</span> J/mol A reacted.</li>
+<li>The feed temperature is 400 K and the volumetric flow rate at the inlet is 1 L/s.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>If it is adiabatically in a PFR of 1 m<span class="math inline">\(^3\)</span>, what is conversion?</li>
+<li>If heating coil are employed, and we are given that <span class="math inline">\(U = 3\times 10^2\)</span> W m<span class="math inline">\(^{-2}\)</span>, <span class="math inline">\(A = 2\)</span>~m<span class="math inline">\(^2\)</span> per m<span class="math inline">\(^3\)</span> of PFR and <span class="math inline">\(T_J\)</span> = 500 K, what is the conversion?
+</div></li>
+</ol>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> The solution of this problem is available in this <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_008PFRadiabatico.ipynb">link</a></p>
+<p>Since it is a liquid-phase reaction, no significant change in density is assumed.</p>
+<ol style="list-style-type: decimal">
+<li>Under adiabatic conditions, we have to solve two equations:
+<span class="math display">\[\begin{gather*}
+ \frac{dX_A}{dV} = - \frac{r_A}{F_{A0}} \\
+ \cfrac{dT}{dV} = \cfrac{\Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
+\end{gather*}\]</span></li>
+</ol>
+<p>This system of equations was solved, and the reaction temperature was 351 K, while the conversion of A equals 48.89%.</p>
+<p>In the next figure is shown the temperature and conversion profile obtained.
+In the beginning, the temperature is high, as well as the concentration of A. Later both temperature and conversion drop drastically, so the reaction rate is slowing down a lot.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>When the heating coil is used, the heat balance must change to include the quantity of heat-related to the heat exchanger.
+<span class="math display">\[\begin{equation*}
+ \frac{dT}{dV} = \frac{U\left(\frac{A}{V_\text{max}}\right)\left(T_J-T\right) + \Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
+\end{equation*}\]</span></li>
+</ol>
+<p>In this case, the output is at 394 K, and the conversion is 76.53%. Temperature and conversion profiles are shown in figure Y</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Without heat exchanger</th>
+<th align="center">With heat exchanger</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="figures/lect008_01.png" /></td>
+<td align="center"><img src="figures/lect008_02.png" /></td>
 </tr>
 </tbody>
 </table>
