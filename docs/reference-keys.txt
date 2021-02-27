@@ -108,6 +108,7 @@ the-design-equation-for-a-cstr
 cstr-in-series
 energy-balance-1
 plug-flow-reactor-pfr
+design-equation
 energy-balance-2
 distribution-of-residence-times
 final-words

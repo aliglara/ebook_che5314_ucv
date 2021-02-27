@@ -1025,7 +1025,8 @@ Assuming that the reactor is a cylinder of radius R. The volume of the reactor f
 Under the traditional approach for sizing reactors, the equation \@ref(eq:ec002051) is rewritten depending on the reacting fluid density. As far as I understand, it is unnecessary because of software like Python or Matlab, making more straighforward numerical calculations.
 Despite that, let us study how the equation design changes on a constant- and variable- density fluid. 
 
-### Constant-Density System {-}
+### Design equation
+#### Constant-Density System {-}
 If the reacting fluid keeps its density constant during the chemical reaction, then Equation \@ref(eq:ec002051) can be written in terms of the initial concentration of limiting reactant ($C_{A0}$) and the spacial time ($\tau$)
 \begin{equation}
     d\,\tau = - C_{A0}\frac{dX_A}{r_A} \equiv \frac{dC_A}{r_A}
@@ -1043,7 +1044,7 @@ grid.raster(img)
 
 The shape of figure \@ref(fig:fig002017) is based on the assumption that $-r_A$ decreases as $X_A$ increases. Thus equation \@ref(eq:ec002051) states that $(V/F_{A0})$ for an ideal PFR is the area under the curve of $(1/-r_A)$ vs. $X_A$, between the inlet and outlet fractional conversion.
 
-### Variable-Density System {-}
+#### Variable-Density System {-}
 When the reacting system's density is not constant throughout a PFR, the size of a PFR must be calculated using the general design equation (Eq. \@ref(eq:ec002051)).
 
 For example for an irreversible first-order reaction, which $r_A = - k\,C_A$. The kinetic equation will be written as
@@ -1191,7 +1192,7 @@ Therefore,
 (\#eq:ec003028g)
 \end{equation}
 
-### Temperature and concentration profiles as function of PFR length {-}
+#### Temperature and concentration profiles as function of PFR length {-}
 In case that the tube diameter is constant, it could be useful to express Eq. \@ref(eq:ec003028e) considering the differential element of length (_dL_() rather than the differential element of volume, _dV_. 
 
 The volume of the reactor is related to the axial length, _L_, and the vessel diameter, _D_. Thus, over a differential element of volume:
@@ -1222,7 +1223,7 @@ Incorporating Eq. \@ref(eq:ec003028h) into the energy balance, \@ref(eq:ec003028
 
 Now, the simultaneous solution of Eq. \@ref(eq:ec003028i) and Eq. \@ref(eq:ec003028j) gives the temperature and concentration profiles along the reactor's axial length, provided that the rate of external heat transfer is known.
 
-### External Heat Transfer to PFR {-}
+#### External Heat Transfer to PFR {-}
 In such cases, when a PFR operates with heat transfer to the surroundings to control the temperature within a specified range, it is possible to impose a constant heat flux at the reactor's wall, which could be implemented example, electrical heating.
 
 The rate of heat transfer depends on the local temperature difference between the fluid in the reactor and the heat transfer fluid, as follow:

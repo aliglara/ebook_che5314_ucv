@@ -120,11 +120,16 @@
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#plug-flow-reactor-pfr"><i class="fa fa-check"></i><b>2.3</b> Plug-flow reactor (PFR)</a>
 <ul>
+<li class="chapter" data-level="2.3.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#design-equation"><i class="fa fa-check"></i><b>2.3.1</b> Design equation</a>
+<ul>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-density-system-1"><i class="fa fa-check"></i>Constant-Density System</a></li>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-density-system-1"><i class="fa fa-check"></i>Variable-Density System</a></li>
-<li class="chapter" data-level="2.3.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#energy-balance-2"><i class="fa fa-check"></i><b>2.3.1</b> Energy balance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#energy-balance-2"><i class="fa fa-check"></i><b>2.3.2</b> Energy balance</a>
+<ul>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#temperature-and-concentration-profiles-as-function-of-pfr-length"><i class="fa fa-check"></i>Temperature and concentration profiles as function of PFR length</a></li>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#external-heat-transfer-to-pfr"><i class="fa fa-check"></i>External Heat Transfer to PFR</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
@@ -1082,8 +1087,10 @@ Assuming that the reactor is a cylinder of radius R. The volume of the reactor f
 \end{equation}\]</span></p>
 <p>Under the traditional approach for sizing reactors, the equation <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> is rewritten depending on the reacting fluid density. As far as I understand, it is unnecessary because of software like Python or Matlab, making more straighforward numerical calculations.
 Despite that, let us study how the equation design changes on a constant- and variable- density fluid.</p>
-<div id="constant-density-system-1" class="section level3 unnumbered">
-<h3>Constant-Density System</h3>
+<div id="design-equation" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Design equation</h3>
+<div id="constant-density-system-1" class="section level4 unnumbered">
+<h4>Constant-Density System</h4>
 <p>If the reacting fluid keeps its density constant during the chemical reaction, then Equation <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> can be written in terms of the initial concentration of limiting reactant (<span class="math inline">\(C_{A0}\)</span>) and the spacial time (<span class="math inline">\(\tau\)</span>)
 <span class="math display" id="eq:ec002052">\[\begin{equation}
     d\,\tau = - C_{A0}\frac{dX_A}{r_A} \equiv \frac{dC_A}{r_A}
@@ -1098,8 +1105,8 @@ Figure 2.16: Graphical interpretation of design equation for a PFR
 </div>
 <p>The shape of figure <a href="ideal-chemical-reactor-design.html#fig:fig002017">2.16</a> is based on the assumption that <span class="math inline">\(-r_A\)</span> decreases as <span class="math inline">\(X_A\)</span> increases. Thus equation <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> states that <span class="math inline">\((V/F_{A0})\)</span> for an ideal PFR is the area under the curve of <span class="math inline">\((1/-r_A)\)</span> vs. <span class="math inline">\(X_A\)</span>, between the inlet and outlet fractional conversion.</p>
 </div>
-<div id="variable-density-system-1" class="section level3 unnumbered">
-<h3>Variable-Density System</h3>
+<div id="variable-density-system-1" class="section level4 unnumbered">
+<h4>Variable-Density System</h4>
 <p>When the reacting system’s density is not constant throughout a PFR, the size of a PFR must be calculated using the general design equation (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a>).</p>
 <p>For example for an irreversible first-order reaction, which <span class="math inline">\(r_A = - k\,C_A\)</span>. The kinetic equation will be written as
 <span class="math display">\[\begin{equation*}
@@ -1174,8 +1181,9 @@ and n = 0, 1, 2, or 3 according to the reaction’s order. As an initial conditi
 </table>
 </div>
 </div>
-<div id="energy-balance-2" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Energy balance</h3>
+</div>
+<div id="energy-balance-2" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Energy balance</h3>
 <p>This section will derive an energy balance for a PFR, considering the volume element in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003009a">2.17</a>. Additionally, it will be assumed temperature and composition of the reaction mixture are uniform over the cross-section of the PFR and depend only on the distance L from the feed point.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig003009a"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003009a-1.png" alt="PFR reactor volume element" width="45%" />
@@ -1229,9 +1237,8 @@ This equation is equivalent to:
 \frac{dT}{dV} = \cfrac{\cfrac{dQ}{dV} + \Delta H_{R,A}\,r_A}{\sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)}, \quad r_A = - r
 \tag{2.53}
 \end{equation}\]</span></p>
-</div>
-<div id="temperature-and-concentration-profiles-as-function-of-pfr-length" class="section level3 unnumbered">
-<h3>Temperature and concentration profiles as function of PFR length</h3>
+<div id="temperature-and-concentration-profiles-as-function-of-pfr-length" class="section level4 unnumbered">
+<h4>Temperature and concentration profiles as function of PFR length</h4>
 <p>In case that the tube diameter is constant, it could be useful to express Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028e">(2.51)</a> considering the differential element of length (<em>dL</em>() rather than the differential element of volume, <em>dV</em>.</p>
 <p>The volume of the reactor is related to the axial length, <em>L</em>, and the vessel diameter, <em>D</em>. Thus, over a differential element of volume:
 <span class="math display" id="eq:ec003028h">\[\begin{equation}
@@ -1257,8 +1264,8 @@ where <span class="math inline">\(u\)</span> is the linear velocity with which t
 \end{equation}\]</span></p>
 <p>Now, the simultaneous solution of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028i">(2.55)</a> and Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028j">(2.57)</a> gives the temperature and concentration profiles along the reactor’s axial length, provided that the rate of external heat transfer is known.</p>
 </div>
-<div id="external-heat-transfer-to-pfr" class="section level3 unnumbered">
-<h3>External Heat Transfer to PFR</h3>
+<div id="external-heat-transfer-to-pfr" class="section level4 unnumbered">
+<h4>External Heat Transfer to PFR</h4>
 <p>In such cases, when a PFR operates with heat transfer to the surroundings to control the temperature within a specified range, it is possible to impose a constant heat flux at the reactor’s wall, which could be implemented example, electrical heating.</p>
 <p>The rate of heat transfer depends on the local temperature difference between the fluid in the reactor and the heat transfer fluid, as follow:
 <span class="math display" id="eq:ec003028k">\[\begin{equation}
@@ -1368,6 +1375,7 @@ In the beginning, the temperature is high, as well as the concentration of A. La
 </div>
 <p><strong>Work in Progress</strong></p>
 
+</div>
 </div>
 </div>
 </div>
