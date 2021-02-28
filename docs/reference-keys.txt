@@ -87,6 +87,7 @@ eq:ec003030
 eq:ec003031
 eq:ec003032
 exr:it003005
+exr:it003006
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics

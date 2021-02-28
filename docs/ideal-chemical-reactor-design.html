@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-27" />
+<meta name="date" content="2021-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1369,6 +1369,50 @@ In the beginning, the temperature is high, as well as the concentration of A. La
 <tr class="odd">
 <td align="center"><img src="figures/lect008_01.png" /></td>
 <td align="center"><img src="figures/lect008_02.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="exercise">
+<span id="exr:it003006" class="exercise"><strong>Exercise 2.6  (Parallel Reactions in a PFR with Heat Effects)  </strong></span>Consider next set of reactions which occurs in gas-phase
+<span class="math display">\[\begin{align*}
+    &amp;A \xrightarrow[]{k_1} B\\
+    &amp;2A \xrightarrow[]{k_2} C
+\end{align*}\]</span>
+with <span class="math inline">\(r_{1} = k_{1}\,C_A\)</span> and <span class="math inline">\(r_{2} = k_{2}\,C_A^2\)</span>
+Pure <span class="math inline">\(A\)</span> is fed at a rate of 100 mol/s, a temperature of 150 <span class="math inline">\(^\circ\)</span>C and a concentration of 0.1 mol/dm<span class="math inline">\(^3\)</span>.
+Determine the temperature and flow rate profiles down the reactor.
+</div>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> This problem was solved from following set of equations:</p>
+<p>Kinetics equations:
+<span class="math display">\[\begin{align*}
+r_1 &amp;= k_1\,C_A\\
+r_2 &amp;= k_2\,C_A^2
+\end{align*}\]</span>
+Mole balances:
+<span class="math display">\[\begin{align*}
+\frac{dF_A}{dV} &amp;= r_A = - r_1 - 2\,r_2\\
+\frac{dF_B}{dV} &amp;= r_B = r_1 \\
+\frac{dF_C}{dV} &amp;= r_C = r_2
+\end{align*}\]</span>
+Energy balance:
+<span class="math display">\[\begin{equation*}
+\frac{dT}{dV} = \frac{Ua\left(T_J - T\right) + r_{A1}\,\Delta H_{R1} + r_{A2}\,\Delta H_{R2}}{F_A\,C_{P_A} + F_B\,C_{P_B} + F_C\,C_{P_C} }
+\end{equation*}\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Temperature profile</th>
+<th align="center">Molar flowrates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="figures/lect009_01.png" /></td>
+<td align="center"><img src="figures/lect009_02.png" /></td>
 </tr>
 </tbody>
 </table>

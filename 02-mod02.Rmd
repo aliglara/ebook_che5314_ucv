@@ -1335,6 +1335,41 @@ Without heat exchanger    |  With heat exchanger
 
 ```
 
+```{exercise, it003006, name="Parallel Reactions in a PFR with Heat Effects"}
+Consider next set of reactions which occurs in gas-phase 
+\begin{align*}
+	&A \xrightarrow[]{k_1} B\\
+	&2A \xrightarrow[]{k_2} C
+\end{align*}
+with $r_{1} = k_{1}\,C_A$ and $r_{2} = k_{2}\,C_A^2$ 
+Pure $A$ is fed at a rate of 100 mol/s, a temperature of 150 $^\circ$C and a concentration of 0.1 mol/dm$^3$.
+Determine the temperature and flow rate profiles down the reactor.
+```
+
+```{solution}
+This problem was solved from following set of equations:
+
+Kinetics equations:
+\begin{align*}
+r_1 &= k_1\,C_A\\
+r_2 &= k_2\,C_A^2
+\end{align*}
+Mole balances:
+\begin{align*}
+\frac{dF_A}{dV} &= r_A = - r_1 - 2\,r_2\\
+\frac{dF_B}{dV} &= r_B = r_1 \\
+\frac{dF_C}{dV} &= r_C = r_2
+\end{align*}
+Energy balance:
+\begin{equation*}
+\frac{dT}{dV} = \frac{Ua\left(T_J - T\right) + r_{A1}\,\Delta H_{R1} + r_{A2}\,\Delta H_{R2}}{F_A\,C_{P_A} + F_B\,C_{P_B} + F_C\,C_{P_C} }
+\end{equation*}
+
+Temperature profile    |  Molar flowrates
+:-------------------------:|:-------------------------:
+![](figures/lect009_01.png)|![](figures/lect009_02.png)
+
+```
 **Work in Progress**
 
 
