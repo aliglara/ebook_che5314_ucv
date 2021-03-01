@@ -88,6 +88,17 @@ eq:ec003031
 eq:ec003032
 exr:it003005
 exr:it003006
+fig:fig002021
+eq:eq064
+eq:ecconpass
+eq:ecconglobal
+eq:eccondef
+eq:ecconcliquid
+eq:echeatbalanceM
+eq:eq063
+eq:eq065
+eq:eq066
+exr:it003007
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -111,5 +122,6 @@ energy-balance-1
 plug-flow-reactor-pfr
 design-equation
 energy-balance-2
+recycle-pfr
 distribution-of-residence-times
 final-words

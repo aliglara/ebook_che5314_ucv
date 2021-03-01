@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-02-28" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -130,6 +130,7 @@
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#temperature-and-concentration-profiles-as-function-of-pfr-length"><i class="fa fa-check"></i>Temperature and concentration profiles as function of PFR length</a></li>
 <li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#external-heat-transfer-to-pfr"><i class="fa fa-check"></i>External Heat Transfer to PFR</a></li>
 </ul></li>
+<li class="chapter" data-level="2.3.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#recycle-pfr"><i class="fa fa-check"></i><b>2.3.3</b> Recycle PFR</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
@@ -1417,9 +1418,212 @@ Energy balance:
 </tbody>
 </table>
 </div>
+</div>
+</div>
+<div id="recycle-pfr" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Recycle PFR</h3>
+<p>A recycling reactor is an ideal tubular reactor that part of the effluent stream back to the reactor inlet. As shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig002021">2.18</a>. Recycle can control the temperature in the reactor and adjust the product distribution if more than one reaction is taking place.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig002021"></span>
+<img src="ebook_notes_5314_files/figure-html/fig002021-1.png" alt="Recycle PFR" width="45%" />
+<p class="caption">
+Figure 2.18: Recycle PFR
+</p>
+</div>
+<p>Based on the flowsheet in Fig. <a href="ideal-chemical-reactor-design.html#fig:fig002021">2.18</a>, the feed to the process is denoted by the subscript ‘’o’’ with is mixed at the point M with the recycle stream, denoted by a subscript ‘’R’‘. The mixed stream, which is denoted by a subscript’‘in’’, is then fed to the reactor.</p>
+<p>At point S, the outlet stream from the reactor, which is denoted by a subscript ‘’out’‘, is split into recycle stream and the final stream leaving the process (denoted by a subscript’‘f’’). The recycle ratio, <em>R</em>, as defined as
+<span class="math display">\[\begin{equation*}
+R = \frac{\upsilon_R}{\upsilon_f} = \frac{F_{\text{tot},R}}{F_{\text{tot},f}} = \frac{F_{A,R}}{F_{A,f}} 
+\end{equation*}\]</span>
+where <span class="math inline">\(\upsilon\)</span> and <span class="math inline">\(F\)</span> are the volumetric and molar flow, respectively.</p>
+<p>If the fresh feed <span class="math inline">\(F_o\)</span> contains a molar fraction <span class="math inline">\(x_{Ao}\)</span>, and the reactor product a molar fraction <span class="math inline">\(x_{A}\)</span> of the specie <span class="math inline">\(A\)</span>, then the molar balance for <span class="math inline">\(A\)</span> at point <span class="math inline">\(M\)</span> is
+<span class="math display">\[\begin{equation*}
+F_{A,in} = F_{A,0} + F_{A,R} = F_{A,0} + R \, F_{A,f}
+\end{equation*}\]</span></p>
+<p>On the other hand, the <span class="math inline">\(A\)</span> balance at point S is
+<span class="math display">\[\begin{equation*}
+F_{A,out} = F_{A,f} + F_{A,R} = F_{A,f} + R \, F_{A,f} = \left(1 + R \right) F_{A,f} \Rightarrow F_{A,f} = \frac{F_{A,out}}{1 + R}
+\end{equation*}\]</span></p>
+<p>Combining those last two equations, the desired expression for the initial value of the molar flow rate of A will be:
+<span class="math display">\[\begin{equation*}
+F_{A,in} = F_{A,0} + R\,\frac{F_{A,out}}{1 + R}
+\end{equation*}\]</span></p>
+<p>The material balance may obtain the volume of the recycled PFR for the reactant <span class="math inline">\(A\)</span> into the reactor, which is
+<span class="math display" id="eq:eq064">\[\begin{equation}
+\frac{V }{F_\text{in}} = - \int_{X_{A,\text{in}} }^{X_A} {\frac{dX_A }{r_A }}
+\tag{2.63}
+\end{equation}\]</span></p>
+<p>However, there are at least two ways to define the conversion of a system like this. One is the per-pass conversion given in eq. <a href="ideal-chemical-reactor-design.html#eq:ecconglobal">(2.65)</a> and the other is the overall conversion given in equation <a href="ideal-chemical-reactor-design.html#eq:ecconglobal">(2.65)</a>.</p>
+<p><span class="math display" id="eq:ecconglobal" id="eq:ecconpass">\[\begin{gather}
+X_{A,pass} = \frac{F_{A,in} - F_{A,out}}{F_{A,in}} \tag{2.64} \\ 
+X_{A,overall} = \frac{F_{A,0} - F_{A,f}}{F_{A,0}} \tag{2.65} 
+\end{gather}\]</span></p>
+<p>It is essential to consider that the reactor’s volumetric flow rate is greater than the volumetric flow rate entering the process when the rate expression contains concentrations.</p>
+<p>The definition of concentration (eq. <a href="ideal-chemical-reactor-design.html#eq:eccondef">(2.66)</a>) is used as usual. For a gas-phase system, the volumetric flow rate, in the denominator, is written using an appropriate equation of state.
+<span class="math display" id="eq:eccondef">\[\begin{equation}
+  C_i = \frac{F_i}{\upsilon}
+  \tag{2.66}
+\end{equation}\]</span></p>
+<p>On the other hand, if the fluid is a liquid of constant density, the reactor’s volumetric flow rate must be used according to Eq. <a href="ideal-chemical-reactor-design.html#eq:ecconcliquid">(2.67)</a>
+<span class="math display" id="eq:ecconcliquid">\[\begin{equation}
+  C_i  =\frac{F_i}{\upsilon_{in}}  = \frac{F_i}{\upsilon_{0}\left(1 + R\right)}
+  \tag{2.67}
+\end{equation}\]</span></p>
+<p>When the recycled PFR operates at non-isothermal temperature, the initial condition for the temperature is found at point M while noting that <span class="math inline">\(T_{out} = T_R = T_f\)</span>. Assuming that no phase change occurs in any of the streams, the heat balance would be:
+<span class="math display" id="eq:echeatbalanceM">\[\begin{equation}
+  \sum_i \left(F_{i,0} \int_{T_0}^{T_{in}} C_{P,i} dT \right) +  \sum_i \left(F_{i,R} \int_{T_R}^{T_{in}} C_{P,i} dT \right) = 0
+  \tag{2.68}
+\end{equation}\]</span>
+Therefore, the temperature of the stream ‘’in’’
+<span class="math display">\[\begin{equation}
+  T_{in} = T_0\,\frac{\sum_i \left(F_{i,0}  C_{P,i} \right) + T_R\, \sum_i \left(F_{i,R} C_{P,i}\right)}{\sum_i \left(F_{i,in}  C_{P,i} \right) }
+  (\#eq:ectemp_in)
+\end{equation}\]</span></p>
+<p>In summary, the performance of a non-isothermal recycle PFR must be calculate
+<span class="math display">\[\begin{align}
+  &amp;\frac{dF_i}{dz} = \frac{\pi D^2}{4}\sum \nu_{i,j} r_j \\
+  &amp; \pi D U \left(T_e - T\right) = \left(\sum F_i C_{P,i}\right)\frac{dT}{dz} + \frac{\pi D^2}{4} \sum r_j \Delta H_j \\
+  &amp; F_i \left(z =0\right) = F_{i,in} = F_{i,0} + \frac{R}{1+R} F_{i,out} \\
+  &amp; T \left(z=0\right) = T_{in}
+\end{align}\]</span></p>
+<p>This EDO system must be solved using successive substitution because the flow rate and temperature of stream ``in’’ usually are not provided. To calculate the initial values of these variables is necessary to know the molar flow rate and temperature of the stream ‘’out’’. However, <span class="math inline">\(F_{i,in}\)</span> and <span class="math inline">\(T_{in}\)</span> are needed to integrate the design equation and calculate <span class="math inline">\(F_{i,out}\)</span> and <span class="math inline">\(T_{out}\)</span>.</p>
+<p>The problem could be solved by calculating an initial guess for the conditions of stream ``in’’ assuming that there is no recycle stream. The previous calculation provides an educated-guess for the composition and temperature of the recycle stream ‘’R’’. The rest of the calculations are performed using these values as initial conditions.</p>
+<p>Under isothermal operation and assuming that <span class="math inline">\(F_0 = F_f\)</span>, and noting that <span class="math inline">\(x_{A,R} = x_{A,out} = x_{A,f}\)</span>, the problem is much easier to solve. A balance for <em>A</em> at point M.
+<span class="math display">\[\begin{equation*}
+  F_0\,x_{A,0} + F_R\,x_{A,R}  = F_\text{in}\,x_{A,in}
+\end{equation*}\]</span>
+Now, a balance on the reactor
+<span class="math display">\[\begin{equation*}
+  F_\text{in} = F_{out} = F_f \left(1 + R\right) \equiv F_0 \left(1 + R\right) 
+\end{equation*}\]</span>
+Therefore
+<span class="math display">\[\begin{align*}
+      x_{A,\text{in}} &amp;= \frac{F_0\,x_{A,0} + F_R \,x_{A,f}}{F_\text{in}} \\
+                &amp; = \frac{F_0\,x_{A,0} + F_0\,R\,x_{A,f}}{F_{out}} = \frac{F_0\left( x_{A,0} + R\,x_{A,f}\right)}{F_0 \left(1 + R\right) } 
+\end{align*}\]</span>
+where <span class="math inline">\(x_{A,k}\)</span> referred to molar fraction of A in the stream <span class="math inline">\(k\)</span></p>
+<p>Then, the total reactor feed contains a molar fraction <span class="math inline">\(x_{A,\text{in}}\)</span>, given by
+<span class="math display" id="eq:eq063">\[\begin{equation}
+        x_{A,\text{in}} = \frac{x_{Ao} + R\,x_{A}}{1+R} 
+        \tag{2.69}
+    \end{equation}\]</span></p>
+<p>The fractional conversion in the stream entering the reactor <span class="math inline">\(X_{A,\text{in}}\)</span> is not zero since this stream is a combination of fresh feed and the recycle stream. Thus the fractional conversion at the reactor inlet is:
+<span class="math display" id="eq:eq065">\[\begin{align}
+    X_{A,\text{in}} =&amp; \frac{x_{Ao} - x_{A,\text{in}}}{x_{Ao}}  \notag \\
+    &amp; = \frac{1}{x_{Ao}} \left( x_{Ao}  - \frac{x_{Ao} + R\,x_{A}}{1+R}\right) \notag \\
+    X_{A,\text{in}} &amp; = \frac{R}{1 + R} X_A
+    \tag{2.70}
+\end{align}\]</span></p>
+<p>Substituting <a href="ideal-chemical-reactor-design.html#eq:eq065">(2.70)</a> in <a href="ideal-chemical-reactor-design.html#eq:eq064">(2.63)</a>
+<span class="math display" id="eq:eq066">\[\begin{equation}
+    V= - F_0 \left( 1 + R \right)\int_{ \frac{R}{1 + R} X_A}^{X_A} {\frac{dX_A }{r_A }}
+    \tag{2.71}
+\end{equation}\]</span></p>
+<p>In this case, <span class="math inline">\(X_A\)</span> represents the overall conversion which means
+<span class="math display">\[\begin{equation*}
+  X_A = \frac{\text{moles of A reacted overall}}{\text{mole of fresh feed}}
+\end{equation*}\]</span></p>
+<p>For the particular case where density changes are negligible, we may write <a href="ideal-chemical-reactor-design.html#eq:eq066">(2.71)</a> in terms of concentrations,
+<span class="math display">\[\begin{equation}
+    \tau = \left( 1 + R \right)\int_{ \frac{C_{A0} + R\,C_{Af}}{1 + R}}^{C_{Af}} {\frac{dC_A }{r_A }}
+\end{equation}\]</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:eq066">(2.71)</a> is the mole balance for a recycled reactor, which has two characteristic limiting cases:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Limiting case</th>
+<th>Reactor volume</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(R \to 0\)</span></td>
+<td><span class="math inline">\(\frac{V}{F_o} = - \int_0^{X_A}{\frac{dX}{r_A \left(X\right)}}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R \to \infty\)</span></td>
+<td><span class="math inline">\(\frac{V}{F_o} = - \frac{X_A}{r_A \left(X_A\right)}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="infobox info">
+<p>When <span class="math inline">\(R \to{} 0\)</span>, <span class="math inline">\(V\)</span> corresponds to an ideal PFR without recycling, while <span class="math inline">\(R \to{} \infty\)</span>, <span class="math inline">\(V\)</span> will be an ideal CSTR’s volume.</p>
+</div>
+<p>It could be interesting to know the <strong>per pass conversion of <em>A</em></strong>, which is the fraction of the total feed of reactant A converted in a single pass through the reactor.
+<span class="math display">\[\begin{equation*}
+  X_A = \frac{\text{moles of A reacted in a single pass}}{\text{mole of of A feed to the reactor}}
+\end{equation*}\]</span></p>
+<p>In this case, the total molar flow rate of <span class="math inline">\(A\)</span> into the reactor is <span class="math inline">\(F_o + R\,F_{out}\)</span>, and to set the fractional inlet conversion of <span class="math inline">\(A\)</span>, equal to zero for the combined stream that enters the reactor. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>On this basis, the design equation becomes
+<span class="math display">\[\begin{equation*}
+  \frac{V}{F_o + R\,F_{out}} = - \int_0^{X_A} \frac{dX}{r_A}
+\end{equation*}\]</span>
+where
+<span class="math display">\[\begin{align*}
+  X_A = &amp; \frac{\left(F_o + R\,F_{out}\right) - \left(R+1\right)F_{out}}{F_o + R\,F_{out}} = \frac{F_o - F_{out}}{F_o + R\,F_{out}} \\
+  X_A = &amp; \frac{F_o - F_o\left(1 - X_A\right)}{F_o + R\,F_o\left(1 - X_A\right)} = \frac{X_A}{1 + R\left(1 - X_A\right)}
+\end{align*}\]</span></p>
+<p>This equation is difficult to solve because <span class="math inline">\(X_A\)</span> appears on both sides of it. Therefore, the previous method is much simpler. The following example may serve to illustrate this reactor type.</p>
+
+<div class="exercise">
+<p><span id="exr:it003007" class="exercise"><strong>Exercise 2.7  (Autocatalytic reaction)  </strong></span>Determine the required reactor volume to treat <span class="math inline">\(0.1\)</span> m<span class="math inline">\(^3\)</span>/min of a fluid having a <span class="math inline">\(C_{A0} = 10\)</span> mmol/m<span class="math inline">\(^3\)</span> to 90% conversion. Additionally, it is known next experimental data:</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+<th><a href=""></a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(C_{A0}\)</span>, mmol/m<span class="math inline">\(^3\)</span></td>
+<td>2</td>
+<td>5</td>
+<td>6</td>
+<td>6</td>
+<td>11</td>
+<td>14</td>
+<td>16</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_{A}\)</span>, mmol/m<span class="math inline">\(^3\)</span></td>
+<td>0.5</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>6</td>
+<td>10</td>
+<td>8</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tau\)</span>, min</td>
+<td>30</td>
+<td>1</td>
+<td>50</td>
+<td>8</td>
+<td>4</td>
+<td>20</td>
+<td>20</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose that the reactor is:</p>
+<ol style="list-style-type: decimal">
+<li>a CSTR.</li>
+<li>a PFR.</li>
+</ol>
+</div>
 <p><strong>Work in Progress</strong></p>
 
-</div>
 </div>
 </div>
 </div>

@@ -1375,7 +1375,7 @@ Temperature profile    |  Molar flowrates
 
 A recycling reactor is an ideal tubular reactor that part of the effluent stream back to the reactor inlet. As shown in Figure \@ref(fig:fig002021). Recycle can control the temperature in the reactor and adjust the product distribution if more than one reaction is taking place.
 
-```{r fig002021, out.width = "45%", echo=FALSE, fig.align='center', fig.cap='Recycle PFR', fig.lp='fig:'}
+```{r fig002021, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Recycle PFR', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/002_pfr_recycle.png")
@@ -1404,6 +1404,149 @@ Combining those last two equations, the desired expression for the initial value
 \begin{equation*}
 F_{A,in} = F_{A,0} + R\,\frac{F_{A,out}}{1 + R}
 \end{equation*}
+
+The material balance may obtain the volume of the recycled PFR for the reactant $A$ into the reactor, which is
+\begin{equation}
+\frac{V }{F_\text{in}} = - \int_{X_{A,\text{in}} }^{X_A} {\frac{dX_A }{r_A }}
+(\#eq:eq064)
+\end{equation}
+
+However, there are at least two ways to define the conversion of a system like this. One is the per-pass conversion given in eq. \@ref(eq:ecconglobal) and the other is the overall conversion given in equation \@ref(eq:ecconglobal).
+
+\begin{gather}
+X_{A,pass} = \frac{F_{A,in} - F_{A,out}}{F_{A,in}} (\#eq:ecconpass) \\ 
+X_{A,overall} = \frac{F_{A,0} - F_{A,f}}{F_{A,0}} (\#eq:ecconglobal) 
+\end{gather}
+
+It is essential to consider that the reactor's volumetric flow rate is greater than the volumetric flow rate entering the process when the rate expression contains concentrations. 
+
+The definition of concentration (eq. \@ref(eq:eccondef)) is used as usual. For a gas-phase system, the volumetric flow rate, in the denominator, is written using an appropriate equation of state.
+\begin{equation}
+  C_i = \frac{F_i}{\upsilon}
+  (\#eq:eccondef)
+\end{equation}
+
+On the other hand, if the fluid is a liquid of constant density, the reactor's volumetric flow rate must be used according to Eq. \@ref(eq:ecconcliquid)
+\begin{equation}
+  C_i  =\frac{F_i}{\upsilon_{in}}  = \frac{F_i}{\upsilon_{0}\left(1 + R\right)}
+  (\#eq:ecconcliquid)
+\end{equation}
+
+When the recycled PFR operates at non-isothermal temperature, the initial condition for the temperature is found at point M while noting that $T_{out} = T_R = T_f$. Assuming that no phase change occurs in any of the streams, the heat balance would be:
+\begin{equation}
+  \sum_i \left(F_{i,0} \int_{T_0}^{T_{in}} C_{P,i} dT \right) +  \sum_i \left(F_{i,R} \int_{T_R}^{T_{in}} C_{P,i} dT \right) = 0
+  (\#eq:echeatbalanceM)
+\end{equation}
+Therefore, the temperature of the stream ''in''
+\begin{equation}
+  T_{in} = T_0\,\frac{\sum_i \left(F_{i,0}  C_{P,i} \right) + T_R\, \sum_i \left(F_{i,R} C_{P,i}\right)}{\sum_i \left(F_{i,in}  C_{P,i} \right) }
+  (\#eq:ectemp_in)
+\end{equation}
+
+In summary, the performance of a non-isothermal recycle PFR must be calculate 
+\begin{align}
+  &\frac{dF_i}{dz} = \frac{\pi D^2}{4}\sum \nu_{i,j} r_j \\
+  & \pi D U \left(T_e - T\right) = \left(\sum F_i C_{P,i}\right)\frac{dT}{dz} + \frac{\pi D^2}{4} \sum r_j \Delta H_j \\
+  & F_i \left(z =0\right) = F_{i,in} = F_{i,0} + \frac{R}{1+R} F_{i,out} \\
+  & T \left(z=0\right) = T_{in}
+\end{align}
+
+This EDO system must be solved using successive substitution because the flow rate and temperature of stream ``in'' usually are not provided. To calculate the initial values of these variables is necessary to know the molar flow rate and temperature of the stream ''out''. However, $F_{i,in}$ and $T_{in}$ are needed to integrate the design equation and calculate $F_{i,out}$ and $T_{out}$.
+
+The problem could be solved by calculating an initial guess for the conditions of stream ``in'' assuming that there is no recycle stream. The previous calculation provides an educated-guess for the composition and temperature of the recycle stream ''R''. The rest of the calculations are performed using these values as initial conditions. 
+
+Under isothermal operation and assuming that $F_0 = F_f$, and noting that $x_{A,R} = x_{A,out} = x_{A,f}$, the problem is much easier to solve. A balance for _A_ at point M.
+\begin{equation*}
+  F_0\,x_{A,0} + F_R\,x_{A,R}  = F_\text{in}\,x_{A,in}
+\end{equation*}
+Now, a balance on the reactor
+\begin{equation*}
+  F_\text{in} = F_{out} = F_f \left(1 + R\right) \equiv F_0 \left(1 + R\right) 
+\end{equation*}
+Therefore
+\begin{align*}
+	  x_{A,\text{in}} &= \frac{F_0\,x_{A,0} + F_R \,x_{A,f}}{F_\text{in}} \\
+				& = \frac{F_0\,x_{A,0} + F_0\,R\,x_{A,f}}{F_{out}} = \frac{F_0\left( x_{A,0} + R\,x_{A,f}\right)}{F_0 \left(1 + R\right) } 
+\end{align*} 
+where $x_{A,k}$ referred to molar fraction of A in the stream $k$
+
+Then, the total reactor feed contains a molar fraction $x_{A,\text{in}}$, given by
+	\begin{equation}
+		x_{A,\text{in}} = \frac{x_{Ao} + R\,x_{A}}{1+R} 
+		(\#eq:eq063)
+	\end{equation}
+	
+The fractional conversion in the stream entering the reactor $X_{A,\text{in}}$ is not zero since this stream is a combination of fresh feed and the recycle stream. Thus the fractional conversion at the reactor inlet is:
+\begin{align}
+	X_{A,\text{in}} =& \frac{x_{Ao} - x_{A,\text{in}}}{x_{Ao}}  \notag \\
+	& = \frac{1}{x_{Ao}} \left( x_{Ao}  - \frac{x_{Ao} + R\,x_{A}}{1+R}\right) \notag \\
+	X_{A,\text{in}} & = \frac{R}{1 + R} X_A
+	(\#eq:eq065)
+\end{align}
+	
+Substituting \@ref(eq:eq065) in \@ref(eq:eq064)
+\begin{equation}
+	V= - F_0 \left( 1 + R \right)\int_{ \frac{R}{1 + R} X_A}^{X_A} {\frac{dX_A }{r_A }}
+	(\#eq:eq066)
+\end{equation}
+
+In this case, $X_A$ represents the overall conversion which means
+\begin{equation*}
+  X_A = \frac{\text{moles of A reacted overall}}{\text{mole of fresh feed}}
+\end{equation*}
+
+For the particular case where density changes are negligible, we may write \@ref(eq:eq066) in terms of concentrations,
+\begin{equation}
+	\tau = \left( 1 + R \right)\int_{ \frac{C_{A0} + R\,C_{Af}}{1 + R}}^{C_{Af}} {\frac{dC_A }{r_A }}
+\end{equation}
+
+Equation \@ref(eq:eq066) is the mole balance for a recycled reactor, which has two characteristic limiting cases: 
+
+Limiting case | Reactor volume
+-|-
+$R \to 0$ | $\frac{V}{F_o} = - \int_0^{X_A}{\frac{dX}{r_A \left(X\right)}}$ 
+$R \to \infty$ |  $\frac{V}{F_o} = - \frac{X_A}{r_A \left(X_A\right)}$
+
+:::: {.infobox .info data-latex="information"}
+
+When $R \to{} 0$, $V$ corresponds to an ideal PFR without recycling, while $R \to{} \infty$, $V$ will be an ideal CSTR's volume.
+
+::::
+
+It could be interesting to know the **per pass conversion of _A_**, which is the fraction of the total feed of reactant A converted in a single pass through the reactor.
+\begin{equation*}
+  X_A = \frac{\text{moles of A reacted in a single pass}}{\text{mole of of A feed to the reactor}}
+\end{equation*}
+
+In this case, the total molar flow rate of $A$ into the reactor is $F_o + R\,F_{out}$, and to set the fractional inlet conversion of $A$, equal to zero for the combined stream that enters the reactor. [@roberts2009]
+
+On this basis, the design equation becomes
+\begin{equation*}
+  \frac{V}{F_o + R\,F_{out}} = - \int_0^{X_A} \frac{dX}{r_A}
+\end{equation*}
+where
+\begin{align*}
+  X_A = & \frac{\left(F_o + R\,F_{out}\right) - \left(R+1\right)F_{out}}{F_o + R\,F_{out}} = \frac{F_o - F_{out}}{F_o + R\,F_{out}} \\
+  X_A = & \frac{F_o - F_o\left(1 - X_A\right)}{F_o + R\,F_o\left(1 - X_A\right)} = \frac{X_A}{1 + R\left(1 - X_A\right)}
+\end{align*}
+
+This equation is difficult to solve because $X_A$ appears on both sides of it. Therefore, the previous method is much simpler. The following example may serve to illustrate this reactor type.
+
+```{exercise, it003007, name="Autocatalytic reaction"}
+Determine the required reactor volume to treat $0.1$ m$^3$/min of a fluid having a $C_{A0} = 10$ mmol/m$^3$ to 90% conversion. Additionally, it is known next experimental data:
+
+  []() | []() | []() | []() | []() | []() | []() | []() | []()
+  - | - | - | - | - | - | - | - | -
+	$C_{A0}$, mmol/m$^3$ 	| 2   | 5 | 6 | 6 | 11 | 14 | 16 | 24
+	$C_{A}$, mmol/m$^3$ 	| 0.5 | 3 | 1 | 2 | 6 | 10 | 8 | 4  
+	$\tau$, min 			| 30  | 1 | 50 | 8 | 4 | 20 | 20 | 4
+		
+Suppose that the reactor is:
+
+1. a CSTR.
+2. a PFR.
+
+```
 
 **Work in Progress**
 
