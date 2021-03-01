@@ -1370,6 +1370,41 @@ Temperature profile    |  Molar flowrates
 ![](figures/lect009_01.png)|![](figures/lect009_02.png)
 
 ```
+
+### Recycle PFR
+
+A recycling reactor is an ideal tubular reactor that part of the effluent stream back to the reactor inlet. As shown in Figure \@ref(fig:fig002021). Recycle can control the temperature in the reactor and adjust the product distribution if more than one reaction is taking place.
+
+```{r fig002021, out.width = "45%", echo=FALSE, fig.align='center', fig.cap='Recycle PFR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/002_pfr_recycle.png")
+grid.raster(img)
+```
+
+Based on the flowsheet in Fig. \@ref(fig:fig002021), the feed to the process is denoted by the subscript ''o'' with is mixed at the point M with the recycle stream, denoted by a subscript ''R''. The mixed stream, which is denoted by a subscript ''in'', is then fed to the reactor.
+
+At point S, the outlet stream from the reactor, which is denoted by a subscript ''out'', is split into recycle stream and the final stream leaving the process (denoted by a subscript ''f''). The recycle ratio, _R_, as defined as
+\begin{equation*}
+R = \frac{\upsilon_R}{\upsilon_f} = \frac{F_{\text{tot},R}}{F_{\text{tot},f}} = \frac{F_{A,R}}{F_{A,f}} 
+\end{equation*}
+where $\upsilon$ and $F$ are the volumetric and molar flow, respectively.
+
+If the fresh feed $F_o$ contains a molar fraction $x_{Ao}$, and the reactor product a molar fraction $x_{A}$ of the specie $A$, then the molar balance for $A$ at point $M$ is
+\begin{equation*}
+F_{A,in} = F_{A,0} + F_{A,R} = F_{A,0} + R \, F_{A,f}
+\end{equation*}
+
+On the other hand, the $A$ balance at point S is
+\begin{equation*}
+F_{A,out} = F_{A,f} + F_{A,R} = F_{A,f} + R \, F_{A,f} = \left(1 + R \right) F_{A,f} \Rightarrow F_{A,f} = \frac{F_{A,out}}{1 + R}
+\end{equation*}
+
+Combining those last two equations, the desired expression for the initial value of the molar flow rate of A will be:
+\begin{equation*}
+F_{A,in} = F_{A,0} + R\,\frac{F_{A,out}}{1 + R}
+\end{equation*}
+
 **Work in Progress**
 
 
