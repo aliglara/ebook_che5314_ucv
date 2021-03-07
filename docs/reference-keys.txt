@@ -99,6 +99,7 @@ eq:eq063
 eq:eq065
 eq:eq066
 exr:it003007
+fig:figlect011
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
