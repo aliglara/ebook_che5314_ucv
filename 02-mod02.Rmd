@@ -1545,9 +1545,41 @@ Suppose that the reactor is:
 
 1. a CSTR.
 2. a PFR.
+3. a recycle reactor with $R = 30$.
+4. the recycle reactor with minimum volume.
 
 ```
 
+```{solution}
+In this reaction system, the fluid density is constant, so it is possible to rewrite \@ref(eq:eq066) in terms of concentration (which is an advantage for us because the fitting of experimental data was already done).
+\begin{align*}
+    C_{A,\text{in}} &= \frac{C_{Ao} + R\,C_{A}}{1+R} \\
+    \tau &= - \left( 1 + R \right)\int_{ C_{A,\text{in}}}^{C_{A}} {\frac{dC_A}{r_A }} 
+\end{align*}
+    
+It is necessary add a negative sign because $A$ is the reactant in the reaction.
+Those equations were implemented in a Python [script](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/llect_011PFRReciclo.ipynb) to solve the problem both graphically and analytically. Figure \@ref(fig:figlect011) shows the comparison between continuous-flow reactors for an autocatalytic reaction.  
+
+Fig. \@ref(fig:figlect011), for each case, shaded area represents the value of the integral $\int dC_A/r_A$. In summary, the volume for:
+  
+1. a CSTR is 9.24 m$^3$. 
+2. a PFR is 1.769 m$^3$.
+3. a PFR with $R = 30$ is 7.49 m$^3$.
+4.Finally, the optimal R for a PFR is 0.5455. Therefore, its volume is 1.23 m$^3$. 
+
+        
+In general, PFRs require less volume than CSTRs of equal fractional conversion, but this generalization is not valid in the case of autocatalytic reactions. In the example solved before, although the volume required for a PFR (case (b)) is smaller than a CSTR (case (a)), it is not minimum.
+    
+For autocatalytic reactions, back-mixing of reacted material with fresh feed is often beneficial in optimizing the overall reactor design, as it was proved in both cases (c) and (d). 
+
+```
+
+```{r figlect011, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Comparison continuous-flow reactors with autocatalytic kinetics: (a) CSTR, (b) PFR, (c) PFR with R = 1, (d) PFR at optimal recycle', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/lect011.png")
+grid.raster(img)
+```
 **Work in Progress**
 
 
