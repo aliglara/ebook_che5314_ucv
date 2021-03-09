@@ -1580,6 +1580,64 @@ library(grid)
 img <- readPNG("figures/lect011.png")
 grid.raster(img)
 ```
+
+## Analysis of Equilibrium-Limited Adiabatic Reactors
+Suppose we are asked to analyze the behavior of a single reaction taking place in an adiabatic reactor. One of the questions we might want to answer is: "What is the maximum conversion that can be achieved?''
+
+ Of course, the maximum conversion is obtained when the reaction reaches chemical equilibrium. This situation will be reached for an infinite reactor volume or an infinite weight of the catalyst. Nevertheless, the composition and temperature of the effluent from any reactor will be determined by the reaction's kinetics. 
+
+In any case, a reactor's performance is susceptible to the temperature of the inlet stream, which is especially true for PFRs, and for reactors that operate adiabatically. Thus, it is vital to consider the type of reaction we are dealing with: exothermic, endothermic, irreversible, or reversible.
+
+Temperature, composition, and reaction rate are uniquely related to any single homogeneous reaction, and this way is represented graphically in one of three ways, as shown in Figure \@ref(fig:fig003029).
+
+```{r fig003029, out.width="85%", echo=FALSE, fig.align='center', fig.cap='General shape of the temperature-conversion plot for different reaction types [@levenspiel2004]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_009.png")
+grid.raster(img)
+```
+
+### Adiabatic reactors
+The simplest and cheapest mode of reactor design and operation is the adiabatic model. If heat is added to or withdrawn from the reactor as the reaction proceeds, the heat-exchange surface must be designed into the reactor, increasing the capital cost substantially. 
+However, an adiabatic reaction is practicable when the resulting temperatures stay in a workable range. That is, when they did not drop so that the rate becomes too small or rise until the rate becomes uncontrollable. The following conditions are favorable to adiabatic operation: 
+
+1. When the heat of reaction is small. 
+2. When it is possible to adjust the initial temperature to not take the system out of the workable range. 
+3. When the heat capacity of the equipment or the solvent or any inert materials that may be present is sufficient to moderate the temperature effect. 
+4. When an inert material is present or introduced without harm, it can moderate temperature changes by vaporization or condensation.
+
+The construction of an adiabatic reactor is relatively simple, and the capital cost is relatively low, so its design should always be considered. A more complex design should be used only when there are compelling reasons.
+
+For the design of nonisothermal operation, these necessary data are needed: [@walas1989] 
+
+1. The specific reaction rate as a function of temperature. 
+2. The system's thermal data, such as the heat capacities and sensible and latent enthalpies of all participants and inert materials present, as functions of temperature. 
+3. The heat of reaction at some base or reference temperature. 
+4. Heat fluxes or heat-transfer coefficients. 
+
+For an adiabatic flow reactor operating at a steady-state with no shaft work, when only one reaction takes place, eq. \@ref(eq:energybalb) simplifies to 
+
+\begin{equation}
+\left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{P_i}\right)\left(T_0 - T\right) - {F_{A0}\,X_A}\,\Delta H_{R,A}(T) = 0
+(\#eq:ec003033)
+\end{equation}
+Rearranging,
+\begin{equation}
+T = T_0 - \left(\frac{{F_{A0}}\,\Delta H_{R,A}(T)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{P_i}} \right)\:X_A
+(\#eq:ec003034)
+\end{equation}
+
+Equation \@ref(eq:ec003034) shows that the temperature, _T_, is proportional to the fractional conversion, $X_A$, for an adiabatic flow reactor at a steady state. If the fractional conversion is known, the corresponding temperature can be calculated.
+
+Let $T_\text{ad}$ be the temperature that corresponds to complete conversion (i.e., $X_A = 1$)
+
+\begin{equation}
+\Delta T_\text{ad} = \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T_\text{ad})\right)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\left(T_0 \to T_\text{ad}\right)} \right)
+(\#eq:ec003035)
+\end{equation}
+where $\Delta T_\text{ad}$ is called **_adiabatic temperature change_**.
+
+
 **Work in Progress**
 
 

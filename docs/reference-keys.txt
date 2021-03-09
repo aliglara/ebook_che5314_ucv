@@ -100,6 +100,10 @@ eq:eq065
 eq:eq066
 exr:it003007
 fig:figlect011
+fig:fig003029
+eq:ec003033
+eq:ec003034
+eq:ec003035
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -124,5 +128,7 @@ plug-flow-reactor-pfr
 design-equation
 energy-balance-2
 recycle-pfr
+analysis-of-equilibrium-limited-adiabatic-reactors
+adiabatic-reactors
 distribution-of-residence-times
 final-words
