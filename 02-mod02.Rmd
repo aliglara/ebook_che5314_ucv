@@ -1637,6 +1637,102 @@ Let $T_\text{ad}$ be the temperature that corresponds to complete conversion (i.
 \end{equation}
 where $\Delta T_\text{ad}$ is called **_adiabatic temperature change_**.
 
+```{exercise, it003008, name="Comparing PFRs performance"}
+Plot a $C_A$ and $T$ profiles vs $\tau$ for the reaction 
+\begin{equation*}
+		A \xrightarrow[]{k(T)} B
+\end{equation*}
+with $r = k(T)\,C_A$ 
+
+The reaction is taken place in an adiabatic PFR for $E = 30$ kcal/mol, $k_0 = 2.6 \times 10^{20}$ min$^{-1}$, $\Delta H_r = -20$ kcal/mol, $\rho C_P = 1000$ cal/L-K, $T_0 = 300$ K y $C_{Ao} = 2$ mol/L.
+```
+
+_solution_\
+For any continuous flow reactor working under adiabatic mode, the energy balance is calculated by
+\begin{equation*}
+  T = T_0 + \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}} \right)X_A
+\end{equation*}
+  
+This equation could rewrite it, taking advantage of the reacting fluid is constant-density,
+\begin{equation*}
+  F_i = \rho \, \upsilon_i
+\end{equation*}
+where $\upsilon$ represents the volumetric flow.
+
+Substituting this expression into the energy balance, and rearranging it
+\begin{align*}
+  T & = T_0 + \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T)\right)}{\upsilon\,\rho\,C_P} \right)X_A \\
+  & = T_0 + \left(\frac{-\Delta H_{R}(T)}{\rho\,C_P} \right)\,{C_{A0}}\,X_A \\
+  T & = T_0 + \left(\frac{-\Delta H_{R}(T)}{\rho\,C_P} \right)\,\left(C_{A0} - C_A\right)
+\end{align*}
+
+The design equation for a PFR,
+\begin{equation}
+  d\,\tau = \frac{d\,C_A}{r_A} = -\frac{d\,C_A}{k(T)\,C_A}
+\end{equation}
+
+Summarizing, the set of equations to be solved is:
+\begin{align*}
+  d\,\tau &= - \frac{d\,C_A}{k(T)\,C_A} \\
+    T &= T_0 + \left(\frac{-\Delta H_{R}(T)}{\rho\,C_P} \right)\,\left(C_{A0} - C_A\right) \\
+    k(T) &= k_0 \exp(-E/R/T)
+\end{align*}
+  
+This system of equations was implemented and solved with [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_012PFRadiabatico.ipynb), and the graphical solution for the concentration and temperature profiles are shown in Fig. \@ref(fig:solprofiles).
+
+```{r solprofiles, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Profiles for an adiabatic PFR: (a) Concentration, (b) Temperature', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_15_01.png")
+grid.raster(img)
+```
+
+It is interesting to compare the concentration profile for the adiabatic PFR with the solution for the reactor maintained isothermally at 300 K. These solutions are plotted in Figure \@ref(fig:fig003024).
+
+```{r fig003024, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Comparison of concentration profile for a PFR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_15_03.png")
+grid.raster(img)
+```
+
+From Figure \@ref(fig:fig003024), it is worthy to point out when the PFR operates in adiabatic mode, a shorter $\tau$ to attain complete conversion is required than under isothermal operation. Otherwise, the isothermal reactor curve exhibiting a standard exponential decay, but the adiabatic reactor shows an acceleration in rate as the reaction proceeds because the temperature increases.
+
+The same problem was solved for an adiabatic CSTR, and both profiles obtained were compared with PFR profiles in Figure \@ref(fig:fig003025).
+
+```{r fig003025, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Comparison of concentration and temperature profile for an adiabatic CSTR and adiabatic PFR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_15_05.png")
+grid.raster(img)
+```
+
+Figure \@ref(fig:fig003025) shows that the temperature profile and concentration profile have a similar shape. The difference is that temperature increases while concentration decreases for this exothermic reaction.
+
+Otherwise, from the comparison between PFR and CSTR, it is possible to note that, in this example, the CSTR requires a shorter residence time for a given conversion than a PFR. Finally, CSTR profiles' shapes suggest multiple steady states approximately at $\tau = 1.5$ min.
+
+To identify those operating points, we will rewrite the material and energy balance for our adiabatic CSTR.
+
+The material balance is
+\begin{align}
+  &\upsilon\,C_{A0} - \upsilon\,C_A + r_A\,V = 0 \notag \\
+  &C_{A0} - C_A = -r_A\,\tau \notag \\
+  &C_{A0} - C_A = k(T)\,C_A\,\tau \notag \\
+  &C_A = C_{A0} \, \frac{k(T)}{1 + \tau\,k(T)}
+  (\#eq:ec003042a)
+\end{align}
+
+The energy balance is
+\begin{align}
+  &\upsilon\, \rho C_P \left(To - T\right) - k(T)\,C_A\,\Delta H_r\,V = 0 \notag \\
+  &\frac{\rho C_P}{\tau} \left(To - T\right) - k(T)\,C_A\,\Delta H_r = 0
+  (\#eq:ec003042b)
+\end{align}
+
+The first term of Eq. \@ref(eq:ec003042a) represents the removal of heat, and the second one is associated with generating heat. When both terms have the same value, then the CSTR will be operating at steady-state conditions. 
+
+Now, to identify possible steady-state operating points. First, we set a residence time, in our case 1.5 min. Second, we set the evaluating temperature range, which is 300 - 340 K. Finally, Eq. \@ref(eq:ec003042a) is substituted into Eq. \@ref(eq:ec003042b) and the resulting equation is evaluated for each temperature from the temperature range.
+ 
 
 **Work in Progress**
 

@@ -104,6 +104,12 @@ fig:fig003029
 eq:ec003033
 eq:ec003034
 eq:ec003035
+exr:it003008
+fig:solprofiles
+fig:fig003024
+fig:fig003025
+eq:ec003042a
+eq:ec003042b
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics

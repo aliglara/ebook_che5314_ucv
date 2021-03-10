@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-08" />
+<meta name="date" content="2021-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1702,6 +1702,82 @@ T = T_0 - \left(\frac{{F_{A0}}\,\Delta H_{R,A}(T)}{\sum\limits_{i=1}^\mathcal{C}
 \tag{2.74}
 \end{equation}\]</span>
 where <span class="math inline">\(\Delta T_\text{ad}\)</span> is called <strong><em>adiabatic temperature change</em></strong>.</p>
+
+<div class="exercise">
+<p><span id="exr:it003008" class="exercise"><strong>Exercise 2.8  (Comparing PFRs performance)  </strong></span>Plot a <span class="math inline">\(C_A\)</span> and <span class="math inline">\(T\)</span> profiles vs <span class="math inline">\(\tau\)</span> for the reaction
+<span class="math display">\[\begin{equation*}
+        A \xrightarrow[]{k(T)} B
+\end{equation*}\]</span>
+with <span class="math inline">\(r = k(T)\,C_A\)</span></p>
+The reaction is taken place in an adiabatic PFR for <span class="math inline">\(E = 30\)</span> kcal/mol, <span class="math inline">\(k_0 = 2.6 \times 10^{20}\)</span> min<span class="math inline">\(^{-1}\)</span>, <span class="math inline">\(\Delta H_r = -20\)</span> kcal/mol, <span class="math inline">\(\rho C_P = 1000\)</span> cal/L-K, <span class="math inline">\(T_0 = 300\)</span> K y <span class="math inline">\(C_{Ao} = 2\)</span> mol/L.
+</div>
+<p><em>solution</em><br />
+For any continuous flow reactor working under adiabatic mode, the energy balance is calculated by
+<span class="math display">\[\begin{equation*}
+  T = T_0 + \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}} \right)X_A
+\end{equation*}\]</span></p>
+<p>This equation could rewrite it, taking advantage of the reacting fluid is constant-density,
+<span class="math display">\[\begin{equation*}
+  F_i = \rho \, \upsilon_i
+\end{equation*}\]</span>
+where <span class="math inline">\(\upsilon\)</span> represents the volumetric flow.</p>
+<p>Substituting this expression into the energy balance, and rearranging it
+<span class="math display">\[\begin{align*}
+  T &amp; = T_0 + \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T)\right)}{\upsilon\,\rho\,C_P} \right)X_A \\
+  &amp; = T_0 + \left(\frac{-\Delta H_{R}(T)}{\rho\,C_P} \right)\,{C_{A0}}\,X_A \\
+  T &amp; = T_0 + \left(\frac{-\Delta H_{R}(T)}{\rho\,C_P} \right)\,\left(C_{A0} - C_A\right)
+\end{align*}\]</span></p>
+<p>The design equation for a PFR,
+<span class="math display">\[\begin{equation}
+  d\,\tau = \frac{d\,C_A}{r_A} = -\frac{d\,C_A}{k(T)\,C_A}
+\end{equation}\]</span></p>
+<p>Summarizing, the set of equations to be solved is:
+<span class="math display">\[\begin{align*}
+  d\,\tau &amp;= - \frac{d\,C_A}{k(T)\,C_A} \\
+    T &amp;= T_0 + \left(\frac{-\Delta H_{R}(T)}{\rho\,C_P} \right)\,\left(C_{A0} - C_A\right) \\
+    k(T) &amp;= k_0 \exp(-E/R/T)
+\end{align*}\]</span></p>
+<p>This system of equations was implemented and solved with <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_012PFRadiabatico.ipynb">Python</a>, and the graphical solution for the concentration and temperature profiles are shown in Fig. <a href="ideal-chemical-reactor-design.html#fig:solprofiles">2.21</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:solprofiles"></span>
+<img src="ebook_notes_5314_files/figure-html/solprofiles-1.png" alt="Profiles for an adiabatic PFR: (a) Concentration, (b) Temperature" width="85%" />
+<p class="caption">
+Figure 2.21: Profiles for an adiabatic PFR: (a) Concentration, (b) Temperature
+</p>
+</div>
+<p>It is interesting to compare the concentration profile for the adiabatic PFR with the solution for the reactor maintained isothermally at 300 K. These solutions are plotted in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003024">2.22</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003024"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003024-1.png" alt="Comparison of concentration profile for a PFR" width="85%" />
+<p class="caption">
+Figure 2.22: Comparison of concentration profile for a PFR
+</p>
+</div>
+<p>From Figure <a href="ideal-chemical-reactor-design.html#fig:fig003024">2.22</a>, it is worthy to point out when the PFR operates in adiabatic mode, a shorter <span class="math inline">\(\tau\)</span> to attain complete conversion is required than under isothermal operation. Otherwise, the isothermal reactor curve exhibiting a standard exponential decay, but the adiabatic reactor shows an acceleration in rate as the reaction proceeds because the temperature increases.</p>
+<p>The same problem was solved for an adiabatic CSTR, and both profiles obtained were compared with PFR profiles in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003025">2.23</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003025"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003025-1.png" alt="Comparison of concentration and temperature profile for an adiabatic CSTR and adiabatic PFR" width="85%" />
+<p class="caption">
+Figure 2.23: Comparison of concentration and temperature profile for an adiabatic CSTR and adiabatic PFR
+</p>
+</div>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003025">2.23</a> shows that the temperature profile and concentration profile have a similar shape. The difference is that temperature increases while concentration decreases for this exothermic reaction.</p>
+<p>Otherwise, from the comparison between PFR and CSTR, it is possible to note that, in this example, the CSTR requires a shorter residence time for a given conversion than a PFR. Finally, CSTR profiles’ shapes suggest multiple steady states approximately at <span class="math inline">\(\tau = 1.5\)</span> min.</p>
+<p>To identify those operating points, we will rewrite the material and energy balance for our adiabatic CSTR.</p>
+<p>The material balance is
+<span class="math display" id="eq:ec003042a">\[\begin{align}
+  &amp;\upsilon\,C_{A0} - \upsilon\,C_A + r_A\,V = 0 \notag \\
+  &amp;C_{A0} - C_A = -r_A\,\tau \notag \\
+  &amp;C_{A0} - C_A = k(T)\,C_A\,\tau \notag \\
+  &amp;C_A = C_{A0} \, \frac{k(T)}{1 + \tau\,k(T)}
+  \tag{2.75}
+\end{align}\]</span></p>
+<p>The energy balance is
+<span class="math display" id="eq:ec003042b">\[\begin{align}
+  &amp;\upsilon\, \rho C_P \left(To - T\right) - k(T)\,C_A\,\Delta H_r\,V = 0 \notag \\
+  &amp;\frac{\rho C_P}{\tau} \left(To - T\right) - k(T)\,C_A\,\Delta H_r = 0
+  \tag{2.76}
+\end{align}\]</span></p>
+<p>The first term of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042a">(2.75)</a> represents the removal of heat, and the second one is associated with generating heat. When both terms have the same value, then the CSTR will be operating at steady-state conditions.</p>
+<p>Now, to identify possible steady-state operating points. First, we set a residence time, in our case 1.5 min. Second, we set the evaluating temperature range, which is 300 - 340 K. Finally, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042a">(2.75)</a> is substituted into Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042b">(2.76)</a> and the resulting equation is evaluated for each temperature from the temperature range.</p>
 <p><strong>Work in Progress</strong></p>
 
 </div>

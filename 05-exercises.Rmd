@@ -9,4 +9,5 @@ Exercises | Name | Solution
 \@ref(exr:it003004) |Effect of the rate laws over PFR performance| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_007PFRisoNorders.ipynb)
 \@ref(exr:it003005) |Heat transfer requirement for a PFR| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_008PFRadiabatico.ipynb)
 \@ref(exr:it003006) |Parallel Reactions in a PFR with Heat Effects| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_009PFRpararellRx.ipynb)
-\@ref(exr:it003007) |Autocatalytic reaction| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/llect_011PFRReciclo.ipynb)
+\@ref(exr:it003007) |Autocatalytic reaction| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_011PFRReciclo.ipynb)
+\@ref(exr:it003008) |Comparing PFRs performance| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_012PFRadiabatico.ipynb)
