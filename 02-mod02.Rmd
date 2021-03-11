@@ -1700,7 +1700,7 @@ From Figure \@ref(fig:fig003024), it is worthy to point out when the PFR operate
 
 The same problem was solved for an adiabatic CSTR, and both profiles obtained were compared with PFR profiles in Figure \@ref(fig:fig003025).
 
-```{r fig003025, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Comparison of concentration and temperature profile for an adiabatic CSTR and adiabatic PFR', fig.lp='fig:'}
+```{r fig003025, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Comparison of concentration and temperature profile for an adiabatic CSTR and adiabatic PFR: (a) Concentration profile, (b) Temperature profile', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_15_05.png")
