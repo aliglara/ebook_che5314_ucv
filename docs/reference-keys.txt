@@ -110,6 +110,8 @@ fig:fig003024
 fig:fig003025
 eq:ec003042a
 eq:ec003042b
+fig:fig003026
+fig:fig003028
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -136,5 +138,6 @@ energy-balance-2
 recycle-pfr
 analysis-of-equilibrium-limited-adiabatic-reactors
 adiabatic-reactors
+selecting-the-best-reactor-for-adiabatic-operation
 distribution-of-residence-times
 final-words

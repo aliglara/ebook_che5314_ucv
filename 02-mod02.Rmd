@@ -1689,7 +1689,7 @@ grid.raster(img)
 
 It is interesting to compare the concentration profile for the adiabatic PFR with the solution for the reactor maintained isothermally at 300 K. These solutions are plotted in Figure \@ref(fig:fig003024).
 
-```{r fig003024, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Comparison of concentration profile for a PFR', fig.lp='fig:'}
+```{r fig003024, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Comparison of concentration profile for a PFR', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_15_03.png")
@@ -1733,6 +1733,37 @@ The first term of Eq. \@ref(eq:ec003042a) represents the removal of heat, and th
 
 Now, to identify possible steady-state operating points. First, we set a residence time, in our case 1.5 min. Second, we set the evaluating temperature range, which is 300 - 340 K. Finally, Eq. \@ref(eq:ec003042a) is substituted into Eq. \@ref(eq:ec003042b) and the resulting equation is evaluated for each temperature from the temperature range.
  
+Figure \@ref(fig:fig003026) shows the energy balance for our CSTR at $\tau = 1.5$ min, following the procedure described before, and it is possible to identify three operating points. These points are approximately 302.5 K, 317.5 K, and 337.5 K, respectively.
+
+```{r fig003026, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Locations of steady-state operating points for an adiabatic CSTR at $\tau = 1.5$ min', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_15_06.png")
+grid.raster(img)
+```
+
+### Selecting the best reactor for adiabatic operation
+In any case, it is important to know the optimum temperature progression because it will assure the minimum $V/F_{A0}$ for a given conversion of reactant. This optimum may be isothermal, or it may be a changing temperature: in time for a batch reactor, along the length of the PFR, or from stage to stage for a series of mixed flow reactors.
+
+In order to select the best adiabatic continuous-flow reactor for carrying out a reaction, it is suitable to analyze the $1/r$ plot because either for isothermal or nonisothermal reactors, $\tau$ is still the area under curves of plots 1/r versus $C_{A0} - C_A$.
+
+In general, the size of reactor required for a given duty and a given temperature progression is found as follows:
+
+1. Draw the reaction path on the $X_A$ vs. _T_ plot, which is the operating line for the operation.
+2. Find the rates at various $X_A$ along this path.
+3. Plot the $1/r_A$ vs. $X_A$ curve for this path.
+4. Find the area under this curve, which gives $V/F_{A0}$
+
+This procedure is general, applicable for any kinetics, temperature progression, reactor type, or reactor series. Thus, once the operating line is known, the reactor size can be found. For exothermic reactions, this procedure is illustrated in Figure \@ref(fig:fig003028) for three paths.
+
+```{r fig003028, out.width="75%", echo=FALSE, fig.align='center', fig.cap='Finding the reactor size for different types of flow [@levenspiel2004]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_008.png")
+grid.raster(img)
+```
+
+The optimum temperature progression in any reactor is as follows: At any composition, it will always be at the temperature where the rate is a maximum. The locus of the maximum rates is found by examining the $r(T,C)$ curves of Figure W.
 
 **Work in Progress**
 

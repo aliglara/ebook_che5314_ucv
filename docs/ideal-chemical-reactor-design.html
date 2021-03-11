@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-09" />
+<meta name="date" content="2021-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,6 +135,7 @@
 <li class="chapter" data-level="2.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#analysis-of-equilibrium-limited-adiabatic-reactors"><i class="fa fa-check"></i><b>2.4</b> Analysis of Equilibrium-Limited Adiabatic Reactors</a>
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#adiabatic-reactors"><i class="fa fa-check"></i><b>2.4.1</b> Adiabatic reactors</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#selecting-the-best-reactor-for-adiabatic-operation"><i class="fa fa-check"></i><b>2.4.2</b> Selecting the best reactor for adiabatic operation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
@@ -1746,7 +1747,7 @@ Figure 2.21: Profiles for an adiabatic PFR: (a) Concentration, (b) Temperature
 </div>
 <p>It is interesting to compare the concentration profile for the adiabatic PFR with the solution for the reactor maintained isothermally at 300 K. These solutions are plotted in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003024">2.22</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig003024"></span>
-<img src="ebook_notes_5314_files/figure-html/fig003024-1.png" alt="Comparison of concentration profile for a PFR" width="85%" />
+<img src="ebook_notes_5314_files/figure-html/fig003024-1.png" alt="Comparison of concentration profile for a PFR" width="65%" />
 <p class="caption">
 Figure 2.22: Comparison of concentration profile for a PFR
 </p>
@@ -1778,6 +1779,33 @@ Figure 2.23: Comparison of concentration and temperature profile for an adiabati
 \end{align}\]</span></p>
 <p>The first term of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042a">(2.75)</a> represents the removal of heat, and the second one is associated with generating heat. When both terms have the same value, then the CSTR will be operating at steady-state conditions.</p>
 <p>Now, to identify possible steady-state operating points. First, we set a residence time, in our case 1.5 min. Second, we set the evaluating temperature range, which is 300 - 340 K. Finally, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042a">(2.75)</a> is substituted into Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042b">(2.76)</a> and the resulting equation is evaluated for each temperature from the temperature range.</p>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003026">2.24</a> shows the energy balance for our CSTR at <span class="math inline">\(\tau = 1.5\)</span> min, following the procedure described before, and it is possible to identify three operating points. These points are approximately 302.5 K, 317.5 K, and 337.5 K, respectively.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003026"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003026-1.png" alt="Locations of steady-state operating points for an adiabatic CSTR at $    au = 1.5$ min" width="65%" />
+<p class="caption">
+Figure 2.24: Locations of steady-state operating points for an adiabatic CSTR at $ au = 1.5$ min
+</p>
+</div>
+</div>
+<div id="selecting-the-best-reactor-for-adiabatic-operation" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Selecting the best reactor for adiabatic operation</h3>
+<p>In any case, it is important to know the optimum temperature progression because it will assure the minimum <span class="math inline">\(V/F_{A0}\)</span> for a given conversion of reactant. This optimum may be isothermal, or it may be a changing temperature: in time for a batch reactor, along the length of the PFR, or from stage to stage for a series of mixed flow reactors.</p>
+<p>In order to select the best adiabatic continuous-flow reactor for carrying out a reaction, it is suitable to analyze the <span class="math inline">\(1/r\)</span> plot because either for isothermal or nonisothermal reactors, <span class="math inline">\(\tau\)</span> is still the area under curves of plots 1/r versus <span class="math inline">\(C_{A0} - C_A\)</span>.</p>
+<p>In general, the size of reactor required for a given duty and a given temperature progression is found as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Draw the reaction path on the <span class="math inline">\(X_A\)</span> vs. <em>T</em> plot, which is the operating line for the operation.</li>
+<li>Find the rates at various <span class="math inline">\(X_A\)</span> along this path.</li>
+<li>Plot the <span class="math inline">\(1/r_A\)</span> vs. <span class="math inline">\(X_A\)</span> curve for this path.</li>
+<li>Find the area under this curve, which gives <span class="math inline">\(V/F_{A0}\)</span></li>
+</ol>
+<p>This procedure is general, applicable for any kinetics, temperature progression, reactor type, or reactor series. Thus, once the operating line is known, the reactor size can be found. For exothermic reactions, this procedure is illustrated in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003028">2.25</a> for three paths.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003028"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003028-1.png" alt="Finding the reactor size for different types of flow [@levenspiel2004]" width="75%" />
+<p class="caption">
+Figure 2.25: Finding the reactor size for different types of flow <span class="citation">(<a href="references.html#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
+</p>
+</div>
+<p>The optimum temperature progression in any reactor is as follows: At any composition, it will always be at the temperature where the rate is a maximum. The locus of the maximum rates is found by examining the <span class="math inline">\(r(T,C)\)</span> curves of Figure W.</p>
 <p><strong>Work in Progress</strong></p>
 
 </div>
