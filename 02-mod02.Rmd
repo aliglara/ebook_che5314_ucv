@@ -1765,6 +1765,18 @@ grid.raster(img)
 
 The optimum temperature progression in any reactor is as follows: At any composition, it will always be at the temperature where the rate is a maximum. The locus of the maximum rates is found by examining the $r(T,C)$ curves of Figure W.
 
+To illustrate this procedure, let us work with the previous example. In figure \@ref(fig:fig003027) values of $1/r_A$ are plotted versus $C_{A0} - C_A$
+
+```{r fig003027, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Plot of $1/r_A$ vs $C_{A0} - C_A$', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_15_07.png")
+grid.raster(img)
+```
+
+Figure \@ref(fig:fig003027) shows that $r_A$ increases then decreases so that $1/r_A$ has a global minimum.
+
+### Optimization of endothermic equilibrium reactions
 **Work in Progress**
 
 
