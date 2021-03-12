@@ -1735,7 +1735,7 @@ Now, to identify possible steady-state operating points. First, we set a residen
  
 Figure \@ref(fig:fig003026) shows the energy balance for our CSTR at $\tau = 1.5$ min, following the procedure described before, and it is possible to identify three operating points. These points are approximately 302.5 K, 317.5 K, and 337.5 K, respectively.
 
-```{r fig003026, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Locations of steady-state operating points for an adiabatic CSTR at $\tau = 1.5$ min', fig.lp='fig:'}
+```{r fig003026, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Locations of steady-state operating points for an adiabatic CSTR at $\\tau = 1.5$ min', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_15_06.png")
