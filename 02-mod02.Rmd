@@ -1777,6 +1777,82 @@ grid.raster(img)
 Figure \@ref(fig:fig003027) shows that $r_A$ increases then decreases so that $1/r_A$ has a global minimum.
 
 ### Optimization of endothermic equilibrium reactions
+
+The temperature dependence of the chemical equilibrium constant is given by the van't Hoff equation:
+
+\begin{equation}
+\left(\frac{\partial \left(\ln K\right)}{\partial T}\right)_P = \frac{\Delta H_R}{R\,T^2}
+(\#eq:ec003043)
+\end{equation}
+
+For endothermic reaction, the value of $\Delta H_R >0$, therefore increasing the temperature, leads to an increase in the $K$ value.
+
+As a high temperature also increases the reaction rate, high temperatures are desirable to maximize rate and conversion in endothermic reactions, and higher temperatures will lead to smaller reactors. (Figure \@ref(fig:fig003030) 
+
+```{r fig003030, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Operating line for minimum reactor size for an endothermic reversible reaction', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_010.png")
+grid.raster(img)
+```
+
+### Optimization of exothermic equilibrium reactions
+
+When an exothermic reaction occurs in an adiabatic reactor, the effect of temperature on its performance is crucial.
+
+In an exothermic reaction, the $\Delta H_R < 0$ ; therefore, increasing the reaction temperature decreases the equilibrium chemical constant (_K_) value, with a concomitant decrease in the equilibrium yield. This situation is disadvantageous of the kinetic side because a high reaction rate occurs at high temperatures.
+
+Figure \@ref(fig:fig003013) shows a typical equilibrium composition line for an exothermic reaction. When the reaction temperature is low, the fractional conversion is close to unity, but while temperature increases, the conversion decreases.
+
+```{r fig003013, out.width="55%", echo=FALSE, fig.align='center', fig.cap='Typical graphic for an equilibrium composition vs. reaction temperature for an exothermic reaction', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_001.png")
+grid.raster(img)
+```
+
+Fig. \@ref(fig:fig003013) also shows two lines that represent operation modes for the reactor: adiabatic and isothermal modes. For adiabatic mode, the line governs the relationship between the temperature and the fractional conversion, assuming $\Delta H_R$ and $C_P$ are constant, as presented in equations Eq. \@ref(eq:ec003034) and Eq. \@ref(eq:ec003040).
+
+In this operation mode, the temperature and the fractional conversion will increase along this line until the equilibrium curve is encountered at **Te** and **Xe**. At this point, the rate is zero, so any additional change, neither composition nor temperature, will not occur.
+
+If the same reactor operates isothermally, the change of composition will follow the vertical line, and the final fractional conversion will be determined, again, for the chemical equilibrium curve.
+
+Although the final conversion (_X_) will be higher for an isothermal mode than for an adiabatic mode at the same initial temperature ($T_0$), the isothermal operation may not be practical because of the required reactor volume.
+
+For this reason, it is necessary to determine the optimal temperature progression along the reactor to maximize the conversion for the minimum possible reactor volume, which is shown as a dashed line in figure \@ref(fig:fig003014).
+
+```{r fig003014, out.width="55%", echo=FALSE, fig.align='center', fig.cap='Typical lines of constant reaction rate corresponding to set of values of \\temperature and conversion for an exothermic reaction', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_draw_002.png")
+grid.raster(img)
+```
+
+In figure \@ref(fig:fig003014), each solid line represents a locus of the set of temperature and conversion that gives a specified value of rate. 
+At a constant reaction rate, the conversion initially rises rapidly with increasing temperature and then begins to fall due to a faster reverse reaction's rising rate. The top line (equilibrium line) corresponds to a reaction rate of zero.
+
+The dashed line gives a trajectory of maximum reaction rates as a function of the conversion called "the locus of maximum reaction rates''. This locus is independent of the type of reactor used, and for a given conversion, the reactor volume is minimum if the temperature of operation is selected to correspond to the maximum reaction rate.
+
+The temperature at which the conversion rate is a maximum will be somewhat lower than Te and is determined by the condition. 
+\begin{equation}
+\frac{\partial r_j}{\partial T} = 0
+(\#eq:ec003044)
+\end{equation}
+
+```{exercise, it003009, name="The locus of maximum reaction rates"}
+Derive an equation for the locus of maximum reaction rates for a simple reversible-exothermic reaction 
+
+\[
+A \xrightarrow[\substack{k_2}]{\substack{k_1}} B
+\]
+
+Assuming $C_{B0} = 0$, $r_{1} = k_{1}\,C_A$, $r_{2} = k_{2}\,C_B$, and
+\begin{align*}
+	k_1 &= k_{10} \exp\left(-E1/RT\right)\\
+	k_2 &= k_{20} \exp\left(-E2/RT\right)
+\end{align*}
+with $E2>E1$
+```
 **Work in Progress**
 
 

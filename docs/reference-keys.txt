@@ -113,6 +113,12 @@ eq:ec003042b
 fig:fig003026
 fig:fig003028
 fig:fig003027
+eq:ec003043
+fig:fig003030
+fig:fig003013
+fig:fig003014
+eq:ec003044
+exr:it003009
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -141,5 +147,6 @@ analysis-of-equilibrium-limited-adiabatic-reactors
 adiabatic-reactors
 selecting-the-best-reactor-for-adiabatic-operation
 optimization-of-endothermic-equilibrium-reactions
+optimization-of-exothermic-equilibrium-reactions
 distribution-of-residence-times
 final-words

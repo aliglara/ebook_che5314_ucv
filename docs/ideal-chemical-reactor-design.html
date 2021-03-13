@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-11" />
+<meta name="date" content="2021-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -137,6 +137,7 @@
 <li class="chapter" data-level="2.4.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#adiabatic-reactors"><i class="fa fa-check"></i><b>2.4.1</b> Adiabatic reactors</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#selecting-the-best-reactor-for-adiabatic-operation"><i class="fa fa-check"></i><b>2.4.2</b> Selecting the best reactor for adiabatic operation</a></li>
 <li class="chapter" data-level="2.4.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimization-of-endothermic-equilibrium-reactions"><i class="fa fa-check"></i><b>2.4.3</b> Optimization of endothermic equilibrium reactions</a></li>
+<li class="chapter" data-level="2.4.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimization-of-exothermic-equilibrium-reactions"><i class="fa fa-check"></i><b>2.4.4</b> Optimization of exothermic equilibrium reactions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
@@ -1818,6 +1819,63 @@ Figure 2.26: Plot of <span class="math inline">\(1/r_A\)</span> vs <span class="
 </div>
 <div id="optimization-of-endothermic-equilibrium-reactions" class="section level3" number="2.4.3">
 <h3><span class="header-section-number">2.4.3</span> Optimization of endothermic equilibrium reactions</h3>
+<p>The temperature dependence of the chemical equilibrium constant is given by the van’t Hoff equation:</p>
+<p><span class="math display" id="eq:ec003043">\[\begin{equation}
+\left(\frac{\partial \left(\ln K\right)}{\partial T}\right)_P = \frac{\Delta H_R}{R\,T^2}
+\tag{2.77}
+\end{equation}\]</span></p>
+<p>For endothermic reaction, the value of <span class="math inline">\(\Delta H_R &gt;0\)</span>, therefore increasing the temperature, leads to an increase in the <span class="math inline">\(K\)</span> value.</p>
+<p>As a high temperature also increases the reaction rate, high temperatures are desirable to maximize rate and conversion in endothermic reactions, and higher temperatures will lead to smaller reactors. (Figure <a href="ideal-chemical-reactor-design.html#fig:fig003030">2.27</a></p>
+<div class="figure" style="text-align: center"><span id="fig:fig003030"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003030-1.png" alt="Operating line for minimum reactor size for an endothermic reversible reaction" width="65%" />
+<p class="caption">
+Figure 2.27: Operating line for minimum reactor size for an endothermic reversible reaction
+</p>
+</div>
+</div>
+<div id="optimization-of-exothermic-equilibrium-reactions" class="section level3" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Optimization of exothermic equilibrium reactions</h3>
+<p>When an exothermic reaction occurs in an adiabatic reactor, the effect of temperature on its performance is crucial.</p>
+<p>In an exothermic reaction, the <span class="math inline">\(\Delta H_R &lt; 0\)</span> ; therefore, increasing the reaction temperature decreases the equilibrium chemical constant (<em>K</em>) value, with a concomitant decrease in the equilibrium yield. This situation is disadvantageous of the kinetic side because a high reaction rate occurs at high temperatures.</p>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003013">2.28</a> shows a typical equilibrium composition line for an exothermic reaction. When the reaction temperature is low, the fractional conversion is close to unity, but while temperature increases, the conversion decreases.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003013"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003013-1.png" alt="Typical graphic for an equilibrium composition vs. reaction temperature for an exothermic reaction" width="55%" />
+<p class="caption">
+Figure 2.28: Typical graphic for an equilibrium composition vs. reaction temperature for an exothermic reaction
+</p>
+</div>
+<p>Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003013">2.28</a> also shows two lines that represent operation modes for the reactor: adiabatic and isothermal modes. For adiabatic mode, the line governs the relationship between the temperature and the fractional conversion, assuming <span class="math inline">\(\Delta H_R\)</span> and <span class="math inline">\(C_P\)</span> are constant, as presented in equations Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003034">(2.73)</a> and Eq. <a href="#eq:ec003040">(<strong>??</strong>)</a>.</p>
+<p>In this operation mode, the temperature and the fractional conversion will increase along this line until the equilibrium curve is encountered at <strong>Te</strong> and <strong>Xe</strong>. At this point, the rate is zero, so any additional change, neither composition nor temperature, will not occur.</p>
+<p>If the same reactor operates isothermally, the change of composition will follow the vertical line, and the final fractional conversion will be determined, again, for the chemical equilibrium curve.</p>
+<p>Although the final conversion (<em>X</em>) will be higher for an isothermal mode than for an adiabatic mode at the same initial temperature (<span class="math inline">\(T_0\)</span>), the isothermal operation may not be practical because of the required reactor volume.</p>
+<p>For this reason, it is necessary to determine the optimal temperature progression along the reactor to maximize the conversion for the minimum possible reactor volume, which is shown as a dashed line in figure <a href="ideal-chemical-reactor-design.html#fig:fig003014">2.29</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003014"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003014-1.png" alt="Typical lines of constant reaction rate corresponding to set of values of \temperature and conversion for an exothermic reaction" width="55%" />
+<p class="caption">
+Figure 2.29: Typical lines of constant reaction rate corresponding to set of values of and conversion for an exothermic reaction
+</p>
+</div>
+<p>In figure <a href="ideal-chemical-reactor-design.html#fig:fig003014">2.29</a>, each solid line represents a locus of the set of temperature and conversion that gives a specified value of rate.
+At a constant reaction rate, the conversion initially rises rapidly with increasing temperature and then begins to fall due to a faster reverse reaction’s rising rate. The top line (equilibrium line) corresponds to a reaction rate of zero.</p>
+<p>The dashed line gives a trajectory of maximum reaction rates as a function of the conversion called "the locus of maximum reaction rates’’. This locus is independent of the type of reactor used, and for a given conversion, the reactor volume is minimum if the temperature of operation is selected to correspond to the maximum reaction rate.</p>
+<p>The temperature at which the conversion rate is a maximum will be somewhat lower than Te and is determined by the condition.
+<span class="math display" id="eq:ec003044">\[\begin{equation}
+\frac{\partial r_j}{\partial T} = 0
+\tag{2.78}
+\end{equation}\]</span></p>
+
+<div class="exercise">
+<p><span id="exr:it003009" class="exercise"><strong>Exercise 2.9  (The locus of maximum reaction rates)  </strong></span>Derive an equation for the locus of maximum reaction rates for a simple reversible-exothermic reaction</p>
+<p><span class="math display">\[
+A \xrightarrow[\substack{k_2}]{\substack{k_1}} B
+\]</span></p>
+Assuming <span class="math inline">\(C_{B0} = 0\)</span>, <span class="math inline">\(r_{1} = k_{1}\,C_A\)</span>, <span class="math inline">\(r_{2} = k_{2}\,C_B\)</span>, and
+<span class="math display">\[\begin{align*}
+    k_1 &amp;= k_{10} \exp\left(-E1/RT\right)\\
+    k_2 &amp;= k_{20} \exp\left(-E2/RT\right)
+\end{align*}\]</span>
+with <span class="math inline">\(E2&gt;E1\)</span>
+</div>
 <p><strong>Work in Progress</strong></p>
 
 </div>
