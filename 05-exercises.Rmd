@@ -11,3 +11,4 @@ Exercises | Name | Solution
 \@ref(exr:it003006) |Parallel Reactions in a PFR with Heat Effects| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_009PFRpararellRx.ipynb)
 \@ref(exr:it003007) |Autocatalytic reaction| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_011PFRReciclo.ipynb)
 \@ref(exr:it003008) |Comparing PFRs performance| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_012PFRadiabatico.ipynb)
+\@ref(exr:it003009) |Comparing PFRs performance| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica)

@@ -1853,6 +1853,15 @@ Assuming $C_{B0} = 0$, $r_{1} = k_{1}\,C_A$, $r_{2} = k_{2}\,C_B$, and
 \end{align*}
 with $E2>E1$
 ```
+
+```{solution}
+The corresponding maximum reaction rate can be derived as a function of temperature, which is:
+\begin{equation*}
+r_\text{opt}(T) = \cfrac{Cao\:k_{10}\:k_{20} \left(- Ea_{1} + Ea_{2}\right)}{Ea_{1}\: k_{10}\: e^{\cfrac{Ea_{2}}{R T}} + Ea_{2}\: k_{20}\: e^{\cfrac{Ea_{1}}{R T}}}
+\end{equation*}
+
+More details about this solution could be found on [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica)
+```
 **Work in Progress**
 
 
