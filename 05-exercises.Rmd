@@ -1,7 +1,7 @@
 `r if (knitr::is_html_output()) '
 # List of Exercises {-}
 '`
-Exercises | Name | Solution
+Exercises | Name | Solution (Python)
 - | - | -
 \@ref(exr:it003001) |Operation of a cooled exothermic CSTR| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_005CSTRStability.ipynb)
 \@ref(exr:it003002) |Non-rigorous coil design for a CSTR| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_006CSTRCoil.ipynb)
@@ -11,4 +11,5 @@ Exercises | Name | Solution
 \@ref(exr:it003006) |Parallel Reactions in a PFR with Heat Effects| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_009PFRpararellRx.ipynb)
 \@ref(exr:it003007) |Autocatalytic reaction| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_011PFRReciclo.ipynb)
 \@ref(exr:it003008) |Comparing PFRs performance| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_012PFRadiabatico.ipynb)
-\@ref(exr:it003009) |Comparing PFRs performance| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica)
+\@ref(exr:it003009) |The locus of maximum reaction rates| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica.ipynb)
+\@ref(exr:it003010) |Calculation of the optimal temperature| [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_014raMaxExothemica.ipynb)

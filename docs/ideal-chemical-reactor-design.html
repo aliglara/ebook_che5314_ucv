@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-14" />
+<meta name="date" content="2021-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1850,9 +1850,9 @@ Figure 2.28: Typical graphic for an equilibrium composition vs. reaction temper
 <p>Although the final conversion (<em>X</em>) will be higher for an isothermal mode than for an adiabatic mode at the same initial temperature (<span class="math inline">\(T_0\)</span>), the isothermal operation may not be practical because of the required reactor volume.</p>
 <p>For this reason, it is necessary to determine the optimal temperature progression along the reactor to maximize the conversion for the minimum possible reactor volume, which is shown as a dashed line in figure <a href="ideal-chemical-reactor-design.html#fig:fig003014">2.29</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig003014"></span>
-<img src="ebook_notes_5314_files/figure-html/fig003014-1.png" alt="Typical lines of constant reaction rate corresponding to set of values of \temperature and conversion for an exothermic reaction" width="55%" />
+<img src="ebook_notes_5314_files/figure-html/fig003014-1.png" alt="Typical lines of constant reaction rate corresponding to set of values of temperature and conversion for an exothermic reaction" width="55%" />
 <p class="caption">
-Figure 2.29: Typical lines of constant reaction rate corresponding to set of values of and conversion for an exothermic reaction
+Figure 2.29: Typical lines of constant reaction rate corresponding to set of values of temperature and conversion for an exothermic reaction
 </p>
 </div>
 <p>In figure <a href="ideal-chemical-reactor-design.html#fig:fig003014">2.29</a>, each solid line represents a locus of the set of temperature and conversion that gives a specified value of rate.
@@ -1867,14 +1867,14 @@ At a constant reaction rate, the conversion initially rises rapidly with increas
 <div class="exercise">
 <p><span id="exr:it003009" class="exercise"><strong>Exercise 2.9  (The locus of maximum reaction rates)  </strong></span>Derive an equation for the locus of maximum reaction rates for a simple reversible-exothermic reaction</p>
 <p><span class="math display">\[
-A \xrightarrow[\substack{k_2}]{\substack{k_1}} B
+A \xrightarrow[k_2]{k_1} B
 \]</span></p>
 Assuming <span class="math inline">\(C_{B0} = 0\)</span>, <span class="math inline">\(r_{1} = k_{1}\,C_A\)</span>, <span class="math inline">\(r_{2} = k_{2}\,C_B\)</span>, and
 <span class="math display">\[\begin{align*}
-    k_1 &amp;= k_{10} \exp\left(-E1/RT\right)\\
-    k_2 &amp;= k_{20} \exp\left(-E2/RT\right)
+    k_1 &amp;= k_{10} \exp\left(-Ea_1/RT\right)\\
+    k_2 &amp;= k_{20} \exp\left(-Ea_2/RT\right)
 \end{align*}\]</span>
-with <span class="math inline">\(E2&gt;E1\)</span>
+with <span class="math inline">\(Ea_2&gt;Ea_1\)</span>
 </div>
 
 <div class="solution">
@@ -1882,8 +1882,100 @@ with <span class="math inline">\(E2&gt;E1\)</span>
 <span class="math display">\[\begin{equation*}
 r_\text{opt}(T) = \cfrac{Cao\:k_{10}\:k_{20} \left(- Ea_{1} + Ea_{2}\right)}{Ea_{1}\: k_{10}\: e^{\cfrac{Ea_{2}}{R T}} + Ea_{2}\: k_{20}\: e^{\cfrac{Ea_{1}}{R T}}}
 \end{equation*}\]</span></p>
-More details about this solution could be found on <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica">Python</a>
+More details about the solution of this problen is available on this link <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica.ipynb">Python</a>
 </div>
+
+<div class="exercise">
+<p><span id="exr:it003010" class="exercise"><strong>Exercise 2.10  (Calculation of the optimal temperature)  </strong></span>Derive an equation for the optimal temperature for a simple reversible-exothermic reaction
+<span class="math display">\[\begin{equation*}
+        A + B \rightleftharpoons P + Q
+\end{equation*}\]</span></p>
+<span class="math display">\[\begin{align*}
+r_{1} &amp;= k_{1}\,C_A\,C_B, \qquad k_1 = k_{10} \exp\left(-E_1/RT\right) \quad \text{forward reaction}\\
+r_{2} &amp;= k_{2}\,C_P\,C_Q, \qquad    k_2 = k_{20} \exp\left(-E_2/RT\right) \quad \text{reverse reaction}
+\end{align*}\]</span>
+with <span class="math inline">\(E2&gt;E1\)</span>
+</div>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> Following the same procedure shown in the last illustration, the optimal temperature is
+<span class="math display" id="eq:ec003052">\[\begin{equation}
+    T_{\text{opt}} = \cfrac{E_1 - E_2}{\ln\left(\cfrac{k_{10}\,E_1\,C_A\,C_B}{k_{20}\,E_2\,C_P\,C_Q}\right)\,R}
+    \tag{2.79}
+\end{equation}\]</span></p>
+<p>The system will reach the chemical equilibrium at <span class="math inline">\(r = 0\)</span> and
+<span class="math display" id="eq:ec003053">\[\begin{equation}
+K = \frac{C_P\,C_Q}{C_A\,C_B} = \frac{k_{10} \exp\left(-E_1/RT\right)}{k_{20} \exp\left(-E_2/RT\right)}
+\tag{2.80}
+\end{equation}\]</span></p>
+<p>Substituting Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003053">(2.80)</a> into <a href="ideal-chemical-reactor-design.html#eq:ec003052">(2.79)</a>
+<span class="math display" id="eq:ec003054">\[\begin{equation}
+\frac{T_\text{opt}}{T_\text{e}} = \cfrac{E_1-E_2}{-E_2+E_1-\ln\left(\cfrac{E_2}{E_1}\right)\,R\,T_\text{e}}
+\tag{2.81}
+\end{equation}\]</span></p>
+<p>When the difference between the absolute temperature <span class="math inline">\(T_\text{e}\)</span> and <span class="math inline">\(T_\text{opt}\)</span> is relatively small, <a href="ideal-chemical-reactor-design.html#eq:ec003054">(2.81)</a> may be approximated by
+<span class="math display" id="eq:ec003055">\[\begin{equation}
+\frac{T_\text{e}-T_\text{opt}}{T_\text{e}} \approx \frac{R\,T_\text{e}}{-\Delta H_R}\ln\left(\frac{E_2}{E_1}\right)
+\tag{2.82}
+\end{equation}\]</span></p>
+More details about the solution of this problen is available on this link <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_014raMaxExothemica.ipynb">Python</a>
+</div>
+<p>In practice, it may be challenging to achieve an optimal temperature profile within a reactor. Therefore other designs are often used.</p>
+<ol style="list-style-type: decimal">
+<li>For relatively fast reactions that are equilibrium limited, the adiabatic reactor is commonly used in the industry.</li>
+<li>Where very high conversions are desired, it is common to use multiple reactors in series, with cooling between each reactor.</li>
+</ol>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003015">2.30</a> shows a typical conversion path for multiple adiabatic reactors in series. Each diagonal line represents one reactor, which operates adiabatically until the fixed conversion is reached.
+For example, <span class="math inline">\(X_1\)</span> then the process stream is cooled by passing it through a heat exchanger until a predetermined temperature (in this stage, there is no conversion). Afterward, the process stream enters the next reactor (Bed 2) and so on.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003015"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003015-1.png" alt="Typical conversion path for multiple adiabatic reactors in series for exothermic reactions" width="55%" />
+<p class="caption">
+Figure 2.30: Typical conversion path for multiple adiabatic reactors in series for exothermic reactions
+</p>
+</div>
+<p>In designing reactor systems with interstage cooling, one crucial question that must be addressed is how the reactor stages should be sized. Should all the temperature differences between inlet and outlet be equal? Or is there some optimum distribution of <span class="math inline">\(\Delta T\)</span>’s? The latter would imply an optimum in the number of reactor stages and (in the case of catalytic reactions) an optimum distribution of mass of catalyst between the reactor stages.</p>
+<p>In the end, the exact number of the reactor and the degree of cooling between them depends on the reaction involved and operating and capital costs.
+However, it is clear that the system is very complex, and the optimum to be arrived at would depend on the type of objective function(s) that are adopted.</p>
+<p>When dealing with a series of PFR, the application of Fig. Y is quite tricky. However, the optimum temperature profile can be found based on the assumption that the criterion Eq. Z and hence also equation Eq. W must be valid for any cross-section of the reactor.</p>
+<p>The volume of a PFR is proportional to the integral
+<span class="math display" id="eq:ec003056">\[\begin{equation}
+\int_0^{X_{A,L}} \frac{dX_A}{r_A}
+\tag{2.83}
+\end{equation}\]</span></p>
+<p>From the optimum temperature policy, this integral should be a minimum which leads to the condition
+<span class="math display" id="eq:ec003057">\[\begin{equation}
+\int_0^{X_{A,L}} \frac{\partial r_A}{\partial T}\,\frac{dX_A}{r_A^2}=0
+\tag{2.84}
+\end{equation}\]</span></p>
+<p>In order to the highest possible final conversion for a given number of sections based on a given entrance temperature of the first section, the conditions must be met:
+For each section, <span class="math inline">\(N\)</span> equation X becomes to
+<span class="math display" id="eq:ec003058">\[\begin{equation}
+\int_{{X_{A,0}}}^{X_{A,L}} \frac{\partial r_A}{\partial T}\,\frac{dX_{A,N}}{r_A^2}=0
+\tag{2.85}
+\end{equation}\]</span>
+where <span class="math inline">\(X_{A,N}\)</span> and <span class="math inline">\(T\)</span> are related by</p>
+<p><span class="math display" id="eq:ec003059">\[\begin{equation}
+    T_N = T_{N,0} = \Delta T_\text{ad} \left(X_{A,N}-X_{A,0}\right), \quad \Delta T_\text{ad} = \frac{-\Delta H_R \,C_{A0}}{\rho C_P}
+\tag{2.86}
+\end{equation}\]</span></p>
+<p>Between two sections (<span class="math inline">\(N-1\)</span>) and <span class="math inline">\(N\)</span>
+<span class="math display" id="eq:ec003060">\[\begin{align}
+R_{A(N-1),L} &amp;= R_{AN,0} \\
+X_{A(N-1),L} &amp;= X_{AN,0}
+\tag{2.87}
+\end{align}\]</span></p>
+<p>The procedure will be illustrated using a temperature conversion diagram of a given exothermic equilibrium reaction with a given feed composition.</p>
+<p><img src="ebook_notes_5314_files/figure-html/fig003016-1.png" width="55%" style="display: block; margin: auto;" /></p>
+<p>Figure contains a curve for <span class="math inline">\(T_\text{e}\)</span> (chemical equilibrium) and <span class="math inline">\(T_\text{opt}\)</span> (optimum temperature profile) at which the conversion rate is at a maximum, both for the corresponding fractional conversion. Two lines of constant conversion rate have also been drawn.</p>
+<p>The feed enters the first stage at temperature <span class="math inline">\(T_{1,0}(X_{1,0}=0)\)</span> and the reaction is heated up proportionally to <span class="math inline">\(X\)</span> following equation <a href="ideal-chemical-reactor-design.html#eq:ec003059">(2.86)</a>.
+When the <span class="math inline">\(T_1-X_1\)</span> line intersects with the curve for <span class="math inline">\(T_\text{opt}\)</span>, the sign of <span class="math inline">\(\partial R/\partial T\)</span> changes from positive to negative, which occurs at <span class="math inline">\(T_{1,L},X_{1,L}\)</span> located on curve <span class="math inline">\(R = R_1\)</span> so reaction mixture must be cooled at temperature <span class="math inline">\(T_{2,0}\)</span> and then the mixture entering the second stage has te same conversion rate <span class="math inline">\(R_1\)</span>, and so on until the desired number of stages has been passed.</p>
+<p>In the case that the process has a maximum of permissible temperature <span class="math inline">\(T^\ast\)</span> so that only a corresponding degree of conversion <span class="math inline">\(X^\ast &lt; X_{A1,L}\)</span> can be reached in stage number <span class="math inline">\(1\)</span>. This section then no longer has the minimum volume since Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003058">(2.85)</a> is no longer applicable.</p>
+<p>Therefore, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003058">(2.85)</a> must be replaced by
+<span class="math display" id="eq:ec003061">\[\begin{equation}
+\Delta T_\text{ad} \int_{0}^{X_{A1,L}^\ast} \frac{\partial r_A}{\partial T}\,\frac{dX_{A1}}{r_A^2} + \frac{1}{r_A(X^\ast)} = \frac{1}{r_{A2,0}}
+\tag{2.88}
+\end{equation}\]</span>
+to find the proper entrance temperature to the second section.</p>
 <p><strong>Work in Progress</strong></p>
 
 </div>

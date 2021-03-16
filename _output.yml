@@ -3,6 +3,7 @@ bookdown::gitbook:
   toc_depth: 5
   header_includes:
     \usepackage{relsize}
+    \usepackage{chemfig}
   config:
     toc:
       before: |
