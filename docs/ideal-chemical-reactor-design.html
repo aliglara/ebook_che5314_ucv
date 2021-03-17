@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-15" />
+<meta name="date" content="2021-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1936,7 +1936,7 @@ Figure 2.30: Typical conversion path for multiple adiabatic reactors in series f
 <p>In designing reactor systems with interstage cooling, one crucial question that must be addressed is how the reactor stages should be sized. Should all the temperature differences between inlet and outlet be equal? Or is there some optimum distribution of <span class="math inline">\(\Delta T\)</span>’s? The latter would imply an optimum in the number of reactor stages and (in the case of catalytic reactions) an optimum distribution of mass of catalyst between the reactor stages.</p>
 <p>In the end, the exact number of the reactor and the degree of cooling between them depends on the reaction involved and operating and capital costs.
 However, it is clear that the system is very complex, and the optimum to be arrived at would depend on the type of objective function(s) that are adopted.</p>
-<p>When dealing with a series of PFR, the application of Fig. Y is quite tricky. However, the optimum temperature profile can be found based on the assumption that the criterion Eq. Z and hence also equation Eq. W must be valid for any cross-section of the reactor.</p>
+<p>When dealing with a series of PFR, the application of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003054">(2.81)</a> is quite tricky. However, the optimum temperature profile can be found based on the assumption that the criterion Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003044">(2.78)</a> and hence also equation Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003054">(2.81)</a> must be valid for any cross-section of the reactor.</p>
 <p>The volume of a PFR is proportional to the integral
 <span class="math display" id="eq:ec003056">\[\begin{equation}
 \int_0^{X_{A,L}} \frac{dX_A}{r_A}
@@ -1966,9 +1966,9 @@ X_{A(N-1),L} &amp;= X_{AN,0}
 \end{align}\]</span></p>
 <p>The procedure will be illustrated using a temperature conversion diagram of a given exothermic equilibrium reaction with a given feed composition.</p>
 <p><img src="ebook_notes_5314_files/figure-html/fig003016-1.png" width="55%" style="display: block; margin: auto;" /></p>
-<p>Figure contains a curve for <span class="math inline">\(T_\text{e}\)</span> (chemical equilibrium) and <span class="math inline">\(T_\text{opt}\)</span> (optimum temperature profile) at which the conversion rate is at a maximum, both for the corresponding fractional conversion. Two lines of constant conversion rate have also been drawn.</p>
+<p>Figure <a href="#fig:fig003016"><strong>??</strong></a> contains a curve for <span class="math inline">\(T_\text{e}\)</span> (chemical equilibrium) and <span class="math inline">\(T_\text{opt}\)</span> (optimum temperature profile) at which the conversion rate is at a maximum, both for the corresponding fractional conversion. Two lines of constant conversion rate have also been drawn.</p>
 <p>The feed enters the first stage at temperature <span class="math inline">\(T_{1,0}(X_{1,0}=0)\)</span> and the reaction is heated up proportionally to <span class="math inline">\(X\)</span> following equation <a href="ideal-chemical-reactor-design.html#eq:ec003059">(2.86)</a>.
-When the <span class="math inline">\(T_1-X_1\)</span> line intersects with the curve for <span class="math inline">\(T_\text{opt}\)</span>, the sign of <span class="math inline">\(\partial R/\partial T\)</span> changes from positive to negative, which occurs at <span class="math inline">\(T_{1,L},X_{1,L}\)</span> located on curve <span class="math inline">\(R = R_1\)</span> so reaction mixture must be cooled at temperature <span class="math inline">\(T_{2,0}\)</span> and then the mixture entering the second stage has te same conversion rate <span class="math inline">\(R_1\)</span>, and so on until the desired number of stages has been passed.</p>
+When the <span class="math inline">\(T_1-X_1\)</span> line intersects with the curve for <span class="math inline">\(T_\text{opt}\)</span>, the sign of <span class="math inline">\(\partial R/\partial T\)</span> changes from positive to negative, which occurs at <span class="math inline">\(T_{1,L},X_{1,L}\)</span> located on curve <span class="math inline">\(R = R_1\)</span> so reaction mixture must be cooled at temperature <span class="math inline">\(T_{2,0}\)</span> and then the mixture entering the second stage has the same conversion rate <span class="math inline">\(R_1\)</span>, and so on until the desired number of stages has been passed.</p>
 <p>In the case that the process has a maximum of permissible temperature <span class="math inline">\(T^\ast\)</span> so that only a corresponding degree of conversion <span class="math inline">\(X^\ast &lt; X_{A1,L}\)</span> can be reached in stage number <span class="math inline">\(1\)</span>. This section then no longer has the minimum volume since Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003058">(2.85)</a> is no longer applicable.</p>
 <p>Therefore, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003058">(2.85)</a> must be replaced by
 <span class="math display" id="eq:ec003061">\[\begin{equation}
@@ -1976,6 +1976,132 @@ When the <span class="math inline">\(T_1-X_1\)</span> line intersects with the c
 \tag{2.88}
 \end{equation}\]</span>
 to find the proper entrance temperature to the second section.</p>
+
+<div class="exercise">
+<p><span id="exr:it003011" class="exercise"><strong>Exercise 2.11  (Reversible exothermic reaction)  </strong></span>Consider next chemical reaction is taking place in a CSTR that has two feed streams, <span class="math inline">\(F_{A0}\)</span> and <span class="math inline">\(F_{B0}\)</span> (m<span class="math inline">\(^3\)</span>/s) with concentrations <span class="math inline">\(C_{A0}\)</span> and <span class="math inline">\(C_{B0}\)</span> (kmol/m<span class="math inline">\(^3\)</span>).
+<span class="math display">\[\begin{equation*}
+        A + B \longleftrightarrow C + D
+\end{equation*}\]</span>
+Assuming a first-order kinetic, determine the operating temperature that maximize the fractional conversion of <span class="math inline">\(A\)</span> in a CSTR with volume equals to (a) 50 m<span class="math inline">\(^3\)</span>, (b) 100 m<span class="math inline">\(^3\)</span> and (c) 200 m<span class="math inline">\(^3\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(F_{A0} = 4.377\times 10^{-3}\)</span></td>
+<td>Feed flowrate of A, m<span class="math inline">\(^3\)</span>/s</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_{A0}\)</span> = 8.01</td>
+<td>Feed concentration of A, kmol/m<span class="math inline">\(^3\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(F_{B0} = 4.377\times 10^{-3}\)</span></td>
+<td>Feed flowrate of B, m<span class="math inline">\(^3\)</span>/s</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_{B0}\)</span> = 8.01</td>
+<td>Feed concentration of B, kmol/m<span class="math inline">\(^3\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(k_{f} = 4.239\times 10^{6}\)</span></td>
+<td>Forward preexponential factor, m<span class="math inline">\(^3\)</span>/s/kmol</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(k_{r} = 3.631\times 10^{16}\)</span></td>
+<td>Reverse preexponential factor, m<span class="math inline">\(^3\)</span>/s/kmol</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(E_f = 69.71\times 10^6\)</span></td>
+<td>Forward activation energy, J/kmol</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(E_r = 139.4\times 10^6\)</span></td>
+<td>Reverse activation energy, J/kmol</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> The net reaction rate is the difference between the forward and reverse reactions.
+<span class="math display">\[\begin{equation*}
+r = k_f\,C_A\,C_B - k_r\,C_C\,C_D
+\end{equation*}\]</span>
+The component balances can be written
+<span class="math display">\[\begin{align*}
+F_{A0}\,C_{A0} &amp;= F\,C_A + V_R r \\
+F_{B0}\,C_{B0} &amp;= F\,C_B + V_R r \\
+0 &amp;= F\,C_C - V_R r \\
+0 &amp;= F\,C_D - V_R r
+\end{align*}\]</span>
+And assuming constant density, the volumetric flow rate of the effluent will be equal to the volumetric of the two feeds
+<span class="math display">\[\begin{equation*}
+F = F_{A0} + F_{B0}
+\end{equation*}\]</span></p>
+<p>This system of equations was solved in Python, and the results are presented in Figure X.</p>
+<p>The reaction’s activation energy is greater than the activation energy of the forward reaction from the data given.
+For this reason, figure X shows that at low temperatures, the conversion is scanty because of detained specific reaction rates.
+At high temperatures, the conversion is also low, this time because of a low equilibrium constant.</p>
+<p>For each volume reactor studied, at the beginning of the curve, the fractional conversion of A is reaction-rate limited and equilibrium limited at high temperature.</p>
+<p>In the following table, the maximum conversion of A and its correspondence reaction temperature for each volume reactor is presented.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Reactor volume (m<span class="math inline">\(^3\)</span>)</th>
+<th>Conversion <span class="math inline">\(X_A\)</span></th>
+<th>Temperature (K)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>50</td>
+<td>0.5242</td>
+<td>352.52</td>
+</tr>
+<tr class="even">
+<td>100</td>
+<td>0.5725</td>
+<td>347.47</td>
+</tr>
+<tr class="odd">
+<td>200</td>
+<td>0.6789</td>
+<td>341.41</td>
+</tr>
+</tbody>
+</table>
+<p>Now, let us add the same size CSTR to the previous problem and determine the optimum operating temperature and final fractional conversion.</p>
+<p>This problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_016CSTROptimization.ipynb">Python</a>. The results are presented in Figure W.</p>
+<p>In this problem, the first reactor’s output, which contains all four components, is fed to the second reactor. It was assumed each CSTR is 200 m<span class="math inline">\(^3\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Reactor</th>
+<th>Conversion <span class="math inline">\(X_A\)</span></th>
+<th>Temperature (K)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First</td>
+<td>0.6789</td>
+<td>341.41</td>
+</tr>
+<tr class="even">
+<td>Second</td>
+<td>0.7303</td>
+<td>328.28</td>
+</tr>
+</tbody>
+</table>
+This final conversion of 73% should be compared with the 68% conversion attainable is a single 200 m<span class="math inline">\(^3\)</span> reactor operating at 341 K.
+If the number of CSTR is increased, the fractional conversion will be improved. However, at some point, the incremental increase in conversion can not justify the increase in capital investment.
+</div>
 <p><strong>Work in Progress</strong></p>
 
 </div>
