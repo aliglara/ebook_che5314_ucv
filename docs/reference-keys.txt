@@ -130,8 +130,10 @@ eq:ec003057
 eq:ec003058
 eq:ec003059
 eq:ec003060
+fig:fig003016
 eq:ec003061
 exr:it003011
+fig:fig003017
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics

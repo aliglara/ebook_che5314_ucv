@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-17" />
+<meta name="date" content="2021-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1965,8 +1965,13 @@ X_{A(N-1),L} &amp;= X_{AN,0}
 \tag{2.87}
 \end{align}\]</span></p>
 <p>The procedure will be illustrated using a temperature conversion diagram of a given exothermic equilibrium reaction with a given feed composition.</p>
-<p><img src="ebook_notes_5314_files/figure-html/fig003016-1.png" width="55%" style="display: block; margin: auto;" /></p>
-<p>Figure <a href="#fig:fig003016"><strong>??</strong></a> contains a curve for <span class="math inline">\(T_\text{e}\)</span> (chemical equilibrium) and <span class="math inline">\(T_\text{opt}\)</span> (optimum temperature profile) at which the conversion rate is at a maximum, both for the corresponding fractional conversion. Two lines of constant conversion rate have also been drawn.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003016"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003016-1.png" alt="Sketch of optimal temperature progression" width="55%" />
+<p class="caption">
+Figure 2.31: Sketch of optimal temperature progression
+</p>
+</div>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003016">2.31</a> contains a curve for <span class="math inline">\(T_\text{e}\)</span> (chemical equilibrium) and <span class="math inline">\(T_\text{opt}\)</span> (optimum temperature profile) at which the conversion rate is at a maximum, both for the corresponding fractional conversion. Two lines of constant conversion rate have also been drawn.</p>
 <p>The feed enters the first stage at temperature <span class="math inline">\(T_{1,0}(X_{1,0}=0)\)</span> and the reaction is heated up proportionally to <span class="math inline">\(X\)</span> following equation <a href="ideal-chemical-reactor-design.html#eq:ec003059">(2.86)</a>.
 When the <span class="math inline">\(T_1-X_1\)</span> line intersects with the curve for <span class="math inline">\(T_\text{opt}\)</span>, the sign of <span class="math inline">\(\partial R/\partial T\)</span> changes from positive to negative, which occurs at <span class="math inline">\(T_{1,L},X_{1,L}\)</span> located on curve <span class="math inline">\(R = R_1\)</span> so reaction mixture must be cooled at temperature <span class="math inline">\(T_{2,0}\)</span> and then the mixture entering the second stage has the same conversion rate <span class="math inline">\(R_1\)</span>, and so on until the desired number of stages has been passed.</p>
 <p>In the case that the process has a maximum of permissible temperature <span class="math inline">\(T^\ast\)</span> so that only a corresponding degree of conversion <span class="math inline">\(X^\ast &lt; X_{A1,L}\)</span> can be reached in stage number <span class="math inline">\(1\)</span>. This section then no longer has the minimum volume since Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003058">(2.85)</a> is no longer applicable.</p>
@@ -2043,9 +2048,9 @@ And assuming constant density, the volumetric flow rate of the effluent will be 
 <span class="math display">\[\begin{equation*}
 F = F_{A0} + F_{B0}
 \end{equation*}\]</span></p>
-<p>This system of equations was solved in Python, and the results are presented in Figure X.</p>
+<p>This problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_016CSTROptimization.ipynb">Python</a>, and the results are presented in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003017">2.32</a>.</p>
 <p>The reaction’s activation energy is greater than the activation energy of the forward reaction from the data given.
-For this reason, figure X shows that at low temperatures, the conversion is scanty because of detained specific reaction rates.
+For this reason, figure <a href="ideal-chemical-reactor-design.html#fig:fig003017">2.32</a> shows that at low temperatures, the conversion is scanty because of detained specific reaction rates.
 At high temperatures, the conversion is also low, this time because of a low equilibrium constant.</p>
 <p>For each volume reactor studied, at the beginning of the curve, the fractional conversion of A is reaction-rate limited and equilibrium limited at high temperature.</p>
 <p>In the following table, the maximum conversion of A and its correspondence reaction temperature for each volume reactor is presented.</p>
@@ -2075,32 +2080,13 @@ At high temperatures, the conversion is also low, this time because of a low equ
 </tr>
 </tbody>
 </table>
-<p>Now, let us add the same size CSTR to the previous problem and determine the optimum operating temperature and final fractional conversion.</p>
-<p>This problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_016CSTROptimization.ipynb">Python</a>. The results are presented in Figure W.</p>
-<p>In this problem, the first reactor’s output, which contains all four components, is fed to the second reactor. It was assumed each CSTR is 200 m<span class="math inline">\(^3\)</span>.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Reactor</th>
-<th>Conversion <span class="math inline">\(X_A\)</span></th>
-<th>Temperature (K)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>First</td>
-<td>0.6789</td>
-<td>341.41</td>
-</tr>
-<tr class="even">
-<td>Second</td>
-<td>0.7303</td>
-<td>328.28</td>
-</tr>
-</tbody>
-</table>
-This final conversion of 73% should be compared with the 68% conversion attainable is a single 200 m<span class="math inline">\(^3\)</span> reactor operating at 341 K.
-If the number of CSTR is increased, the fractional conversion will be improved. However, at some point, the incremental increase in conversion can not justify the increase in capital investment.
+Now, let us add the same size CSTR to the previous problem and determine the optimum operating temperature and final fractional conversion.
+</div>
+<div class="figure" style="text-align: center"><span id="fig:fig003017"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003017-1.png" alt="onversion vs reaction temperature for a reversible reaction in a CSTR" width="65%" />
+<p class="caption">
+Figure 2.32: onversion vs reaction temperature for a reversible reaction in a CSTR
+</p>
 </div>
 <p><strong>Work in Progress</strong></p>
 

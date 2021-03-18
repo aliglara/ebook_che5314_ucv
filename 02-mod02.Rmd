@@ -1960,7 +1960,7 @@ X_{A(N-1),L} &= X_{AN,0}
 
 The procedure will be illustrated using a temperature conversion diagram of a given exothermic equilibrium reaction with a given feed composition. 
 
-```{r fig003016, out.width="55%", echo=FALSE, fig.align='center', fig.cap='', fig.lp='fig:'}
+```{r fig003016, out.width="55%", echo=FALSE, fig.align='center', fig.cap='Sketch of optimal temperature progression', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_draw_004.png")
@@ -2018,10 +2018,10 @@ And assuming constant density, the volumetric flow rate of the effluent will be 
 F = F_{A0} + F_{B0}
 \end{equation*}
 
-This system of equations was solved in Python, and the results are presented in Figure X.
+This problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_016CSTROptimization.ipynb), and the results are presented in Figure \@ref(fig:fig003017).
 
 The reaction's activation energy is greater than the activation energy of the forward reaction from the data given. 
-For this reason, figure X shows that at low temperatures, the conversion is scanty because of detained specific reaction rates. 
+For this reason, figure \@ref(fig:fig003017) shows that at low temperatures, the conversion is scanty because of detained specific reaction rates. 
 At high temperatures, the conversion is also low, this time because of a low equilibrium constant.
 
 For each volume reactor studied, at the beginning of the curve, the fractional conversion of A is reaction-rate limited and equilibrium limited at high temperature.
@@ -2035,19 +2035,13 @@ Reactor volume (m$^3$) | Conversion $X_A$ | Temperature (K)
 200 | 0.6789 | 341.41 
 
 Now, let us add the same size CSTR to the previous problem and determine the optimum operating temperature and final fractional conversion.
+```
 
-This problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_016CSTROptimization.ipynb). The results are presented in Figure W.
-
-
-In this problem, the first reactor's output, which contains all four components, is fed to the second reactor. It was assumed each CSTR is 200 m$^3$.
-
-Reactor | Conversion $X_A$ | Temperature (K) 
--|-|-
-First  | 0.6789 | 341.41  
-Second | 0.7303 | 328.28 
-
-This final conversion of 73% should be compared with the 68% conversion attainable is a single 200 m$^3$ reactor operating at 341 K.
-If the number of CSTR is increased, the fractional conversion will be improved. However, at some point, the incremental increase in conversion can not justify the increase in capital investment.
+```{r fig003017, out.width="65%", echo=FALSE, fig.align='center', fig.cap='onversion vs reaction temperature for a reversible reaction in a CSTR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_12.png")
+grid.raster(img)
 ```
 **Work in Progress**
 
