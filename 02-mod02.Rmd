@@ -660,7 +660,7 @@ The typical reactor design situation is given the feed conditions, the kinetic i
   Negligible heat losses and constant densities can be assumed. A well-mixed cooling jacket surrounds the reactor to remove the heat of reaction. 
   Cooling water is added to the jacket at a rate of $F_J$ and at an inlet temperature of $T_{J0}$.
   
-  ```{r fig-margin, fig.margin=TRUE, out.width = "30%", echo=FALSE}
+  ```{r fig.align='center', out.width = "30%", echo=FALSE}
       library(png)
       library(grid)
       img <- readPNG("figures/003_02_cstr.png")
@@ -685,7 +685,7 @@ The typical reactor design situation is given the feed conditions, the kinetic i
   4. Solve the unsteady-state material and energy balances to identify if any of the possible multiple steady states are unstable.
 ```
 
-_solution_
+_Solution_
 
 (a) There are three balance equations that can be written for the reactor (respect to reactant $A$) and the cooling jacket.\@ref(exr:it003001)
 \begin{gather*}
@@ -834,7 +834,7 @@ The following coil specification are used in this illustration:
 5. The reactor vessel has an aspect ratio (L/D) of 2.
 ```
 
-```{solution}
+_Solution._
 In order to solve this problem, it is required two iterative calculations. One to determine the size of the reactor, including the coil heat exchanger, and the second one to determine the coolant flow rate required
 
 In the first iterative calculation, it must include following equations:
@@ -862,7 +862,6 @@ Log-mean temperature difference: 7.10 K\
 Coolant flowrate: 34.88 cm$^3$/s
 
 The main advantage of a coil over a jacket is more transfer area.
-```
 
 ### Reactors in series {-}
 
@@ -918,7 +917,7 @@ Their densities may be assumed to be equal to 0.9 g/cm<sup>3</sup>.
 The conversion final is 97%
 ```
 
-```{solution}
+_Solution_\
 1. For a CSTR. From the CSTR's design equation
 \begin{equation*}
 {C_A}={\frac {{C_{A0}}}{1+k\tau}}
@@ -971,7 +970,6 @@ Finally,
 	\mathbf{Q_2} &= \left(F_{A0} \left[X_{A2} -X_{A1}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,9144.44} \;\frac{\textbf{btu}}{\textbf{h}} \\
 	\mathbf{Q_3} &= \left(F_{A0} \left[X_{A3} -X_{A2}\right]\Delta H_R\right) \frac{1}{252.16} = \mathbf{-\,2841.39} \;\frac{\textbf{btu}}{\textbf{h}}
 \end{align*} 
-```
 
 ## Plug-flow reactor (PFR)
 Plug flow is a simplified and idealized picture of a fluid's motion, whereby all the fluid elements move with a uniform velocity along parallel streamlines. This perfectly ordered flow is the only transport mechanism accounted for in the plug flow reactor model.
@@ -1089,7 +1087,7 @@ Consider the effect of reaction on conversion in a PFR whose volume is $1.5$ dm$
 2. Repeat for feed concentrations of $C_{A0}$ at 0.5 and 2.0 mol/dm$^3$.
 ```
 
-```{solution}
+_Solution_.
 For the PFR, a differential mole balance gives the following differential equation for converting _A_
 \begin{equation}
 	\frac{dX}{dV} = - \frac{r_A}{F_{A0}}
@@ -1107,11 +1105,14 @@ and n = 0, 1, 2, or 3 according to the reaction's order. As an initial condition
 
 Part 1 of this problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_007PFRisoNorders.ipynb), and the graphical results are given
 
-<p align="center">
-![Fractional conversion vs volume for various reaction orders](figures/lect007_01.png){width=55%}
-</p>
+```{r figlect00701, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Fractional conversion vs volume for various reaction orders', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/lect007_01.png")
+grid.raster(img)
+```
 
-Figure shows clearly the effect of reaction on conversion in a PFR, for zero-order kinetic will obtain higher conversion than other cases. As we expect, for a zero-order kinetic, fractional conversion shows an independent behavior of concentration _A_. That is why a linear function is observed when the fractional conversion is less than one.
+Figure \@ref(fig:figlect00701) shows clearly the effect of reaction on conversion in a PFR, for zero-order kinetic will obtain higher conversion than other cases. As we expect, for a zero-order kinetic, fractional conversion shows an independent behavior of concentration _A_. That is why a linear function is observed when the fractional conversion is less than one.
 
 In those cases, when order-kinetic is more significant than zero, fractional conversion shows an exponential behavior, and the final conversion value decreases inversely to order-kinetic.
 
@@ -1122,9 +1123,6 @@ The results obtained when the initial concentration of A was increased to 2.0 mo
 (a) $C_{A0} = 0.5$ mol/dm$^3$           |  (b) $C_{A0} = 2.0$ mol/dm$^3$
 :-------------------------:|:-------------------------:
 ![](figures/lect007_02.png)  |  ![](figures/lect007_03.png)
-
-
-```
 
 ### Energy balance
 
@@ -1306,7 +1304,7 @@ Reaction data:
 2.  If heating coil are employed, and we are given that $U = 3\times 10^2$ W m$^{-2}$, $A = 2$~m$^2$ per m$^3$ of PFR and $T_J$ = 500 K, what is the conversion?
 ```
 
-```{solution}
+_Solution_.
 The solution of this problem is available in this [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_008PFRadiabatico.ipynb)
 
 Since it is a liquid-phase reaction, no significant change in density is assumed.
@@ -1333,8 +1331,6 @@ Without heat exchanger    |  With heat exchanger
 :-------------------------:|:-------------------------:
 ![](figures/lect008_01.png)|![](figures/lect008_02.png)
 
-```
-
 ```{exercise, it003006, name="Parallel Reactions in a PFR with Heat Effects"}
 Consider next set of reactions which occurs in gas-phase 
 \begin{align*}
@@ -1346,7 +1342,7 @@ Pure $A$ is fed at a rate of 100 mol/s, a temperature of 150 $^\circ$C and a con
 Determine the temperature and flow rate profiles down the reactor.
 ```
 
-```{solution}
+_Solution_.
 This problem was solved from following set of equations:
 
 Kinetics equations:
@@ -1368,8 +1364,6 @@ Energy balance:
 Temperature profile    |  Molar flowrates
 :-------------------------:|:-------------------------:
 ![](figures/lect009_01.png)|![](figures/lect009_02.png)
-
-```
 
 ### Recycle PFR
 
@@ -1550,7 +1544,7 @@ Suppose that the reactor is:
 
 ```
 
-```{solution}
+_Solution_.
 In this reaction system, the fluid density is constant, so it is possible to rewrite \@ref(eq:eq066) in terms of concentration (which is an advantage for us because the fitting of experimental data was already done).
 \begin{align*}
     C_{A,\text{in}} &= \frac{C_{Ao} + R\,C_{A}}{1+R} \\
@@ -1558,21 +1552,7 @@ In this reaction system, the fluid density is constant, so it is possible to rew
 \end{align*}
     
 It is necessary add a negative sign because $A$ is the reactant in the reaction.
-Those equations were implemented in a Python [script](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/llect_011PFRReciclo.ipynb) to solve the problem both graphically and analytically. Figure \@ref(fig:figlect011) shows the comparison between continuous-flow reactors for an autocatalytic reaction.  
-
-Fig. \@ref(fig:figlect011), for each case, shaded area represents the value of the integral $\int dC_A/r_A$. In summary, the volume for:
-  
-1. a CSTR is 9.24 m$^3$. 
-2. a PFR is 1.769 m$^3$.
-3. a PFR with $R = 30$ is 7.49 m$^3$.
-4.Finally, the optimal R for a PFR is 0.5455. Therefore, its volume is 1.23 m$^3$. 
-
-        
-In general, PFRs require less volume than CSTRs of equal fractional conversion, but this generalization is not valid in the case of autocatalytic reactions. In the example solved before, although the volume required for a PFR (case (b)) is smaller than a CSTR (case (a)), it is not minimum.
-    
-For autocatalytic reactions, back-mixing of reacted material with fresh feed is often beneficial in optimizing the overall reactor design, as it was proved in both cases (c) and (d). 
-
-```
+Those equations were implemented in a Python [script](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/llect_011PFRReciclo.ipynb) to solve the problem both graphically and analytically. Figure \@ref(fig:figlect011) shows the comparison between continuous-flow reactors for an autocatalytic reaction.
 
 ```{r figlect011, out.width="85%", echo=FALSE, fig.align='center', fig.cap='Comparison continuous-flow reactors with autocatalytic kinetics: (a) CSTR, (b) PFR, (c) PFR with R = 1, (d) PFR at optimal recycle', fig.lp='fig:'}
 library(png)
@@ -1580,6 +1560,17 @@ library(grid)
 img <- readPNG("figures/lect011.png")
 grid.raster(img)
 ```
+
+Fig. \@ref(fig:figlect011), for each case, shaded area represents the value of the integral $\int dC_A/r_A$. In summary, the volume for:
+  
+1. a CSTR is 9.24 m$^3$. 
+2. a PFR is 1.769 m$^3$.
+3. a PFR with $R = 30$ is 7.49 m$^3$.
+4. Finally, the optimal R for a PFR is 0.5455. Therefore, its volume is 1.23 m$^3$. 
+        
+In general, PFRs require less volume than CSTRs of equal fractional conversion, but this generalization is not valid in the case of autocatalytic reactions. In the example solved before, although the volume required for a PFR (case (b)) is smaller than a CSTR (case (a)), it is not minimum.
+    
+For autocatalytic reactions, back-mixing of reacted material with fresh feed is often beneficial in optimizing the overall reactor design, as it was proved in both cases (c) and (d).
 
 ## Analysis of Equilibrium-Limited Adiabatic Reactors
 Suppose we are asked to analyze the behavior of a single reaction taking place in an adiabatic reactor. One of the questions we might want to answer is: "What is the maximum conversion that can be achieved?''
@@ -1647,7 +1638,7 @@ with $r = k(T)\,C_A$
 The reaction is taken place in an adiabatic PFR for $E = 30$ kcal/mol, $k_0 = 2.6 \times 10^{20}$ min$^{-1}$, $\Delta H_r = -20$ kcal/mol, $\rho C_P = 1000$ cal/L-K, $T_0 = 300$ K y $C_{Ao} = 2$ mol/L.
 ```
 
-_solution_\
+_Solution_.
 For any continuous flow reactor working under adiabatic mode, the energy balance is calculated by
 \begin{equation*}
   T = T_0 + \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}} \right)X_A
@@ -1854,14 +1845,13 @@ Assuming $C_{B0} = 0$, $r_{1} = k_{1}\,C_A$, $r_{2} = k_{2}\,C_B$, and
 with $Ea_2>Ea_1$
 ```
 
-```{solution}
+_Solution_.
 The corresponding maximum reaction rate can be derived as a function of temperature, which is:
 \begin{equation*}
 r_\text{opt}(T) = \cfrac{Cao\:k_{10}\:k_{20} \left(- Ea_{1} + Ea_{2}\right)}{Ea_{1}\: k_{10}\: e^{\cfrac{Ea_{2}}{R T}} + Ea_{2}\: k_{20}\: e^{\cfrac{Ea_{1}}{R T}}}
 \end{equation*}
 
 More details about the solution of this problen is available on this link [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica.ipynb)
-```
 
 ```{exercise, it003010, name="Calculation of the optimal temperature"}
 Derive an equation for the optimal temperature for a simple reversible-exothermic reaction 
@@ -1876,7 +1866,7 @@ r_{2} &= k_{2}\,C_P\,C_Q, \qquad	k_2 = k_{20} \exp\left(-E_2/RT\right) \quad \te
 with $E2>E1$
 ```
 
-```{solution}
+_Solution_.
 Following the same procedure shown in the last illustration, the optimal temperature is 
 \begin{equation}
 	T_{\text{opt}} = \cfrac{E_1 - E_2}{\ln\left(\cfrac{k_{10}\,E_1\,C_A\,C_B}{k_{20}\,E_2\,C_P\,C_Q}\right)\,R}
@@ -1902,7 +1892,6 @@ When the difference between the absolute temperature $T_\text{e}$ and $T_\text{o
 \end{equation} 
   
 More details about the solution of this problen is available on this link [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_014raMaxExothemica.ipynb)
-```
 
 In practice, it may be challenging to achieve an optimal temperature profile within a reactor. Therefore other designs are often used. 
 
@@ -2001,7 +1990,7 @@ $E_r = 139.4\times 10^6$ |       Reverse activation energy, J/kmol
 
 ```
 
-```{solution}
+_Solution_.
 The net reaction rate is the difference between the forward and reverse reactions.
 \begin{equation*}
 r = k_f\,C_A\,C_B - k_r\,C_C\,C_D
@@ -2020,6 +2009,13 @@ F = F_{A0} + F_{B0}
 
 This problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_016CSTROptimization.ipynb), and the results are presented in Figure \@ref(fig:fig003017).
 
+```{r fig003017, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Conversion vs reaction temperature for a reversible reaction in a CSTR', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_12.png")
+grid.raster(img)
+```
+
 The reaction's activation energy is greater than the activation energy of the forward reaction from the data given. 
 For this reason, figure \@ref(fig:fig003017) shows that at low temperatures, the conversion is scanty because of detained specific reaction rates. 
 At high temperatures, the conversion is also low, this time because of a low equilibrium constant.
@@ -2035,14 +2031,86 @@ Reactor volume (m$^3$) | Conversion $X_A$ | Temperature (K)
 200 | 0.6789 | 341.41 
 
 Now, let us add the same size CSTR to the previous problem and determine the optimum operating temperature and final fractional conversion.
+
+```{exercise, it003012, name="Reversible exothermic reaction"}
+For the elementary solid-catalyzed liquid-phase reaction
+\[A \leftrightarrows B\]
+
+1. Make a plot of equilibrium conversion as a function of temperature.
+2. Determine the adiabatic equilibrium temperature and conversion when pure $A$ is fed to the reactor at a temperature of 300 K.
+3. What conversion could be achieved if two interstage coolers is available that had the capacity to cool the exit stream to 350 K?. Assume in each reactor, 95\% of equilibrium conversion is achieved.
+4. Plot the optimal operating temperature profile.
+5. Determine the heat duty of each exchanger for a molar feed rate of $A$ of 40 mol/s. 
+6. Calculate the volume of each reactor to get those conversion.
+7. For a 1 m$^3$ RFP, determine the inlet temperature which maximize the fractional conversion achieved.  
 ```
 
-```{r fig003017, out.width="65%", echo=FALSE, fig.align='center', fig.cap='onversion vs reaction temperature for a reversible reaction in a CSTR', fig.lp='fig:'}
+_Solution_.
+This problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_018CSTRLecho.ipynb)
+
+First, the equilibrium conversion temperature and the adiabatic heat balance line are plotted in Figure \@ref(fig:fig003019).
+
+```{r fig003019, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Equilibrium conversion vs. reaction temperature for a reversible reaction',fig.lp='fig:'}
 library(png)
 library(grid)
-img <- readPNG("figures/003_12.png")
+img <- readPNG("figures/003_14_01.png")
 grid.raster(img)
 ```
+
+The figure \@ref(fig:fig003019) was produced by solving the next system of equations:
+
+\begin{align*}
+  K &= \frac{k_{10}}{k_{20}}\exp{\frac{(E_2-E_1)}{R\,T}}\\
+  X_e &= \frac{K}{1+K}
+ \end{align*}
+
+If the reactor is operated adiabatically, with $T_{in} = 300$ K, the adiabatic line (dashed green line on Fig. \@ref(fig:fig003019)) is obtained from:
+
+\begin{equation*}
+  T = T_{in} + \left(X_A-X_{A,\text{in}}\right)\frac{\left(-\Delta H_R^\circ\right)}{C_{P_A}}
+\end{equation*} 
+
+Then, assuming 95% of equilibrium conversion at each stage, three reactors with interstage cooling are modeled, and the results are presented in Figure \@ref(fig:fig003020).
+
+```{r fig003020, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Equilibrium conversion vs. reaction temperature for a reversible reaction',fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_14_02.png")
+grid.raster(img)
+```
+
+In Figure \@ref(fig:fig003020), the actual path is represented by a dashed line while the locus of the optimal temperature is the red line. The latter was calculated from Eq. \@ref(eq:ec003054).
+
+In the following table, the summary of results is presented.
+
+Reactor | Final conversion $X_A$ | Final Temperature (K) | Cooling load (kW)  | Volume Reactor (L)
+- | - | - | - | -
+First  | 0.3809 | 452.38 | 189 | 1215.38
+Second | 0.5826 | 430.66 | 161 | 624.87
+Third | 0.7388 | 412.47 | 125 | 804.70
+
+The cooling load represents the heat that a heat exchanger must be retired to cool the outlet stream of the reactor (bed) to 350 K, as required by the problem. The heat requirement by each cooling interstage was calculated from:
+
+\begin{equation*}
+  Q = \sum\limits_{i=1}^{2} F_{i,\text{in}} C_{P_i} {\left(T - 350\right)}
+\end{equation*}
+
+The volume reactor is the volume required by each PFR (bed) to achieve the 95% of the equilibrium conversion set by the problem. And it was calculated from the mass balance in each reactor by:
+
+\begin{align*}
+  r_A &= k_f\,C_{A0}\left(1-X_A\right) - k_r \,C_{A0}\,X_A\\
+  \frac{dV}{dX} &= \frac{F_{A0}}{r_A}
+\end{align*}
+
+In Figure \@ref(fig:fig003021), the fractional conversion profile as a function of volume reactor for each bed is presented. 
+
+```{r fig003021, out.width="65%", echo=FALSE, fig.align='center', fig.cap='Conversion profile as function of volume reactor',fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/003_14_03.png")
+grid.raster(img)
+```
+
 **Work in Progress**
 
 
