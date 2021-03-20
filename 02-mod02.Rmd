@@ -2111,6 +2111,8 @@ img <- readPNG("figures/003_14_03.png")
 grid.raster(img)
 ```
 
+## The Batch Reactor (BR)
+
 **Work in Progress**
 
 

@@ -168,5 +168,6 @@ adiabatic-reactors
 selecting-the-best-reactor-for-adiabatic-operation
 optimization-of-endothermic-equilibrium-reactions
 optimization-of-exothermic-equilibrium-reactions
+the-batch-reactor-br
 distribution-of-residence-times
 final-words
