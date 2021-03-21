@@ -2380,7 +2380,6 @@ Finally, if $\left({N_{A0}(-\Delta H_{R}(T))}/{\sum\limits_{i=1}^\mathcal{C} N_{
 
 \begin{equation}
 T = T_0 + \Delta T_\text{ad}\,X_A
-(\#eq:ec003004)
 \end{equation}
 
 This equation represents a simplified version of the energy balance for an adiabatic reactor, valid when $\Delta T_\text{ad}$ is constant.
