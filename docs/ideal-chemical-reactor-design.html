@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,7 +139,18 @@
 <li class="chapter" data-level="2.4.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimization-of-endothermic-equilibrium-reactions"><i class="fa fa-check"></i><b>2.4.3</b> Optimization of endothermic equilibrium reactions</a></li>
 <li class="chapter" data-level="2.4.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimization-of-exothermic-equilibrium-reactions"><i class="fa fa-check"></i><b>2.4.4</b> Optimization of exothermic equilibrium reactions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-batch-reactor-br"><i class="fa fa-check"></i><b>2.5</b> The Batch Reactor (BR)</a></li>
+<li class="chapter" data-level="2.5" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-batch-reactor-br"><i class="fa fa-check"></i><b>2.5</b> The Batch Reactor (BR)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-isothermal-batch-reactor"><i class="fa fa-check"></i><b>2.5.1</b> The isothermal batch reactor</a>
+<ul>
+<li class="chapter" data-level="2.5.1.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-volume-batch-reactor"><i class="fa fa-check"></i><b>2.5.1.1</b> Constant-Volume Batch Reactor</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-volume-batch-reactor"><i class="fa fa-check"></i><b>2.5.1.2</b> Variable-Volume Batch Reactor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-nonisothermal-batch-reactor"><i class="fa fa-check"></i><b>2.5.2</b> The nonisothermal batch reactor</a>
+<ul>
+<li class="chapter" data-level="2.5.2.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-pressure"><i class="fa fa-check"></i><b>2.5.2.1</b> Batch Reactor at constant-pressure</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
@@ -1836,7 +1847,7 @@ Figure 2.28: Operating line for minimum reactor size for an endothermic reversib
 Figure 2.29: Typical graphic for an equilibrium composition vs. reaction temperature for an exothermic reaction
 </p>
 </div>
-<p>Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003013">2.29</a> also shows two lines that represent operation modes for the reactor: adiabatic and isothermal modes. For adiabatic mode, the line governs the relationship between the temperature and the fractional conversion, assuming <span class="math inline">\(\Delta H_R\)</span> and <span class="math inline">\(C_P\)</span> are constant, as presented in equations Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003034">(2.73)</a> and Eq. <a href="#eq:ec003040">(<strong>??</strong>)</a>.</p>
+<p>Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003013">2.29</a> also shows two lines that represent operation modes for the reactor: adiabatic and isothermal modes. For adiabatic mode, the line governs the relationship between the temperature and the fractional conversion, assuming <span class="math inline">\(\Delta H_R\)</span> and <span class="math inline">\(C_P\)</span> are constant, as presented in equations Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003034">(2.73)</a> and Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003040">(2.102)</a>.</p>
 <p>In this operation mode, the temperature and the fractional conversion will increase along this line until the equilibrium curve is encountered at <strong>Te</strong> and <strong>Xe</strong>. At this point, the rate is zero, so any additional change, neither composition nor temperature, will not occur.</p>
 <p>If the same reactor operates isothermally, the change of composition will follow the vertical line, and the final fractional conversion will be determined, again, for the chemical equilibrium curve.</p>
 <p>Although the final conversion (<em>X</em>) will be higher for an isothermal mode than for an adiabatic mode at the same initial temperature (<span class="math inline">\(T_0\)</span>), the isothermal operation may not be practical because of the required reactor volume.</p>
@@ -2176,8 +2187,243 @@ Figure 2.36: Conversion profile as function of volume reactor
 </div>
 <div id="the-batch-reactor-br" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> The Batch Reactor (BR)</h2>
+<p>A batch reactor (BR) is a spatially uniform closed system whose concentration parameters are established at time zero. To ensure that the reactor content is well mixed, they are mechanically agitated, and in most cases, it is necessary to implement a heat-transfer system to ensure an isothermal operation mode. Therefore, it is assumed that in an ideal batch reactor.</p>
+<div class="infobox info">
+<p>At any time, the batch is uniform in composition and temperature at every point in the reactor.</p>
+</div>
+<p>Batch reactors are generally used for liquid-phase reactions. When a solid catalyst has to be kept in suspension or two liquid phases, an agitator is required. Since the batch reactor (BR) has no flow streams, and as a consequence that the reaction mixture is homogeneous, that is, all contents are in a single phase. Perfect mixing is also assumed, which means that there are no spatial variations in temperature and composition. The composition changes with time, however. Temperature sequencing may be favorable for the selectivity of achieving complete conversion in a safe way. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p>If all reactants are charged to the reactor, its concentration initially is large, which means that the reaction rate and the heat transfer load are high at the beginning of the batch cycle unless the temperature keeps low for external heat-transfer equipment.</p>
+<p>For better control of temperature, this type of operation may not be advisable, and the reactant(s) may have to be added progressively to the vessel’s contents. The reactor is then said to operate in semi-batch mode. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p><strong>Characteristics</strong>:</p>
+<ul>
+<li>These reactors usually have a cylindrical-tank shape.</li>
+<li>Reactor is charged from the top.</li>
+<li>Nothing else is put or taken out until the reaction is done.</li>
+<li>Tank is efficiently heated or cooled by a heat-exchanger jacket.</li>
+<li>Each batch is a closed system.</li>
+<li>The total mass of each batch is fixed.</li>
+<li>The volume or density of each batch may vary (as the reaction proceeds).</li>
+<li>The energy of each batch may vary (as the reaction proceeds).</li>
+<li>The reaction time <em>t</em> for all elements of fluid is the same.</li>
+<li>The operation of the reactor is inherently unsteady-state.</li>
+<li>These reactors are very flexible. Thus, a single reactor may be used to produce many different products.</li>
+</ul>
+<p><strong>Uses</strong>:</p>
+<ul>
+<li>Small scale production.</li>
+<li>Intermediate or one-shot production.</li>
+<li>Testing new processes that have not been fully developed.</li>
+<li>Manufacture of expensive products.</li>
+</ul>
+<div id="the-isothermal-batch-reactor" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> The isothermal batch reactor</h3>
+<p>In spite of the perfect mixing assumption, for a single reaction the mole balance (Eq. <a href="ideal-chemical-reactor-design.html#eq:continuidad">(2.1)</a>) for the key component <em>j</em> for the entire reactor volume reduces to:</p>
+<p><span class="math display" id="eq:ec002002">\[\begin{equation}
+    \frac{dN_j}{dt}= V\,r_j\left(C_j\right)
+\tag{2.89}
+\end{equation}\]</span></p>
+<p>Where <em>t</em> is the residence time in the reactor, which is the same as ‘’clock’’ time, <span class="math inline">\(N_j\)</span> describes the moles of the component <em>j</em>, V is the portion of the overall reactor volume in which the reaction takes place.</p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a> is referred to as the <strong>design equation</strong> for an ideal batch reactor, and it is valid no matter how many homogeneous reactions are taking place. Moreover, in despited of any operation mode, it allows us to answer two questions related to the design of a BR:</p>
+<ol style="list-style-type: decimal">
+<li>What is the reaction time necessary to achieve a conversion <em>X</em> for a reactant?
+<span class="math display">\[\begin{equation*}
+    t = \int_{0}^{t} dt = \int_{N_{jO}}^{N_j} \frac{1}{V}\:\frac{dN_j}{r_j}
+  \end{equation*}\]</span><br />
+</li>
+<li>What is the reaction volume (size of reactor) required for a specific production flow rate?</li>
+</ol>
+<div id="constant-volume-batch-reactor" class="section level4" number="2.5.1.1">
+<h4><span class="header-section-number">2.5.1.1</span> Constant-Volume Batch Reactor</h4>
+<p>If the reactor volume is constant, then the mass density of the system, <span class="math inline">\(\rho\)</span> (mass/volume), must also be constant since the mass of material in a batch reactor does not change with time. In this case, it is possible to rewrite the molar balance (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a>) directly in terms of concentrations.
+<span class="math display" id="eq:ec002004">\[\begin{equation}
+    r_j \left(C_j\right) = \frac{1}{V}\frac{dN_j}{dt} = \cfrac{d\left(\cfrac{N_j}{V}\right)}{dt} = \frac{dC_j}{dt}
+\tag{2.90}
+\end{equation}\]</span></p>
+<div class="infobox info">
+<p><strong>Remember</strong>: In Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002004">(2.90)</a>, the reaction rate must be expressed in terms of concentration of specie <em>j</em>.</p>
+</div>
+<p>For batch reactors, it is important to know how much time is required for reactants to achieve a certain conversion <em>X</em>. For this reason, the molar balance is in terms of conversion. Let us assume we are dealing with a reactant specie, <em>A</em>.
+<span class="math display" id="eq:ec002005">\[\begin{equation}
+    N_A = N_{A0} \left(1-X_A \right)
+\tag{2.91}
+\end{equation}\]</span></p>
+<p>differentiating <a href="ideal-chemical-reactor-design.html#eq:ec002005">(2.91)</a> with respect to time
+<span class="math display" id="eq:ec002006">\[\begin{equation}
+    r_A \left(X_A\right)= - \frac{N_{A0}}{V}\,\frac{dX_A}{dt} = -\,C_{A0}\,\frac{dX_A}{dt}
+\tag{2.92}
+\end{equation}\]</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:ec002006">(2.92)</a> is the basic mole balance for the constant-volume batch reactor. And this solution is:
+<span class="math display" id="eq:ec002023">\[\begin{equation}
+t = C_{A0} \int_{0}^{X_A} \frac{dX_A}{r_A} = - \int_{C_{A0}}^{C_A} \frac{dC_A}{r_A}
+\tag{2.93}
+\end{equation}\]</span></p>
+<div class="infobox info">
+<p>The assumption of constant volume is valid for the most industrial batch reactor. The mass density is approximately constant for a large majority of liquids, even if the temperature changes moderately as the reaction proceeds. Moreover, if a vessel is filled with gas, the gas volume will be constant because the vessel’s dimensions are fixed and do not vary with time. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+</div>
+</div>
+<div id="variable-volume-batch-reactor" class="section level4" number="2.5.1.2">
+<h4><span class="header-section-number">2.5.1.2</span> Variable-Volume Batch Reactor</h4>
+<p>In a variable-volume batch reactor, the volume of the reacting mixture changes over time for two reasons:</p>
+<ol style="list-style-type: decimal">
+<li>external means (e.g., filling a reaction vessel or adding a second reactant), which is often termed ‘’semi-batch’’ operation, and</li>
+<li>changes in densities of reactants or products (e.g., molar expansion of gases), which is not commonly used in industry because of the small mass capacity. However, at the laboratory level, gas-phase reactors have been utilized.</li>
+</ol>
+<p>If <em>V</em> change over time, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a> in terms of concentrations would be:
+<span class="math display">\[\begin{equation*}
+    r_j = \frac{1}{V}\,\frac{dN_j}{dt} = \frac{1}{V}\,\frac{dC_j\,V}{dt} = \frac{dC_j}{dt} + \frac{C_j}{V}\frac{dV}{dt} 
+\end{equation*}\]</span>
+which is more complex than Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002004">(2.90)</a>.</p>
+<p>However, for a critical reactant, an alternating way is to rewrite Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002006">(2.92)</a> in terms of fractional conversion because a change in the volume yields a change in concentrations.</p>
+<p>Usually, a batch reactor operates isothermally, and the pressure drop is neglected thus
+<span class="math display">\[\begin{equation}
+   V = V_0 \left(1 + \varepsilon_A\,X \right)
+\end{equation}\]</span></p>
+<p>From this relationship, the design equation for a batch reactor (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a>) is written as
+<span class="math display">\[\begin{equation}
+    r_A\left(X_A\right) = - \frac{1}{V_0 \left(1 + \varepsilon_A\,X_A \right)}\frac{dN_A}{dt}
+\end{equation}\]</span>
+and their solutions are:
+<span class="math display" id="eq:ec002024">\[\begin{equation} 
+  t = N_{A0} \int_{0}^{X_A} \frac{dX_A}{\left(-r_A\right)V_0\left(1+\varepsilon_A\,X_A\right)} = C_{j0} \int_{0}^{X_A} \frac{dX_A}{\left(-r_A\right)\left(1+\varepsilon_A\,X_A\right)}
+\tag{2.94}
+\end{equation}\]</span></p>
+<p>All these equations apply to both isothermal and nonisothermal operations, and they can be represented graphically, as shown schematically in Figure <a href="ideal-chemical-reactor-design.html#fig:fig002010">2.37</a>, to know the reaction time.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig002010"></span>
+<img src="ebook_notes_5314_files/figure-html/fig002010-1.png" alt="Graphical representation of the performance equations for batch reactors, isothermal or nonisothermal." width="55%" />
+<p class="caption">
+Figure 2.37: Graphical representation of the performance equations for batch reactors, isothermal or nonisothermal.
+</p>
+</div>
+</div>
+</div>
+<div id="the-nonisothermal-batch-reactor" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> The nonisothermal batch reactor</h3>
+<p>It is not always possible, or even desirable, to carry out a reaction under isothermal conditions in practice. In this situation, both the energy and mass balances must be solved simultaneously.</p>
+<p>It is known that a batch reactor is a closed system. Otherwise, in most cases, the work done by the stirrer is neglected unless the mixture is highly viscous and the stirring operation draws significant power. Under this scenario, Eq. <a href="ideal-chemical-reactor-design.html#eq:energybal">(2.3)</a> becomes
+<span class="math display" id="eq:ec003002">\[\begin{equation}
+    \frac{dU}{dt}= Q - W_s 
+\tag{2.95}
+\end{equation}\]</span></p>
+<p>By convenience, let us rewrite Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003002">(2.95)</a> in terms of enthalpy,
+<span class="math display">\[\begin{equation*}
+    \frac{dH}{dt} - P\frac{dv}{dt} - v\frac{dP}{dt} = Q - P\frac{dv}{dt}
+\end{equation*}\]</span>
+Thus
+<span class="math display" id="eq:ec003003">\[\begin{equation}
+    \frac{dH}{dt} - v\frac{dP}{dt} = Q
+\tag{2.96}
+\end{equation}\]</span></p>
+<p>Doing some math, over a multicomponent system of <span class="math inline">\(\mathcal{C}\)</span> components, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003003">(2.96)</a> becomes to
+<span class="math display">\[\begin{equation*}
+    \sum\limits_{i=1}^\mathcal{C} n_i \frac{d\,H_i}{dt} + \sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt}- v\frac{dP}{dt} = Q
+\end{equation*}\]</span></p>
+<p>Now, including some thermodynamic relationships over a chemically-reactive system
+<span class="math display">\[\begin{equation*}
+    \sum\limits_{i=1}^\mathcal{C} n_i \,C_{P_i}\frac{dT}{dt} + \sum\limits_{i=1}^\mathcal{C} n_i \left(v_i -T {\left(\frac{\partial v_i}{\partial T}\right)}_P\right) \frac{dP}{dt} + \sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt} - v\frac{dP}{dt} = Q
+\end{equation*}\]</span></p>
+<p>Thus,
+<span class="math display" id="eq:ec003004">\[\begin{equation}
+    \sum\limits_{i=1}^\mathcal{C} n_i \,C_{P_i}\frac{dT}{dt} - T \sum\limits_{i=1}^\mathcal{C} n_i \beta_i v_i \frac{dP}{dt} + \sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt}  = Q
+\tag{2.97}
+\end{equation}\]</span>
+where <span class="math inline">\(\beta_i\)</span> is volume expansivity of specie <em>i</em></p>
+<p>If ’‘<em>R</em>’’ reactions are taking place into a batch reactor,
+<span class="math display">\[\begin{equation*}
+  \frac{dn_i}{dt} = V\:\sum\limits_{j=1}^{R} \nu_{j,i}\, r_j
+\end{equation*}\]</span>
+so that
+<span class="math display">\[\begin{equation*}
+\sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt} = \sum\limits_{i=1}^\mathcal{C} H_i \left(V\:\sum\limits_{j=1}^{R} \nu_{j,i}\, r_j\right) = V\:\sum\limits_{j=1}^{R} \Delta H_{R_j}(T)\: r_j
+\end{equation*}\]</span></p>
+<p>Combining this relationship with Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003004">(2.97)</a>,
+<span class="math display">\[\begin{equation}
+ Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,v\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
+\end{equation}\]</span>
+where <span class="math inline">\(\beta = \sum\nolimits_{i=1} n_i \beta_i\)</span></p>
+<p>The batch reactor can be operated in either constant-(e.g., in an autoclave) or variable-(e.g., in an open vessel) volume mode. The form of the energy balance equation (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003004">(2.97)</a>) depends on which of these two modes is used.</p>
+<div id="batch-reactor-at-constant-pressure" class="section level4" number="2.5.2.1">
+<h4><span class="header-section-number">2.5.2.1</span> Batch Reactor at constant-pressure</h4>
+<p>A batch reactor operating at <strong>constant pressure</strong> or the fluid is incompressible, then Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003004">(2.97)</a> reduces to
+<span class="math display" id="eq:ec003006">\[\begin{equation}
+Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
+\tag{2.98}
+\end{equation}\]</span></p>
+<p>In general, when dealing with a batch reactor, it will be required to calculate the reaction temperature and fractional conversion as a function of time under given conditions of heat supply or removal, or to calculate the heating or cooling requirements for obtaining a desired temperature and reactor capacity.</p>
+<p>For a single reaction,
+<span class="math display">\[\begin{equation}
+Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\:  \Delta H_{R}(T) \,r
+\end{equation}\]</span></p>
+<p>If <em>A</em> is the key reactant, and setting <span class="math inline">\(\nu_A = -1\)</span>
+<span class="math display">\[\begin{equation}
+Q = \sum\limits_{i=1}^\mathcal{C} N_{i} \,C_{P_i}\frac{dT}{dt} - \Delta H_{R,A}(T)\,r_A\,V, \quad r_A = - r
+\end{equation}\]</span>
+where <em>r</em> is the global reaction rate.</p>
+<p>Thus, the temperature profile is just calculated from this relationship.</p>
+<p><span class="math display" id="eq:ec003007">\[\begin{equation}
+\frac{dT}{dt} = \frac{q\,A_k + \Delta H_{R}(T)\,r_A\,V}{\sum\limits_{i=1}^\mathcal{C} N_{i}\,C_{P_i}} , \quad r_A = - r
+\tag{2.99}
+\end{equation}\]</span></p>
+<p>Where Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003007">(2.99)</a> is the appropriate simplified heat balance and <span class="math inline">\(A_k\)</span> is the heat exchanger surface. The term <span class="math inline">\(q\,A_k\)</span> represents any addition or removal of heat from the reactor. For a heat exchange coil, <em>q</em> would have the form:
+<span class="math display">\[\begin{equation}
+q = U\left(T_r - T\right)
+\end{equation}\]</span>
+where <span class="math inline">\(T_r\)</span> is the temperature of the heating or cooling medium.</p>
+<p>For adiabatic operation, <span class="math inline">\(q = 0\)</span>, and it is very important to dig a little bit under this type of operation. Under this operation mode, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003007">(2.99)</a> becomes to:
+<span class="math display">\[\begin{equation}
+\frac{dT}{dt} = \frac{\Delta H_{R}(T)\,r_A\,V}{\sum\limits_{i=1}^\mathcal{C} N_{i}\,C_{P_i}} , \quad r_A = - r
+\end{equation}\]</span>
+which is equivalent to
+<span class="math display">\[\begin{equation*}
+    \frac{dT}{dt} = \cfrac{\Delta H_{R}(T) \left(\cfrac{dN_A}{dt}\right)}{\sum\limits_{i=1}^\mathcal{C} N_i \,C_{P_i}}
+\end{equation*}\]</span>
+Eliminating the time derivative term
+<span class="math display" id="eq:ec003038">\[\begin{equation}
+\left(\sum\limits_{i=1}^\mathcal{C} N_i \,C_{P_i}\right)\,dT = \Delta H_{R}(T)\,{dN_A}
+\tag{2.100}
+\end{equation}\]</span></p>
+<p>When only one reaction is taking place <span class="math inline">\(N_i = N_{i,0} + \nu_i\,N_{A,0}\,X_A\)</span>, so
+<span class="math display">\[\begin{equation*}
+\left(\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i} + N_{A,0}\,X_A\,\sum\limits_{i=1}^\mathcal{C} \nu_{i} \,C_{P_i}\right)\,dT + \Delta H_{R}(T)\,N_{A,0}\,{dX_A}
+\end{equation*}\]</span></p>
+<p>At constant pressure,
+<span class="math display">\[\begin{equation*}
+  \sum\limits_{i=1}^\mathcal{C} \nu_{i} \,C_{P_i} \approx \frac{d\,\Delta H_R(T)}{dT}
+\end{equation*}\]</span></p>
+<p>Combining both equations
+<span class="math display">\[\begin{equation*}
+\left(\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i} + N_{A,0}\,X_A\,\frac{d\,\Delta H_R(T)}{dT}\right)\,dT + \Delta H_{R}(T)\,N_{A,0}\,dX_A = 0
+\end{equation*}\]</span>
+so
+<span class="math display" id="eq:ec003039">\[\begin{equation}
+\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i}\,dT + N_{A,0}\,d\left[\Delta H_R(T)\,X_A\right] = 0
+\tag{2.101}
+\end{equation}\]</span></p>
+<p>Assuming that <span class="math inline">\(C_{P_i}\)</span> and <span class="math inline">\(\Delta H_{R}\)</span> are known and constant for the reaction temperature range, the integration of Eq. @ref(eq:ec003_039) is straightforward:
+<span class="math display">\[\begin{equation*}
+\left(\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i}\right)\left(T-T_0\right) + N_{A,0}\,\Delta H_R(T)\,X_A = 0
+\end{equation*}\]</span></p>
+<p>Rearranging,
+<span class="math display" id="eq:ec003040">\[\begin{equation}
+    T = T_0 + \left(\frac{N_{A0}\,\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,\overline{C}_{P_i}}\right)X_A
+\tag{2.102}
+\end{equation}\]</span></p>
+<p>The equation <a href="ideal-chemical-reactor-design.html#eq:ec003040">(2.102)</a> can be used to check the maximum reactor temperature change that can be attained with adiabatic operation by setting the fractional conversion of <em>A</em> equal to one. This temperature change is called <strong>adiabatic temperature change</strong></p>
+<div class="infobox info">
+<p>Physically, it is the amount that the temperature will increase or decrease as the reaction goes to completion under adiabatic conditions.</p>
+</div>
+<p>Finally, if <span class="math inline">\(\left({N_{A0}(-\Delta H_{R}(T))}/{\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,\overline{C}_{P_i}}\right)\)</span> is constant, independent of temperature, the Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003040">(2.102)</a> can be written as</p>
+<p><span class="math display" id="eq:ec003004">\[\begin{equation}
+T = T_0 + \Delta T_\text{ad}\,X_A
+\tag{2.97}
+\end{equation}\]</span></p>
+<p>This equation represents a simplified version of the energy balance for an adiabatic reactor, valid when <span class="math inline">\(\Delta T_\text{ad}\)</span> is constant.</p>
+<div class="infobox info">
+<p>The operating point of an adiabatic CSTR at steady-state must lie somewhere on the line that represents the adiabatic energy balance. For an adiabatic PFR at a steady-state or for an adiabatic batch reactor, the energy balance describes the reaction’s path, including the exit condition for a PFR and the final condition for a batch reactor. For an adiabatic reactor, if point <span class="math inline">\((X,T)\)</span> does not lie on the line, the energy balance is not satisfied.</p>
+</div>
 <p><strong>Work in Progress</strong></p>
 
+</div>
+</div>
 </div>
 </div>
             </section>
