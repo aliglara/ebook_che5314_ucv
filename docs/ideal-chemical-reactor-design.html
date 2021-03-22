@@ -149,6 +149,7 @@
 <li class="chapter" data-level="2.5.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-nonisothermal-batch-reactor"><i class="fa fa-check"></i><b>2.5.2</b> The nonisothermal batch reactor</a>
 <ul>
 <li class="chapter" data-level="2.5.2.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-pressure"><i class="fa fa-check"></i><b>2.5.2.1</b> Batch Reactor at constant-pressure</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-volume"><i class="fa fa-check"></i><b>2.5.2.2</b> Batch Reactor at constant-volume</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -2491,8 +2492,63 @@ Figure 2.39: Conversion and temperature in a batch reactor (Case II)
 </div>
 <p>The total time operation in case I (including filling and emptying times) was 11676.5 seconds or 3.24 hours. For case II, the total time required was 9341.94 or 2.59 hours, which implies a decrease of 20%.</p>
 <p>However, it is essential to include an economic function to optimize the operation scheme because steam and cooling water requirements are different in both cases.</p>
-<p>The solution for this problem is avalaible in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_019BatchReactorHX.ipynb">Python</a>
-<strong>Work in Progress</strong></p>
+<p>The solution for this problem is avalaible in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_019BatchReactorHX.ipynb">Python</a></p>
+
+<div class="exercise">
+<p><span id="exr:it003014" class="exercise"><strong>Exercise 2.14  (Dynamic simulation of a non-isothermal batch reactor)  </strong></span>The chemical reaction is a liquid-phase, irreversible, exothermic, and first-order, which is taking place
+into a BR.</p>
+<p>Let us assume that <span class="math inline">\(A\)</span> is fed to the reactor at 294 K, the diameter of the reactor is 2 m, and it is equipped with a jacket heat transfer and an additional external heat exchanger, which heat transfer area is four times the jacket area. The operating temperature is 340 K, and initially, the reactor is heated with a hot fluid until the reaction begins to generate heat, and then it is cooled by a cold fluid.</p>
+<p>A split-range-heating/cooling system is used to heat or cool the reactor as it is required. A reactor temperature controller’s setpoint is ramped up from 300 K to 340 K in 45 min. The hot-stream temperature is 373 K while the cold-stream one is 294 K. The maximum flow rate of each stream is one kg/s.</p>
+<p>The process has two operating restrictions:</p>
+<ol style="list-style-type: decimal">
+<li>It is required the maximum conversion of <span class="math inline">\(A\)</span> is equal to 99.99% and,</li>
+<li>the reaction stops if the batch temperature is equal or greater than 400 K.</li>
+</ol>
+</div>
+<p><em>Solution</em>.
+This problem is described by following ODEs
+<span class="math display">\[\begin{gather*}
+\frac{dC_A}{dt} = - k \,C_A \\
+\frac{dT}{dt} = \frac{1}{\rho\,C_P\,V_R}\left(Q - \Delta H_R(T) \,k \,C_A \,V_R\right)\\
+\frac{dT_J}{dt} = \frac{F_\text{cold}\,T_\text{cold} + F_\text{hot}\,T_\text{hot}}{V_J} - 
+\frac{\left(F_\text{hot}+F_\text{cold}\right)T_J}{V_J} - \frac{Q}{V_J\rho_J\,C_{P_J}}
+\end{gather*}\]</span>
+where <span class="math inline">\(J\)</span> refers to jacket heat exchanger</p>
+<p>with:
+<span class="math display">\[\begin{equation*}
+    Q = U\,A\,\left(T_J - T \right) \qquad
+    k = k_0 \exp\left(\frac{-E}{R\,T}\right)
+\end{equation*}\]</span></p>
+<p>This problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_020BatchReactorDyn.ipynb">Python</a>, and its results are shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003004">2.40</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003004"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003004-1.png" alt="Dynamic simulation of a batch reactor" width="672" />
+<p class="caption">
+Figure 2.40: Dynamic simulation of a batch reactor
+</p>
+</div>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003004">2.40</a> (a) shows the reactor temperature profile compared to setpoint temperature (340 K). This figure is consistent with the regular mode operation of a BR depicted for high exothermic reactions.</p>
+<p>In (b), the behavior of the hot fluid and cold fluid rate is observed.
+The maximum flow rate of the cold stream occurs at the end of the ramp when the temperature (<span class="math inline">\(T_{R,\text{max}}\)</span>) exceeded 340 K (approx. 350K).
+Now, the reaction slows down, and when <span class="math inline">\(T\)</span> starts to drop, the cooling flow rate is gradually reduced to maintain <span class="math inline">\(T\)</span> at the desired level.</p>
+<p>In general, at <span class="math inline">\(T_{R,\text{max}}\)</span> for the reaction
+<span class="math display">\[\begin{equation*}
+U\,A\left(T_{R,\text{max}}-T_\text{cold}\right) = \Delta H_R(T) V_R\,r_A(T_{R,\text{max}})
+\end{equation*}\]</span></p>
+<p>For a batch reactor is crucial that the cooling system could maintain <span class="math inline">\(T_{R,\text{max}}\)</span> and that the sensibility of <span class="math inline">\(T_{R,\text{max}}\)</span> towards the cooling medium inlet temperatura <span class="math inline">\(T_\text{cold}\)</span>, <span class="math inline">\(dT_{R,\text{max}}/dT_{\text{cold}}\)</span> should be lower than 1 in order to have a dampening effect.</p>
+<p>In (c) is shown that at <span class="math inline">\(T_{R,\text{max}}\)</span> the concentration of <em>A</em> dropped to about half its initial value. The final conversion of <em>A</em> was reached in <strong>291.29 min</strong></p>
+<p>The same problem was solved for two different diameters for the reactor to analyze the effect over reactor performance and stability of the reaction.
+The results obtained are shown in figure <a href="ideal-chemical-reactor-design.html#fig:fig003005">2.41</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig003005"></span>
+<img src="ebook_notes_5314_files/figure-html/fig003005-1.png" alt="Effect of size reactor over dynamic behavior of a BR" width="672" />
+<p class="caption">
+Figure 2.41: Effect of size reactor over dynamic behavior of a BR
+</p>
+</div>
+<p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005">2.41</a> shows when the reactor size is decreased, its response is unstable, with a 10K overshoot of the desired temperature, whereas when the diameter is increased to 3 m, the reactor runs away</p>
+</div>
+<div id="batch-reactor-at-constant-volume" class="section level4" number="2.5.2.2">
+<h4><span class="header-section-number">2.5.2.2</span> Batch Reactor at constant-volume</h4>
+<p><strong>Work in Progress</strong></p>
 
 </div>
 </div>
