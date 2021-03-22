@@ -12,6 +12,13 @@ description: "This is my notes recopilation for the course of Chemical Reaction 
 
 # Introduction {-}
 
+```{r mindmap2, out.width = "80%", echo=FALSE, fig.align='center', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/Reactor_Design_map.png")
+grid.raster(img)
+```
+
 This is an _online_ book written in **Markdown** and **LaTeX** where I published the personal notes that I used to use while I was lecturing Chemical Reactor Design at the Central University of Venezuela, Caracas, Venezuela.
 
 Because it is an informal recompilation of my notes, this material is not a comprehensive book where you will find details in concepts of the area. However, it is a relatively straightforward guide for an intermediate undergraduate student of Chemical Engineering who has taken an introductory course on Chemical reaction kinetics.

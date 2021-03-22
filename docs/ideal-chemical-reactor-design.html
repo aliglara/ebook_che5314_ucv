@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-21" />
+<meta name="date" content="2021-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2419,7 +2419,80 @@ T = T_0 + \Delta T_\text{ad}\,X_A
 <div class="infobox info">
 <p>The operating point of an adiabatic CSTR at steady-state must lie somewhere on the line that represents the adiabatic energy balance. For an adiabatic PFR at a steady-state or for an adiabatic batch reactor, the energy balance describes the reaction’s path, including the exit condition for a PFR and the final condition for a batch reactor. For an adiabatic reactor, if point <span class="math inline">\((X,T)\)</span> does not lie on the line, the energy balance is not satisfied.</p>
 </div>
-<p><strong>Work in Progress</strong></p>
+
+<div class="exercise">
+<p><span id="exr:it003013" class="exercise"><strong>Exercise 2.13  (Heat requirement for a BR)  </strong></span>In a batch reactor, having a volume <span class="math inline">\(V_R = 5 \text{ m}^3\)</span>, a constant-density exothermic reaction <span class="math inline">\(A \rightarrow P\)</span> is carried out in the liquid phase. For the conversion rate we have</p>
+<p><span class="math display">\[\begin{align*}
+&amp;r_A = -k\,C_A \quad \left[\text{kmol/m}^3\text{s} \right]\\
+&amp;C_P = 4.2 \cdot 10^6 \, \text{J/}\text{m}^3\,^\circ \text{C}\\ 
+&amp;k = 4\cdot 10^6 \exp \left(-7900/T\right) \quad \left[\text{s}^{-1} \right]\\
+&amp;\text{MW}_A = 100 \text{ kg/kmol}\\
+&amp;\Delta H_R = -1.67 \cdot 10^6 \; \text{J/kg}\\
+&amp;C_{A0} = 1 \text{ kmol/m}^3$
+\end{align*}\]</span></p>
+<p>The initial temperature <span class="math inline">\(T_0\)</span> of the reaction is 20 <span class="math inline">\(^\circ\)</span>C and the maximum allowable reaction temperature is 95 <span class="math inline">\(^\circ\)</span>C. The reactor contains a spiral for heat exchange purpose; its surface area <span class="math inline">\(A\)</span> is 3.3 m<span class="math inline">\(^2\)</span> and it can be operated with steam (<span class="math inline">\(T_s = 120\, ^\circ\)</span>C, <span class="math inline">\(U_s\)</span> = 1360 W/m<span class="math inline">\(^2\,^\circ\)</span>C) and cooling water (<span class="math inline">\(T_c = 15\, ^\circ\)</span>C, <span class="math inline">\(U_c\)</span> = 1180 W/m<span class="math inline">\(^2\,^\circ\)</span>C). The time required for filling and emptying the reactor are 600 and 900 s, respectively.</p>
+<p>The problem to be solved is calculated the duration of one reaction cycle and the steam consumption for a relative conversion <span class="math inline">\(X_A \geq 0.9\)</span> and for the following policies of operation:</p>
+<ol style="list-style-type: decimal">
+<li>Preheat to 55 <span class="math inline">\(^\circ\)</span>C, let the reaction proceed adiabatically, start cooling when 95 <span class="math inline">\(^\circ\)</span>C or <span class="math inline">\(X_A = 0.9\)</span> is reached, cool down to 45 <span class="math inline">\(^\circ\)</span>C.</li>
+<li>Heat up to 95 <span class="math inline">\(^\circ\)</span>C, let the reaction proceed isothermally until <span class="math inline">\(X_A = 0.9\)</span>, cool down to 45 <span class="math inline">\(^\circ\)</span>C.</li>
+</ol>
+</div>
+<p><em>Solution</em>. To solve the problem, we are going to apply the energy balance for a batch reactor that operates at constant-pressure (eq. <a href="ideal-chemical-reactor-design.html#eq:ec003007">(2.99)</a>).
+This equation will combine with the mass balance equation and the kinetic rate law of the reaction, following the operation policies described before.</p>
+<p><strong>Case I</strong>. First policy of operation (see Figure <a href="ideal-chemical-reactor-design.html#fig:fig0030203">2.38</a>)</p>
+<p><em>Step 1</em>. Heating up. During this step, the chemical reaction is not taking place. It is just a preheat of the reaction mixture.
+The energy balance for an incompressible fluid without external heat exchange and chemical conversion becomes to</p>
+<p><span class="math display">\[\begin{equation*}
+\frac{dT(t)}{dt} =\frac {U_s\,A\left(T_s - T(t)\right)}{C_P\,V_R}
+\end{equation*}\]</span></p>
+<p>Where <span class="math inline">\(T_s\)</span> and <span class="math inline">\(U_s\)</span> is the operating temperature and the global heat transfer coefficient for steam, respectively.</p>
+<p>This ODE was integrated from <span class="math inline">\(T = 20 \,^\circ\)</span>C and <span class="math inline">\(T = 55 \,^\circ\)</span>C (ec. <a href="ideal-chemical-reactor-design.html#eq:ec003013">(2.103)</a>) and it is found that the latter temperature is reached after 2015.69 seconds.
+<span class="math display" id="eq:ec003013">\[\begin{equation}
+    T (t) =T_s + \exp \left(-\frac{U\,A\,t}{C_P\,V_R}\right) \left(20 - T_s \right) 
+\tag{2.103}
+\end{equation}\]</span></p>
+<p><em>Step 2</em>. Reaction under adiabatic operation. Now, it is necessary to combine mass balance, kinetic rate with energy balance.
+Thus, the ODEs system to be solved is
+<span class="math display">\[\begin{align*}
+    \frac{d X_A}{dt} &amp;= k\left(1-X_A\right) \\
+    \frac{dT}{dt} &amp;= - \frac{\Delta H_{R_A}^\circ\,C_{A0}}{C_P} \frac{d X_A}{dt}
+\end{align*}\]</span>
+This system required 4063.6 seconds for reached 90% of conversion. The final temperature was 90.79 <span class="math inline">\(^\circ\)</span>C.</p>
+<p><em>Step 3</em>. Cooling down. This stage will be solved under same assumptions set out in first stage but using water as refrigerant fluid.
+<span class="math display">\[\begin{equation*}
+    \frac{dT(t)}{dt} =\frac {U_c\,A\left(T_c - T(t)\right)}{C_P\,V_R}
+\end{equation*}\]</span>
+In this stage, the system was cooled to 45 <span class="math inline">\(^\circ\)</span>C in 4997.43 seconds.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig0030203"></span>
+<img src="ebook_notes_5314_files/figure-html/fig0030203-1.png" alt="Conversion and temperature in a batch reactor (Case I)" width="672" />
+<p class="caption">
+Figure 2.38: Conversion and temperature in a batch reactor (Case I)
+</p>
+</div>
+<p><strong>Case II</strong>. Second policy of operation. (see Figure <a href="ideal-chemical-reactor-design.html#fig:fig0030204">2.39</a>).</p>
+<p><em>Step 1</em>. In first step, the heating up and reaction will be simultaneous. Therefore, the equations to be solved are:
+<span class="math display">\[\begin{align*}
+    \frac{d X_A}{dt} &amp;= k\left(1-X_A\right) \\
+    \frac{dT}{dt} &amp;= \frac {U_s\,A\left(T_s - T(t)\right)}{C_P\,V_r} - \frac{\Delta H_{R_A}^\circ\,C_{A0}}{C_P} \frac{d X_A}{dt}
+\end{align*}\]</span>
+The reaction was stopped when the reaction temperature was 95 <span class="math inline">\(^\circ\)</span>C.
+This temperature was reached in 3442.17 seconds, and the conversion of <span class="math inline">\(A\)</span> was 67.8%</p>
+<p><em>Step 2</em>. In the second step, the reaction proceeded at a constant temperature.
+The equation required to solve this step is just the mass balance of <span class="math inline">\(A\)</span> with <span class="math inline">\(k\)</span> evaluated at 95 <span class="math inline">\(^\circ\)</span>C. Under this circumstance, the conversion of 90% was reached in 609.38 seconds.</p>
+<p><span class="math display">\[\begin{equation*}
+    \frac{d X_A}{dt} = k(T)\left(1-X_A\right) 
+\end{equation*}\]</span></p>
+<p><em>Step 3</em>. The final step was cooling down the reaction mixture until 45 <span class="math inline">\(^\circ\)</span>C. This temperature was reached in 5290.39 seconds.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig0030204"></span>
+<img src="ebook_notes_5314_files/figure-html/fig0030204-1.png" alt="Conversion and temperature in a batch reactor (Case II)" width="672" />
+<p class="caption">
+Figure 2.39: Conversion and temperature in a batch reactor (Case II)
+</p>
+</div>
+<p>The total time operation in case I (including filling and emptying times) was 11676.5 seconds or 3.24 hours. For case II, the total time required was 9341.94 or 2.59 hours, which implies a decrease of 20%.</p>
+<p>However, it is essential to include an economic function to optimize the operation scheme because steam and cooling water requirements are different in both cases.</p>
+<p>The solution for this problem is avalaible in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_019BatchReactorHX.ipynb">Python</a>
+<strong>Work in Progress</strong></p>
 
 </div>
 </div>
