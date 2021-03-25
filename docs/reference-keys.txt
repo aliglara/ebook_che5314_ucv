@@ -149,6 +149,7 @@ fig:fig002010
 eq:ec003002
 eq:ec003003
 eq:ec003004
+eq:ec003005
 eq:ec003006
 eq:ec003007
 eq:ec003038
@@ -161,6 +162,9 @@ fig:fig0030204
 exr:it003014
 fig:fig003004
 fig:fig003005
+eq:ec003008
+eq:ec003009
+eq:ec003010
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -197,5 +201,6 @@ variable-volume-batch-reactor
 the-nonisothermal-batch-reactor
 batch-reactor-at-constant-pressure
 batch-reactor-at-constant-volume
+the-semi-batch-reactor
 distribution-of-residence-times
 final-words

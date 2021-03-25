@@ -2286,6 +2286,7 @@ so that
 Combining this relationship with Eq. \@ref(eq:ec003004), 
 \begin{equation}
  Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,v\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
+ (\#eq:ec003005)
 \end{equation}
 where $\beta = \sum\nolimits_{i=1} n_i \beta_i$
 
@@ -2293,7 +2294,7 @@ The batch reactor can be operated in either constant-(e.g., in an autoclave) or 
 
 #### Batch Reactor at constant-pressure
 
-A batch reactor operating at **constant pressure** or the fluid is incompressible, then Eq. \@ref(eq:ec003004) reduces to
+A batch reactor operating at **constant pressure** or the fluid is incompressible, then Eq. \@ref(eq:ec003005) reduces to
 \begin{equation}
 Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
 (\#eq:ec003006)
@@ -2444,7 +2445,7 @@ _Step 3_. Cooling down. This stage will be solved under same assumptions set out
 \end{equation*}
 In this stage, the system was cooled to 45 $^\circ$C in 4997.43 seconds.
 
-```{r fig0030203, fig.align='center', fig.cap='Conversion and temperature in a batch reactor (Case I)', echo=FALSE, fig.lp='fig:'}
+```{r fig0030203, out.width="65%", fig.align='center', fig.cap='Conversion and temperature in a batch reactor (Case I)', echo=FALSE, fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_02_03.png")
@@ -2470,7 +2471,7 @@ The equation required to solve this step is just the mass balance of $A$ with $k
 
 _Step 3_. The final step was cooling down the reaction mixture until 45 $^\circ$C. This temperature was reached in 5290.39 seconds.
 
-```{r fig0030204, fig.align='center', fig.cap='Conversion and temperature in a batch reactor (Case II)', echo=FALSE, fig.lp='fig:'}
+```{r fig0030204, out.width="65%", fig.align='center', fig.cap='Conversion and temperature in a batch reactor (Case II)', echo=FALSE, fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_02_04.png")
@@ -2516,7 +2517,7 @@ with:
 
 This problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_020BatchReactorDyn.ipynb), and its results are shown in Figure \@ref(fig:fig003004).
 
-```{r fig003004, fig.align='center', fig.cap='Dynamic simulation of a batch reactor', echo=FALSE, fig.lp='fig:'}
+```{r fig003004, out.width="70%", fig.align='center', fig.cap='Dynamic simulation of a batch reactor', echo=FALSE, fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_03_01.png")
@@ -2541,7 +2542,7 @@ In (c) is shown that at $T_{R,\text{max}}$ the concentration of _A_ dropped to a
 The same problem was solved for two different diameters for the reactor to analyze the effect over reactor performance and stability of the reaction.
 The results obtained are shown in figure \@ref(fig:fig003005).
 
-```{r fig003005, fig.align='center', fig.cap='Effect of size reactor over dynamic behavior of a BR', echo=FALSE, fig.lp='fig:'}
+```{r fig003005, out.width="65%", fig.align='center', fig.cap='Effect of size reactor over dynamic behavior of a BR', echo=FALSE, fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_03_02.png")
@@ -2551,6 +2552,59 @@ grid.raster(img)
 Figure \@ref(fig:fig003005) shows when the reactor size is decreased, its response is unstable, with a 10K overshoot of the desired temperature, whereas when the diameter is increased to 3 m, the reactor runs away
 
 #### Batch Reactor at constant-volume
+
+Nevertheless, when the reactor operates at constant volume, the boundary work is zero so let us rewrite the energy balance for a batch reactor (from Eq. \@ref(eq:ec003005)) in reasonable terms. The variation of the pressure can be derived from the total differential of volume.
+
+\begin{equation}
+    dV ={\left( \frac{\partial V}{\partial T}\right)}_{P,n} dT + {\left( \frac{\partial V}{\partial P}\right)}_{T,n} dP + \sum\limits_{i=1}^\mathcal{C} \overline{V}_i dn_i
+(\#eq:ec003008)
+\end{equation}
+
+Other uselful relationships are:
+\begin{align}
+  \beta & = \frac{1}{v}\left(\frac{\partial v}{\partial T}\right)_{P,n_k}\\
+  \kappa_T & = -\frac{1}{V}\left(\frac{\partial v}{\partial P}\right)_T \\
+   C_{P} & = C_{V} + T\,v\,\frac{\beta^2}{\kappa_T}
+(\#eq:ec003009)
+\end{align}
+
+Now, forming time derivatives for Eq. \@ref(eq:ec003008),
+\begin{equation}
+    \frac{dP}{dt} = -\cfrac{\left( \cfrac{\partial V}{\partial T}\right)_{P,n} \cfrac{dT}{dt} + \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \cfrac{dn_i}{dt}}{\left( \cfrac{\partial V}{\partial P}\right)_{T,n}} = \frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt}
+(\#eq:ec003010)
+\end{equation}
+
+Substituting Eq. \@ref(eq:ec003010) into Eq. \@ref(eq:ec003005)
+\begin{align*}
+Q = & \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+= & \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\left(\frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt}\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
+\end{align*}
+
+This equation could rewrite it,
+\begin{align*}
+  Q & =\left( \,C_{P} - T\,V\,\frac{\beta^2}{\kappa_T} \right)\frac{dT}{dt} - \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+    & =C_V\frac{dT}{dt} - \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \left(V\,\sum\limits_{j=1}^R \nu_{i,j}\,r_j\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+     & =C_V\frac{dT}{dt} - \left(\sum\limits_{j=1}^R \left( \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^\mathcal{C} \nu_{i,j} \overline{V}_i \right)\,r_j\right) V + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+     & = C_V\frac{dT}{dt} - V \,\sum\limits_{j=1}^R \frac{T\, \beta}{\kappa_T}  \Delta V_{j} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
+\end{align*}
+
+ 
+Therefore, the energy balance for a batch reactor that operates at **constant volume** is 
+
+\begin{equation*}
+  Q = C_V\frac{dT}{dt} - V \,\sum\limits_{j=1}^R \left( T\:\frac{ \beta}{\kappa_T}  \Delta V_{j}   - \Delta H_{R_j}(T)\,r_j \right)
+\end{equation*}
+
+For most liquid reactions, $\Delta V_j \approx 0$ is usually a good approximation. With this approximation $\Delta H_R \approx \Delta U_R$ and $C_P \approx C_V$.
+
+In a gas-phase reacting system, there are two cases: there is no change in moles on reaction, and it follows that
+\[\sum_{j=1}^R \nu_j = 0 \text{ and } \, \sum_{j=1}^R \Delta V_j = 0\]
+
+In the second case, there is a change in moles on reaction. Thus $\sum \nu_j = \Delta N$ and $\sum \Delta V_j \neq 0$.
+
+The use of a jacket surrounding the reactor is probably the most common method providing heat transfer because it is relatively inexpensive in terms of equipment cost. However, the most effective configuration of the heat exchange equipment will be determined by the amount of heat that must be added or removed from the reactor to keep optimum conversion of the key reactant into the desired product.
+
+### The Semi-Batch Reactor
 
 **Work in Progress**
 
