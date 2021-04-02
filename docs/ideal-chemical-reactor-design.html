@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-03-25" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,6 +152,7 @@
 <li class="chapter" data-level="2.5.2.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-volume"><i class="fa fa-check"></i><b>2.5.2.2</b> Batch Reactor at constant-volume</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-semi-batch-reactor"><i class="fa fa-check"></i><b>2.5.3</b> The Semi-Batch Reactor</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimal-operation-policies"><i class="fa fa-check"></i><b>2.5.4</b> Optimal Operation Policies</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
@@ -2587,11 +2588,75 @@ Q = &amp; \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \b
 <p>In a gas-phase reacting system, there are two cases: there is no change in moles on reaction, and it follows that
 <span class="math display">\[\sum_{j=1}^R \nu_j = 0 \text{ and } \, \sum_{j=1}^R \Delta V_j = 0\]</span></p>
 <p>In the second case, there is a change in moles on reaction. Thus <span class="math inline">\(\sum \nu_j = \Delta N\)</span> and <span class="math inline">\(\sum \Delta V_j \neq 0\)</span>.</p>
-<p>The use of a jacket surrounding the reactor is probably the most common method providing heat transfer because it is relatively inexpensive in terms of equipment cost. However, the most effective configuration of the heat exchange equipment will be determined by the amount of heat that must be added or removed from the reactor to keep optimum conversion of the key reactant into the desired product.</p>
+<p>The use of a jacket surrounding the reactor is probably the most common method providing heat transfer because it is relatively inexpensive in terms of equipment cost. However, the most effective heat exchange equipment configuration will be determined by the amount of heat that must be added or removed from the reactor to keep optimum conversion of the key reactant into the desired product.</p>
 </div>
 </div>
 <div id="the-semi-batch-reactor" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> The Semi-Batch Reactor</h3>
+<p>When addition of reactants, together with removal of liquid and vapor, is also considered, the equations becomes for example <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span>:</p>
+<p>Continuity equations for specie <em>j</em>:
+<span class="math display">\[\begin{equation*}
+\frac{C_j\,V}{dt} = F_1 C_{j,0} - F_2 C_j - F_{3,v}\,C_{j,v} - V \sum_{i=1}^R \nu_{ij}\, r_i
+\end{equation*}\]</span></p>
+<p><span class="math inline">\(F_1\)</span> is the liquid feed rate, and <span class="math inline">\(F_2\)</span> is the liquid withdrawal rate, and <span class="math inline">\(F_3\)</span> is the vapor withdrawal rate.</p>
+<p>Energy equation:
+<span class="math display">\[\begin{equation*}
+\rho\,c_P\,V\, \frac{dT}{dt} = F_1\,c_P\,\rho\, T_1 -  F_2 \, c_P\, \rho\, T -  F_{3,v} \sum C_{j,c} \, \Delta H_v + Q + V \sum_{i=1}^R r_i \left( - \Delta H_i \right)
+\end{equation*}\]</span></p>
+<p>Accounting for the change in volume:
+<span class="math display">\[\begin{equation*}
+\frac{dV}{dt} = F_1 - F_2 - F_{3,l}
+\end{equation*}\]</span>
+with
+<span class="math display">\[\begin{equation*}
+F_{3,l} = F_{3,v}\, \frac{273}{273+T} \, P \, \frac{1}{22.4}\frac{1}{C_{t,l}}
+\end{equation*}\]</span>
+where <span class="math inline">\(T\)</span> is in degrees Celsius and <span class="math inline">\(C_{t,l}\)</span> is the total liquid concentration.</p>
+<p>One may choose to operate a semi-batch reactor to control the reaction or heat release during the reaction by slowly adding one reactant in the feed stream or maximizing the selectivity to a specific product.</p>
+<p>In order to illustrate the last option, let us consider two elementary liquid-phase reactions simultaneously. One of them produces an undesired product <span class="math inline">\(U\)</span>.
+<span class="math display">\[\begin{align*}
+&amp;A + B \xrightarrow[]{k_D} C \\
+&amp;A + B \xrightarrow[]{k_U} U
+\end{align*}\]</span>
+whose rate equations are:
+<span class="math display">\[\begin{align*}
+  r_D &amp;= k_D\,C_A^2\,C_B \\
+  r_U &amp;= k_U\,C_A\,C_B^2
+\end{align*}\]</span></p>
+<p>The instantaneous selectivity, <span class="math inline">\(S_{D/U}\)</span>, is
+<span class="math display">\[\begin{equation*}
+  S_{D/U} = \frac{k_D}{k_U}\,\frac{C_A}{C_B}
+\end{equation*}\]</span>
+From this expression, to increase the production of <em>D</em>, we need to keep the concentration of A high as possible or B low as feasible.</p>
+<p>As shown in figure, let us consider that the specie <em>A</em> is placed in the reactor initially and <em>B</em> is added continuously while reaction is taking place. The molar balance for <span class="math inline">\(A\)</span>
+<span class="math display">\[\begin{equation*}
+  r_A\,V = \frac{d\,N_A}{dt} = \frac{d\,\left(C_A\,V\right)}{dt} = V\,\frac{d\,C_A}{dt} + C_A\,\frac{d\,V}{dt}
+\end{equation*}\]</span>
+The molar balance over B is
+<span class="math display">\[\begin{equation*}
+  F_{B0} + r_B\,V = \frac{d\,N_B}{dt} \equiv \upsilon_0\,C_{B0} +  r_B\,V = V\,\frac{d\,C_B}{dt} + C_B\,\frac{d\,V}{dt}
+\end{equation*}\]</span></p>
+<p>The reaction volume varies with time as follow,
+<span class="math display">\[\begin{equation*}
+  \upsilon_0\,\rho_0 = \frac{d\left(\rho\,V\right)}{dt}
+\end{equation*}\]</span></p>
+<p>For a constant-density system, <span class="math inline">\(\rho_0 = \rho\)</span>, and
+<span class="math display">\[\begin{equation*}
+  \upsilon_0\ = \frac{d\,V}{dt}
+\end{equation*}\]</span>
+with the initial condition <span class="math inline">\(V=V_0\)</span> at <span class="math inline">\(t=0\)</span>, integrating for the case of constant <span class="math inline">\(V_0\)</span> yields
+<span class="math display">\[\begin{equation*}
+  V = V_0 + \upsilon_0\,t
+\end{equation*}\]</span></p>
+<p>Substituting into molar balance of <em>A</em> and <em>B</em>
+<span class="math display">\[\begin{align*}
+  \frac{d\,C_A}{dt} &amp;= r_A - \frac{\upsilon_0}{V}\,C_A \\
+  \frac{d\,C_B}{dt} &amp;= r_B - \frac{\upsilon_0\,\left(C_{B0} - C_B\right)}{V}
+\end{align*}\]</span></p>
+<p>We need to solve this EDOs system in order to measure the performance of the reactor.</p>
+</div>
+<div id="optimal-operation-policies" class="section level3" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Optimal Operation Policies</h3>
 <p><strong>Work in Progress</strong></p>
 
 </div>

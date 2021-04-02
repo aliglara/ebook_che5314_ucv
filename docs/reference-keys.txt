@@ -202,5 +202,6 @@ the-nonisothermal-batch-reactor
 batch-reactor-at-constant-pressure
 batch-reactor-at-constant-volume
 the-semi-batch-reactor
+optimal-operation-policies
 distribution-of-residence-times
 final-words
