@@ -165,6 +165,10 @@ fig:fig003005
 eq:ec003008
 eq:ec003009
 eq:ec003010
+eq:ec002025
+eq:ec002026
+eq:ec002027
+eq:ec002028
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -196,11 +200,7 @@ optimization-of-endothermic-equilibrium-reactions
 optimization-of-exothermic-equilibrium-reactions
 the-batch-reactor-br
 the-isothermal-batch-reactor
-constant-volume-batch-reactor
-variable-volume-batch-reactor
 the-nonisothermal-batch-reactor
-batch-reactor-at-constant-pressure
-batch-reactor-at-constant-volume
 the-semi-batch-reactor
 optimal-operation-policies
 distribution-of-residence-times

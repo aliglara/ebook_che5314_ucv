@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -143,16 +143,20 @@
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-isothermal-batch-reactor"><i class="fa fa-check"></i><b>2.5.1</b> The isothermal batch reactor</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-volume-batch-reactor"><i class="fa fa-check"></i><b>2.5.1.1</b> Constant-Volume Batch Reactor</a></li>
-<li class="chapter" data-level="2.5.1.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-volume-batch-reactor"><i class="fa fa-check"></i><b>2.5.1.2</b> Variable-Volume Batch Reactor</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#constant-volume-batch-reactor"><i class="fa fa-check"></i>Constant-Volume Batch Reactor</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#variable-volume-batch-reactor"><i class="fa fa-check"></i>Variable-Volume Batch Reactor</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-nonisothermal-batch-reactor"><i class="fa fa-check"></i><b>2.5.2</b> The nonisothermal batch reactor</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-pressure"><i class="fa fa-check"></i><b>2.5.2.1</b> Batch Reactor at constant-pressure</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-volume"><i class="fa fa-check"></i><b>2.5.2.2</b> Batch Reactor at constant-volume</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-pressure"><i class="fa fa-check"></i>Batch Reactor at constant-pressure</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-volume"><i class="fa fa-check"></i>Batch Reactor at constant-volume</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5.3" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#the-semi-batch-reactor"><i class="fa fa-check"></i><b>2.5.3</b> The Semi-Batch Reactor</a></li>
-<li class="chapter" data-level="2.5.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimal-operation-policies"><i class="fa fa-check"></i><b>2.5.4</b> Optimal Operation Policies</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimal-operation-policies"><i class="fa fa-check"></i><b>2.5.4</b> Optimal Operation Policies</a>
+<ul>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimal-batch-operation-time"><i class="fa fa-check"></i>Optimal Batch Operation Time</a></li>
+<li class="chapter" data-level="" data-path="ideal-chemical-reactor-design.html"><a href="ideal-chemical-reactor-design.html#optimal-temperature-policies"><i class="fa fa-check"></i>Optimal Temperature Policies</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a></li>
@@ -2235,8 +2239,8 @@ Figure 2.36: Conversion profile as function of volume reactor
 </li>
 <li>What is the reaction volume (size of reactor) required for a specific production flow rate?</li>
 </ol>
-<div id="constant-volume-batch-reactor" class="section level4" number="2.5.1.1">
-<h4><span class="header-section-number">2.5.1.1</span> Constant-Volume Batch Reactor</h4>
+<div id="constant-volume-batch-reactor" class="section level4 unnumbered">
+<h4>Constant-Volume Batch Reactor</h4>
 <p>If the reactor volume is constant, then the mass density of the system, <span class="math inline">\(\rho\)</span> (mass/volume), must also be constant since the mass of material in a batch reactor does not change with time. In this case, it is possible to rewrite the molar balance (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a>) directly in terms of concentrations.
 <span class="math display" id="eq:ec002004">\[\begin{equation}
     r_j \left(C_j\right) = \frac{1}{V}\frac{dN_j}{dt} = \cfrac{d\left(\cfrac{N_j}{V}\right)}{dt} = \frac{dC_j}{dt}
@@ -2264,8 +2268,8 @@ t = C_{A0} \int_{0}^{X_A} \frac{dX_A}{r_A} = - \int_{C_{A0}}^{C_A} \frac{dC_A}{r
 <p>The assumption of constant volume is valid for the most industrial batch reactor. The mass density is approximately constant for a large majority of liquids, even if the temperature changes moderately as the reaction proceeds. Moreover, if a vessel is filled with gas, the gas volume will be constant because the vessel’s dimensions are fixed and do not vary with time. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 </div>
 </div>
-<div id="variable-volume-batch-reactor" class="section level4" number="2.5.1.2">
-<h4><span class="header-section-number">2.5.1.2</span> Variable-Volume Batch Reactor</h4>
+<div id="variable-volume-batch-reactor" class="section level4 unnumbered">
+<h4>Variable-Volume Batch Reactor</h4>
 <p>In a variable-volume batch reactor, the volume of the reacting mixture changes over time for two reasons:</p>
 <ol style="list-style-type: decimal">
 <li>external means (e.g., filling a reaction vessel or adding a second reactant), which is often termed ‘’semi-batch’’ operation, and</li>
@@ -2345,8 +2349,8 @@ so that
 \end{equation}\]</span>
 where <span class="math inline">\(\beta = \sum\nolimits_{i=1} n_i \beta_i\)</span></p>
 <p>The batch reactor can be operated in either constant-(e.g., in an autoclave) or variable-(e.g., in an open vessel) volume mode. The form of the energy balance equation (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003004">(2.97)</a>) depends on which of these two modes is used.</p>
-<div id="batch-reactor-at-constant-pressure" class="section level4" number="2.5.2.1">
-<h4><span class="header-section-number">2.5.2.1</span> Batch Reactor at constant-pressure</h4>
+<div id="batch-reactor-at-constant-pressure" class="section level4 unnumbered">
+<h4>Batch Reactor at constant-pressure</h4>
 <p>A batch reactor operating at <strong>constant pressure</strong> or the fluid is incompressible, then Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003005">(2.98)</a> reduces to
 <span class="math display" id="eq:ec003006">\[\begin{equation}
 Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
@@ -2549,8 +2553,8 @@ Figure 2.41: Effect of size reactor over dynamic behavior of a BR
 </div>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005">2.41</a> shows when the reactor size is decreased, its response is unstable, with a 10K overshoot of the desired temperature, whereas when the diameter is increased to 3 m, the reactor runs away</p>
 </div>
-<div id="batch-reactor-at-constant-volume" class="section level4" number="2.5.2.2">
-<h4><span class="header-section-number">2.5.2.2</span> Batch Reactor at constant-volume</h4>
+<div id="batch-reactor-at-constant-volume" class="section level4 unnumbered">
+<h4>Batch Reactor at constant-volume</h4>
 <p>Nevertheless, when the reactor operates at constant volume, the boundary work is zero so let us rewrite the energy balance for a batch reactor (from Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003005">(2.98)</a>) in reasonable terms. The variation of the pressure can be derived from the total differential of volume.</p>
 <p><span class="math display" id="eq:ec003008">\[\begin{equation}
     dV ={\left( \frac{\partial V}{\partial T}\right)}_{P,n} dT + {\left( \frac{\partial V}{\partial P}\right)}_{T,n} dP + \sum\limits_{i=1}^\mathcal{C} \overline{V}_i dn_i
@@ -2657,8 +2661,79 @@ with the initial condition <span class="math inline">\(V=V_0\)</span> at <span c
 </div>
 <div id="optimal-operation-policies" class="section level3" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> Optimal Operation Policies</h3>
+<p>Two main types of situations are considered <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<ol style="list-style-type: decimal">
+<li>Optimal batch operation time for the sequence of operations in a given reactor.</li>
+<li>Optimal temperature (or other variables) variations during the reaction, aiming to minimize the reactor size.</li>
+</ol>
+<p>The volume reactor is considered constant in order to simplify the mathematical model.</p>
+<div id="optimal-batch-operation-time" class="section level4 unnumbered">
+<h4>Optimal Batch Operation Time</h4>
+<p>Suppose the reaction (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002025">(2.108)</a>) is taking place in a batch reactor of volumen <em>V</em> on a continual basis.
+<span class="math display" id="eq:ec002025">\[\begin{equation}
+ A \rightarrow C
+\tag{2.108}
+\end{equation}\]</span></p>
+<p>The production rate is calculated based on reaction time, <em>t</em>, and the turnaround time, <span class="math inline">\(t_t\)</span>, between batches. This turnaround time might involve: charge the reactor with reactants, heat the contents to a specified temperature, the reaction time, cool the reactor contents down to ambient temperature, drain the contents of the reactor, cleaning and prepare the reactor for the next batch.</p>
+<p>Thus, the total time per batch or cycle time is:
+<span class="math display">\[\begin{equation*}
+    t_c = t + t_t
+\end{equation*}\]</span></p>
+<p>The rate of production of <span class="math inline">\(C\)</span> on a continual basis is then
+<span class="math display">\[\begin{align*}
+\text{Prod}(C) &amp;= \frac{\text{moles of C formed}}{\text{batch}} \times \frac{\text{batch}}{\text{time}} \\ 
+            &amp; = \frac{n_C - n_{C0}}{t_c}
+\end{align*}\]</span></p>
+<p>This equation is, in terms of fractional conversion of <em>A</em>
+<span class="math display" id="eq:ec002026">\[\begin{equation}
+    \text{Prod}(C) =\frac{C_{A0}\left( X_A - X_{A0} \right) V}{t+t_t}
+\tag{2.109}
+\end{equation}\]</span></p>
+<p>Where <span class="math inline">\(V\)</span> is the volume of reactor, <span class="math inline">\(t\)</span> is obtained from <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a>, and the other quantities <span class="math inline">\(C_{A0}\)</span>, <span class="math inline">\(X_A\)</span>, and <span class="math inline">\(t_t\)</span> must be specified.</p>
+<p>Usually, it is necessary to answer at least one of the following questions:</p>
+<ol style="list-style-type: decimal">
+<li>How long should <span class="math inline">\(t\)</span> be? or</li>
+<li>How high should <span class="math inline">\(X_A\)</span> be?</li>
+</ol>
+<p>In any case, an optimization problem should be solved to answer them. This optimization problem could have two points of view:</p>
+<ol style="list-style-type: decimal">
+<li>Economic: Compare the economics of further conversion to a different use of equipment.</li>
+<li>Chemical: How about the quality of the product?</li>
+</ol>
+<p>From chemical point of view, if product stability is assumed.
+The productivity <span class="math inline">\(\text{Pr}\)</span> will be maximized when <span class="math inline">\(dPr/dt = 0\)</span>, so let us set <span class="math inline">\(t_t\)</span> is constant:
+<span class="math display" id="eq:ec002027">\[\begin{equation}
+    \frac{dPr}{dt} = C_{A0}\,V \left[\cfrac{\cfrac{dX_A}{dt}{\left(t + t_t \right)}-X_A}{{\left(t + t_t \right)}^2}\right] = 0
+\tag{2.110}
+\end{equation}\]</span></p>
+<p>As consequence of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002027">(2.110)</a>, it is possible to calculate the optimum time from:
+<span class="math display" id="eq:ec002028">\[\begin{equation}
+ \frac{dX_A}{dt}{\left(t_\text{optimum} + t_t \right)} - X_A = 0
+\tag{2.111}
+\end{equation}\]</span></p>
+<p>Specify kinetics is required to solve Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002028">(2.111)</a>.</p>
+<p>Otherwise, if it is possible to get data of operation costs like:\
+<span class="math inline">\(C_1\)</span>: the cost per unit time during production.\
+<span class="math inline">\(C_2\)</span>: the cost per unit time when the reactor does not produce, and\
+<span class="math inline">\(C_3\)</span>: the additional expenses per period</p>
+<p>And, the average total costs per unit molar (or mass) of product (<span class="math inline">\(\overline P_r\)</span>) equal
+<span class="math display">\[\begin{equation*}
+    \overline P_r = \frac{C_1\,t + C_2\,t_t + C_3}{C_{A0}\,X_A}
+\end{equation*}\]</span></p>
+<p>Solving these equations is possible to calculate the optimum load of the installation.</p>
+</div>
+<div id="optimal-temperature-policies" class="section level4 unnumbered">
+<h4>Optimal Temperature Policies</h4>
+<p>When you want to answer questions like:</p>
+<ol style="list-style-type: decimal">
+<li>What is the best single temperature of operation?</li>
+<li>What is the best temperature progression during the reaction time or, in other words, the best trajectory?</li>
+</ol>
+<p>For single reactions, the results are relatively straightforward. If the reaction is <em>irreversible</em>, and if the rate increases with temperature, the optimal temperature for either maximum conversion from a given reactor operation, or minimum time for the desired conversion, is the highest temperature possible. This highest temperature, <span class="math inline">\(T_\text{max}\)</span>, is imposed by other considerations such as reactor materials and catalyst physical properties. Similarly, for reversible <em>endothermic</em> reactions where the equilibrium conversion increases with temperature <span class="math inline">\(\left(E_{for.} &gt; E_{rev.}\right)\)</span>, the highest allowable temperature is the best policy.</p>
+<p>The case of reversible exothermic reactions is complicated because even though the rate may increase with temperature, once the equilibrium conversion s reached, higher temperatures hurt the equilibrium conversion. Thus, there is an optimum intermediate temperature where reasonably rapid rates are obtained with a sufficiently high equilibrium conversion. I will dig into that subject later.</p>
 <p><strong>Work in Progress</strong></p>
 
+</div>
 </div>
 </div>
 </div>

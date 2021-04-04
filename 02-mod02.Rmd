@@ -2165,7 +2165,7 @@ Equation \@ref(eq:ec002002) is referred to as the **design equation** for an ide
   \end{equation*}      
 2. What is the reaction volume (size of reactor) required for a specific production flow rate?
 
-#### Constant-Volume Batch Reactor
+#### Constant-Volume Batch Reactor {-}
 
 If the reactor volume is constant, then the mass density of the system, $\rho$ (mass/volume), must also be constant since the mass of material in a batch reactor does not change with time. In this case, it is possible to rewrite the molar balance (Eq. \@ref(eq:ec002002)) directly in terms of concentrations.
 \begin{equation}
@@ -2199,7 +2199,7 @@ t = C_{A0} \int_{0}^{X_A} \frac{dX_A}{r_A} = - \int_{C_{A0}}^{C_A} \frac{dC_A}{r
 The assumption of constant volume is valid for the most industrial batch reactor. The mass density is approximately constant for a large majority of liquids, even if the temperature changes moderately as the reaction proceeds. Moreover, if a vessel is filled with gas, the gas volume will be constant because the vessel's dimensions are fixed and do not vary with time. [@roberts2009]
 ::::
 
-#### Variable-Volume Batch Reactor
+#### Variable-Volume Batch Reactor {-}
 
 In a variable-volume batch reactor, the volume of the reacting mixture changes over time for two reasons:
 
@@ -2292,7 +2292,7 @@ where $\beta = \sum\nolimits_{i=1} n_i \beta_i$
 
 The batch reactor can be operated in either constant-(e.g., in an autoclave) or variable-(e.g., in an open vessel) volume mode. The form of the energy balance equation (Eq. \@ref(eq:ec003004)) depends on which of these two modes is used.
 
-#### Batch Reactor at constant-pressure
+#### Batch Reactor at constant-pressure {-}
 
 A batch reactor operating at **constant pressure** or the fluid is incompressible, then Eq. \@ref(eq:ec003005) reduces to
 \begin{equation}
@@ -2551,7 +2551,7 @@ grid.raster(img)
 
 Figure \@ref(fig:fig003005) shows when the reactor size is decreased, its response is unstable, with a 10K overshoot of the desired temperature, whereas when the diameter is increased to 3 m, the reactor runs away
 
-#### Batch Reactor at constant-volume
+#### Batch Reactor at constant-volume {-}
 
 Nevertheless, when the reactor operates at constant volume, the boundary work is zero so let us rewrite the energy balance for a batch reactor (from Eq. \@ref(eq:ec003005)) in reasonable terms. The variation of the pressure can be derived from the total differential of volume.
 
@@ -2681,6 +2681,90 @@ Substituting into molar balance of _A_ and _B_
 We need to solve this EDOs system in order to measure the performance of the reactor.
 
 ### Optimal Operation Policies
+
+Two main types of situations are considered [@froment2011]
+
+1. Optimal batch operation time for the sequence of operations in a given reactor.
+2. Optimal temperature (or other variables) variations during the reaction, aiming to minimize the reactor size.
+
+The volume reactor is considered constant in order to simplify the mathematical model.
+
+#### Optimal Batch Operation Time {-}
+
+Suppose the reaction (Eq. \@ref(eq:ec002025)) is taking place in a batch reactor of volumen _V_ on a continual basis. 
+\begin{equation}
+ A \rightarrow C
+(\#eq:ec002025)
+\end{equation}
+
+The production rate is calculated based on reaction time, _t_, and the turnaround time, $t_t$, between batches. This turnaround time might involve: charge the reactor with reactants, heat the contents to a specified temperature, the reaction time, cool the reactor contents down to ambient temperature, drain the contents of the reactor, cleaning and prepare the reactor for the next batch.
+
+Thus, the total time per batch or cycle time is:
+\begin{equation*}
+    t_c = t + t_t
+\end{equation*}
+
+The rate of production of $C$ on a continual basis is then
+\begin{align*}
+\text{Prod}(C) &= \frac{\text{moles of C formed}}{\text{batch}} \times \frac{\text{batch}}{\text{time}} \\ 
+            & = \frac{n_C - n_{C0}}{t_c}
+\end{align*}
+
+This equation is, in terms of fractional conversion of _A_
+\begin{equation}
+    \text{Prod}(C) =\frac{C_{A0}\left( X_A - X_{A0} \right) V}{t+t_t}
+(\#eq:ec002026)
+\end{equation}
+
+Where $V$ is the volume of reactor, $t$ is obtained from \@ref(eq:ec002002), and the other quantities $C_{A0}$, $X_A$, and $t_t$ must be specified.
+
+Usually, it is necessary to answer at least one of the following questions:
+
+1. How long should $t$ be? or
+2. How high should $X_A$ be?
+
+In any case, an optimization problem should be solved to answer them. This optimization problem could have two points of view:
+
+1. Economic: Compare the economics of further conversion to a different use of equipment.
+2. Chemical: How about the quality of the product? 
+
+From chemical point of view, if product stability is assumed. 
+The productivity $\text{Pr}$ will be maximized when $dPr/dt = 0$, so let us set $t_t$ is constant:
+\begin{equation}
+    \frac{dPr}{dt} = C_{A0}\,V \left[\cfrac{\cfrac{dX_A}{dt}{\left(t + t_t \right)}-X_A}{{\left(t + t_t \right)}^2}\right] = 0
+(\#eq:ec002027)
+\end{equation}
+
+As consequence of Eq. \@ref(eq:ec002027), it is possible to calculate the optimum time from:
+\begin{equation}
+ \frac{dX_A}{dt}{\left(t_\text{optimum} + t_t \right)} - X_A = 0
+(\#eq:ec002028)
+\end{equation}
+
+Specify kinetics is required to solve Eq. \@ref(eq:ec002028).
+
+Otherwise, if it is possible to get data of operation costs like:\\
+$C_1$: the cost per unit time during production.\\
+$C_2$: the cost per unit time when the reactor does not produce, and\\
+$C_3$: the additional expenses per period
+
+And, the average total costs per unit molar (or mass) of product ($\overline P_r$) equal
+\begin{equation*}
+    \overline P_r = \frac{C_1\,t + C_2\,t_t + C_3}{C_{A0}\,X_A}
+\end{equation*}
+
+Solving these equations is possible to calculate the optimum load of the installation.
+
+#### Optimal Temperature Policies {-}
+When you want to answer questions like: 
+
+1. What is the best single temperature of operation?
+2. What is the best temperature progression during the reaction time or, in other words, the best trajectory?
+
+For single reactions, the results are relatively straightforward. If the reaction is _irreversible_, and if the rate increases with temperature, the optimal temperature for either maximum conversion from a given reactor operation, or minimum time for the desired conversion, is the highest temperature possible. This highest temperature, $T_\text{max}$, is imposed by other considerations such as reactor materials and catalyst physical properties. Similarly, for reversible _endothermic_ reactions where the equilibrium conversion increases with temperature $\left(E_{for.} > E_{rev.}\right)$, the highest allowable temperature is the best policy.
+
+The case of reversible exothermic reactions is complicated because even though the rate may increase with temperature, once the equilibrium conversion s reached, higher temperatures hurt the equilibrium conversion. Thus, there is an optimum intermediate temperature where reasonably rapid rates are obtained with a sufficiently high equilibrium conversion. I will dig into that subject later.
+
 **Work in Progress**
 
 
