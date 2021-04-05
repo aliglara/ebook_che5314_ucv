@@ -169,6 +169,11 @@ eq:ec002025
 eq:ec002026
 eq:ec002027
 eq:ec002028
+eq:ec002072
+eq:ec002073
+eq:ec002074
+eq:ec002075
+eq:eq076
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -203,5 +208,6 @@ the-isothermal-batch-reactor
 the-nonisothermal-batch-reactor
 the-semi-batch-reactor
 optimal-operation-policies
+dealing-with-complex-reactions
 distribution-of-residence-times
 final-words

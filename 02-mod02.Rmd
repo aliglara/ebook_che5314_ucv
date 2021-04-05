@@ -2765,7 +2765,168 @@ For single reactions, the results are relatively straightforward. If the reactio
 
 The case of reversible exothermic reactions is complicated because even though the rate may increase with temperature, once the equilibrium conversion s reached, higher temperatures hurt the equilibrium conversion. Thus, there is an optimum intermediate temperature where reasonably rapid rates are obtained with a sufficiently high equilibrium conversion. I will dig into that subject later.
 
-**Work in Progress**
+## Dealing with complex reactions
+
+In principle, complex reactions are defined by parallel, consecutive reactions or any combinations of them. In parallel reactions, the key reactant is consumed by two different reaction pathways to form different products.
+
+<center>
+
+![](figures/complexreactions01.png)
+</center>
+
+In series reactions, the reactants form an intermediate product, which reacts further to form another product.
+
+<center>
+
+![](figures/complexreactions02.png)
+
+</center>
+
+While, multiple reactions involve a combination of both series and parallel reaction, such as:
+
+<center>
+
+![](figures/complexreactions03.png)
+
+</center>
+
+Finally, independent reactions occur when there are many reactants in feedstocks which react in different reaction pathway to different products.
+
+<center>
+
+![](figures/complexreactions04.png)
+
+</center>
+
+On any chemical scheme shown before, we must design or analyze a reactor system in which multiple reactions occur. In general, our work would have two simultaneous objectives:
+
+ 1. To produce the **desired** product at the specified production rate using the most miniature reactor. (maximize the reaction rate)
+2. To minimize the formation of **low-value by-products**. (maximize the reaction yield)
+
+
+Nevertheless, there are no general rules for achieving both objectives because they are usually incompatible. Although in most cases, product distribution controls. 
+
+Frequently, there is a trade-off between reaction rate and yield. Ultimately, this trade-off requires economic analysis. Typically, the final analysis often favors selectivity over rate because there is a significant and _continuing_ cost penalty associated with converting a valuable raw material into low-value by-products.
+
+There are two types of problems that arise in multiple-reaction systems:
+
+1. The first is analogous to the kind of problem associated with single reactions. In this category are questions such as: Given a system of reactions with known kinetics, what reaction time (or space-time) will be required to obtain a specified concentration of reactant or product, and what concentrations of the other species will exist at this time? 
+2. The second type of problem does not involve reaction time or space-time. The question here is given a system of reactions with known kinetics, and given the concentration of one component at some (unspecified) time (or space-time), what are the concentrations of the other species at that time (or space-time)? This type of problem is referred to as a ''_time-independent_'' problem. Time-independent problems can be solved by forming the ratio of various reaction rates to eliminate time (or space-time) as an explicit variable. However, the solution to such problems provides no information about the time or reactor volume required to obtain a given composition.
+
+Although fractional conversion still is a valid concept, even when more than one reaction takes place. However, the conversion of a single reactant is not sufficient to describe the progress of more than one reaction or to define the complete composition of a system in which more than one reaction occurs. Thus, it is more convenient to deal with concentrations rather than fractional conversions and examine product distribution. [@roberts2009]
+
+In industrial practice, high conversion rates are essential, but the yield of desired products plays a tremendous role in chemical reactor design.
+Thus, attempts are often made at the expense of reactor capacity to increase the production of desired products and suppress the formation of undesired ones.
+
+For a reaction system like this one
+
+<center>
+
+![](figures/complexreactions05.png)
+
+</center>
+
+The ability to convert a reactant into the desired product, **P**, minimizing the formation of undesired product, **X**, is measured by **_Yield_**. The **_overall yield_** to desired product _P_ with respect to reactant _A_ is defined as 
+\begin{equation}
+  \widetilde{Y}_{P} = \frac{\text{All moles of P formed}}{\text{All moles of A reacted}} = \frac{\nu_A}{\nu_P} \frac{N_P - N_{P0}}{N_A - N_{A0}}
+(\#eq:ec002072)
+\end{equation}
+
+The overall yield refers to the performance of the entire reactor as a whole. Either it operates continuously or in batch mode. Therefore, $\widetilde{Y}_P$ is dependent on the reaction conditions and the reactor type.
+
+However, it is often convenient to use a second type of yield called \textbf{\textit{instantaneous yield}}, $Y_P$, which determines to what extent reactant $A$ is being converted into $P$ at some place or at some moment in the reactor. It is define as the ratio of reaction rate of a given product to the reaction rate of the key reactant $A$.
+\begin{equation}
+    Y_P = - \frac{r_P}{r_A}
+(\#eq:ec002073)
+\end{equation}
+Here, $Y_P$ will be 1 when all of the $A$ that reacts is converted into the desired product, $P$.
+
+The overall yield is the average of the instantaneous yield integrates over the reactor. The overall yield concerns us because it represents the product distribution at the reactor outlet. Both types of yields are related to each other, and they are always positive.
+
+The rates of the reactions that take place will vary with time in a batch reactor because the composition, and perhaps the temperature, will vary with time. Therefore, the instantaneous yield for a batch reactor will not necessarily be the same as the overall yield. Similarly, for a PFR, the composition and temperature will vary from point to point, so the overall yield will, if necessary, be the same as the instantaneous yield. 
+
+In contrast, for a CSTR, the overall and instantaneous yields are equal. As a consequence, the fluid composition and temperature do not vary inside the reactor.
+
+There is a third parameter called **global yield**, $\eta_P$, that frequently is used to describe the behavior of system in which more than one reaction takes place. The **global yield** is defined as
+\begin{equation}
+  \eta_{P} = \frac{\text{All moles of P formed}}{\text{All moles of A fed}} = \frac{N_P - N_{P0}}{N_{A0}}
+(\#eq:ec002074)
+\end{equation}
+The definitions of overall and global yield are similar. However, the last one is based on the amount of reactant that is _fed_. 
+
+The sum of all global yield of all products will not equal to unity as long as some $A$ remains unconverted. The global and overall yield is related through the fractional conversion.
+\begin{equation*}
+  \frac{\text{moles of P formed}}{\text{moles of A fed}} = \frac{\text{moles of A reacted}}{\text{moles of A fed}} \times \frac{\text{moles of P formed}}{\text{moles of A reacted}} 
+\end{equation*}
+
+\begin{equation}
+  \eta_{P} = X_A \, \widetilde{Y}_P
+(\#eq:ec002075)
+\end{equation}
+where $X_A$ is the fractional conversion of reactant $A$. Or in differential mode
+\begin{equation}
+  d\eta_{P} = d\left(X_A \, \widetilde{Y}_P\right) = Y_P \: dX_A
+\end{equation}
+
+In case there is no product $P$ present in the reactor feed, the $\rho$ of the reaction mixture is constant over the entire reactor, the stoichiometric coefficients of $A$ and $P$ in the reaction equation are equal, the defining equations above simplify to
+\begin{align*}
+  \widetilde{Y}_P &= \frac{C_P}{C_{A0} - C_A} \\
+  \eta_P &= \frac{C_P}{C_{A0}}
+\end{align*}
+
+For convenient reasons, it could be rather to use a selectivity ratio instead of yield. Thus, the parameter **instantaneous selectivity** is defined as the ratio of reaction rate of the desired product $P$ to the reaction rate of the undesired product $X$.
+\begin{equation}
+    S_{PX} = \frac{r_P}{r_X} = \frac{k_p\,{C_{A}}^m}{k_x\,{C_A}^n}
+(#eq:eq076)
+\end{equation} 
+
+There are other definitions of selectivity, for example, the formation of the desired product divided by the formation of all products, all based on moles.
+\begin{equation*}
+  S_{P} = \frac{\text{All moles of P formed}}{\text{All moles of all products formed}}
+\end{equation*}
+
+Another useful quantity is the **Rate of Production** of a given product $P$. We mean the amount of desired product produced by the reactor per unit time $F_P$, usually in moles/time. If specie $A$ is the reactant and specie $P$ is the desired product, then
+\begin{equation}
+  F_P = \widetilde{Y}_P\:F_{A0} = S_Px\:X_A\:F_{A0}
+\end{equation}
+
+It is difficult to develop general guidelines regarding selecting and designing a reactor for a consecutive parallel reaction network than for a parallel-reaction or consecutive-reaction network separately. It is necessary to analyze various factors related to the particular situation considered. A list of steps is as follows:
+
+1. A kinetics analysis.
+2. A stoichiometric analysis to determine the maximum number of independent material balance equations and kinetics rate laws required.
+3. A material balance analysis.
+4. Selection of an appropriate numerical scheme to be used to solve the problem.
+5. Calculation of selectivity, yield, or production rate concerning the reactor's size and type/configuration.
+
+Qualitatively, let us analyze the following competitive reactions:
+
+\begin{align*}
+	& a_1A + b_1B \xrightarrow[]{k_1} p_1P, \quad r_1 = k_1\,C_A^{\alpha_{1,A}}\,C_B^{\alpha_{1,B}} \\
+	&a_2A + b_2B \xrightarrow[]{k_2}s_2S, \quad r_2 = k_2\,C_A^{\alpha_{2,A}}\,C_B^{\alpha_{2,B}}
+\end{align*}
+
+The instantaneous yield of $P$ is:
+\begin{align*}
+  Y_P & = \frac{r_P}{-r_A} = \frac{p_1\,r_1}{a_1\,r_1 + a_2\,r_2} = \cfrac{\cfrac{p_1}{a_1}}{1+\cfrac{a_2\,r_2}{a_1\,r_1}} \\
+      & = \cfrac{\cfrac{p_1}{a_1}}{1+\cfrac{a_2\,k_2}{a_1\,k_1}C_A^{\left(\alpha_{2,A} - \alpha_{1,A}\right)}\,C_B^{\left(\alpha_{2,B} - \alpha_{1,B}\right)}}
+\end{align*}
+
+The maximum value of instantaneous yield will be
+\begin{equation*}
+Y_{P,\text{max}} = \frac{p_1}{a_1}
+\end{equation*}
+
+Therefore, a normalized yield would be
+\begin{equation*}
+  \frac{Y_P}{Y_{P,\text{max}}} = \cfrac{1}{1+\cfrac{a_2\,k_2}{a_1\,k_1}C_A^{\left(\alpha_{2,A} - \alpha_{1,A}\right)}\,C_B^{\left(\alpha_{2,B} - \alpha_{1,B}\right)}}
+\end{equation*}
+
+Based on the previous equation, maximizing the value of yield implies:
+
+1. if $\alpha_{2,A} < \alpha_{1,A}$, $\alpha_{2,B} < \alpha_{1,B}$, keep $C_A$ and $C_B$ as high as possible, so PFR is better than CSTR.
+2. if $\alpha_{2,A} = \alpha_{1,A}$, $\alpha_{2,B} < \alpha_{1,B}$, keep $C_B$ as high as possible, so PFR is better than CSTR.
+3. if $\alpha_{2,A} = \alpha_{1,A}$, $\alpha_{2,B} > \alpha_{1,B}$, keep $C_B$ as low as possible, so CSTR is better than PFR.
+
 
 
 
