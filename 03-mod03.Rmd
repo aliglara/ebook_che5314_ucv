@@ -1,3 +1,61 @@
 # Distribution of Residence times
 
+Reactors treated in this course have been modeled under specific flow considerations that lead to simplicity in the mole and energy balances and are valid in many industrial reactors.
+
+Unfortunately, as it is shown in Figure \@ref(fig:fig004000), there are other cases where the deviation of those industrial reactors from ideal behavior may be sufficiently large that the use of an ideal reactor model will give an unacceptably significant error because of the careless treatment that these models do to the fluid flow pattern within the reactors. 
+
+```{r fig004000, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Examples of nonideal flow in a CSTR and packed-bed vessel. [@missen1999]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_25.png")
+grid.raster(img)
+```
+
+If the flow pattern does not follow the ideal models, it must be necessary to apply a more complex methodology for the reactor performance analysis. Nevertheless, before going deeper into these methodologies, it is essential to emphasize that  the factors that govern the performance of a chemical reactor can be grouped into two broad classifications:
+
+ 1. The **amount of time** that a reactant molecule spends in the reactor. The longer that reactant can spend in the reactor, the more chance they can react. The time that molecules spend in the reactor is called **the residence time**, which is a crucial parameter in the flow reactor performance, and the **distribution of residence time** is a key factor in determining the extent of reaction.
+ 2. The **extent of mixing** within the reactor. When dealing with two or more different molecules that must react, molecular collision must occur as a first step. Therefore, the concentration at the molecular level is essential.
+
+The degree of mixing depends not only on the reactor configuration and operating conditions but also on the fluid and reactants' properties.
+
+Mixing is a complex phenomenon that can be analyzed on both a macroscopic and microscopic scale. The RTD functions provide a measure only of macroscopic mixing. [@missen1999] 
+
+However, non-ideal flow results in irregularities relating to the micromixing of fluid elements of differing ages at the microscopic level, too. Therefore, in this section of the course, we will see how the classical approach of Residence Time Distribution (RTD) provides a method for evaluating the effect of flow patterns within the reactor on chemical conversion levels.
+
+## RTD functions
+
+First of all, the study of non-ideal flow behavior is based on the RTD of non-reacting species in an arbitrary flow system with constant density fluid. From this point, it will be explained its relationship to a chemically reacting species present in the reactor.
+
+Residence time theory deals with the age of particles within a flow system. The particles may be atoms, molecules, or fluid elements conserved as they flow through the system.
+
+:::: {.infobox .info data-latex="information"}
+  
+The residence time, or age, of a particle in the system is the elapsed time between the time at which the particle enters the system and the time it leaves.
+::::
+
+This approach assumes specific essential considerations:
+
+1. If a particle reenters the system after it leaves, the aging of that particle resumes from the value it had as its previous exit.
+ 2. A particle is not allowed to remain in the system forever.
+ 3. All particles must have an original entrance and a final departure.
+ 4. The age of the particle when it finally leaves the system will be its residence time.
+
+Regardless the state of mixing or type of flow, we use the classical definition of mean residence time $\overline{t}$ of an element of fluid volume within a fully contained, continuous flow reactor with a total fixed volumen of $V$ operated at steady state which is:
+\begin{equation}
+  \overline{t} = \frac{V}{\upsilon}
+(\#eq:ec004001)
+\end{equation}
+where $\upsilon$ is the steady volumetric flow rate.
+
+It is vital to point out that a fully contained vessel has no diffusion or dispersion at the vessel's entrance or exit so that a fluid element once inside the reactor cannot escape back into the input stream or once removed from cannot return to the vessel. 
+
+This assumption is more precisely related to the boundaries of the reactor. It is assumed a plug flow in both the inlet tube and the outlet tube. Such boundary conditions are called "closed-closed." Figure \@ref(fig:fig00400) gives others boundary conditions than closed-closed that they are essential for specific experimental techniques to assess the mixing parameters inside the reactor, but they will not consider in this course. 
+
+```{r fig00400, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Boundary conditions of reactors in relation to the residence time distribution. [@westerterp1984]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_28.png")
+grid.raster(img)
+```
+
 **WIP**
