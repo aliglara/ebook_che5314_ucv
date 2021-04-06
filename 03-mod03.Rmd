@@ -58,4 +58,176 @@ img <- readPNG("figures/004_draw_28.png")
 grid.raster(img)
 ```
 
+Now, let us introduce some mathematical concepts. Let $d\,V = \upsilon\, dt$ represent a fluid element which entered the system $t$ time ago. Also, let $\mathbf{P}(t)$ represent the probability that the element remains in the reactor during the period $t$. The total volume of the fluid in the reactor must be
+
+\begin{equation}
+  V = \upsilon \int_{0}^\infty {\mathbf{P}(t)\,dt}
+  (\#eq:ec004002)
+\end{equation}
+
+Now, let us introduce some mathematical concepts. Let $d\,V = \upsilon\, dt$ represent a fluid element which entered the system $t$ time ago. Also, let $\mathbf{P}(t)$ represent the probability that the element remains in the reactor during the period $t$. The total volume of the fluid in the reactor must be
+
+Now, let $\mathbf{F}(t)$ represent the probability of a fluid element leaving the system during the period $t$ so $\mathbf{P}(t) + \mathbf{F}(t) = 1$. The foregoing equation then becomes
+
+\begin{equation}
+  \frac{V}{\upsilon} = \int_{0}^\infty {\left(1 - \mathbf{F}(t)\right)\,dt}
+(\#eq:ec004003)
+\end{equation}
+which upon integration by parts gives
+
+\begin{equation}
+  \frac{V}{\upsilon} = \left[1 - \mathbf{F}(t)\right] \cdot \infty - \left[1 - \mathbf{F}(t)\right] \cdot 0+\int_{F(0)}^{F(\infty)} {t\,d\mathbf{F}(t)}
+(\#eq:ec004004)
+\end{equation}
+with boundary conditions of $F(t) = 0$ at $t=0$, and 1 at $t=\infty$ (chance of 100% removal in an infinitive time) so that
+\begin{equation}
+  \frac{V}{\upsilon} = \int_{0}^{1} {t\,d\mathbf{F}(t)} = \overline{t}
+(\#eq:ec004005)
+\end{equation}
+
+\begin{equation*}
+  \mathbf{F}(t) \to 1 \text{ when } t \to \infty
+ \end{equation*}
+  
+$\mathbf{F}(t)$ is called "_Cumulative Distribution Function_''. This function is dimensionless, and **represents the fraction of effluent that has been in the reactor for less time than _t_, and leaves the reactor with age less than _t_**.
+
+The typical shape of $\mathbf{F}(t)$ function is shown on Figure \@ref(fig:fig004000a). From this figure, it is possible to note that 80% of the molecules spend 40 min or less in the reactor, and 20% of the molecules spend longer than 40 min in the reactor.
+
+```{r fig004000a, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Typical cumulative distribution curve **F**. [@fogler2008]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_16.png")
+grid.raster(img)
+```
+
+The distribution of residence times is represented by an external residence time distribution or an exit age distribution, $\mathbf{E}(t)$. This function is called **Residence Time Distribution Function** or (RTD-function) which **defines a fraction of exiting fluid elements with residence times lies between time $t$ and $t+dt$.**
+
+Since $\mathbf{E}(t)$ is a fraction, $\mathbf{E}(t)$ has units of time$^{-1}$. In addition, the fraction of fluid that leaves the reactor over all time, this means between $t=0$ and $t=\infty$ must be 1. Therefore
+\begin{equation}
+ \int_{0}^{\infty} \mathbf{E}(t)\,dt = 1
+(\#eq:ec004008)
+\end{equation} 
+
+The fraction of fluid **_in the effluent stream_** that was **_in the reactor_** for a time between $t=0$ and $t=t$  si given by
+\begin{equation*}
+  \int_{0}^{t} \mathbf{E}(t)\,dt 
+\end{equation*} 
+
+Another way of saying the same thing is that $\int_{0}^{t} \mathbf{E}(t)\,dt$ is the fraction of fluid in the exit stream with an \textit{exit age} less than $t$. This fractions can be represented graphically as shown in Figure \@ref(fig:fig004019).
+
+```{r fig004019, out.width = "70%", echo=FALSE, fig.align='center', fig.cap='Typical RTD curve **E**. [@roberts2009]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_17.png")
+grid.raster(img)
+```
+
+The fraction of the fluid that spends a given duration, $t$ inside the reactor, is given by the value of $\mathbf{E}(t)\,dt$. Therefore, $\mathbf{E}(t)$ curve is related to $\mathbf{F}(t)$ because the fraction of the fluid that leaves the reactor with age less than $t$ is equal to the sum over all times less than $t$ of $\mathbf{E}(t) \Delta t$, or expressed continuously. [@roberts2009]
+
+\begin{equation}
+  \mathbf{F}(t) = \int_0^{t} \mathbf{E}(t)\,dt
+(\#eq:ec004009)
+\end{equation}
+
+Equation \@ref(eq:ec004009) could be rewritten as
+ \begin{equation}
+  \frac{d \mathbf{F}(t)}{dt} = \mathbf{E}(t)
+(\#eq:ec004006)
+\end{equation} 
+
+Therefore from Eq. \@ref(eq:ec004005)
+ \begin{equation}
+ \overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt
+(\#eq:ec004007)
+\end{equation} 
+
+This procedure is called normalizing the distribution, and Figure \@ref(fig:fig004001) shows that.
+
+```{r fig004001, out.width = "70%", echo=FALSE, fig.align='center', fig.cap='The typical exit age distribution curve **E** (RTD) [@levenspiel2004]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_01.png")
+grid.raster(img)
+```
+
+The RTD function may be used directly to analyze reactors, or related functions may be used depending on the application.
+
+Another useful distribution curve is the Washout function, $\mathbf{W}$, which sometimes is called "Complement function''. This function gives **the fraction of effluent that has been in reactor (with the residence times) for longer than time $t$**. It could be calculated from
+\begin{equation}
+  \mathbf{W}(t) = \int_{t}^{\infty} \mathbf{E}(t)\,dt \equiv 1 - \mathbf{F}(t) = 1 - \int_0^t{\mathbf{E}(t)\,dt}
+(\#eq:ec004010)
+\end{equation}
+So,
+\begin{equation}
+  \mathbf{F}(t) + \mathbf{W}(t) = 1
+(\#eq:ec004011)
+\end{equation}
+Furthermore, the relationship between the functions in derivative form is
+\begin{equation}
+  \frac{d\mathbf{F}(t)}{dt} =- \frac{d\mathbf{W}(t)}{dt} = \mathbf{E}(t)
+(\#eq:ec004012)
+\end{equation}
+
+A typical $\mathbf{F}(t)$ and the corresponding $\mathbf{W}(t)$ function curve are illustrated in Figure \@ref(fig:fig004002)
+
+```{r fig004002, out.width = "70%", echo=FALSE, fig.align='center', fig.cap='The typical **F(t)** and **W(t)** curves. [@hayes2013]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_02.png")
+grid.raster(img)
+```
+
+Another distribution function of interest in some application is the "Internal Age Distribution'', $\mathbf{I}$, which is **the fraction of fluid inside the vessel with age between $t$ and $t + dt$**. It has properties similar to $\mathbf{E}(t)$, so
+\begin{equation*}
+    \int_0^\infty \mathbf{I}(t)\,dt = 1
+\end{equation*}
+The time $t=0$ refers to an arbitrary initial time and not the start of the flow of fluid into the vessel. In physical terms, this equation states that all fluid has an age between 0 and $\infty$.
+
+As a consequence, the fraction of vessel contents younger that a specified age $t$ is,
+\begin{equation*}
+     \int_0^{t} \mathbf{I}(t^\prime)\,dt^\prime = 1
+\end{equation*}
+While the fraction older than $t$ is
+\begin{equation*}
+     \int_t^{\infty} \mathbf{I}(t^\prime)\,dt^\prime = 1 -  \int_0^{t} \mathbf{I}(t^\prime)\,dt^\prime
+\end{equation*}
+Similar to $\mathbf{E}(t)$, the mean age fluid elements inside the vessel is,
+\begin{equation*}
+ \overline{t}_1 =   \int_0^\infty t\,\mathbf{I}(t)\,dt = \text{ mean internal age }
+\end{equation*}
+
+As might be expected, there is an interrelationship between $\mathbf{I}$ and $\mathbf{E}$ since the fluid entering a vessel at a given time obviously either leaves it or stays inside. Therefore:
+\begin{equation}
+  \overline{t}\,\mathbf{I}(t) = 1 - \int_0^t \mathbf{E}(t)\,dt = \mathbf{W}(t)
+(\#eq:ec004012a)
+\end{equation}
+or
+\begin{equation}
+  \mathbf{I}(t) = \frac{\mathbf{E}(t)}{1 - \mathbf{F}(t)} \Rightarrow \mathbf{E(t)} = - \overline{t}\;\frac{d\mathbf{I}(t)}{dt}
+\end{equation}
+
+Finally, the **Intensity function**, $\boldsymbol\Lambda(t)$ is defined as **fraction of fluid in the vessel of age $t$ will leave at time between $t$ and $t + dt$**. The intensity is useful in detecting the existence of dead space and bypassing.
+
+The intensity function can be related to  $\mathbf{E}$ and $\mathbf{I}$ functions from
+
+<center>
+
+![](figures/intensity_E_I.png)
+
+</center>
+
+Therefore
+\begin{equation}
+  \boldsymbol\Lambda (t) = \frac{1}{\overline{t}} \frac{\mathbf{E}(t)}{\mathbf{I}(t)} 
+\end{equation}
+
+Combining the last two equations
+\begin{equation}
+  \boldsymbol\Lambda (t) = \cfrac{- \overline{t}\;\cfrac{d\mathbf{I}(t)}{dt}
+}{\overline{t}\,\mathbf{I}(t)} = - \frac{d\left[\ln\left(\overline{t}\mathbf{I}(t)\right)\right]}{dt}
+\end{equation}
+
+## Means and moments
+
+
 **WIP**

@@ -163,6 +163,7 @@
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#rtd-functions"><i class="fa fa-check"></i><b>3.1</b> RTD functions</a></li>
+<li class="chapter" data-level="3.2" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#means-and-moments"><i class="fa fa-check"></i><b>3.2</b> Means and moments</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="list-of-exercises.html"><a href="list-of-exercises.html"><i class="fa fa-check"></i>List of Exercises</a></li>
@@ -233,6 +234,143 @@ where <span class="math inline">\(\upsilon\)</span> is the steady volumetric flo
 Figure 3.2: Boundary conditions of reactors in relation to the residence time distribution. <span class="citation">(<a href="references.html#ref-westerterp1984" role="doc-biblioref">Westertep, Van Swaaij, and Beenackers 1984</a>)</span>
 </p>
 </div>
+<p>Now, let us introduce some mathematical concepts. Let <span class="math inline">\(d\,V = \upsilon\, dt\)</span> represent a fluid element which entered the system <span class="math inline">\(t\)</span> time ago. Also, let <span class="math inline">\(\mathbf{P}(t)\)</span> represent the probability that the element remains in the reactor during the period <span class="math inline">\(t\)</span>. The total volume of the fluid in the reactor must be</p>
+<p><span class="math display" id="eq:ec004002">\[\begin{equation}
+  V = \upsilon \int_{0}^\infty {\mathbf{P}(t)\,dt}
+  \tag{3.2}
+\end{equation}\]</span></p>
+<p>Now, let us introduce some mathematical concepts. Let <span class="math inline">\(d\,V = \upsilon\, dt\)</span> represent a fluid element which entered the system <span class="math inline">\(t\)</span> time ago. Also, let <span class="math inline">\(\mathbf{P}(t)\)</span> represent the probability that the element remains in the reactor during the period <span class="math inline">\(t\)</span>. The total volume of the fluid in the reactor must be</p>
+<p>Now, let <span class="math inline">\(\mathbf{F}(t)\)</span> represent the probability of a fluid element leaving the system during the period <span class="math inline">\(t\)</span> so <span class="math inline">\(\mathbf{P}(t) + \mathbf{F}(t) = 1\)</span>. The foregoing equation then becomes</p>
+<p><span class="math display" id="eq:ec004003">\[\begin{equation}
+  \frac{V}{\upsilon} = \int_{0}^\infty {\left(1 - \mathbf{F}(t)\right)\,dt}
+\tag{3.3}
+\end{equation}\]</span>
+which upon integration by parts gives</p>
+<p><span class="math display" id="eq:ec004004">\[\begin{equation}
+  \frac{V}{\upsilon} = \left[1 - \mathbf{F}(t)\right] \cdot \infty - \left[1 - \mathbf{F}(t)\right] \cdot 0+\int_{F(0)}^{F(\infty)} {t\,d\mathbf{F}(t)}
+\tag{3.4}
+\end{equation}\]</span>
+with boundary conditions of <span class="math inline">\(F(t) = 0\)</span> at <span class="math inline">\(t=0\)</span>, and 1 at <span class="math inline">\(t=\infty\)</span> (chance of 100% removal in an infinitive time) so that
+<span class="math display" id="eq:ec004005">\[\begin{equation}
+  \frac{V}{\upsilon} = \int_{0}^{1} {t\,d\mathbf{F}(t)} = \overline{t}
+\tag{3.5}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation*}
+  \mathbf{F}(t) \to 1 \text{ when } t \to \infty
+ \end{equation*}\]</span></p>
+<p><span class="math inline">\(\mathbf{F}(t)\)</span> is called "<em>Cumulative Distribution Function</em>’’. This function is dimensionless, and <strong>represents the fraction of effluent that has been in the reactor for less time than <em>t</em>, and leaves the reactor with age less than <em>t</em></strong>.</p>
+<p>The typical shape of <span class="math inline">\(\mathbf{F}(t)\)</span> function is shown on Figure <a href="distribution-of-residence-times.html#fig:fig004000a">3.3</a>. From this figure, it is possible to note that 80% of the molecules spend 40 min or less in the reactor, and 20% of the molecules spend longer than 40 min in the reactor.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004000a"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004000a-1.png" alt="Typical cumulative distribution curve **F**. [@fogler2008]" width="55%" />
+<p class="caption">
+Figure 3.3: Typical cumulative distribution curve <strong>F</strong>. <span class="citation">(<a href="references.html#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span>
+</p>
+</div>
+<p>The distribution of residence times is represented by an external residence time distribution or an exit age distribution, <span class="math inline">\(\mathbf{E}(t)\)</span>. This function is called <strong>Residence Time Distribution Function</strong> or (RTD-function) which <strong>defines a fraction of exiting fluid elements with residence times lies between time <span class="math inline">\(t\)</span> and <span class="math inline">\(t+dt\)</span>.</strong></p>
+<p>Since <span class="math inline">\(\mathbf{E}(t)\)</span> is a fraction, <span class="math inline">\(\mathbf{E}(t)\)</span> has units of time<span class="math inline">\(^{-1}\)</span>. In addition, the fraction of fluid that leaves the reactor over all time, this means between <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=\infty\)</span> must be 1. Therefore
+<span class="math display" id="eq:ec004008">\[\begin{equation}
+ \int_{0}^{\infty} \mathbf{E}(t)\,dt = 1
+\tag{3.6}
+\end{equation}\]</span></p>
+<p>The fraction of fluid <strong><em>in the effluent stream</em></strong> that was <strong><em>in the reactor</em></strong> for a time between <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=t\)</span> si given by
+<span class="math display">\[\begin{equation*}
+  \int_{0}^{t} \mathbf{E}(t)\,dt 
+\end{equation*}\]</span></p>
+<p>Another way of saying the same thing is that <span class="math inline">\(\int_{0}^{t} \mathbf{E}(t)\,dt\)</span> is the fraction of fluid in the exit stream with an  less than <span class="math inline">\(t\)</span>. This fractions can be represented graphically as shown in Figure <a href="distribution-of-residence-times.html#fig:fig004019">3.4</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004019"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004019-1.png" alt="Typical RTD curve **E**. [@roberts2009]" width="70%" />
+<p class="caption">
+Figure 3.4: Typical RTD curve <strong>E</strong>. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span>
+</p>
+</div>
+<p>The fraction of the fluid that spends a given duration, <span class="math inline">\(t\)</span> inside the reactor, is given by the value of <span class="math inline">\(\mathbf{E}(t)\,dt\)</span>. Therefore, <span class="math inline">\(\mathbf{E}(t)\)</span> curve is related to <span class="math inline">\(\mathbf{F}(t)\)</span> because the fraction of the fluid that leaves the reactor with age less than <span class="math inline">\(t\)</span> is equal to the sum over all times less than <span class="math inline">\(t\)</span> of <span class="math inline">\(\mathbf{E}(t) \Delta t\)</span>, or expressed continuously. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p><span class="math display" id="eq:ec004009">\[\begin{equation}
+  \mathbf{F}(t) = \int_0^{t} \mathbf{E}(t)\,dt
+\tag{3.7}
+\end{equation}\]</span></p>
+<p>Equation <a href="distribution-of-residence-times.html#eq:ec004009">(3.7)</a> could be rewritten as
+<span class="math display" id="eq:ec004006">\[\begin{equation}
+  \frac{d \mathbf{F}(t)}{dt} = \mathbf{E}(t)
+\tag{3.8}
+\end{equation}\]</span></p>
+<p>Therefore from Eq. <a href="distribution-of-residence-times.html#eq:ec004005">(3.5)</a>
+<span class="math display" id="eq:ec004007">\[\begin{equation}
+ \overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt
+\tag{3.9}
+\end{equation}\]</span></p>
+<p>This procedure is called normalizing the distribution, and Figure <a href="distribution-of-residence-times.html#fig:fig004001">3.5</a> shows that.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004001"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004001-1.png" alt="The typical exit age distribution curve **E** (RTD) [@levenspiel2004]" width="70%" />
+<p class="caption">
+Figure 3.5: The typical exit age distribution curve <strong>E</strong> (RTD) <span class="citation">(<a href="references.html#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
+</p>
+</div>
+<p>The RTD function may be used directly to analyze reactors, or related functions may be used depending on the application.</p>
+<p>Another useful distribution curve is the Washout function, <span class="math inline">\(\mathbf{W}\)</span>, which sometimes is called "Complement function’’. This function gives <strong>the fraction of effluent that has been in reactor (with the residence times) for longer than time <span class="math inline">\(t\)</span></strong>. It could be calculated from
+<span class="math display" id="eq:ec004010">\[\begin{equation}
+  \mathbf{W}(t) = \int_{t}^{\infty} \mathbf{E}(t)\,dt \equiv 1 - \mathbf{F}(t) = 1 - \int_0^t{\mathbf{E}(t)\,dt}
+\tag{3.10}
+\end{equation}\]</span>
+So,
+<span class="math display" id="eq:ec004011">\[\begin{equation}
+  \mathbf{F}(t) + \mathbf{W}(t) = 1
+\tag{3.11}
+\end{equation}\]</span>
+Furthermore, the relationship between the functions in derivative form is
+<span class="math display" id="eq:ec004012">\[\begin{equation}
+  \frac{d\mathbf{F}(t)}{dt} =- \frac{d\mathbf{W}(t)}{dt} = \mathbf{E}(t)
+\tag{3.12}
+\end{equation}\]</span></p>
+<p>A typical <span class="math inline">\(\mathbf{F}(t)\)</span> and the corresponding <span class="math inline">\(\mathbf{W}(t)\)</span> function curve are illustrated in Figure <a href="distribution-of-residence-times.html#fig:fig004002">3.6</a></p>
+<div class="figure" style="text-align: center"><span id="fig:fig004002"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004002-1.png" alt="The typical **F(t)** and **W(t)** curves. [@hayes2013]" width="70%" />
+<p class="caption">
+Figure 3.6: The typical <strong>F(t)</strong> and <strong>W(t)</strong> curves. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+</p>
+</div>
+<p>Another distribution function of interest in some application is the "Internal Age Distribution’’, <span class="math inline">\(\mathbf{I}\)</span>, which is <strong>the fraction of fluid inside the vessel with age between <span class="math inline">\(t\)</span> and <span class="math inline">\(t + dt\)</span></strong>. It has properties similar to <span class="math inline">\(\mathbf{E}(t)\)</span>, so
+<span class="math display">\[\begin{equation*}
+    \int_0^\infty \mathbf{I}(t)\,dt = 1
+\end{equation*}\]</span>
+The time <span class="math inline">\(t=0\)</span> refers to an arbitrary initial time and not the start of the flow of fluid into the vessel. In physical terms, this equation states that all fluid has an age between 0 and <span class="math inline">\(\infty\)</span>.</p>
+<p>As a consequence, the fraction of vessel contents younger that a specified age <span class="math inline">\(t\)</span> is,
+<span class="math display">\[\begin{equation*}
+     \int_0^{t} \mathbf{I}(t^\prime)\,dt^\prime = 1
+\end{equation*}\]</span>
+While the fraction older than <span class="math inline">\(t\)</span> is
+<span class="math display">\[\begin{equation*}
+     \int_t^{\infty} \mathbf{I}(t^\prime)\,dt^\prime = 1 -  \int_0^{t} \mathbf{I}(t^\prime)\,dt^\prime
+\end{equation*}\]</span>
+Similar to <span class="math inline">\(\mathbf{E}(t)\)</span>, the mean age fluid elements inside the vessel is,
+<span class="math display">\[\begin{equation*}
+ \overline{t}_1 =   \int_0^\infty t\,\mathbf{I}(t)\,dt = \text{ mean internal age }
+\end{equation*}\]</span></p>
+<p>As might be expected, there is an interrelationship between <span class="math inline">\(\mathbf{I}\)</span> and <span class="math inline">\(\mathbf{E}\)</span> since the fluid entering a vessel at a given time obviously either leaves it or stays inside. Therefore:
+<span class="math display" id="eq:ec004012a">\[\begin{equation}
+  \overline{t}\,\mathbf{I}(t) = 1 - \int_0^t \mathbf{E}(t)\,dt = \mathbf{W}(t)
+\tag{3.13}
+\end{equation}\]</span>
+or
+<span class="math display">\[\begin{equation}
+  \mathbf{I}(t) = \frac{\mathbf{E}(t)}{1 - \mathbf{F}(t)} \Rightarrow \mathbf{E(t)} = - \overline{t}\;\frac{d\mathbf{I}(t)}{dt}
+\end{equation}\]</span></p>
+<p>Finally, the <strong>Intensity function</strong>, <span class="math inline">\(\boldsymbol\Lambda(t)\)</span> is defined as <strong>fraction of fluid in the vessel of age <span class="math inline">\(t\)</span> will leave at time between <span class="math inline">\(t\)</span> and <span class="math inline">\(t + dt\)</span></strong>. The intensity is useful in detecting the existence of dead space and bypassing.</p>
+<p>The intensity function can be related to <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{I}\)</span> functions from</p>
+<center>
+<p><img src="figures/intensity_E_I.png" /></p>
+</center>
+<p>Therefore
+<span class="math display">\[\begin{equation}
+  \boldsymbol\Lambda (t) = \frac{1}{\overline{t}} \frac{\mathbf{E}(t)}{\mathbf{I}(t)} 
+\end{equation}\]</span></p>
+<p>Combining the last two equations
+<span class="math display">\[\begin{equation}
+  \boldsymbol\Lambda (t) = \cfrac{- \overline{t}\;\cfrac{d\mathbf{I}(t)}{dt}
+}{\overline{t}\,\mathbf{I}(t)} = - \frac{d\left[\ln\left(\overline{t}\mathbf{I}(t)\right)\right]}{dt}
+\end{equation}\]</span></p>
+</div>
+<div id="means-and-moments" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Means and moments</h2>
 <p><strong>WIP</strong></p>
 
 </div>
