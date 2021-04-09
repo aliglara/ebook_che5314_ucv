@@ -193,6 +193,13 @@ eq:ec004011
 eq:ec004012
 fig:fig004002
 eq:ec004012a
+eq:ec004013
+eq:ec004014
+eq:ec004015
+eq:ec004016
+eq:ec004016a
+eq:ec004017
+fig:tabrtd
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -231,4 +238,6 @@ dealing-with-complex-reactions
 distribution-of-residence-times
 rtd-functions
 means-and-moments
+normalized-rtd-functions
+experimental-determination-of-rtd
 final-words

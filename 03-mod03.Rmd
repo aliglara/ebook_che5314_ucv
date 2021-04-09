@@ -229,5 +229,89 @@ Combining the last two equations
 
 ## Means and moments
 
+In addition to characterizing the RTD using the three functions $\mathbf{E}(t)$, $\mathbf{F}(t)$ and $\mathbf{W}(t)$, the residence time can also be characterized using the moments of the RTD functions. There are several types of moments. [@hayes2013]
+
+The first type is the moment around the origin, which is defined in terms of density function as
+\begin{equation}
+  \mu_n = \int_0^{\infty} t^n\,\mathbf{E}(t)\,dt
+(\#eq:ec004013)
+\end{equation}
+
+The value of **n** determines which moment is calculated. For example, the first moment about the origin is the **mean residence time**, $\overline{t}$
+\begin{equation}
+  \mu_1 = \overline{t} = \int_0^{\infty} t\,\mathbf{E}(t)\,dt
+(\#eq:ec004014)
+\end{equation}
+As we already know, the mean residence time is the average time that molecules spend in the system. In a constant-density system $\overline{t} = V/\upsilon = \tau$
+
+:::: {.infobox .info data-latex="information"}
+Equation \@ref(eq:ec004013) can provide a helpful check on operating data because the volumetric flow rate is relatively easy to set and measure. However, the volume of the reactor filled by a fluid is not always so easy to determine.
+::::
+
+Rather than compute the moments about the origin, it is common for the moments of the RTD function to be calculated about the mean residence time. These moments are called central moments, and are defined as
+\begin{equation}
+  \mu_n^{\prime} = \int_0^{\infty} {\left(t-\overline{t}\right)}^{n}\,\mathbf{E}(t)\,dt
+(\#eq:ec004015)
+\end{equation}
+
+The variance, $\sigma_t^2$, of the RTD is the second central moment:
+\begin{equation}
+  \sigma^2 = \mu_2^{\prime} = \int_0^{\infty} {\left(t-\overline{t}\right)}^2\,\mathbf{E}(t)\,dt
+(\#eq:ec004016)
+\end{equation}
+
+An alternative form may be more convenient to use is obtained by expanding the square in Eq. \@ref(eq:ec004016)
+\begin{equation}
+  \sigma_t^2 = \left(\int_0^{\infty} {t}^2\,\mathbf{E}(t)\,dt\right) - \overline{t}^{\,2}
+(\#eq:ec004016a)
+\end{equation}
+
+The variance measures the spread of the distribution about the mean characterized by  the standard deviation, $\sigma_t$. The third central moment, the skewness, measures the symmetry of the distribution about the mean:
+\begin{equation}
+  \sigma^3 = \mu_3^{\prime} = \int_0^{\infty} {\left(t-\overline{t}\right)}^3\,\mathbf{E}(t)\,dt
+(\#eq:ec004017)
+\end{equation}
+
+All moments must be calculated meticulously for a complete summary of a distribution.  In practice, these three parameters are typically appropriate for a good RTD characterization.
+
+### Normalized RTD functions
+It is common when using residence time theory to work with normalized RTD, defined as the residence time divided by the mean residence time. This dimensionless time is given by [@hayes2013]
+\begin{equation*}
+  \theta = \frac{t}{\overline{t}}
+\end{equation*}
+The density functions for the two cases are related by
+\begin{equation*}
+ \mathbf{E}(\theta)\,d\theta = \mathbf{E}(t)\,dt 
+\end{equation*}
+Because $\overline{t}\,d\theta = dt$, it follows that
+\begin{equation*}
+ \mathbf{E}(\theta) = \overline{t}\,\mathbf{E}(t) = \frac{\overline{t}\;C(t)}{\displaystyle \int_0^\infty C(t)\,dt}
+\end{equation*}
+The other relationships do not change. The normalized cumulative distribution function is
+\begin{equation*}
+  \mathbf{F}(t) = \int_0^{t} \mathbf{E}(t)\,dt = \int_0^{\theta} \mathbf{E}(\theta)\,d\theta = \mathbf{F}(\theta)
+\end{equation*}
+
+The normalized washout function is
+\begin{equation*}
+  \mathbf{W}(\theta) = \int_{\theta}^{\infty} \mathbf{E}(\theta)\,d\theta
+\end{equation*}
+Finally, the moments about the origin and the central moments for the normalized RTD functions are
+\begin{align*}
+  &\nu_{(1,\theta)} = \int_{\theta}^{\infty} \theta \,\mathbf{E}(\theta)\,d\theta = \overline{\theta} = 1 \\
+  &\nu_{\theta}^{2} = \int_{\theta}^{\infty} {\left(\theta - \overline{\theta}\right)}^2\,\mathbf{E}(\theta)\,d\theta = \int_{\theta}^{\infty} {\theta}^2\,\mathbf{E}(\theta)\,d\theta - 1 = \frac{\theta^2}{\overline{t}^2}
+\end{align*}
+
+For numerical work with tracer data directly, it is common to use the dimensional $\mathbf{E}(t), \overline{t}$, and $\sigma_t^2$. The dimensionless quantities are used with the performance models. Figure \@ref(fig:tabrtd) shows a summary of RTD functions expressed by dimensionless time.
+
+
+```{r tabrtd, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Relationships between Residence Time Functions', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/tab_rtd.png")
+grid.raster(img)
+```
+
+### Experimental determination of RTD
 
 **WIP**

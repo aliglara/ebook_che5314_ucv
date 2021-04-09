@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2021-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,7 +163,11 @@
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#rtd-functions"><i class="fa fa-check"></i><b>3.1</b> RTD functions</a></li>
-<li class="chapter" data-level="3.2" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#means-and-moments"><i class="fa fa-check"></i><b>3.2</b> Means and moments</a></li>
+<li class="chapter" data-level="3.2" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#means-and-moments"><i class="fa fa-check"></i><b>3.2</b> Means and moments</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#normalized-rtd-functions"><i class="fa fa-check"></i><b>3.2.1</b> Normalized RTD functions</a></li>
+<li class="chapter" data-level="3.2.2" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#experimental-determination-of-rtd"><i class="fa fa-check"></i><b>3.2.2</b> Experimental determination of RTD</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="list-of-exercises.html"><a href="list-of-exercises.html"><i class="fa fa-check"></i>List of Exercises</a></li>
@@ -371,8 +375,82 @@ or
 </div>
 <div id="means-and-moments" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Means and moments</h2>
+<p>In addition to characterizing the RTD using the three functions <span class="math inline">\(\mathbf{E}(t)\)</span>, <span class="math inline">\(\mathbf{F}(t)\)</span> and <span class="math inline">\(\mathbf{W}(t)\)</span>, the residence time can also be characterized using the moments of the RTD functions. There are several types of moments. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
+<p>The first type is the moment around the origin, which is defined in terms of density function as
+<span class="math display" id="eq:ec004013">\[\begin{equation}
+  \mu_n = \int_0^{\infty} t^n\,\mathbf{E}(t)\,dt
+\tag{3.14}
+\end{equation}\]</span></p>
+<p>The value of <strong>n</strong> determines which moment is calculated. For example, the first moment about the origin is the <strong>mean residence time</strong>, <span class="math inline">\(\overline{t}\)</span>
+<span class="math display" id="eq:ec004014">\[\begin{equation}
+  \mu_1 = \overline{t} = \int_0^{\infty} t\,\mathbf{E}(t)\,dt
+\tag{3.15}
+\end{equation}\]</span>
+As we already know, the mean residence time is the average time that molecules spend in the system. In a constant-density system <span class="math inline">\(\overline{t} = V/\upsilon = \tau\)</span></p>
+<div class="infobox info">
+<p>Equation <a href="distribution-of-residence-times.html#eq:ec004013">(3.14)</a> can provide a helpful check on operating data because the volumetric flow rate is relatively easy to set and measure. However, the volume of the reactor filled by a fluid is not always so easy to determine.</p>
+</div>
+<p>Rather than compute the moments about the origin, it is common for the moments of the RTD function to be calculated about the mean residence time. These moments are called central moments, and are defined as
+<span class="math display" id="eq:ec004015">\[\begin{equation}
+  \mu_n^{\prime} = \int_0^{\infty} {\left(t-\overline{t}\right)}^{n}\,\mathbf{E}(t)\,dt
+\tag{3.16}
+\end{equation}\]</span></p>
+<p>The variance, <span class="math inline">\(\sigma_t^2\)</span>, of the RTD is the second central moment:
+<span class="math display" id="eq:ec004016">\[\begin{equation}
+  \sigma^2 = \mu_2^{\prime} = \int_0^{\infty} {\left(t-\overline{t}\right)}^2\,\mathbf{E}(t)\,dt
+\tag{3.17}
+\end{equation}\]</span></p>
+<p>An alternative form may be more convenient to use is obtained by expanding the square in Eq. <a href="distribution-of-residence-times.html#eq:ec004016">(3.17)</a>
+<span class="math display" id="eq:ec004016a">\[\begin{equation}
+  \sigma_t^2 = \left(\int_0^{\infty} {t}^2\,\mathbf{E}(t)\,dt\right) - \overline{t}^{\,2}
+\tag{3.18}
+\end{equation}\]</span></p>
+<p>The variance measures the spread of the distribution about the mean characterized by the standard deviation, <span class="math inline">\(\sigma_t\)</span>. The third central moment, the skewness, measures the symmetry of the distribution about the mean:
+<span class="math display" id="eq:ec004017">\[\begin{equation}
+  \sigma^3 = \mu_3^{\prime} = \int_0^{\infty} {\left(t-\overline{t}\right)}^3\,\mathbf{E}(t)\,dt
+\tag{3.19}
+\end{equation}\]</span></p>
+<p>All moments must be calculated meticulously for a complete summary of a distribution. In practice, these three parameters are typically appropriate for a good RTD characterization.</p>
+<div id="normalized-rtd-functions" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Normalized RTD functions</h3>
+<p>It is common when using residence time theory to work with normalized RTD, defined as the residence time divided by the mean residence time. This dimensionless time is given by <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+<span class="math display">\[\begin{equation*}
+  \theta = \frac{t}{\overline{t}}
+\end{equation*}\]</span>
+The density functions for the two cases are related by
+<span class="math display">\[\begin{equation*}
+ \mathbf{E}(\theta)\,d\theta = \mathbf{E}(t)\,dt 
+\end{equation*}\]</span>
+Because <span class="math inline">\(\overline{t}\,d\theta = dt\)</span>, it follows that
+<span class="math display">\[\begin{equation*}
+ \mathbf{E}(\theta) = \overline{t}\,\mathbf{E}(t) = \frac{\overline{t}\;C(t)}{\displaystyle \int_0^\infty C(t)\,dt}
+\end{equation*}\]</span>
+The other relationships do not change. The normalized cumulative distribution function is
+<span class="math display">\[\begin{equation*}
+  \mathbf{F}(t) = \int_0^{t} \mathbf{E}(t)\,dt = \int_0^{\theta} \mathbf{E}(\theta)\,d\theta = \mathbf{F}(\theta)
+\end{equation*}\]</span></p>
+<p>The normalized washout function is
+<span class="math display">\[\begin{equation*}
+  \mathbf{W}(\theta) = \int_{\theta}^{\infty} \mathbf{E}(\theta)\,d\theta
+\end{equation*}\]</span>
+Finally, the moments about the origin and the central moments for the normalized RTD functions are
+<span class="math display">\[\begin{align*}
+  &amp;\nu_{(1,\theta)} = \int_{\theta}^{\infty} \theta \,\mathbf{E}(\theta)\,d\theta = \overline{\theta} = 1 \\
+  &amp;\nu_{\theta}^{2} = \int_{\theta}^{\infty} {\left(\theta - \overline{\theta}\right)}^2\,\mathbf{E}(\theta)\,d\theta = \int_{\theta}^{\infty} {\theta}^2\,\mathbf{E}(\theta)\,d\theta - 1 = \frac{\theta^2}{\overline{t}^2}
+\end{align*}\]</span></p>
+<p>For numerical work with tracer data directly, it is common to use the dimensional <span class="math inline">\(\mathbf{E}(t), \overline{t}\)</span>, and <span class="math inline">\(\sigma_t^2\)</span>. The dimensionless quantities are used with the performance models. Figure <a href="distribution-of-residence-times.html#fig:tabrtd">3.7</a> shows a summary of RTD functions expressed by dimensionless time.</p>
+<div class="figure" style="text-align: center"><span id="fig:tabrtd"></span>
+<img src="ebook_notes_5314_files/figure-html/tabrtd-1.png" alt="Relationships between Residence Time Functions" width="65%" />
+<p class="caption">
+Figure 3.7: Relationships between Residence Time Functions
+</p>
+</div>
+</div>
+<div id="experimental-determination-of-rtd" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Experimental determination of RTD</h3>
 <p><strong>WIP</strong></p>
 
+</div>
 </div>
 </div>
             </section>
