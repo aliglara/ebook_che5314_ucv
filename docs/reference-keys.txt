@@ -200,6 +200,14 @@ eq:ec004016
 eq:ec004016a
 eq:ec004017
 fig:tabrtd
+fig:fig004003
+eq:ec004018
+eq:ec004019
+eq:ec004020
+eq:ec004021
+fig:fig004003a
+fig:fig004003b
+exr:it004001
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -240,4 +248,5 @@ rtd-functions
 means-and-moments
 normalized-rtd-functions
 experimental-determination-of-rtd
+determination-of-et-from-pulse-input
 final-words

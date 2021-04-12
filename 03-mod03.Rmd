@@ -274,7 +274,7 @@ The variance measures the spread of the distribution about the mean characterize
 
 All moments must be calculated meticulously for a complete summary of a distribution.  In practice, these three parameters are typically appropriate for a good RTD characterization.
 
-### Normalized RTD functions
+## Normalized RTD functions
 It is common when using residence time theory to work with normalized RTD, defined as the residence time divided by the mean residence time. This dimensionless time is given by [@hayes2013]
 \begin{equation*}
   \theta = \frac{t}{\overline{t}}
@@ -312,6 +312,126 @@ img <- readPNG("figures/tab_rtd.png")
 grid.raster(img)
 ```
 
-### Experimental determination of RTD
+## Experimental determination of RTD
 
+The RTD is measured experimentally by injecting a tracer, which is an inert chemical compound into the reactor at some time $t=0$ and then measuring its concentration, $C$, in the effluent stream as a function of time. The tracer must meet the following requirements:
+
+1. it must be a nonreactive species that is easily detectable at low concentrations, e.g., by electrical conductivity, light absorption, or nuclear radiation.
+2. it should have physical properties similar to those of the reacting mixture, such as density, and be completely soluble in the mixture to avoid flow changes due to viscosity and molecular diffusion of the tracer in the solution.
+3. it should not adsorb on the walls or other surfaces in the reactor.
+ 4. The tracer should be inexpensive and easy to handle.
+ 5. The tracer should be stable and conserved so that it can be accounted for by a material balance relating the response to the input; if tracer decays, its half-life should be such that $t_{1/2}\,(\text{tracer}) > 25\overline{t}\,  (\text{fluid})$.
+
+The two most used methods of injection are _pulse input_ and _step input_.
+
+## Determination of **E(t)** from Pulse input
+
+The direct experimental determination of **E(t)** requires a sharp pulse of tracer to be injected into the system. Essentially, an amount of tracer $N_0$ is required to be injected into the vessel's inlet at a single instant of time at $t=0$. Figure \@ref(fig:fig004003) shows typical concentration-time curves at the inlets and outlet of an arbitrary reactor. [@hayes2013]
+
+```{r fig004003, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Typical pulse impulse curves for RTD measurement', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_03.png")
+grid.raster(img)
+```
+
+Mathematically, the ideal shape of the injected pulse is described by a Dirac delta function. In practice, the tracer should be injected in as short an elapsed time as is experimentally possible to achieve.
+
+The tracer's concentration in the effluent is then measured as a function time, and the density function can be evaluated using the following analysis. The fraction of tracer molecules that leave the system over some time interval $dt$ is
+
+\begin{equation}
+  \frac{dN}{N_0} = \mathbf{E}(t)\,dt
+(\#eq:ec004018)
+\end{equation}
+where $dN$ represents the number of tracer molecules that leaves the system over the time interval $dt$, and $N_0$ is the total number of tracer molecules injected.
+
+The number of molecules can be expressed in terms of the concentration and the volumetric flow rate,
+\begin{equation}
+  dN = \upsilon\,c(t)\,dt
+(\#eq:ec004019)
+\end{equation}
+where $C(t)$ is the concentration of tracer in the effluent streams as a function of time.
+
+Thus, the total number of molecules initially injected can also be calculated from the effluent profile by integration over a long time:
+
+\begin{equation}
+  N_0 = \int_0^{\infty} \upsilon\,C(t)\,dt \equiv \frac{N_0}{\upsilon} = \int_0^{\infty} C(t)\,dt
+(\#eq:ec004020)
+\end{equation}
+
+Combining Eqs \@ref(eq:ec004019) and \@ref(eq:ec004020) into Eq. \@ref(eq:ec004018) for a constant-density system,
+\begin{equation}
+ \mathbf{E}(t) = \frac{c(t)}{\displaystyle\int_0^\infty{c(t)\,dt}} \approx \frac{c_i(t)}{\displaystyle\sum_i {c_i(t)\,\Delta t_i}}
+(\#eq:ec004021)
+\end{equation}
+
+Once $\mathbf{E}(t)$ is determined, the mean residence time, $\overline{t}$, and the variance of distribution, $\sigma_t^2$, may be calculated based on Eqs. \@ref(eq:ec004007)  and \@ref(eq:ec004016a)
+\begin{gather*}
+ \overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt \approx \sum_i t_i E_i(t) \Delta t_i \\
+   \sigma_t^2 = \left(\int_0^{\infty} {t}^2\,\mathbf{E}(t)\,dt\right) - \overline{t}^{\,2} \approx \left[ \sum_i t_i^2 E_i(t) \Delta t_i \right] - \overline{t}^2
+\end{gather*} 
+
+Advantages of using a pulse input include:
+
+1. requiring only a small amount of tracer.
+2. involving usually only a tiny impact on process operation.
+
+Disadvantages include:
+
+1. difficulty in achieving a perfect pulse.
+2. difficulty in achieving accurate material balance on traces using equation \@ref(eq:ec004020)
+
+Obtaining $\mathbf{E}(t)$, $\overline{t}$ and $\sigma_t^2$ from experimental tracer data involves determining areas under curves defined continuously or by discrete data. Two simple ways in which discrete data may be treated to obtain the required areas:
+
+1. use of data in histogram form, and
+2. use of the trapezoid rule.
+
+In the histogram method, Figure \@ref(fig:fig004003a), the area under the response curve is
+\begin{gather*}
+  \text{area} = \sum_{i=1}^{n_C} c_i(t)\,\Delta t_i \\
+  \Delta t_i = \frac{t_{i+1} - t_{i-1}}{2}
+\end{gather*}
+
+```{r fig004003a, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Basis for histogram method of area determination. [@missen1999]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_26.png")
+grid.raster(img)
+```
+
+In the use of the trapezoid rule, Figure \@ref(fig:fig004003b), the area under the response curve is given by
+
+```{r fig004003b, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Basis for histogram method of area determination. [@missen1999]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_27.png")
+grid.raster(img)
+```
+
+\begin{equation*}
+  \text{area} = \sum_{i=1}^{n_c - 1} c_i(t)_\text{av}\,\Delta t_i = \sum_{i=1}^{n_c - 1} \left(\frac{c_i + c_{i+1}}{2}\right) \left(t_{i+1} - t_i\right)
+\end{equation*}
+
+The only way to determine which numerical method provides the best answer is to predict the experimental concentrations using the calculated parameters in an appropriate mixing model.
+
+```{exercise, it004001, name="Calculations of RTD and distribution functions curves from pulse impulse method"}
+Consider a vessel through which a fluid is flowing. The RTD function is determined utilizing a pulse injection of the tracer in the inlet stream, and its outlet concentration is monitored as a function of time. The output concentration in mol/L measured as a function of time in seconds is
+
+ t (s) | C (mol/L) | t (s) | C (mol/L) | t (s) | C (mol/L) | t (s) | C (mol/L) 
+--|--|--|--|--|--|--|--
+0.0 | 0 | 225 | 7.4 | 275 | 8.2 | 375 | 0.5
+150 | 0 | 240 | 9.4 | 300 | 5.0 | 400 | 0.2
+175 | 1 | 250 | 9.7 | 325 | 2.5 | 450 | 0.0
+200 | 3 | 260 | 9.4 | 350 | 1.2 | 500 | 0.0
+
+Determine:
+  
+1. Plot of tracer concentration vs time.
+2. RTD curve, $\mathbf{E}(t)$.
+3. Cumulative distribution function plot, $\mathbf{F}(t)$.
+4. Washout function plot, $\mathbf{W}(t)$.
+5. Mean residence time.
+6. Fraction of material leaving the reactor that has spent between 230 and 270 seconds.
+
+```
 **WIP**

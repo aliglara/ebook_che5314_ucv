@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-04-08" />
+<meta name="date" content="2021-04-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,11 +163,10 @@
 <li class="chapter" data-level="3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html"><i class="fa fa-check"></i><b>3</b> Distribution of Residence times</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#rtd-functions"><i class="fa fa-check"></i><b>3.1</b> RTD functions</a></li>
-<li class="chapter" data-level="3.2" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#means-and-moments"><i class="fa fa-check"></i><b>3.2</b> Means and moments</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#normalized-rtd-functions"><i class="fa fa-check"></i><b>3.2.1</b> Normalized RTD functions</a></li>
-<li class="chapter" data-level="3.2.2" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#experimental-determination-of-rtd"><i class="fa fa-check"></i><b>3.2.2</b> Experimental determination of RTD</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#means-and-moments"><i class="fa fa-check"></i><b>3.2</b> Means and moments</a></li>
+<li class="chapter" data-level="3.3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#normalized-rtd-functions"><i class="fa fa-check"></i><b>3.3</b> Normalized RTD functions</a></li>
+<li class="chapter" data-level="3.4" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#experimental-determination-of-rtd"><i class="fa fa-check"></i><b>3.4</b> Experimental determination of RTD</a></li>
+<li class="chapter" data-level="3.5" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#determination-of-et-from-pulse-input"><i class="fa fa-check"></i><b>3.5</b> Determination of <strong>E(t)</strong> from Pulse input</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="list-of-exercises.html"><a href="list-of-exercises.html"><i class="fa fa-check"></i>List of Exercises</a></li>
@@ -411,8 +410,9 @@ As we already know, the mean residence time is the average time that molecules s
 \tag{3.19}
 \end{equation}\]</span></p>
 <p>All moments must be calculated meticulously for a complete summary of a distribution. In practice, these three parameters are typically appropriate for a good RTD characterization.</p>
-<div id="normalized-rtd-functions" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Normalized RTD functions</h3>
+</div>
+<div id="normalized-rtd-functions" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Normalized RTD functions</h2>
 <p>It is common when using residence time theory to work with normalized RTD, defined as the residence time divided by the mean residence time. This dimensionless time is given by <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
 <span class="math display">\[\begin{equation*}
   \theta = \frac{t}{\overline{t}}
@@ -446,11 +446,163 @@ Figure 3.7: Relationships between Residence Time Functions
 </p>
 </div>
 </div>
-<div id="experimental-determination-of-rtd" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Experimental determination of RTD</h3>
+<div id="experimental-determination-of-rtd" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Experimental determination of RTD</h2>
+<p>The RTD is measured experimentally by injecting a tracer, which is an inert chemical compound into the reactor at some time <span class="math inline">\(t=0\)</span> and then measuring its concentration, <span class="math inline">\(C\)</span>, in the effluent stream as a function of time. The tracer must meet the following requirements:</p>
+<ol style="list-style-type: decimal">
+<li>it must be a nonreactive species that is easily detectable at low concentrations, e.g., by electrical conductivity, light absorption, or nuclear radiation.</li>
+<li>it should have physical properties similar to those of the reacting mixture, such as density, and be completely soluble in the mixture to avoid flow changes due to viscosity and molecular diffusion of the tracer in the solution.</li>
+<li>it should not adsorb on the walls or other surfaces in the reactor.</li>
+<li>The tracer should be inexpensive and easy to handle.</li>
+<li>The tracer should be stable and conserved so that it can be accounted for by a material balance relating the response to the input; if tracer decays, its half-life should be such that <span class="math inline">\(t_{1/2}\,(\text{tracer}) &gt; 25\overline{t}\, (\text{fluid})\)</span>.</li>
+</ol>
+<p>The two most used methods of injection are <em>pulse input</em> and <em>step input</em>.</p>
+</div>
+<div id="determination-of-et-from-pulse-input" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Determination of <strong>E(t)</strong> from Pulse input</h2>
+<p>The direct experimental determination of <strong>E(t)</strong> requires a sharp pulse of tracer to be injected into the system. Essentially, an amount of tracer <span class="math inline">\(N_0\)</span> is required to be injected into the vessel’s inlet at a single instant of time at <span class="math inline">\(t=0\)</span>. Figure <a href="distribution-of-residence-times.html#fig:fig004003">3.8</a> shows typical concentration-time curves at the inlets and outlet of an arbitrary reactor. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
+<div class="figure" style="text-align: center"><span id="fig:fig004003"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004003-1.png" alt="Typical pulse impulse curves for RTD measurement" width="65%" />
+<p class="caption">
+Figure 3.8: Typical pulse impulse curves for RTD measurement
+</p>
+</div>
+<p>Mathematically, the ideal shape of the injected pulse is described by a Dirac delta function. In practice, the tracer should be injected in as short an elapsed time as is experimentally possible to achieve.</p>
+<p>The tracer’s concentration in the effluent is then measured as a function time, and the density function can be evaluated using the following analysis. The fraction of tracer molecules that leave the system over some time interval <span class="math inline">\(dt\)</span> is</p>
+<p><span class="math display" id="eq:ec004018">\[\begin{equation}
+  \frac{dN}{N_0} = \mathbf{E}(t)\,dt
+\tag{3.20}
+\end{equation}\]</span>
+where <span class="math inline">\(dN\)</span> represents the number of tracer molecules that leaves the system over the time interval <span class="math inline">\(dt\)</span>, and <span class="math inline">\(N_0\)</span> is the total number of tracer molecules injected.</p>
+<p>The number of molecules can be expressed in terms of the concentration and the volumetric flow rate,
+<span class="math display" id="eq:ec004019">\[\begin{equation}
+  dN = \upsilon\,c(t)\,dt
+\tag{3.21}
+\end{equation}\]</span>
+where <span class="math inline">\(C(t)\)</span> is the concentration of tracer in the effluent streams as a function of time.</p>
+<p>Thus, the total number of molecules initially injected can also be calculated from the effluent profile by integration over a long time:</p>
+<p><span class="math display" id="eq:ec004020">\[\begin{equation}
+  N_0 = \int_0^{\infty} \upsilon\,C(t)\,dt \equiv \frac{N_0}{\upsilon} = \int_0^{\infty} C(t)\,dt
+\tag{3.22}
+\end{equation}\]</span></p>
+<p>Combining Eqs <a href="distribution-of-residence-times.html#eq:ec004019">(3.21)</a> and <a href="distribution-of-residence-times.html#eq:ec004020">(3.22)</a> into Eq. <a href="distribution-of-residence-times.html#eq:ec004018">(3.20)</a> for a constant-density system,
+<span class="math display" id="eq:ec004021">\[\begin{equation}
+ \mathbf{E}(t) = \frac{c(t)}{\displaystyle\int_0^\infty{c(t)\,dt}} \approx \frac{c_i(t)}{\displaystyle\sum_i {c_i(t)\,\Delta t_i}}
+\tag{3.23}
+\end{equation}\]</span></p>
+<p>Once <span class="math inline">\(\mathbf{E}(t)\)</span> is determined, the mean residence time, <span class="math inline">\(\overline{t}\)</span>, and the variance of distribution, <span class="math inline">\(\sigma_t^2\)</span>, may be calculated based on Eqs. <a href="distribution-of-residence-times.html#eq:ec004007">(3.9)</a> and <a href="distribution-of-residence-times.html#eq:ec004016a">(3.18)</a>
+<span class="math display">\[\begin{gather*}
+ \overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt \approx \sum_i t_i E_i(t) \Delta t_i \\
+   \sigma_t^2 = \left(\int_0^{\infty} {t}^2\,\mathbf{E}(t)\,dt\right) - \overline{t}^{\,2} \approx \left[ \sum_i t_i^2 E_i(t) \Delta t_i \right] - \overline{t}^2
+\end{gather*}\]</span></p>
+<p>Advantages of using a pulse input include:</p>
+<ol style="list-style-type: decimal">
+<li>requiring only a small amount of tracer.</li>
+<li>involving usually only a tiny impact on process operation.</li>
+</ol>
+<p>Disadvantages include:</p>
+<ol style="list-style-type: decimal">
+<li>difficulty in achieving a perfect pulse.</li>
+<li>difficulty in achieving accurate material balance on traces using equation <a href="distribution-of-residence-times.html#eq:ec004020">(3.22)</a></li>
+</ol>
+<p>Obtaining <span class="math inline">\(\mathbf{E}(t)\)</span>, <span class="math inline">\(\overline{t}\)</span> and <span class="math inline">\(\sigma_t^2\)</span> from experimental tracer data involves determining areas under curves defined continuously or by discrete data. Two simple ways in which discrete data may be treated to obtain the required areas:</p>
+<ol style="list-style-type: decimal">
+<li>use of data in histogram form, and</li>
+<li>use of the trapezoid rule.</li>
+</ol>
+<p>In the histogram method, Figure <a href="distribution-of-residence-times.html#fig:fig004003a">3.9</a>, the area under the response curve is
+<span class="math display">\[\begin{gather*}
+  \text{area} = \sum_{i=1}^{n_C} c_i(t)\,\Delta t_i \\
+  \Delta t_i = \frac{t_{i+1} - t_{i-1}}{2}
+\end{gather*}\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:fig004003a"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004003a-1.png" alt="Basis for histogram method of area determination. [@missen1999]" width="65%" />
+<p class="caption">
+Figure 3.9: Basis for histogram method of area determination. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
+</p>
+</div>
+<p>In the use of the trapezoid rule, Figure <a href="distribution-of-residence-times.html#fig:fig004003b">3.10</a>, the area under the response curve is given by</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004003b"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004003b-1.png" alt="Basis for histogram method of area determination. [@missen1999]" width="65%" />
+<p class="caption">
+Figure 3.10: Basis for histogram method of area determination. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
+</p>
+</div>
+<p><span class="math display">\[\begin{equation*}
+  \text{area} = \sum_{i=1}^{n_c - 1} c_i(t)_\text{av}\,\Delta t_i = \sum_{i=1}^{n_c - 1} \left(\frac{c_i + c_{i+1}}{2}\right) \left(t_{i+1} - t_i\right)
+\end{equation*}\]</span></p>
+<p>The only way to determine which numerical method provides the best answer is to predict the experimental concentrations using the calculated parameters in an appropriate mixing model.</p>
+
+<div class="exercise">
+<p><span id="exr:it004001" class="exercise"><strong>Exercise 3.1  (Calculations of RTD and distribution functions curves from pulse impulse method)  </strong></span>Consider a vessel through which a fluid is flowing. The RTD function is determined utilizing a pulse injection of the tracer in the inlet stream, and its outlet concentration is monitored as a function of time. The output concentration in mol/L measured as a function of time in seconds is</p>
+<table>
+<thead>
+<tr class="header">
+<th>t (s)</th>
+<th>C (mol/L)</th>
+<th>t (s)</th>
+<th>C (mol/L)</th>
+<th>t (s)</th>
+<th>C (mol/L)</th>
+<th>t (s)</th>
+<th>C (mol/L)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.0</td>
+<td>0</td>
+<td>225</td>
+<td>7.4</td>
+<td>275</td>
+<td>8.2</td>
+<td>375</td>
+<td>0.5</td>
+</tr>
+<tr class="even">
+<td>150</td>
+<td>0</td>
+<td>240</td>
+<td>9.4</td>
+<td>300</td>
+<td>5.0</td>
+<td>400</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td>175</td>
+<td>1</td>
+<td>250</td>
+<td>9.7</td>
+<td>325</td>
+<td>2.5</td>
+<td>450</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td>200</td>
+<td>3</td>
+<td>260</td>
+<td>9.4</td>
+<td>350</td>
+<td>1.2</td>
+<td>500</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<p>Determine:</p>
+<ol style="list-style-type: decimal">
+<li>Plot of tracer concentration vs time.</li>
+<li>RTD curve, <span class="math inline">\(\mathbf{E}(t)\)</span>.</li>
+<li>Cumulative distribution function plot, <span class="math inline">\(\mathbf{F}(t)\)</span>.</li>
+<li>Washout function plot, <span class="math inline">\(\mathbf{W}(t)\)</span>.</li>
+<li>Mean residence time.</li>
+<li>Fraction of material leaving the reactor that has spent between 230 and 270 seconds.</li>
+</ol>
+</div>
 <p><strong>WIP</strong></p>
 
-</div>
 </div>
 </div>
             </section>
