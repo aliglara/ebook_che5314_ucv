@@ -434,4 +434,135 @@ Determine:
 6. Fraction of material leaving the reactor that has spent between 230 and 270 seconds.
 
 ```
+
+_Solution_
+
+The solution in a Python script is available at  [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_021RTDimpulse.ipynb).
+
+(a) By plotting _C_ as a function of time, the curve shown in Figure \@ref(fig:fig004005a) is obtained. From the $C(t)$ curve is possible to calculate the RTD, according to Eq. \@ref(eq:ec004021), for a pulse impulse test.
+
+We just need to divide each point of c(t) by the integral
+ \begin{equation*}
+  \int_0^\infty c(t)\:dt
+\end{equation*}
+which is just the area under the $C (t)$ curve.
+
+```{r fig004005a, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Trace concentration curve', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_01_01.png")
+grid.raster(img)
+```
+
+Figure \@ref(fig:fig004005b) shows the obtained RTD curve
+
+```{r fig004005b, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='RTD curve', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_01_02.png")
+grid.raster(img)
+```
+
+(b) The cumulative distribution curve, _F(t)_, and washout curve, _W(t)_, were obtained from _E(t)_ curve, and Figure \@ref(fig:fig004006a) shows the results obtained.
+
+```{r fig004006a, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Cumulative curve, F(t)', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_01_03.png")
+grid.raster(img)
+```
+
+```{r fig004006b, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Washout curve, W(t)', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_01_04.png")
+grid.raster(img)
+```
+
+(c) The mean residence time is obtained from \@ref(eq:ec004007), thus $\overline{t} = 261.615$ seconds.
+
+(d) To calculate the fraction of material leaving the reactor that has resided in the reactor between 230 and 270 seconds, it is necessary to solve
+
+ \begin{equation*}
+   \int_{230}^{270} {\mathbf{E}(t)dt}
+ \end{equation*}
+ 
+ However, times 230 and 270 seconds are not presented in the original data. It is necessary to append our data by interpolating _E(t)_ points to correspond times 230 and 270 seconds. Then, the data obtained are plotted in Figure \@ref(fig:fig004007). The shaded area represents the fraction of material leaving the reactor that resided in the reactor between 230 and 270 seconds.
+ 
+```{r fig004007, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Analysis of curve E(t)', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_01_05.png")
+grid.raster(img)
+```
+
+Then, we learned between 230 and 270 seconds, the 37.53\% of the material left into the reactor.
+
+## Determination of **E(t)** from Step Change
+
+In this case, a step input tracer is a step increase from one steady-state value to another. Usually, as illustrated in Figure \@ref(fig:fig004004), the step increase is from a zero value, and for a $t\to \infty$, the final concentration of the tracer will be equal to its inlet concentration. [@hayes2013]
+
+For a step change, a material-balance criterion is that the steady-steady inlet and outlet tracer concentrations must be equal, both before and after the step change. Then, it may be concluded that the system's response, as shown in Fig. \@ref(fig:fig004004), is linear to the tracer, and there is no loss of tracer because of reaction or adsorption. [@missen1999]
+
+
+```{r fig004004, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Typical step change curves for RTD measurement. [@fogler2008]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_04.png")
+grid.raster(img)
+```
+
+In comparison with pulse input, which is related to $\mathbf{E}(t)$, the response to a step change is related to $\mathbf{F}(t)$. The advantages of this experimental method are:
+
+ 1. A step change is usually easier to achieve.
+ 2. A material balance is usually easier to achieve.
+
+While disadvantages include:
+
+ 1. Continuous delivery requires a greater amount of tracer.
+ 2. It may have a significant impact on process operation.
+ 
+Now, considering a constant rate of tracer addition to a feed that is initiated at time $t=0$, the tracer concentration for a system with a constant volumetric flow rate must achieve following conditions:
+ \begin{equation*}
+   C_0(t) = \left\{ \begin{array}{ll}
+   0 & t <0 \\
+   {\left(C_0\right)} \,\text{ constant} & t \geq 0 \end{array} \right.
+ \end{equation*}
+ 
+Thus, in the case of a step increase from an initial value, $C(0)$, to some final value, $c(\infty)$, the outlet concentration as function of time gives the cumulative distribution function, $\mathbf{F}(t)$, directly from the following equation:
+ \begin{equation}
+   \mathbf{F}(t) = \frac{c(t) - c(0)}{C(\infty) - c(0)}
+   (\#eq:ec004022)
+ \end{equation}
+ 
+If the inlet tracer concentration has a step decrease from initial value, $C(0)$, to a final value, $C(\infty)$, then the effluent concentration can be used to calculate the washout function, $\mathbf{W}(t)$:
+ \begin{equation}
+\mathbf{W}(t) = \frac{c(t) - c(\infty)}{c(0) - c(\infty)}
+(\#eq:ec004023)
+ \end{equation} 
+ 
+A tracer study may use a step increase followed later by a step decrease; the transient responses in the two cases are the checked consistency. When considered separately, the washout technique has advantages: less tracer is required, and it avoids having to maintain a steady-state value of $C_o$ for a lengthy period. [@missen1999]
+ 
+The normalized response data may be converted to $\mathbf{E}(t)$, since
+ \begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt}
+ \end{equation*}
+ Or could be estimated depending on the differencing technique used. From backward differencing:
+  \begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt} \approx \frac{F_{i+1} - F_{i}}{t_{i+1} - t_{i}}; \quad i = 1, 2, \,\dots \, n-1
+ \end{equation*}
+ and central differencing:
+   \begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt} \approx \frac{F_{i+1} - F_{i-1}}{t_{i+1} - t_{i-1}}; \quad i = 2, 3,\, \dots \, n-2
+ \end{equation*}
+ 
+Finally, based on the normalized condition of $\mathbf{E}$ curve. The mean residence time, which is calculated from~\cref{ec:004_007} could be approximated to:
+ \begin{equation*}
+   \overline{t} \approx \sum{t_i\,\mathbf{E}_i\,\Delta t}
+ \end{equation*}
+ and the variance $\sigma^{2}$
+ \begin{equation*}
+   \sigma_t^{2} \approx \sum{t_i^2\,\mathbf{E}_i\,\Delta t} - \overline{t}^{ 2}
+ \end{equation*}
+ 
 **WIP**

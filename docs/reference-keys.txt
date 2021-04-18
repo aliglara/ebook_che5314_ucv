@@ -208,6 +208,14 @@ eq:ec004021
 fig:fig004003a
 fig:fig004003b
 exr:it004001
+fig:fig004005a
+fig:fig004005b
+fig:fig004006a
+fig:fig004006b
+fig:fig004007
+fig:fig004004
+eq:ec004022
+eq:ec004023
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -249,4 +257,5 @@ means-and-moments
 normalized-rtd-functions
 experimental-determination-of-rtd
 determination-of-et-from-pulse-input
+determination-of-et-from-step-change
 final-words

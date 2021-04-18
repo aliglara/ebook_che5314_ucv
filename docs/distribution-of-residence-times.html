@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-04-12" />
+<meta name="date" content="2021-04-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -167,6 +167,7 @@
 <li class="chapter" data-level="3.3" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#normalized-rtd-functions"><i class="fa fa-check"></i><b>3.3</b> Normalized RTD functions</a></li>
 <li class="chapter" data-level="3.4" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#experimental-determination-of-rtd"><i class="fa fa-check"></i><b>3.4</b> Experimental determination of RTD</a></li>
 <li class="chapter" data-level="3.5" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#determination-of-et-from-pulse-input"><i class="fa fa-check"></i><b>3.5</b> Determination of <strong>E(t)</strong> from Pulse input</a></li>
+<li class="chapter" data-level="3.6" data-path="distribution-of-residence-times.html"><a href="distribution-of-residence-times.html#determination-of-et-from-step-change"><i class="fa fa-check"></i><b>3.6</b> Determination of <strong>E(t)</strong> from Step Change</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="list-of-exercises.html"><a href="list-of-exercises.html"><i class="fa fa-check"></i>List of Exercises</a></li>
@@ -601,6 +602,117 @@ Figure 3.10: Basis for histogram method of area determination. <span class="cita
 <li>Fraction of material leaving the reactor that has spent between 230 and 270 seconds.</li>
 </ol>
 </div>
+<p><em>Solution</em></p>
+<p>The solution in a Python script is available at <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_021RTDimpulse.ipynb">link</a>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>By plotting <em>C</em> as a function of time, the curve shown in Figure <a href="distribution-of-residence-times.html#fig:fig004005a">3.11</a> is obtained. From the <span class="math inline">\(C(t)\)</span> curve is possible to calculate the RTD, according to Eq. <a href="distribution-of-residence-times.html#eq:ec004021">(3.23)</a>, for a pulse impulse test.</li>
+</ol>
+<p>We just need to divide each point of c(t) by the integral
+<span class="math display">\[\begin{equation*}
+  \int_0^\infty c(t)\:dt
+\end{equation*}\]</span>
+which is just the area under the <span class="math inline">\(C (t)\)</span> curve.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004005a"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004005a-1.png" alt="Trace concentration curve" width="65%" />
+<p class="caption">
+Figure 3.11: Trace concentration curve
+</p>
+</div>
+<p>Figure <a href="distribution-of-residence-times.html#fig:fig004005b">3.12</a> shows the obtained RTD curve</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004005b"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004005b-1.png" alt="RTD curve" width="65%" />
+<p class="caption">
+Figure 3.12: RTD curve
+</p>
+</div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>The cumulative distribution curve, <em>F(t)</em>, and washout curve, <em>W(t)</em>, were obtained from <em>E(t)</em> curve, and Figure <a href="distribution-of-residence-times.html#fig:fig004006a">3.13</a> shows the results obtained.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:fig004006a"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004006a-1.png" alt="Cumulative curve, F(t)" width="65%" />
+<p class="caption">
+Figure 3.13: Cumulative curve, F(t)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:fig004006b"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004006b-1.png" alt="Washout curve, W(t)" width="65%" />
+<p class="caption">
+Figure 3.14: Washout curve, W(t)
+</p>
+</div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><p>The mean residence time is obtained from <a href="distribution-of-residence-times.html#eq:ec004007">(3.9)</a>, thus <span class="math inline">\(\overline{t} = 261.615\)</span> seconds.</p></li>
+<li><p>To calculate the fraction of material leaving the reactor that has resided in the reactor between 230 and 270 seconds, it is necessary to solve</p></li>
+</ol>
+<p><span class="math display">\[\begin{equation*}
+   \int_{230}^{270} {\mathbf{E}(t)dt}
+ \end{equation*}\]</span></p>
+<p>However, times 230 and 270 seconds are not presented in the original data. It is necessary to append our data by interpolating <em>E(t)</em> points to correspond times 230 and 270 seconds. Then, the data obtained are plotted in Figure <a href="distribution-of-residence-times.html#fig:fig004007">3.15</a>. The shaded area represents the fraction of material leaving the reactor that resided in the reactor between 230 and 270 seconds.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004007"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004007-1.png" alt="Analysis of curve E(t)" width="65%" />
+<p class="caption">
+Figure 3.15: Analysis of curve E(t)
+</p>
+</div>
+<p>Then, we learned between 230 and 270 seconds, the 37.53% of the material left into the reactor.</p>
+</div>
+<div id="determination-of-et-from-step-change" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Determination of <strong>E(t)</strong> from Step Change</h2>
+<p>In this case, a step input tracer is a step increase from one steady-state value to another. Usually, as illustrated in Figure <a href="distribution-of-residence-times.html#fig:fig004004">3.16</a>, the step increase is from a zero value, and for a <span class="math inline">\(t\to \infty\)</span>, the final concentration of the tracer will be equal to its inlet concentration. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
+<p>For a step change, a material-balance criterion is that the steady-steady inlet and outlet tracer concentrations must be equal, both before and after the step change. Then, it may be concluded that the system’s response, as shown in Fig. <a href="distribution-of-residence-times.html#fig:fig004004">3.16</a>, is linear to the tracer, and there is no loss of tracer because of reaction or adsorption. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
+<div class="figure" style="text-align: center"><span id="fig:fig004004"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004004-1.png" alt="Typical step change curves for RTD measurement. [@fogler2008]" width="65%" />
+<p class="caption">
+Figure 3.16: Typical step change curves for RTD measurement. <span class="citation">(<a href="references.html#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span>
+</p>
+</div>
+<p>In comparison with pulse input, which is related to <span class="math inline">\(\mathbf{E}(t)\)</span>, the response to a step change is related to <span class="math inline">\(\mathbf{F}(t)\)</span>. The advantages of this experimental method are:</p>
+<ol style="list-style-type: decimal">
+<li>A step change is usually easier to achieve.</li>
+<li>A material balance is usually easier to achieve.</li>
+</ol>
+<p>While disadvantages include:</p>
+<ol style="list-style-type: decimal">
+<li>Continuous delivery requires a greater amount of tracer.</li>
+<li>It may have a significant impact on process operation.</li>
+</ol>
+<p>Now, considering a constant rate of tracer addition to a feed that is initiated at time <span class="math inline">\(t=0\)</span>, the tracer concentration for a system with a constant volumetric flow rate must achieve following conditions:
+<span class="math display">\[\begin{equation*}
+   C_0(t) = \left\{ \begin{array}{ll}
+   0 &amp; t &lt;0 \\
+   {\left(C_0\right)} \,\text{ constant} &amp; t \geq 0 \end{array} \right.
+ \end{equation*}\]</span></p>
+<p>Thus, in the case of a step increase from an initial value, <span class="math inline">\(C(0)\)</span>, to some final value, <span class="math inline">\(c(\infty)\)</span>, the outlet concentration as function of time gives the cumulative distribution function, <span class="math inline">\(\mathbf{F}(t)\)</span>, directly from the following equation:
+<span class="math display" id="eq:ec004022">\[\begin{equation}
+   \mathbf{F}(t) = \frac{c(t) - c(0)}{C(\infty) - c(0)}
+   \tag{3.24}
+ \end{equation}\]</span></p>
+<p>If the inlet tracer concentration has a step decrease from initial value, <span class="math inline">\(C(0)\)</span>, to a final value, <span class="math inline">\(C(\infty)\)</span>, then the effluent concentration can be used to calculate the washout function, <span class="math inline">\(\mathbf{W}(t)\)</span>:
+<span class="math display" id="eq:ec004023">\[\begin{equation}
+\mathbf{W}(t) = \frac{c(t) - c(\infty)}{c(0) - c(\infty)}
+\tag{3.25}
+ \end{equation}\]</span></p>
+<p>A tracer study may use a step increase followed later by a step decrease; the transient responses in the two cases are the checked consistency. When considered separately, the washout technique has advantages: less tracer is required, and it avoids having to maintain a steady-state value of <span class="math inline">\(C_o\)</span> for a lengthy period. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
+<p>The normalized response data may be converted to <span class="math inline">\(\mathbf{E}(t)\)</span>, since
+<span class="math display">\[\begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt}
+ \end{equation*}\]</span>
+Or could be estimated depending on the differencing technique used. From backward differencing:
+<span class="math display">\[\begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt} \approx \frac{F_{i+1} - F_{i}}{t_{i+1} - t_{i}}; \quad i = 1, 2, \,\dots \, n-1
+ \end{equation*}\]</span>
+and central differencing:
+<span class="math display">\[\begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt} \approx \frac{F_{i+1} - F_{i-1}}{t_{i+1} - t_{i-1}}; \quad i = 2, 3,\, \dots \, n-2
+ \end{equation*}\]</span></p>
+<p>Finally, based on the normalized condition of <span class="math inline">\(\mathbf{E}\)</span> curve. The mean residence time, which is calculated from~ could be approximated to:
+<span class="math display">\[\begin{equation*}
+   \overline{t} \approx \sum{t_i\,\mathbf{E}_i\,\Delta t}
+ \end{equation*}\]</span>
+and the variance <span class="math inline">\(\sigma^{2}\)</span>
+<span class="math display">\[\begin{equation*}
+   \sigma_t^{2} \approx \sum{t_i^2\,\mathbf{E}_i\,\Delta t} - \overline{t}^{ 2}
+ \end{equation*}\]</span></p>
 <p><strong>WIP</strong></p>
 
 </div>
