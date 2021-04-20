@@ -562,7 +562,71 @@ Finally, based on the normalized condition of $\mathbf{E}$ curve. The mean resid
  \end{equation*}
  and the variance $\sigma^{2}$
  \begin{equation*}
-   \sigma_t^{2} \approx \sum{t_i^2\,\mathbf{E}_i\,\Delta t} - \overline{t}^{ 2}
+   \sigma_t^{2} \approx \sum{t_i^2\,\mathbf{E}_i\,\Delta t} - \overline{t}^{2}
+ \end{equation*}
+
+```{exercise, it004002, name="Calculations of RTD and distribution functions curves from step change method"}
+The inlet concentration of helium (tracer A) was step-increased from 1.0 to 2.0 mmol/L to determine the mixing pattern in a fluidized-bed reactor. The response data were as follows:
+  
+ t (min) | C (mmol/L) | t (min) | C (mmol/L) 
+--|--|--|--
+0.0  | 1.000 | 30.0  | 1.410 
+5.0  | 1.005 | 45.0  | 1.610 
+10.0 | 1.020 | 60.0  | 1.770 
+15.0 | 1.060 | 90.0  | 1.920
+20.0 | 1.200 | 120.0 | 1.960
+
+Determine $F(t)$, $E(t)$, $\sigma^2$ for flow through the vessel, and calculating $\overline{t}$ 
+
+```
+
+
+_Solution_
+
+The solution in a Python script is available at  [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_031RTDstep.ipynb).
+
+The figure \@ref(fig:fig004008) shows results obtained for $F(t)$
+
+```{r fig004008, out.width = "80%", echo=FALSE, fig.align='center', fig.cap='Left: Trace concentration curve. Right: F(t) curve', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_02_01.png")
+grid.raster(img)
+```
+
+ 
+The RTD was calculated by
+ \begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt}
  \end{equation*}
  
+ Which was estimated using backward differencing for $F(t)$. The figure \@ref(fig:fig004009) shows results obtained for $E(t)$
+ 
+```{r fig004009, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='E(t) curve', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_02_03.png")
+grid.raster(img)
+```
+
+The mean residence time was estimated by trapezoid rule.
+\begin{equation*}
+  \overline{t} = \sum\limits_{i=1}^{n_c - 1} {\left[t_i\,E_i(t)\right]}_{av} \Delta t_i
+\end{equation*}
+From this,
+
+\begin{equation*}
+  \boxed{\overline{t} = 57.537 \text{ min}}
+\end{equation*}
+
+Finally, the variance was obtained by,
+\begin{equation*}
+  \sigma^2 = \left\{\sum\limits_{i=1}^{n_c - 1} {\left[t_i^2\,E_i(t)\right]}_{av} \Delta t_i \right\} - \overline{t}^2
+\end{equation*}
+
+From this,
+\begin{equation*}
+  \sigma^2= 530.249 \text{ min}^2
+\end{equation*}
+
 **WIP**

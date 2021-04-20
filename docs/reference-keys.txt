@@ -216,6 +216,9 @@ fig:fig004007
 fig:fig004004
 eq:ec004022
 eq:ec004023
+exr:it004002
+fig:fig004008
+fig:fig004009
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics

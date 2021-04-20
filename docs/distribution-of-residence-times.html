@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-04-18" />
+<meta name="date" content="2021-04-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -711,8 +711,91 @@ and central differencing:
  \end{equation*}\]</span>
 and the variance <span class="math inline">\(\sigma^{2}\)</span>
 <span class="math display">\[\begin{equation*}
-   \sigma_t^{2} \approx \sum{t_i^2\,\mathbf{E}_i\,\Delta t} - \overline{t}^{ 2}
+   \sigma_t^{2} \approx \sum{t_i^2\,\mathbf{E}_i\,\Delta t} - \overline{t}^{2}
  \end{equation*}\]</span></p>
+
+<div class="exercise">
+<p><span id="exr:it004002" class="exercise"><strong>Exercise 3.2  (Calculations of RTD and distribution functions curves from step change method)  </strong></span>The inlet concentration of helium (tracer A) was step-increased from 1.0 to 2.0 mmol/L to determine the mixing pattern in a fluidized-bed reactor. The response data were as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>t (min)</th>
+<th>C (mmol/L)</th>
+<th>t (min)</th>
+<th>C (mmol/L)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.0</td>
+<td>1.000</td>
+<td>30.0</td>
+<td>1.410</td>
+</tr>
+<tr class="even">
+<td>5.0</td>
+<td>1.005</td>
+<td>45.0</td>
+<td>1.610</td>
+</tr>
+<tr class="odd">
+<td>10.0</td>
+<td>1.020</td>
+<td>60.0</td>
+<td>1.770</td>
+</tr>
+<tr class="even">
+<td>15.0</td>
+<td>1.060</td>
+<td>90.0</td>
+<td>1.920</td>
+</tr>
+<tr class="odd">
+<td>20.0</td>
+<td>1.200</td>
+<td>120.0</td>
+<td>1.960</td>
+</tr>
+</tbody>
+</table>
+<p>Determine <span class="math inline">\(F(t)\)</span>, <span class="math inline">\(E(t)\)</span>, <span class="math inline">\(\sigma^2\)</span> for flow through the vessel, and calculating <span class="math inline">\(\overline{t}\)</span></p>
+</div>
+<p><em>Solution</em></p>
+<p>The solution in a Python script is available at <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_031RTDstep.ipynb">link</a>.</p>
+<p>The figure <a href="distribution-of-residence-times.html#fig:fig004008">3.17</a> shows results obtained for <span class="math inline">\(F(t)\)</span></p>
+<div class="figure" style="text-align: center"><span id="fig:fig004008"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004008-1.png" alt="Left: Trace concentration curve. Right: F(t) curve" width="80%" />
+<p class="caption">
+Figure 3.17: Left: Trace concentration curve. Right: F(t) curve
+</p>
+</div>
+<p>The RTD was calculated by
+<span class="math display">\[\begin{equation*}
+   \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt}
+ \end{equation*}\]</span></p>
+<p>Which was estimated using backward differencing for <span class="math inline">\(F(t)\)</span>. The figure <a href="distribution-of-residence-times.html#fig:fig004009">3.18</a> shows results obtained for <span class="math inline">\(E(t)\)</span></p>
+<div class="figure" style="text-align: center"><span id="fig:fig004009"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004009-1.png" alt="E(t) curve" width="65%" />
+<p class="caption">
+Figure 3.18: E(t) curve
+</p>
+</div>
+<p>The mean residence time was estimated by trapezoid rule.
+<span class="math display">\[\begin{equation*}
+  \overline{t} = \sum\limits_{i=1}^{n_c - 1} {\left[t_i\,E_i(t)\right]}_{av} \Delta t_i
+\end{equation*}\]</span>
+From this,</p>
+<p><span class="math display">\[\begin{equation*}
+  \boxed{\overline{t} = 57.537 \text{ min}}
+\end{equation*}\]</span></p>
+<p>Finally, the variance was obtained by,
+<span class="math display">\[\begin{equation*}
+  \sigma^2 = \left\{\sum\limits_{i=1}^{n_c - 1} {\left[t_i^2\,E_i(t)\right]}_{av} \Delta t_i \right\} - \overline{t}^2
+\end{equation*}\]</span></p>
+<p>From this,
+<span class="math display">\[\begin{equation*}
+  \sigma^2= 530.249 \text{ min}^2
+\end{equation*}\]</span></p>
 <p><strong>WIP</strong></p>
 
 </div>
