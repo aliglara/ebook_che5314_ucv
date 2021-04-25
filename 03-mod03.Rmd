@@ -616,7 +616,7 @@ The mean residence time was estimated by trapezoid rule.
 From this,
 
 \begin{equation*}
-  \boxed{\overline{t} = 57.537 \text{ min}}
+ \overline{t} = 57.537 \text{ min}
 \end{equation*}
 
 Finally, the variance was obtained by,
