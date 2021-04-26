@@ -219,6 +219,7 @@ eq:ec004023
 exr:it004002
 fig:fig004008
 fig:fig004009
+eq:ec004025
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -261,4 +262,8 @@ normalized-rtd-functions
 experimental-determination-of-rtd
 determination-of-et-from-pulse-input
 determination-of-et-from-step-change
+applications-for-rtd-functions
+rtd-functions-for-ideal-reactors
+plug-flow-reactor-pfr-1
+continuous-stirred-tank-reactor-cstr
 final-words

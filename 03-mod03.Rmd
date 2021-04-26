@@ -629,4 +629,70 @@ From this,
   \sigma^2= 530.249 \text{ min}^2
 \end{equation*}
 
+# Applications for RTD functions
+
+As it was said before, RTD provides a measure of macroscopic mixing; therefore, it could be helpful as a tool for:
+
+1. detecting and characterizing flow behavior.
+2. estimating of values of parameters for nonideal flow models.
+3. assessment of the performance of a vessel as a reactor.
+
+## RTD functions for ideal reactors
+$\mathbf{F}(t)$ fits the behavior either when $N$ particles are injected individually at different times to a steady-state reactor or if they are entered all at once to the reactor as $\mathbf{F}(t)$ represents the volume fraction of the fluid leaving the reactor, which resided in the system over a time of $t$ or less.
+
+### Plug Flow Reactor (PFR)
+In this reactor, there is not back mixing. Hence, every fluid element has the same mean residence time $\overline{t}$ (or $\tau$). This corresponding to a pulse tracer entering the reactor at time $t=0$ during an infinitesimally short time and does not mix with fluid elements running ahead or behind it within the reactor. 
+  
+The flow pattern in PFR could be represented in terms of the Dirac delta function $\left( \delta \left(t - \overline{t} \right)\right)$.The Dirac delta function is a generalized function, on the real number line that is zero everywhere except at zero, where it is infinite:
+
+\begin{equation*}
+\delta \left(t - \overline{t} \right) = \left \{
+\begin{aligned}
+  & \infty && t = \overline{t} \\
+  & 0  && t \neq \overline{t}
+\end{aligned}
+\right.
+\end{equation*}
+
+Therefore, the normalized RTD function is written down in terms of Dirac "delta-function''
+\begin{equation}
+\mathbf{E}(t) = \delta (t - \overline{t} ) = \left \{
+\begin{aligned}
+  & \infty \text{ when } t = \overline{t} \\
+  & 0 \text{ when } t \neq \overline{t}
+\end{aligned}
+\right.
+(\#eq:ec004025)
+\end{equation}
+
+The integral of Dirac $\delta$-function is given as:
+
+\begin{equation*}
+\int_a^b \delta {\left(t-\overline{t}\right)} \, f(t) dt = \left \{
+\begin{aligned}
+& f(\overline{t}) \text{ when } a < \overline{t} < b \\
+& 0 \text{ when } a > \overline{t} > b
+\end{aligned}
+\right.
+\end{equation*}
+where $a$ and $b$ are any constant.
+
+Therefore,
+\[
+\mathbf{F}(t) = \left \{
+\begin{aligned}
+  & 0 \text{ when } 0 < t < \overline{t} \\
+  & 1 \text{ when } t \geq \overline{t}
+\end{aligned}
+\right.
+\]
+
+:::: {.infobox .info data-latex="information"}
+
+The moments of the normalized distribution all equal one, while the central moments equal zero.
+
+::::
+
+### Continuous Stirred Tank Reactor (CSTR)
+
 **WIP**
