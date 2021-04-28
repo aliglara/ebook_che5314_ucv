@@ -1,5 +1,5 @@
 --- 
-title: "Notes for Che5314 course @ UCV"
+title: "Notes for CHE5314 course @ UCV"
 author: "Ali G. Lara"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,7 +7,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is my notes recopilation for the course of Chemical Reaction design at Central University of Venezuela."
+description: "This is my notes recopilation for the course of Chemical Reaction Design at Central University of Venezuela."
 ---
 
 # Introduction {-}
