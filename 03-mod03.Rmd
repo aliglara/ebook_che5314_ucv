@@ -979,4 +979,224 @@ img <- readPNG("figures/004_segregationalmodelbalance.png")
 grid.raster(img)
 ```
 
+where the summation is over all fluid elements in the reactor exit stream. This equation can be written analytically as:
+
+\begin{equation}
+  \overline{C}_A = \int_0^\infty{C_A(\overline{t})\,\mathbf{E}(t)\,d\overline{t}}
+(\#eq:ec004031)
+\end{equation}
+
+Where $C_A(t)$ depends on the residence time of the element.
+
+\begin{equation*}
+  \frac{d\,C_A(t)}{dt} = - r_A = k\,C_A(t)
+\end{equation*}
+
+The equation \@ref(eq:ec004031) is rewritten as
+
+\begin{equation}
+  \frac{\overline{C}_A}{C_{A0}} = \int_0^\infty{\left(\frac{C_A(\overline{t})}{C_{A0}}\right)\,\mathbf{E}(t)\,d\,t} \approx \sum_{\substack{\text{\footnotesize{all age}}\\\text{\footnotesize{intervals}}}}\left(\frac{C_A}{C_{A0}}\right)\,\mathbf{E}(t)\,\Delta t
+\end{equation}
+(\#eq:ec004032)
+or in terms of conversions
+\begin{equation}
+  \overline{X}_A = \int_0^\infty{{\left(X_A(t)\right)}_\text{\footnotesize{element}}\,\mathbf{E}(t)\,dt} 
+(\#eq:ec004033)
+\end{equation}
+
+Introducing the $\mathbf{E}(t)$ curve for  CSTR, Equation \@ref(eq:ec004032) becomes,
+\begin{equation*}
+  \frac{\overline{C}_A}{C_{A0}} = \frac{1}{\overline{t}} \int_0^\infty{ \text{e}^{-k\,t}\,\text{e}^{-t/\overline{t}}\,d\,t} = \frac{1}{1 + k\,t} 
+ \end{equation*}
+
+Now, introducing the $\mathbf{E}(t)$ curve for a PFR,
+\begin{equation*}
+  \frac{\overline{C}_A}{C_{A0}} = \frac{1}{\overline{t}} \int_0^\infty{ \text{e}^{-k\,t}\,\delta \left(t - \overline{t}\right)\,d\,t} = \text{e}^{-k\,\overline{t}}
+ \end{equation*}
+ 
+The methodology described above can be used without any flow pattern models at all, in that experimental concentration as a function of residence time and the measured RTD can be directly numerically integrated to predict the conversion in the flow reactor.
+
+:::: {.infobox .info data-latex="information"}
+The segregational o macrofluid model is essential because it permits reactor behavior to be estimated directly from RTD, $\mathbf{E}(t)$, and the reaction kinetics. No other information is necessary.
+::::
+
+However, it is only strictly applicable to isothermal, single-phase systems. Extensions to more complicated behaviors are not straightforward. Therefore, other techniques are required for more general predictive and design purposes.
+
+When we dealt with ideal reactors in series, we learned that:
+
+1. If the order of the reaction is greater than 1 $\left(n > 1\right)$, we must keep the reactant concentration as high as possible for as long as possible to maximize fractional conversion. In order words, we must avoid mixing as long as possible. For example, the optimum arrangement will be a PFR first, then a small CSTR, and a large CSTR.
+2. If the order of the reaction is less than 1 $\left(n < 1\right)$, we must drop the reactant concentration as low as possible, which means mix as soon as possible. 
+3. Finally, if the order of the reaction is equal to 1, the order of reactors will not affect the final conversion.
+    
+The macrofluid model represents the latest possible mixing for a given RTD because there is no mixing between fluid elements until the reaction is over. For a reaction with an effective order greater than 1, the macrofluid model represents the _best_ possible situation. It provides an upper bound on conversion. [@roberts2009]
+
+Conversely, for a reaction with a practical order of less than 1, the macrofluid model represents the \textit{worst} possible situation. It provides a lower bound on conversion. In summary,
+
+Reaction order | Segregational model provide
+-|-
+$>1$ | Upper bound of conversion 
+$=1$ | Exact result 
+$<1$ | Lower bound of conversion 
+
+```{exercise, it004003, name="Calculation of conversion based on RTD"}
+
+Calculate conversion for a reaction 
+\begin{equation*}
+A \rightarrow B 
+\end{equation*}
+
+for a given RTD and segregation model.
+
+t (min) | c (g/m$^3$) | t (min) | c (g/m$^3$)
+- | - | - | -
+1 | 1 | 7 | 4
+2 | 3 | 8 | 3
+3 | 8 | 9 | 2.2
+4 | 10 | 10 | 1.5
+5 | 8 | 12 | 0.6
+6 | 6 | 14 | 0
+
+\begin{equation*}
+  r_A = - k\,C_A; \quad k = 0.1 \text{ min}^{-1}
+\end{equation*}
+  
+```
+
+_Solution_
+
+The solution in a Python script is available at  [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_024RTDconversion.ipynb).
+
+From data problem, the RTD is shown on the left size of Figure \@ref(fig:fig004011)
+
+```{r fig004011, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical solution for the problem. Left: E(t) curve, Right: Fractional conversion curve.', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_03s.png")
+grid.raster(img)
+```
+
+From kinetic data, the fractional conversion for each batch reactor is
+\begin{equation*}
+  X_{i,\text{batch}}(t) = 1 - \exp(-k\,t)
+\end{equation*}
+The profile of conversion is plotted right size of  Figure \@ref(fig:fig004011)
+
+Finally, the mean conversion is estimated by Eq. \@ref(eq:ec004033)
+\begin{equation*}
+  \overline{X}_i = \int_0^\infty {\left[1 - \exp(-k\,t) \right]\,\mathbf{E}(t)\,dt} = 0.3871 
+\end{equation*}
+
+### Maximum Mixedness Model (MMM) {-}
+
+The MMM for a reactor represents the micromixing condition of complete dispersion, where fluid elements are entirely mixed at the molecular level, which is the opposite extreme of the segregational model.
+
+The MMM considers that the fluid packages of different residence times are mixed as early as possible in the flow system consistent with the observed RTD. For this reason, this model is also called **_Early mixing model_**.
+ 
+This behavior can be modeled using a PFR with inlet side streams, as shown in Figure \@ref(fig:fig004010e). The feed flow rate is distributed among the side streams in such a way as to match the required RTD function. It can be seen that in this arrangement, fluid entering the reactor in a given side stream, which has a residence time of zero, will mix radially with the fluid already present in the reactor completely.
+
+```{r fig004010e, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Scheme for modeling of maximum mixedness model. [@hayes2013]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_20.png")
+grid.raster(img)
+```
+
+The conversion in a MM model can be calculated by performing a mole balance that considers all side streams. First, it is necessary to define an alternative variable, $\lambda$, defined as the residence time remaining for an entering particle. All particles at a given $\lambda$ have the same time left in the reactor but may have different ages.
+
+```{r fig004010f, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Control volume used to develop the mole balance for the maximum mixedness. [@hayes2013]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_21.png")
+grid.raster(img)
+```
+
+The concentration at the reactor outlet can be derived from mole balance equation. Take a small control volume of the reactor, as show in Figure \@ref(fig:fig004010f). The mole balance over the discrete volumen element is
+\begin{equation}
+q\,C_A\left(\lambda + \Delta \lambda\right) + \Delta q\,C_{A0} + \Delta V \, r_A = \left( q + \Delta q \right)\,C_A (\lambda)
+(\#eq:ec004033a)
+\end{equation}
+
+The volumetric flow rate at $\lambda$ is the inlet volumetric flow, $q$, plus the inlet side streams, $\Delta q$, thus
+\begin{align*}
+\Delta q &= \upsilon_0 \, \mathbf{E}(\lambda) \, \Delta \lambda \\
+q(\lambda) &= q(\lambda + \Delta \lambda) + \upsilon_0 \, \mathbf{E}(\lambda) \, \Delta \lambda
+\end{align*}
+where $\upsilon_0$ is the total inlet volumetric flow rate fed to the reactor.
+
+Rewriting
+\begin{equation}
+\frac{d\,q(\lambda)}{d\lambda} = - \upsilon_0\,\mathbf{E}(\lambda)
+(\#eq:ec004033b)
+\end{equation}
+
+The inlet volumetric flow rate, $\upsilon_0$ at the inlet of the reactor $(X_A = 0)$ is equal to zero because the fluid is fed only for side streams. Thus, integrating equation \@ref(eq:ec004033b) considering that $q(\lambda) = 0$ at $\lambda = \infty$ and $q(\lambda) = q(\lambda)$ at $\lambda = \lambda$,
+
+\begin{equation}
+\boxed{q(\lambda) = \upsilon_0\, \int_\lambda^\infty \mathbf{E}(\lambda)\,d\lambda = \upsilon_0 \left[1 - \mathbf{F}(\lambda)\right]}
+(\#eq:ec004033c)
+\end{equation}
+where $q(\lambda)$ refers to volumetric flow rate inside the reactor at $\lambda$
+
+The volume of fluid with a life expectancy between $\lambda$ and $\lambda + \Delta \lambda$ is 
+\begin{equation}
+\Delta V (\lambda) = \upsilon_0 \left[ 1 - \mathbf{F}(\lambda)\right] \Delta \lambda
+(\#eq:ec004033d)
+\end{equation}
+
+The rate of generation of A in this volume is
+\begin{equation}
+r_A\,\Delta V (\lambda) = r_A\,\upsilon_0 \left[1 - \mathbf{F}(\lambda)\right] \Delta \lambda
+(\#eq:ec004033e)
+\end{equation}
+
+Now substituting Eqs. \@ref(eq:ec004033c), \@ref(eq:ec004033d) and \@ref(eq:ec004033e) into \@ref(eq:ec004033a)
+
+\begin{align}
+\upsilon_0 \left[1 - \mathbf{F}(\lambda)\right]\,C_A\left(\lambda  + \Delta \lambda\right) + \upsilon_0 \, \mathbf{E}(\lambda) \, \Delta \lambda\,C_{A0} & + r_A\,\upsilon_0 \left[ 1 - \mathbf{F}(\lambda)\right] \Delta \lambda = \cdots \\ \cdots &\left(\upsilon_0 \left[1 - \mathbf{F}(\lambda)\right] + \upsilon_0 \, \mathbf{E}(\lambda) \, \Delta \lambda \right)\,C_A (\lambda)
+(\#eq:ec004033f)
+\end{align}
+
+Dividing by $\upsilon_0 \, \Delta \lambda$,
+\begin{equation}
+\frac{\mathbf{W}(\lambda)\,C_A\left(\lambda + \Delta \lambda\right)}{\Delta \lambda} + \mathbf{E}(\lambda) \,\left(C_{A0} - C_A\right) + r_A\, \mathbf{W}(\lambda) = \frac{\mathbf{W}(\lambda)\,C_A (\lambda)}{\Delta \lambda}
+(\#eq:ec004033g)
+\end{equation}
+
+Now, taking the limit as $\Delta \lambda \to 0$ gives
+\begin{equation}
+-\frac{\mathbf{W}(\lambda)\,d\,C_A}{d\,\lambda} + \mathbf{E}(\lambda) \,\left(C_{A0} - C_A \right) + r_A\, \mathbf{W}(\lambda) = 0
+(\#eq:ec004033h)
+\end{equation}
+or
+\begin{equation}
+\frac{d\,C_A}{d\,\lambda} = \frac{\mathbf{E}(\lambda)}{\mathbf{W}(\lambda)} \left(C_{A0} - C_A\right) + r_A
+(\#eq:ec004033i)
+\end{equation}
+
+Equation \@ref(eq:ec004033i) can be written in terms of conversion as
+\begin{equation}
+-C_{A0}\,\frac{d\,X}{d\,\lambda} = \frac{\mathbf{E}(\lambda)}{\mathbf{W}(\lambda)}\,C_{A0}\,X + r_A
+(\#eq:ec004033j)
+\end{equation}
+or
+\begin{equation}
+\frac{d\,X}{d\,\lambda} = -\frac{\mathbf{E}(\lambda)}{\mathbf{W}(\lambda)}\,X - \frac{r_A}{C_{A0}}
+(\#eq:ec004033k)
+\end{equation}
+
+Equation \@ref(eq:ec004033j) is solved to determine the concentration at the reactor outlet. The equation usually requires a numerical solution. An initial condition is also required. In this case, the boundary condition is as $\lambda \to \infty$, then $C_A = C_{A0}$.
+
+Despite this model, it may be impossible to determine the amount of mixing in a reactor and hence obtain an exact prediction of conversion, but it could be helpful to determine the bounds on the expected conversion. This bounding may be represented by the diagram shown in Figure \@ref(fig:fig004010g).
+
+```{r fig004010g, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='The bounding of the micro- and macromixing regions. [@hayes2013]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_22.png")
+grid.raster(img)
+```
+
+The horizontal axis represents the extent of macromixing as defined by the RTD. The vertical axis represents the amount of micromixing, which may vary from zero to perfect mixing. A PFR is always a segregated flow reactor, while a CSTR can vary between perfect mixing and segregated flow.
+
+## One adjustable parameter
+
 **WIP**
