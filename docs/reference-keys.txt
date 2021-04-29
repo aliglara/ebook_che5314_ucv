@@ -235,6 +235,8 @@ fig:fig004bypass
 fig:fig004002a
 fig:fig004modeldeadzone
 fig:fig004RTDdiagnostic
+fig:fig004010c
+fig:fig004010d
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
@@ -281,4 +283,5 @@ applications-for-rtd-functions
 rtd-functions-for-ideal-reactors
 rtd-as-diagnostic-tool-for-characterizing-flow-behavior
 models-for-nonideal-flow
+zero-adjustable-parameters
 final-words
