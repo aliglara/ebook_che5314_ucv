@@ -979,6 +979,4 @@ img <- readPNG("figures/004_segregationalmodelbalance.png")
 grid.raster(img)
 ```
 
-![]("figures/004_segregationalmodelbalance.png")
-
 **WIP**
