@@ -1198,5 +1198,98 @@ grid.raster(img)
 The horizontal axis represents the extent of macromixing as defined by the RTD. The vertical axis represents the amount of micromixing, which may vary from zero to perfect mixing. A PFR is always a segregated flow reactor, while a CSTR can vary between perfect mixing and segregated flow.
 
 ## One adjustable parameter
+For a first-order reaction or the flow-pattern fluid can be modeled as complete segregation or maximum mixedness, the zero-adjustable parameter models are enough to predict the conversion. However, for non-first-order reactions over fluids with good micromixing, more than just the RTD is needed.
+
+A model of reactor flow patterns is necessary to predict the conversions and product distribution for such systems. We use combinations or modifications of ideal reactors to represent actual reactors to model these patterns.
+
+However, in this course, we are dealing with two of them that are most common, each of which has one adjustable parameter: The first one is _the tanks-in-series model_ and the second is _the dispersion model_ which are widely used. 
+
+In principle, both models can represent the flow pattern in a single vessel between the two extreme ideal models: CSTR and PFR. Additionally, they are roughly equivalent and could be applied to turbulent flow in pipes, laminar flow in very long tubes, flow in a packed bed, etc. However, the dispersion model is mainly used in catalytic reactions carried out within tubular reactors.
+
+### The Tanks-in-Series Model {-}
+
+The tank-in-series (TIS) model for arbitrary flow through a vessel assumes that it can be represented by flow through a series of _N_ equal-sized ideal CSTRs, where _N_ is the adjustable parameter of the model and describes the degree of mixing in the vessel.
+
+The value of $N$ is tailored to match an observed or expected RTD. As $N$ increases from 1 to $\infty$, the flow represented in the vessel varies from back mix flow to plug flow. For practical purposes, a plug flow is virtually achieved for $N>30$. 
+
+The volume of the vessel modeled, $V$, is equal to the sum of the volumes of the $N$ tanks. [@missen1999]
+\begin{equation*}
+  V = \sum N\,V_i
+\end{equation*}
+
+Consider, as an illustration, \@ref(fig:fig004012), three equally sized tanks in series through which a constant-density fluid flows, giving an equal space-time (a mean residence time) for each reactor. 
+
+A pulse tracer is injected into the first tank at time zeroand, instantaneously, becomes uniformly distributed in the first tank, giving an initial concentration of $C_0$. The outlet concentration from the first vessel is given by:
+\begin{align}
+  V_1 \, \frac{dC_1}{dt} & = - \upsilon \, C_1 \\ \notag
+  C_1(t) & = C_0 \exp\left(-\frac{t}{\overline{t_1}}\right)
+(\#eq:ec004034)
+\end{align}
+where $\overline{t_i}$ is the mean residence time in a single tank. 
+
+The mole balance equation for the second tank is obtained from the perfectly mixed mole balance, without reaction:
+\begin{equation}
+  V\frac{dC_2}{dt} = \upsilon\,{\left(C_1-C_2\right)}
+(\#eq:ec004035)
+\end{equation}
+
+Substituting Eq. \@ref(eq:ec004034) and solving Eq. \@ref(eq:ec004035) using an integration factor $\exp(t/\overline{t}_2)$ along with the initial condition $C_2(0) = 0$:
+
+\begin{equation}
+C_2(t) = C_0\,\frac{t}{\overline{t_2}}\,\exp{\left(-\frac{t}{\overline{t_2}}\right)}
+(\#eq:ec004036)
+\end{equation}
+
+```{r fig004012, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='The tanks-in-series model uses a number of equally sized CSTRs placed in series', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_11.png")
+grid.raster(img)
+```
+
+Performing the mole balance on the third vessel and solving in a similar way give the outlet concentration with time from the third reactor.
+\begin{equation}
+C_3(t) = \frac{C_0}{2}\,{\left(\frac{t}{\overline{t}_3}\right)}^2\,\exp{\left(-\frac{t}{\overline{t}_3}\right)}
+(\#eq:ec004037)
+\end{equation}
+
+Therefore, generalizing this method to a series of $N$ CSTRs gives the RTD for $N$ CSTRs in series:
+\begin{equation}
+\frac{C(t)}{C(t_0)} = \frac{t^{N-1}}{(N-1)!\,\overline{t}_i^N}\,\exp{\left(-\frac{t}{\overline{t}_i}\right)}
+\end{equation}
+taking into account that $\overline{t} = N \: \overline{t_i}$ then
+\begin{equation}
+\frac{C(t)}{C(t_0)} = \mathbf{C}(t) = \frac{t^{N}}{(N-1)!}\,\left(\frac{t}{\overline{t}}\right)^{N-1}\exp{\left(-N\frac{t}{\overline{t}}\right)}
+(\#eq:ec004038)
+\end{equation}
+
+Equation \@ref(eq:ec004038) could be expressed with normalized time using $\mathbf{C}(t) = \overline{t}\,\mathbf{E}(t)$, leading to the normalized distribution function is:
+\begin{equation}
+\mathbf{E}_N(\theta) = \frac{N^N}{(N-1)!}\,\theta^{N-1}\,\exp{\left(-N\theta\right)}
+(\#eq:ec004041)
+\end{equation}
+where, again, $\theta = t/\overline{t}$. 
+
+Figure \@ref(fig:fig004013) illustrates the RTDs of various numbers of CSTRs in series. As $N$ increases from 1, the spread of distribution decreases. Furthermore, when $N>2$, the peak would be an infinitive height (behavior of a PFR). 
+
+The mathematical illustration is available on the following [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_025in-tank-serie.ipynb)
+
+```{r fig004013, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='E(theta) curve using the tanks-in-series model', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_04_01.png")
+grid.raster(img)
+```
+
+The cumulative RTD function $\mathbf{F}{(\theta)}$ could be calculated from equation \@ref(eq:ec004041), for integral values of $N$
+\begin{equation}
+\mathbf{F}_N(\theta) = \int_0^\theta \mathbf{E}(\theta)\:d\theta
+(\#eq:ec004041a)
+\end{equation}
+The integral in equation \@ref(eq:ec004041a) can be evaluated analytically:
+\begin{equation}
+\boxed{\mathbf{F}_N(\theta) = 1 - \exp \left(-N\,\theta\right)\,\sum\limits_{i=0}^{N-1}{\frac{(N\theta)^i}{i!}}}
+(\#eq:ec004041b)
+\end{equation}
 
 **WIP**
