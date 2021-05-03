@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-05-02" />
+<meta name="date" content="2021-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -585,6 +585,79 @@ The integral in equation <a href="models-for-nonideal-flow.html#eq:ec004041a">(5
 \boxed{\mathbf{F}_N(\theta) = 1 - \exp \left(-N\,\theta\right)\,\sum\limits_{i=0}^{N-1}{\frac{(N\theta)^i}{i!}}}
 \tag{5.22}
 \end{equation}\]</span></p>
+<p>The result for equation <a href="models-for-nonideal-flow.html#eq:ec004041a">(5.21)</a> is shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004014">5.9</a> for several values of <span class="math inline">\(N\)</span>. For <span class="math inline">\(N=1\)</span>, the result is that for a single CSTR, as <span class="math inline">\(N\)</span> increases, the shape becomes more like a step function, corresponding to a plug-flow.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004014"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004014-1.png" alt="F(theta) curve using the tanks-in-series model" width="65%" />
+<p class="caption">
+Figure 5.9: F(theta) curve using the tanks-in-series model
+</p>
+</div>
+<p>Finally, the washout function, <span class="math inline">\(\mathbf{W}{(\theta)}\)</span>, can be obtained from <span class="math inline">\(\mathbf{F}{(\theta)}\)</span>
+<span class="math display">\[\begin{equation*}
+  \mathbf{W}{(\theta)} = 1 - \mathbf{F}{(\theta)}
+\end{equation*}\]</span></p>
+<p>To utilize the tanks-in-series model, we need to determine the number of tanks that will give the same RTD as for the real system. This number may be obtained from the variance of RTD, which is given by the second moment about the mean:
+<span class="math display">\[\begin{equation*}
+\sigma_{\theta}^2 = \int_0^\infty{{\left(\theta-1\right)}^2 \frac{\theta^{N-1}N^N}{(N-1)!}\,\exp{\left(-N\theta\right)}} = \int_{0}^{\infty} \theta ^2\mathbf{E}(\theta)\,d\theta - 1
+\end{equation*}\]</span>
+Solution of the integral equation gives the result
+<span class="math display">\[\begin{equation*}
+\sigma_{\theta}^2 = \frac{\left(N+2-1\right)!}{N\cdot N!} - 1 = \frac{\left(N+1\right)!}{N\cdot N!} - 1 = \frac{1}{N}
+\end{equation*}\]</span>
+The variance of the RTD is seen to be equal to the inverse of the number of tanks used. Therefore, if the RTD curve is known, the appropriated number of tanks in series to use may be calculated, so
+<span class="math display">\[\begin{equation*}
+  N = \frac{1}{\sigma_{\theta}^2} = \frac{\overline{t}^{ 2}}{\sigma^2}
+\end{equation*}\]</span></p>
+
+<div class="exercise">
+<p><span id="exr:it004004" class="exercise"><strong>Exercise 5.2  (Estimate number of tanks based in Tanks-in-serie model)  </strong></span>A step increase in the inlet trace A concentration, from 1.0 to 2.0 mmol/L, was used to determine the mixing pattern inside the fluidized-bed reactor. The response data were as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>t (min)</th>
+<th>C (mmol/L)</th>
+<th>t (min)</th>
+<th>C (mmol/L)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.0</td>
+<td>1.000</td>
+<td>30.0</td>
+<td>1.410</td>
+</tr>
+<tr class="even">
+<td>5.0</td>
+<td>1.005</td>
+<td>45.0</td>
+<td>1.610</td>
+</tr>
+<tr class="odd">
+<td>10.0</td>
+<td>1.020</td>
+<td>60.0</td>
+<td>1.770</td>
+</tr>
+<tr class="even">
+<td>15.0</td>
+<td>1.060</td>
+<td>90.0</td>
+<td>1.920</td>
+</tr>
+<tr class="odd">
+<td>20.0</td>
+<td>1.200</td>
+<td>120.0</td>
+<td>1.960</td>
+</tr>
+</tbody>
+</table>
+<p>Estimate values of <span class="math inline">\(N\)</span> based on both central and backward differencing and determine which technique best describes the tracer outflow concentrations.</p>
+</div>
+<p><em>Solution</em></p>
+<p>The solution is available on the next <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_026numberofTanks.ipynb">link</a></p>
+<p>For each scenario, the equation <a href="#eq:ec004041f">(<strong>??</strong>)</a> was applied to calculate the estimated <span class="math inline">\(\mathbf{F}(t)\)</span>, then based on Eq. <a href="#eq:ec004041d">(<strong>??</strong>)</a>, the output tracer concentration, <span class="math inline">\(C_{out}(t)\)</span>, may be calculated from <span class="math inline">\(\mathbf{F}(t)\)</span>.</p>
 <p><strong>WIP</strong></p>
 
 </div>

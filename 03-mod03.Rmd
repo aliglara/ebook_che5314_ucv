@@ -1292,4 +1292,53 @@ The integral in equation \@ref(eq:ec004041a) can be evaluated analytically:
 (\#eq:ec004041b)
 \end{equation}
 
+The result for equation \@ref(eq:ec004041a) is shown in Figure \@ref(fig:fig004014) for several values of $N$. For $N=1$, the result is that for a single CSTR, as $N$ increases, the shape becomes more like a step function, corresponding to a plug-flow.
+
+```{r fig004014, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='F(theta) curve using the tanks-in-series model', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_04_02.png")
+grid.raster(img)
+```
+
+Finally, the washout function, $\mathbf{W}{(\theta)}$, can be obtained from $\mathbf{F}{(\theta)}$
+\begin{equation*}
+  \mathbf{W}{(\theta)} = 1 - \mathbf{F}{(\theta)}
+\end{equation*}
+
+To utilize the tanks-in-series model, we need to determine the number of tanks that will give the same RTD as for the real system. This number may be obtained from the variance of RTD, which is given by the second moment about the mean:
+\begin{equation*}
+\sigma_{\theta}^2 = \int_0^\infty{{\left(\theta-1\right)}^2 \frac{\theta^{N-1}N^N}{(N-1)!}\,\exp{\left(-N\theta\right)}} = \int_{0}^{\infty} \theta ^2\mathbf{E}(\theta)\,d\theta - 1
+\end{equation*}
+Solution of the integral equation gives the result
+\begin{equation*}
+\sigma_{\theta}^2 = \frac{\left(N+2-1\right)!}{N\cdot N!} - 1 = \frac{\left(N+1\right)!}{N\cdot N!} - 1 = \frac{1}{N}
+\end{equation*}
+The variance of the RTD is seen to be equal to the inverse of the number of tanks used. Therefore, if the RTD curve is known, the appropriated number of tanks in series to use may be calculated, so
+\begin{equation*}
+  N = \frac{1}{\sigma_{\theta}^2} = \frac{\overline{t}^{ 2}}{\sigma^2}
+\end{equation*}
+
+```{exercise, it004004, name="Estimate number of tanks based in Tanks-in-serie model"}
+A step increase in the inlet trace A concentration, from 1.0 to 2.0 mmol/L, was used to determine the mixing pattern inside the fluidized-bed reactor. The response data were as follows:
+
+ t (min) | C (mmol/L) | t (min) | C (mmol/L) 
+--|--|--|--
+0.0  | 1.000 | 30.0  | 1.410 
+5.0  | 1.005 | 45.0  | 1.610 
+10.0 | 1.020 | 60.0  | 1.770 
+15.0 | 1.060 | 90.0  | 1.920
+20.0 | 1.200 | 120.0 | 1.960
+
+Estimate values of $N$ based on both central and backward differencing and determine which technique best describes the tracer outflow concentrations.
+
+```
+
+_Solution_
+
+The solution is available on the next [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_026numberofTanks.ipynb)
+
+For each scenario, the equation \@ref(eq:ec004041f) was applied to calculate the estimated $\mathbf{F}(t)$, then based on Eq. \@ref(eq:ec004041d), the output tracer concentration, $C_{out}(t)$, may be calculated from $\mathbf{F}(t)$.
+
+
 **WIP**
