@@ -1338,7 +1338,24 @@ _Solution_
 
 The solution is available on the next [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_026numberofTanks.ipynb)
 
-For each scenario, the equation \@ref(eq:ec004041f) was applied to calculate the estimated $\mathbf{F}(t)$, then based on Eq. \@ref(eq:ec004041d), the output tracer concentration, $C_{out}(t)$, may be calculated from $\mathbf{F}(t)$.
+For each scenario, the equation \@ref(eq:ec004041b) was applied to calculate the estimated $\mathbf{F}(t)$, then based on Eq. \@ref(eq:ec004022), the output tracer concentration, $C_{out}(t)$, may be calculated from $\mathbf{F}(t)$.
 
+Figure \@ref(fig:fig004015) shows the results of E(t) curve based on several numrical tecniques. On the other hand, Figure \@ref(fig:fig004016) shows the values of $C_{out}(t)$ predicted using forward and central differencing technique, and based on a curve fitting approach. The last one provides a superior representation of the experimental data.
+
+```{r fig004015, out.width = "75%", echo=FALSE, fig.align='center', fig.cap='E(t) curves obtained based on several numerical tecniques applied to the tanks-in-series model', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/lect026_01.png")
+grid.raster(img)
+```
+
+```{r fig004016, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Selection of the best technique for the tanks-in-series model', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/lect026_02.png")
+grid.raster(img)
+```
+
+### The Dispersion Model {-}
 
 **WIP**

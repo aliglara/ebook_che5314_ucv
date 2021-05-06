@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-05-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,6 +193,7 @@
 <li class="chapter" data-level="5.2" data-path="models-for-nonideal-flow.html"><a href="models-for-nonideal-flow.html#one-adjustable-parameter"><i class="fa fa-check"></i><b>5.2</b> One adjustable parameter</a>
 <ul>
 <li class="chapter" data-level="" data-path="models-for-nonideal-flow.html"><a href="models-for-nonideal-flow.html#the-tanks-in-series-model"><i class="fa fa-check"></i>The Tanks-in-Series Model</a></li>
+<li class="chapter" data-level="" data-path="models-for-nonideal-flow.html"><a href="models-for-nonideal-flow.html#the-dispersion-model"><i class="fa fa-check"></i>The Dispersion Model</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
@@ -657,7 +658,23 @@ The variance of the RTD is seen to be equal to the inverse of the number of tank
 </div>
 <p><em>Solution</em></p>
 <p>The solution is available on the next <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_026numberofTanks.ipynb">link</a></p>
-<p>For each scenario, the equation <a href="#eq:ec004041f">(<strong>??</strong>)</a> was applied to calculate the estimated <span class="math inline">\(\mathbf{F}(t)\)</span>, then based on Eq. <a href="#eq:ec004041d">(<strong>??</strong>)</a>, the output tracer concentration, <span class="math inline">\(C_{out}(t)\)</span>, may be calculated from <span class="math inline">\(\mathbf{F}(t)\)</span>.</p>
+<p>For each scenario, the equation <a href="models-for-nonideal-flow.html#eq:ec004041b">(5.22)</a> was applied to calculate the estimated <span class="math inline">\(\mathbf{F}(t)\)</span>, then based on Eq. <a href="distribution-of-residence-times.html#eq:ec004022">(3.24)</a>, the output tracer concentration, <span class="math inline">\(C_{out}(t)\)</span>, may be calculated from <span class="math inline">\(\mathbf{F}(t)\)</span>.</p>
+<p>Figure <a href="models-for-nonideal-flow.html#fig:fig004015">5.10</a> shows the results of E(t) curve based on several numrical tecniques. On the other hand, Figure <a href="models-for-nonideal-flow.html#fig:fig004016">5.11</a> shows the values of <span class="math inline">\(C_{out}(t)\)</span> predicted using forward and central differencing technique, and based on a curve fitting approach. The last one provides a superior representation of the experimental data.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004015"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004015-1.png" alt="E(t) curves obtained based on several numerical tecniques applied to the tanks-in-series model" width="75%" />
+<p class="caption">
+Figure 5.10: E(t) curves obtained based on several numerical tecniques applied to the tanks-in-series model
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:fig004016"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004016-1.png" alt="Selection of the best technique for the tanks-in-series model" width="65%" />
+<p class="caption">
+Figure 5.11: Selection of the best technique for the tanks-in-series model
+</p>
+</div>
+</div>
+<div id="the-dispersion-model" class="section level3 unnumbered">
+<h3>The Dispersion Model</h3>
 <p><strong>WIP</strong></p>
 
 </div>
