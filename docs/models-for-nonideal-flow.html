@@ -24,7 +24,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-05-06" />
+<meta name="date" content="2021-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -675,7 +675,126 @@ Figure 5.11: Selection of the best technique for the tanks-in-series model
 </div>
 <div id="the-dispersion-model" class="section level3 unnumbered">
 <h3>The Dispersion Model</h3>
-<p><strong>WIP</strong></p>
+<p>The dispersion model describes nonideal tubular reactors based on the assumption that exists an axial dispersion of the material, governed by Fick’s law diffusion-like, superimposed on the flow.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004017"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004017-1.png" alt="The dispersion model" width="55%" />
+<p class="caption">
+Figure 5.12: The dispersion model
+</p>
+</div>
+<p>Figure <a href="models-for-nonideal-flow.html#fig:fig004017">5.12</a> shows a sketch of differences between velocity profiles between ideal PFR and actual flow. Fluctuations could be due to different flow and molecular velocities and turbulent diffusion. Although radial dispersion may also be significant, we consider only axial dispersion.</p>
+<p>In considering axial dispersion as diffusive flow, it is assumed that Fick’s first law applies, with the effective diffusion coefficient replaced by an axial dispersion coefficient, <span class="math inline">\(D_L\)</span>. Thus, for unsteady-state behavior concerning a species <span class="math inline">\(T\)</span> (tracer), the molar flux (<span class="math inline">\(N_T\)</span>) of <span class="math inline">\(T\)</span> at an axial position <span class="math inline">\(x\)</span> is</p>
+<p><span class="math display">\[\begin{equation*}
+  N_T = - D_L \frac{\partial C_T(x,t)}{\partial x}
+\end{equation*}\]</span>
+where <span class="math inline">\(C_T(x,t)\)</span> is the concentration of <span class="math inline">\(T\)</span>.</p>
+<p>Consider a material balance for <span class="math inline">\(T\)</span> around the differential control volume shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004018">5.13</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004018"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004018-1.png" alt="Control volume for continuity equation for axial dispersion" width="55%" />
+<p class="caption">
+Figure 5.13: Control volume for continuity equation for axial dispersion
+</p>
+</div>
+<p>We assume steady flow overall, but not for tracer (<span class="math inline">\(T\)</span>); there is no place.</p>
+<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-4-1.png" width="75%" /></p>
+<p>Under those assumptions, with <span class="math inline">\(C_T \equiv C_T(x,t)\)</span>, <span class="math inline">\(A_c\)</span> and <span class="math inline">\(D_L\)</span> constant, for the transient flow of a non-reacting tracer, the mole balance equation is</p>
+<p><span class="math display" id="eq:ec004042">\[\begin{equation}
+  A_c\,\nu\,C_T - D_L\,A_c\,\frac{\partial C_T}{\partial x} - A_c\left[\nu C_T + \frac{\partial \left(\nu\,C_T\right)}{\partial x}\right] + D_L\,A_c\left[\frac{\partial C_T}{\partial x} + \frac{\partial}{\partial x} \left(\frac{\partial C_T}{\partial x}\right)\,dx\right] = A_c\,\frac{\partial C_T}{\partial t}\,dx
+\tag{5.23}
+\end{equation}\]</span>
+where <span class="math inline">\(\nu\)</span> is the average axial velocity (<span class="math inline">\(m/s\)</span>), <span class="math inline">\(D_L\)</span> is the axial dispersion coefficient, (<span class="math inline">\(m^2/s\)</span>).</p>
+<p>If system is density-constant and <span class="math inline">\(\nu\)</span> is constant, the equation <a href="models-for-nonideal-flow.html#eq:ec004042">(5.23)</a> becomes to
+<span class="math display" id="eq:ec004043">\[\begin{equation}
+- D_L\,\frac{\partial^2 C_T}{\partial x^2} + \nu\,\frac{\partial C_T}{\partial x} = \frac{\partial C_T}{\partial t}
+\tag{5.24}
+\end{equation}\]</span>
+If we know the boundary conditions of the problem, solving this equation, we get the profile of tracer concentration vs. time.</p>
+<p>Equation <a href="models-for-nonideal-flow.html#eq:ec004043">(5.24)</a> can be made dimensionless by defining the following scaling factors:
+<span class="math display">\[\begin{equation*}
+  z = \frac{x}{L}; \qquad \theta = \frac{t}{\overline{t}} = t\,\frac{\nu}{L} \qquad C^\ast = \frac{C_T}{C_0}
+\end{equation*}\]</span>
+Here <span class="math inline">\(C_0\)</span> is usually taken as the maximum concentration in the system.</p>
+<p><span class="math display" id="eq:ec004044">\[\begin{equation}
+\frac{\partial C^\ast}{\partial \theta} = \left(\frac{D_L}{\nu \, L}\right) \frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z} 
+\tag{5.25}
+\end{equation}\]</span></p>
+<p>and <span class="math inline">\(D_L/(\nu\,L)\)</span> is named the dispersion number, when
+<span class="math display">\[\begin{align*}
+&amp;\frac{D_L}{\nu\,L} \to 0  &amp;&amp; \rightarrow &amp;&amp;\quad \text{large dispersion, hence well-mixed flow} &amp;&amp;\\
+&amp;\frac{D_L}{\nu\,L} \to \infty &amp;&amp; \rightarrow &amp;&amp;\quad \text{negligible dispersion, hence plug flow}&amp;&amp;
+ \end{align*}\]</span></p>
+<p>We also have a dimensionless group, denoted <em>Pe</em>, which is called <strong>Peclet number</strong> based on vessel length. The physical interpretation is that it represents the ratio of convective flux to diffusive flux:
+<span class="math display">\[\begin{equation*}
+   \text{Pe} = \frac{\nu\,L}{D_L} \equiv \frac{\nu\,C_T}{D_L(C_T/L)} = \frac{\text{rate of transport by convection}}{\text{rate of transport by diffusion or dispersion}}
+ \end{equation*}\]</span></p>
+<p>So, we see that
+<span class="math display" id="eq:ec004045">\[\begin{equation}
+\frac{\partial C^\ast}{\partial \theta} = \frac{1}{\text{Pe}}\frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z} 
+\tag{5.26}
+\end{equation}\]</span></p>
+<p>Now, the results of solutions of Eq. <a href="models-for-nonideal-flow.html#eq:ec004045">(5.26)</a> will depend on the choice of boundary conditions at inlet <span class="math inline">\((z = 0)\)</span> and outlet <span class="math inline">\((z = 1)\)</span>. There are several possibilities concerning ‘’closed’’ and ‘’open’’ vessels, which do not necessarily satisfy actual positions.</p>
+<p>When the flow is undisturbed as it passes the entrance and exit boundaries, we will call this the <strong>open boundary condition</strong>. While, when we have plug flow outside the vessel up to the boundaries, we call this the <strong>closed boundary condition</strong>. There are up to four combinations of boundaries, closed-closed, open-open, or mixed, based on previous conditions. Figure <a href="models-for-nonideal-flow.html#fig:fig004020">5.14</a> illustrates the closed and open extremes.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004020"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004020-1.png" alt="Boundary conditions used with dispersion model" width="65%" />
+<p class="caption">
+Figure 5.14: Boundary conditions used with dispersion model
+</p>
+</div>
+<p>For closed vessels, the flow conditions are illustrated schematically in Figure <a href="models-for-nonideal-flow.html#fig:fig004021">5.15</a>. <span class="math inline">\(D_L=0\)</span>, or <span class="math inline">\(Pe=\infty\)</span> characterizes a plug-flow upstream of the vessel inlet. Since flow inside the vessel is dispersed, and the pulse injection is at inlet <span class="math inline">\((z=0)\)</span>, will have a <span class="math inline">\(C_T\)</span> discontinuity across the inlet. In contrast, a continuity on CT across the outlet <span class="math inline">\((z=1)\)</span> is usually assumed, even though downstream flow <span class="math inline">\((z&gt;1)\)</span> is plug-flow.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004021"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004021-1.png" alt="Flow conditions for closed-closed vessel" width="65%" />
+<p class="caption">
+Figure 5.15: Flow conditions for closed-closed vessel
+</p>
+</div>
+<p>In this course, we only deal with a closed-closed case which is illustrated in Figure <a href="models-for-nonideal-flow.html#fig:fig004021">5.15</a>. Danckwerts formulated the closed configuration, and it means that there is no dispersion before <span class="math inline">\(z=0\)</span> and after <span class="math inline">\(z=1\)</span>.</p>
+<p>The equation <a href="models-for-nonideal-flow.html#eq:ec004045">(5.26)</a> is a second-order boundary value problem requires two boundary conditions. If the system is taken as a closed system, the dimensionless boundary conditions are:
+<span class="math display" id="eq:ec004046">\[\begin{align}\label{ec:004_046}
+  &amp;C_\text{in}^\ast = C^\ast-\frac{1}{\text{Pe}}\,\frac{\partial C^\ast}{\partial z} &amp;&amp; \text{at } z = 0 &amp;&amp; \qquad\\
+  &amp; \frac{\partial C^\ast}{\partial z} = 0 &amp;&amp;\text{at } z = 1 &amp;&amp; \qquad
+  \tag{5.27}
+\end{align}\]</span>
+Additionally, the system requires an initial condition:
+<span class="math display" id="eq:ec004047">\[\begin{align}
+  &amp;C^\ast = 1  &amp;&amp;\text{at } \theta = 0, \text{ and } z = 0 &amp;&amp; \qquad\\
+  &amp;C^\ast = 0 &amp;&amp;\text{at } \theta = 0, \text{ and } 0 &lt; z \leq 1 &amp;&amp; \qquad
+  \tag{5.28}
+\end{align}\]</span></p>
+<p>An analytical solution to equation <a href="models-for-nonideal-flow.html#eq:ec004045">(5.26)</a> with these boundary conditions is given by Otake and Kunigita (1598), but is rather complex, and it was omitted it here. However, moments and relatively simple an are given by:
+<span class="math display" id="eq:ec004048">\[\begin{gather}
+   \overline{\theta} = 1 \\
+   \sigma_\theta^2 = \frac{2}{\text{Pe}^2}\left(\text{Pe}-1+\exp(-\text{Pe})\right)
+   \tag{5.29}
+ \end{gather}\]</span>
+An approximate closed form solutions for Pe &gt; 50:
+<span class="math display">\[\begin{gather*}
+   \mathbf{F}(\theta) = \frac{1}{2} \left[1 - \text{erf}\left(\frac{1-\theta}{\sqrt{\theta}}\sqrt{\frac{\text{Pe}}{4}}\right)\right] \\
+   \mathbf{E}(\theta) = \frac{\exp\left(-\text{Pe}(1-\theta^2)/4\right)}{\sqrt{4\,\pi/\text{Pe}}}
+ \end{gather*}\]</span>
+where <span class="math inline">\(\text{erf}\)</span> is the error function.</p>
+<p>As a practical matter, these mathematical complexities should probably not be taken too literally since the precise conditions at the boundaries of actual equipment cannot usually be precisely defined in any event.</p>
+<p><strong>Where to get the dispersion coefficient?</strong></p>
+<ol style="list-style-type: decimal">
+<li><strong>Experimental determination by analyzing pulse response</strong>. The Peclet number can be found experimentally using a pulse injection into the tube inlet and finding the RTD function. The Peclet number depends on the variance of the normalized RTD function:</li>
+</ol>
+<p><span class="math display" id="eq:ec004049">\[\begin{equation}
+  \sigma^2_{\theta} = \frac{2}{\text{Pe}} - \frac{2}{\text{Pe}^2}\left[1 - \exp(-\text{Pe})\right]
+  \tag{5.30}
+\end{equation}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Calculation from correlations</strong>.
+<span class="math display">\[\begin{align*}
+  &amp; \frac{1}{\text{Pe}_R} = \frac{1}{Re \cdot Sc} + \frac{Re \cdot Sc}{192} &amp;&amp; \text{ For } 1&lt;Re&lt; 2000 \text{ and } 0.23 &lt; Sc &lt; 1000\\
+  &amp; \frac{1}{\text{Pe}_R} = \frac{3\cdot 10^7}{Re^{2.1}} + \frac{1.35}{Re^{1/8}} &amp;&amp; \text{ For } Re &gt; 2000 
+\end{align*}\]</span>
+where</li>
+</ol>
+<p><span class="math display">\[\begin{align*}
+ &amp;\text{Pe}_R = \frac{wd}{D}        &amp;&amp;:  \text{Peclet number in tube} &amp;&amp;\quad \\
+ &amp;Re  = \frac{wd}{\nu}      &amp;&amp;:\text{Reynolds number} &amp;&amp;\quad \\
+ &amp;Sc = \frac{\nu}{D_m}      &amp;&amp;:  \text{Schmidt number} &amp;&amp;\quad
+\end{align*}\]</span></p>
+<p><strong>WIP (99.99% completed)</strong></p>
 
 </div>
 </div>

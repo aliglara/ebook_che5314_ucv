@@ -1358,4 +1358,157 @@ grid.raster(img)
 
 ### The Dispersion Model {-}
 
-**WIP**
+The dispersion model describes nonideal tubular reactors based on the assumption that exists an axial dispersion of the material, governed by Fick's law diffusion-like, superimposed on the flow. 
+
+```{r fig004017, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='The dispersion model', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_12.png")
+grid.raster(img)
+```
+
+Figure \@ref(fig:fig004017) shows a sketch of differences between velocity profiles between ideal PFR and actual flow. Fluctuations could be due to different flow and molecular velocities and turbulent diffusion. Although radial dispersion may also be significant, we consider only axial dispersion.
+
+In considering axial dispersion as diffusive flow, it is assumed that Fick's first law applies, with the effective diffusion coefficient replaced by an axial dispersion coefficient, $D_L$. Thus, for unsteady-state behavior concerning a species $T$ (tracer), the molar flux ($N_T$) of $T$ at an axial position $x$ is
+
+\begin{equation*}
+  N_T = - D_L \frac{\partial C_T(x,t)}{\partial x}
+\end{equation*}
+where $C_T(x,t)$ is the concentration of $T$.
+
+Consider a material balance for $T$ around the differential control volume shown in Figure \@ref(fig:fig004018). 
+
+```{r fig004018, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Control volume for continuity equation for axial dispersion', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_13.png")
+grid.raster(img)
+```
+
+We assume steady flow overall, but not for tracer ($T$); there is no place. 
+
+```{r, out.width = "75%", echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("figures/dispersion_balance.png")
+grid.raster(img)
+```
+
+Under those assumptions, with $C_T \equiv C_T(x,t)$, $A_c$ and $D_L$ constant, for the transient flow of a non-reacting tracer, the mole balance equation is
+
+\begin{equation}
+  A_c\,\nu\,C_T - D_L\,A_c\,\frac{\partial C_T}{\partial x} - A_c\left[\nu C_T + \frac{\partial \left(\nu\,C_T\right)}{\partial x}\right] + D_L\,A_c\left[\frac{\partial C_T}{\partial x} + \frac{\partial}{\partial x} \left(\frac{\partial C_T}{\partial x}\right)\,dx\right] = A_c\,\frac{\partial C_T}{\partial t}\,dx
+(\#eq:ec004042)
+\end{equation}
+where $\nu$ is the average axial velocity ($m/s$), $D_L$ is the axial dispersion coefficient, ($m^2/s$).
+
+If system is density-constant and $\nu$ is constant, the equation \@ref(eq:ec004042) becomes to
+\begin{equation}
+- D_L\,\frac{\partial^2 C_T}{\partial x^2} + \nu\,\frac{\partial C_T}{\partial x} = \frac{\partial C_T}{\partial t}
+(\#eq:ec004043)
+\end{equation}
+If we know the boundary conditions of the problem, solving this equation, we get the profile of tracer concentration vs. time. 
+
+Equation \@ref(eq:ec004043) can be made dimensionless by defining the following scaling factors:
+\begin{equation*}
+  z = \frac{x}{L}; \qquad \theta = \frac{t}{\overline{t}} = t\,\frac{\nu}{L} \qquad C^\ast = \frac{C_T}{C_0}
+\end{equation*}
+Here $C_0$ is usually taken as the maximum concentration in the system.
+
+\begin{equation}
+\frac{\partial C^\ast}{\partial \theta} = \left(\frac{D_L}{\nu \, L}\right) \frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z} 
+(\#eq:ec004044)
+\end{equation}
+
+and $D_L/(\nu\,L)$ is named the dispersion number, when
+ \begin{align*}
+&\frac{D_L}{\nu\,L} \to 0  && \rightarrow &&\quad \text{large dispersion, hence well-mixed flow} &&\\
+&\frac{D_L}{\nu\,L} \to \infty && \rightarrow &&\quad \text{negligible dispersion, hence plug flow}&&
+ \end{align*}
+
+We also have a dimensionless group, denoted _Pe_, which is called **Peclet number** based on vessel length. The physical interpretation is that it represents the ratio of convective flux to diffusive flux:
+ \begin{equation*}
+   \text{Pe} = \frac{\nu\,L}{D_L} \equiv \frac{\nu\,C_T}{D_L(C_T/L)} = \frac{\text{rate of transport by convection}}{\text{rate of transport by diffusion or dispersion}}
+ \end{equation*}
+
+ So, we see that
+ \begin{equation}
+\frac{\partial C^\ast}{\partial \theta} = \frac{1}{\text{Pe}}\frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z} 
+(\#eq:ec004045)
+\end{equation}
+
+Now, the results of solutions of Eq. \@ref(eq:ec004045) will depend on the choice of boundary conditions at inlet $(z = 0)$ and outlet $(z = 1)$. There are several possibilities concerning ''closed'' and ''open'' vessels, which do not necessarily satisfy actual positions.
+
+When the flow is undisturbed as it passes the entrance and exit boundaries, we will call this the **open boundary condition**. While, when we have plug flow outside the vessel up to the boundaries, we call this the **closed boundary condition**. There are up to four combinations of boundaries, closed-closed, open-open, or mixed, based on previous conditions. Figure \@ref(fig:fig004020) illustrates the closed and open extremes.
+
+```{r fig004020, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Boundary conditions used with dispersion model', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_14.png")
+grid.raster(img)
+```
+
+For closed vessels, the flow conditions are illustrated schematically in Figure \@ref(fig:fig004021). $D_L=0$, or $Pe=\infty$ characterizes a plug-flow upstream of the vessel inlet. Since flow inside the vessel is dispersed, and the pulse injection is at inlet $(z=0)$, will have a $C_T$ discontinuity across the inlet. In contrast, a continuity on CT across the outlet $(z=1)$ is usually assumed, even though downstream flow $(z>1)$ is plug-flow.
+
+```{r fig004021, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Flow conditions for closed-closed vessel', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_15.png")
+grid.raster(img)
+```
+
+In this course, we only deal with a closed-closed case which is illustrated in Figure \@ref(fig:fig004021). Danckwerts formulated the closed configuration, and it means that there is no dispersion before $z=0$ and after $z=1$.
+
+The equation \@ref(eq:ec004045) is a second-order boundary value problem requires two boundary conditions. If the system is taken as a closed system, the dimensionless boundary conditions are:
+\begin{align}\label{ec:004_046}
+  &C_\text{in}^\ast = C^\ast-\frac{1}{\text{Pe}}\,\frac{\partial C^\ast}{\partial z} && \text{at } z = 0 && \qquad\\
+  & \frac{\partial C^\ast}{\partial z} = 0 &&\text{at } z = 1 && \qquad
+  (\#eq:ec004046)
+\end{align}
+Additionally, the system requires an initial condition:
+\begin{align}
+  &C^\ast = 1  &&\text{at } \theta = 0, \text{ and } z = 0 && \qquad\\
+  &C^\ast = 0 &&\text{at } \theta = 0, \text{ and } 0 < z \leq 1 && \qquad
+  (\#eq:ec004047)
+\end{align}
+
+ An analytical solution to equation \@ref(eq:ec004045) with these boundary conditions is given by Otake and Kunigita (1598), but is rather complex, and it was omitted it here. However, moments and relatively simple an are given by:
+ \begin{gather}
+   \overline{\theta} = 1 \\
+   \sigma_\theta^2 = \frac{2}{\text{Pe}^2}\left(\text{Pe}-1+\exp(-\text{Pe})\right)
+   (\#eq:ec004048)
+ \end{gather}
+ An approximate closed form solutions for Pe > 50:
+ \begin{gather*}
+   \mathbf{F}(\theta) = \frac{1}{2} \left[1 - \text{erf}\left(\frac{1-\theta}{\sqrt{\theta}}\sqrt{\frac{\text{Pe}}{4}}\right)\right] \\
+   \mathbf{E}(\theta) = \frac{\exp\left(-\text{Pe}(1-\theta^2)/4\right)}{\sqrt{4\,\pi/\text{Pe}}}
+ \end{gather*}
+ where $\text{erf}$ is the error function.
+ 
+As a practical matter, these mathematical complexities should probably not be taken too literally since the precise conditions at the boundaries of actual equipment cannot usually be precisely defined in any event.
+
+
+**Where to get the dispersion coefficient?**
+
+  (1) **Experimental determination by analyzing pulse response**. The Peclet number can be found experimentally using a pulse injection into the tube inlet and finding the RTD function. The Peclet number depends on the variance of the normalized RTD function:
+  
+\begin{equation}
+  \sigma^2_{\theta} = \frac{2}{\text{Pe}} - \frac{2}{\text{Pe}^2}\left[1 - \exp(-\text{Pe})\right]
+  (\#eq:ec004049)
+\end{equation}
+
+(2) **Calculation from correlations**.
+\begin{align*}
+  & \frac{1}{\text{Pe}_R} = \frac{1}{Re \cdot Sc} + \frac{Re \cdot Sc}{192} && \text{ For } 1<Re< 2000 \text{ and } 0.23 < Sc < 1000\\
+  & \frac{1}{\text{Pe}_R} = \frac{3\cdot 10^7}{Re^{2.1}} + \frac{1.35}{Re^{1/8}} && \text{ For } Re > 2000 
+\end{align*}
+where
+
+\begin{align*}
+ &\text{Pe}_R = \frac{wd}{D}    	&&:  \text{Peclet number in tube} &&\quad \\
+ &Re  = \frac{wd}{\nu}  	&&:\text{Reynolds number} &&\quad \\
+ &Sc = \frac{\nu}{D_m}    	&&:  \text{Schmidt number} &&\quad
+\end{align*}
+
+**WIP (99.99% completed)**
+
