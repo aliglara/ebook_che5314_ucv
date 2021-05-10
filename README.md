@@ -1,1 +1,1 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/home/about/ for how to compile this example.
+This is my very first ebook based on R Markdown and **bookdown**. I combined those tools with LaTeX, Python, and GitHub, and everything runs smoothly. I am excited to share the result with all of you guys. I hope it is helpful somehow!

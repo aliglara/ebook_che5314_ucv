@@ -1510,5 +1510,98 @@ where
  &Sc = \frac{\nu}{D_m}    	&&:  \text{Schmidt number} &&\quad
 \end{align*}
 
-**WIP (99.99% completed)**
+```{exercise, it004005, name="Comparison in conversion calculation for a non-ideal flow reactor"}
+For a reaction
 
+\begin{equation}
+A \rightarrow B; \qquad    r_A = -k\,C_A; \quad k = 0.25 \text{ min}^{-1}
+\end{equation}
+
+Compare final conversions based on:
+
+1. axial dispersion model with closed vessel approximations.
+2. tanks in series model, and
+3. ideal PFR model.
+
+ t (min) | C (g/m<sup>3</sup>) | t (min) | C (g/m<sup>3</sup>) 
+--|--|--|--
+1.00  | 1.000 | 7.00  | 4.000 
+5.00  | 2.000 | 8.00  | 4.000 
+3.00  | 8.000 | 9.00  | 2.200 
+4.00  | 10.00 | 10.0  | 1.500
+5.00  | 8.000 | 12.0  | 0.600
+6.00  | 6.000 | 14.0  | 0.000
+
+```
+
+_Solution_
+
+The solution is available on the next [link](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_027nonidealmodels.ipynb)
+
+
+Based on the axial dispersion model. We need to find the Pe number that is following RTD data.
+
+In this case, we calculated from experimental data, the RTD curve, mean time and its variance. Then, the Eq. \@ref(eq:ec004049) was solved:
+  \begin{equation*}
+  \sigma^2_{\theta} = \frac{\sigma^2}{\overline{t}^2} = \frac{2}{\text{Pe}} - \frac{2}{\text{Pe}^2}\left[1 - \exp(-\text{Pe})\right] \Rightarrow Pe = 8.007
+\end{equation*}
+
+When a chemical reaction is included in the dispersion model, a numerical solution is usually required for the resulting differential equation. so, based on the reactions and considering a simple power-law rate expression, the mole balance of _A_ is written as
+
+\begin{equation*}
+  D_L\frac{\partial^2 C_A}{\partial x^2} - \nu \, \frac{\partial C_A}{\partial x} - (k\,C_A^{\,n}) = 0
+\end{equation*}
+
+Which it could be written in dimensionless variables as:
+\begin{equation*}
+  \frac{1}{\text{Pe}}\frac{\partial^2 C_A}{\partial z^2} - \nu \, \frac{\partial C_A}{\partial z} - (k\,\overline{t}\,C_A^{\,n}) = 0
+\end{equation*}
+
+And, in terms of the fractional conversion
+\begin{equation*}
+  \frac{1}{\text{Pe}}\frac{\partial^2 X_A}{\partial z^2} - \frac{\partial X_A}{\partial z} - k\,\overline{t}\,C_{A0}^{\,n-1}{\left(1-X_A\right)}^n = 0
+\end{equation*}
+
+The fractional conversion is therefore governed by the magnitude of three dimensionless groups, Pe, $n$, and $k\overline{t}\,C_{A0}^{n-1}$. There is an analytical solution to this equation only for a first-order reaction:
+\begin{equation*}
+  \frac{C_A}{C_{A0}} = 1 - X_A = \frac{4\,a\exp{\left(\text{Pe}/2\right)}}{{\left(1+a\right)}^2 \exp {\left(a\,\text{Pe}/2\right) }- {\left(1-a\right)}^2 \exp{\left(-a\,\text{Pe}/2\right)}}
+\end{equation*}
+where
+\begin{equation*}
+  a = {\left(1 + \frac{4\,k\,\overline{t}}{\text{Pe}}\right)}^{0.5}
+\end{equation*}
+Solving this equation $X_A = 0.6826$
+
+For calculating the fractional conversion based in TIS model, it is necessary to find de number of reactor that is in accordance with given RTD data.
+\begin{equation*}
+  \text{number of reactors } = \frac{\overline{t}}{\sigma^2} = 4.4
+\end{equation*}
+Then the conversion is
+\begin{equation*}
+  X_A = 1 - \frac{C_{AN}}{C_{A0}} =  1 - \frac{1}{\left(1+k\,\overline{t}/N\right)^N} = 0.6736
+\end{equation*}
+
+For an ideal PFR. The fractional conversion is:
+\begin{equation*}
+  X_A = 1 - \exp(-k\,\overline{t}) = 0.7253
+\end{equation*}
+
+:::: {.infobox .info data-latex="information"}
+  
+In summary, **why is it relevant to perform an analysis of RTDs?**
+
+This approach can ease the following tasks:
+  1. Diagnostics of problems in reactor operations.
+  2. Design of unit operations.
+  3. Predictions of conversion and effluent concentrations.
+  
+::::
+
+We have studied models of several simple, partially mixed reactors. These are shown in Figure \@ref(fig:fig004022) for increasing back mixing.
+
+```{r fig004022, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Residence time distributions for the nonideal reactors. [@schmidt1998]', fig.lp='fig:'}
+library(png)
+library(grid)
+img <- readPNG("figures/004_draw_23.png")
+grid.raster(img)
+```

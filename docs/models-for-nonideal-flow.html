@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Models for nonideal flow | Notes for CHE5314 course @ UCV</title>
-  <meta name="description" content="This is my notes recopilation for the course of Chemical Reaction Design at Central University of Venezuela." />
+  <meta name="description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Models for nonideal flow | Notes for CHE5314 course @ UCV" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is my notes recopilation for the course of Chemical Reaction Design at Central University of Venezuela." />
+  <meta property="og:description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Models for nonideal flow | Notes for CHE5314 course @ UCV" />
   
-  <meta name="twitter:description" content="This is my notes recopilation for the course of Chemical Reaction Design at Central University of Venezuela." />
+  <meta name="twitter:description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
   
 
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-05-09" />
+<meta name="date" content="2021-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -794,7 +794,121 @@ where</li>
  &amp;Re  = \frac{wd}{\nu}      &amp;&amp;:\text{Reynolds number} &amp;&amp;\quad \\
  &amp;Sc = \frac{\nu}{D_m}      &amp;&amp;:  \text{Schmidt number} &amp;&amp;\quad
 \end{align*}\]</span></p>
-<p><strong>WIP (99.99% completed)</strong></p>
+
+<div class="exercise">
+<p><span id="exr:it004005" class="exercise"><strong>Exercise 5.3  (Comparison in conversion calculation for a non-ideal flow reactor)  </strong></span>For a reaction</p>
+<p><span class="math display">\[\begin{equation}
+A \rightarrow B; \qquad    r_A = -k\,C_A; \quad k = 0.25 \text{ min}^{-1}
+\end{equation}\]</span></p>
+<p>Compare final conversions based on:</p>
+<ol style="list-style-type: decimal">
+<li>axial dispersion model with closed vessel approximations.</li>
+<li>tanks in series model, and</li>
+<li>ideal PFR model.</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>t (min)</th>
+<th>C (g/m<sup>3</sup>)</th>
+<th>t (min)</th>
+<th>C (g/m<sup>3</sup>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.00</td>
+<td>1.000</td>
+<td>7.00</td>
+<td>4.000</td>
+</tr>
+<tr class="even">
+<td>5.00</td>
+<td>2.000</td>
+<td>8.00</td>
+<td>4.000</td>
+</tr>
+<tr class="odd">
+<td>3.00</td>
+<td>8.000</td>
+<td>9.00</td>
+<td>2.200</td>
+</tr>
+<tr class="even">
+<td>4.00</td>
+<td>10.00</td>
+<td>10.0</td>
+<td>1.500</td>
+</tr>
+<tr class="odd">
+<td>5.00</td>
+<td>8.000</td>
+<td>12.0</td>
+<td>0.600</td>
+</tr>
+<tr class="even">
+<td>6.00</td>
+<td>6.000</td>
+<td>14.0</td>
+<td>0.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Solution</em></p>
+<p>The solution is available on the next <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_027nonidealmodels.ipynb">link</a></p>
+<p>Based on the axial dispersion model. We need to find the Pe number that is following RTD data.</p>
+<p>In this case, we calculated from experimental data, the RTD curve, mean time and its variance. Then, the Eq. <a href="models-for-nonideal-flow.html#eq:ec004049">(5.30)</a> was solved:
+<span class="math display">\[\begin{equation*}
+  \sigma^2_{\theta} = \frac{\sigma^2}{\overline{t}^2} = \frac{2}{\text{Pe}} - \frac{2}{\text{Pe}^2}\left[1 - \exp(-\text{Pe})\right] \Rightarrow Pe = 8.007
+\end{equation*}\]</span></p>
+<p>When a chemical reaction is included in the dispersion model, a numerical solution is usually required for the resulting differential equation. so, based on the reactions and considering a simple power-law rate expression, the mole balance of <em>A</em> is written as</p>
+<p><span class="math display">\[\begin{equation*}
+  D_L\frac{\partial^2 C_A}{\partial x^2} - \nu \, \frac{\partial C_A}{\partial x} - (k\,C_A^{\,n}) = 0
+\end{equation*}\]</span></p>
+<p>Which it could be written in dimensionless variables as:
+<span class="math display">\[\begin{equation*}
+  \frac{1}{\text{Pe}}\frac{\partial^2 C_A}{\partial z^2} - \nu \, \frac{\partial C_A}{\partial z} - (k\,\overline{t}\,C_A^{\,n}) = 0
+\end{equation*}\]</span></p>
+<p>And, in terms of the fractional conversion
+<span class="math display">\[\begin{equation*}
+  \frac{1}{\text{Pe}}\frac{\partial^2 X_A}{\partial z^2} - \frac{\partial X_A}{\partial z} - k\,\overline{t}\,C_{A0}^{\,n-1}{\left(1-X_A\right)}^n = 0
+\end{equation*}\]</span></p>
+<p>The fractional conversion is therefore governed by the magnitude of three dimensionless groups, Pe, <span class="math inline">\(n\)</span>, and <span class="math inline">\(k\overline{t}\,C_{A0}^{n-1}\)</span>. There is an analytical solution to this equation only for a first-order reaction:
+<span class="math display">\[\begin{equation*}
+  \frac{C_A}{C_{A0}} = 1 - X_A = \frac{4\,a\exp{\left(\text{Pe}/2\right)}}{{\left(1+a\right)}^2 \exp {\left(a\,\text{Pe}/2\right) }- {\left(1-a\right)}^2 \exp{\left(-a\,\text{Pe}/2\right)}}
+\end{equation*}\]</span>
+where
+<span class="math display">\[\begin{equation*}
+  a = {\left(1 + \frac{4\,k\,\overline{t}}{\text{Pe}}\right)}^{0.5}
+\end{equation*}\]</span>
+Solving this equation <span class="math inline">\(X_A = 0.6826\)</span></p>
+<p>For calculating the fractional conversion based in TIS model, it is necessary to find de number of reactor that is in accordance with given RTD data.
+<span class="math display">\[\begin{equation*}
+  \text{number of reactors } = \frac{\overline{t}}{\sigma^2} = 4.4
+\end{equation*}\]</span>
+Then the conversion is
+<span class="math display">\[\begin{equation*}
+  X_A = 1 - \frac{C_{AN}}{C_{A0}} =  1 - \frac{1}{\left(1+k\,\overline{t}/N\right)^N} = 0.6736
+\end{equation*}\]</span></p>
+<p>For an ideal PFR. The fractional conversion is:
+<span class="math display">\[\begin{equation*}
+  X_A = 1 - \exp(-k\,\overline{t}) = 0.7253
+\end{equation*}\]</span></p>
+<div class="infobox info">
+<p>In summary, <strong>why is it relevant to perform an analysis of RTDs?</strong></p>
+<p>This approach can ease the following tasks:
+1. Diagnostics of problems in reactor operations.
+2. Design of unit operations.
+3. Predictions of conversion and effluent concentrations.</p>
+</div>
+<p>We have studied models of several simple, partially mixed reactors. These are shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004022">5.16</a> for increasing back mixing.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig004022"></span>
+<img src="ebook_notes_5314_files/figure-html/fig004022-1.png" alt="Residence time distributions for the nonideal reactors. [@schmidt1998]" width="65%" />
+<p class="caption">
+Figure 5.16: Residence time distributions for the nonideal reactors. <span class="citation">(<a href="references.html#ref-schmidt1998" role="doc-biblioref">Schmidt 1998</a>)</span>
+</p>
+</div>
 
 </div>
 </div>

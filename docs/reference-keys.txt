@@ -282,6 +282,8 @@ eq:ec004046
 eq:ec004047
 eq:ec004048
 eq:ec004049
+exr:it004005
+fig:fig004022
 intro
 fundamental-of-kinetics-and-reaction-equilibrium
 power-law-kinetics
