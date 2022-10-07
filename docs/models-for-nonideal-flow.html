@@ -23,7 +23,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2022-10-05" />
+<meta name="date" content="2022-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -247,7 +247,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 5</span> Models for nonideal flow<a href="models-for-nonideal-flow.html#models-for-nonideal-flow" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The information provided by RTD functions is essential to know if a reactor has dead zones or bypassing. These situations affect the reactor performance. Thus, the main target is answering the question “How much bypassing or dead volume is acceptable?”.</p>
 <p>For answering, the chemical engineer needs to calculate the performance of the reactor. Furthermore, to do so, two types of information are required: the flow patterns and the kinetic model.</p>
-<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-1-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-3-1.png" width="65%" style="display: block; margin: auto;" /></p>
 <p>The information provided by RTD functions is essential to know if a reactor has dead zones or bypassing. These situations affect the reactor performance. Thus, the main target is answering the question “How much bypassing or dead volume is acceptable?’’.</p>
 <p>For answering, the chemical engineer needs to calculate the performance of the reactor. Furthermore, to do so, two types of information are required: the flow patterns and the kinetic model.</p>
 <p>The RTD curves found from tracer studies are only partial information on the details of the flow patterns because all that is known is the length of time-specific fractions of the fluid stay in the vessel (macromixing), but neither what of these fractions do while in the vessel nor in what geometric locations they reside, that is, information on micromixing.</p>
@@ -301,7 +301,7 @@ Figure 5.2: Different levels of mixing in a CSTR: (a) Segregational model, (b) I
 </div>
 <p>The conversion in a segregated tank reactor can be calculated using the ideal batch reactor equation design and the RTD curve. Each batch reactor has its conversion, which depends on its time in the tank. While the RTD gives information about the mean residence time.</p>
 <p>The initial concentration of reactants in the packet is the same as the inlet concentration of the reactor. While each fluid element (assuming constant density) behaves as a batch reactor, the total reactor conversion is the average conversion of all the fluid elements at the outlet conditions. That is:</p>
-<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>where the summation is over all fluid elements in the reactor exit stream. This equation can be written analytically as:</p>
 <p><span class="math display" id="eq:ec004031">\[\begin{equation}
   \overline{C}_A = \int_0^\infty{C_A(\overline{t})\,\mathbf{E}(t)\,d\overline{t}}
@@ -549,7 +549,7 @@ Figure 5.6: The bounding of the micro- and macromixing regions. <span class="cit
 <p>Consider, as an illustration, <a href="models-for-nonideal-flow.html#fig:fig004012">5.7</a>, three equally sized tanks in series through which a constant-density fluid flows, giving an equal space-time (a mean residence time) for each reactor.</p>
 <p>A pulse tracer is injected into the first tank at time zeroand, instantaneously, becomes uniformly distributed in the first tank, giving an initial concentration of <span class="math inline">\(C_0\)</span>. The outlet concentration from the first vessel is given by:
 <span class="math display" id="eq:ec004034">\[\begin{align}
-  V_1 \, \frac{dC_1}{dt} &amp; = - \upsilon \, C_1 \\ \notag
+  V_1 \, \frac{dC_1}{dt} &amp; = - \upsilon \, C_1 \\
   C_1(t) &amp; = C_0 \exp\left(-\frac{t}{\overline{t_1}}\right)
 \tag{5.15}
 \end{align}\]</span>
@@ -717,7 +717,7 @@ Figure 5.13: Control volume for continuity equation for axial dispersion
 </p>
 </div>
 <p>We assume steady flow overall, but not for tracer (<span class="math inline">\(T\)</span>); there is no place.</p>
-<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-3-1.png" width="75%" /></p>
+<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-5-1.png" width="75%" /></p>
 <p>Under those assumptions, with <span class="math inline">\(C_T \equiv C_T(x,t)\)</span>, <span class="math inline">\(A_c\)</span> and <span class="math inline">\(D_L\)</span> constant, for the transient flow of a non-reacting tracer, the mole balance equation is</p>
 <p><span class="math display" id="eq:ec004042">\[\begin{equation}
   A_c\,\nu\,C_T - D_L\,A_c\,\frac{\partial C_T}{\partial x} - A_c\left[\nu C_T + \frac{\partial \left(\nu\,C_T\right)}{\partial x}\right] + D_L\,A_c\left[\frac{\partial C_T}{\partial x} + \frac{\partial}{\partial x} \left(\frac{\partial C_T}{\partial x}\right)\,dx\right] = A_c\,\frac{\partial C_T}{\partial t}\,dx
@@ -1002,7 +1002,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ebook_notes_5314.pdf", "ebook_notes_5314.epub"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null

@@ -22,7 +22,7 @@ knitr::opts_template$set(fullwidth = list(
 
 ```
 
-```{r mindmap2, out.width = "80%"}
+```{r mindmap2, out.width = "80%", echo=FALSE}
 img <- readPNG("figures/Reactor_Design_map.png")
 grid.raster(img)
 ```
