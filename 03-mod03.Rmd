@@ -556,7 +556,7 @@ The normalized response data may be converted to $\mathbf{E}(t)$, since
    \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt} \approx \frac{F_{i+1} - F_{i-1}}{t_{i+1} - t_{i-1}}; \quad i = 2, 3,\, \dots \, n-2
  \end{equation*}
  
-Finally, based on the normalized condition of $\mathbf{E}$ curve. The mean residence time, which is calculated from~\cref{ec:004_007} could be approximated to:
+Finally, based on the normalized condition of $\mathbf{E}$ curve. The mean residence time could be approximated to:
  \begin{equation*}
    \overline{t} \approx \sum{t_i\,\mathbf{E}_i\,\Delta t}
  \end{equation*}
@@ -1221,7 +1221,7 @@ Consider, as an illustration, \@ref(fig:fig004012), three equally sized tanks in
 
 A pulse tracer is injected into the first tank at time zeroand, instantaneously, becomes uniformly distributed in the first tank, giving an initial concentration of $C_0$. The outlet concentration from the first vessel is given by:
 \begin{align}
-  V_1 \, \frac{dC_1}{dt} & = - \upsilon \, C_1 \\ \notag
+  V_1 \, \frac{dC_1}{dt} & = - \upsilon \, C_1 \\
   C_1(t) & = C_0 \exp\left(-\frac{t}{\overline{t_1}}\right)
 (\#eq:ec004034)
 \end{align}

@@ -86,19 +86,19 @@ In chemical reactors, it is typically assumed the internal energy is the dominan
 For single reactors, the inlet and outlet molar flow are related through the extents of reaction ($\xi$). If "$R$" independent reactions occur, and if the extents of reaction are zero in the stream that enters the reactor.[@roberts2009]
 
 \begin{equation*}
-  F_i - F_{i0} = {\sum}_{j=1}^{R} \nu_{j,i}\,\xi_j
+  F_i - F_{i0} = \sum_{j=1}^{R} \nu_{j,i}\,\xi_j
 \end{equation*}
 where $\nu_{j,i}$ refers to stoichiometric coefficient of the component \textit{i} in the reaction \textit{j}.
 
 Therefore,
 \begin{equation*}
-\dot{H}_{\text{in}} - \dot{H}_{\text{out}} = \sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{H}_{i0} - {{\sum_{i=1}^\mathcal{C}}} \left(F_{i0} + \sum_{j=1}^{R} \nu_{j,i}\,\xi_j\right)\,\overline{H}_i
+\dot{H}_{\text{in}} - \dot{H}_{\text{out}} = \sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{H}_{i0} - \sum_{i=1}^{\mathcal{C}} \left(F_{i0} + \sum_{j=1}^{R} \nu_{j,i}\,\xi_j\right)\,\overline{H}_i
 \end{equation*}
 where $\overline H_i$ refers to the partial molar enthalpy of the component \textit{i}.
 
 Assuming that feed and product streams are ideal solutions, the partial molar enthalpies $\overline{H}_i$ can be replaced by pure component enthalpies, $H_i$, Thus, 
 \begin{equation*}
-\dot{H}_{\text{in}} - \dot{H}_{\text{out}} = \sum\limits_{i=1}^\mathcal{C} F_{i0}\,\left({H}_{i0} - H_i\right) - {{\sum_{j=1}^R}} \xi_j\,\left(\sum_{i=1}^{\mathcal{C}} \nu_{i,j}\,{H}_i (T)\right)
+\dot{H}_{\text{in}} - \dot{H}_{\text{out}} = \sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\left({H}_{i0} - H_i\right) - {{\sum_{j=1}^R}} \xi_j\,\left(\sum_{i=1}^{\mathcal{C}} \nu_{i,j}\,{H}_i (T)\right)
 \end{equation*}
 The term $\sum \nu_{i,j}\,{H}^\circ_i$ is just the enthalpy of reaction for reaction $j$, evaluated at exit conditions. Since the temperature of the effluent stream is $T$,
 \begin{equation*}
@@ -114,7 +114,7 @@ where, $T_0$ is the temperature of the inlet stream, $C_{P_i}$ is the constant-p
 
 So, eq. \@ref(eq:energybal) becomes to
 \begin{equation}
-\frac{dU}{dt}= Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) - {\sum_{j=1}^R} \xi_j\,\Delta H_{R,j}(T)
+\frac{dU}{dt}= Q - W_s - \sum\limits_{i=1}^{\mathcal{C}} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) - {\sum_{j=1}^R} \xi_j\,\Delta H_{R,j}(T)
 (\#eq:energybala)
 \end{equation}
 
@@ -128,12 +128,12 @@ If only one reaction is taking place, eq. \@ref(eq:energybala) can be written in
 Substituting this relationship into eq. \@ref(eq:energybala) and assuming steady-state condition gives [@roberts2009]
 
 \begin{equation}
- Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) + F_{A0}\,X_A\,\frac{\Delta H_{R}(T)}{\nu_A} = 0
+ Q - W_s - \sum\limits_{i=1}^{\mathcal{C}} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) + F_{A0}\,X_A\,\frac{\Delta H_{R}(T)}{\nu_A} = 0
  (\#eq:energybalb)
 \end{equation}
 or
 \begin{equation*}
-Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) - \frac{\Delta H_{R}(T)}{\nu_A}\,r_A V =0
+Q - W_s - \sum\limits_{i=1}^{\mathcal{C}} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) - \frac{\Delta H_{R}(T)}{\nu_A}\,r_A V =0
 \end{equation*}
 
 :::: {.blackbox data-latex=""}
@@ -351,7 +351,7 @@ This equation can be rearranged in terms of the conversion from reactor $j$
 
 Equation \@ref(eq:002044c) can be solved for each reactor sequentially to calculate the incremental conversion from each reactor. Equation \@ref(eq:002044d) can be generalized to apply to the Nth reactor in a series of CSTRs
 
-\begin{equation}\label{ec:002_044d}
+\begin{equation}
   	\frac{V_N}{F_{A0}}= \frac{\left(X_{A,N} - X_{A,N-1}\right)}{- r_A\left(X_{A,N}\right)}
   	(\#eq:002044d)
 \end{equation}
@@ -429,11 +429,8 @@ Figure \@ref(fig:fig002015) shows a way to represent the material balances for e
 
 Another interesting situation is finding the best setup to achieve a given conversion. Let us illustrate the use of this method considering two CSTRs in series under isothermal conditions, as shown in the Figure \@ref(fig:CSTRseriesdifV)
 
-```{r CSTRseriesdifV, out.width = "40%", echo=FALSE, fig.align='center', fig.cap='Graphical representation of two CSTRs in series', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/CSTR_series_difV.png")
-grid.raster(img)
+```{r CSTRseriesdifV, out.width = "60%", echo=FALSE, fig.align='center', fig.cap='Graphical representation of two CSTRs in series'}
+knitr::include_graphics("figures/CSTR_series_difV.png")
 ```
 
 For the first CSTR, the design equation becomes
@@ -448,7 +445,7 @@ while for the second one is:
 
 These relations are graphically represented in the Figure \@ref(fig:CSTRseriesdifV2). The cascade of CSTRs operates between known initial and final conversion levels, and the total reaction volume is represented by the sum of the shaded areas.
 
-```{r CSTRseriesdifV2, out.width = "40%", echo=FALSE, fig.align='center', fig.cap='Graphical representation of two CSTRs in series', fig.lp='fig:'}
+```{r CSTRseriesdifV2, out.width = "60%", echo=FALSE, fig.align='center', fig.cap='Graphical representation of two CSTRs in series', fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/CSTR_series_difV02.png")
@@ -476,11 +473,8 @@ simplifying leads to
 
 Therefore, the minimum reaction volume will be found when the intermediate fractional conversion $X_{A1}$ is selected. The slope of the reaction rate curve at this conversion level is equal to the slope of the rectangle's diagonal KLMN, as is shown in figure \@ref(fig:CSTRseriesminV).
 
-```{r CSTRseriesminV, out.width = "40%", echo=FALSE, fig.align='center', fig.cap='Graphical representation of the minimum total reaction volume for two CSTRs in series', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/CSTR_series_minV.png")
-grid.raster(img)
+```{r CSTRseriesminV, out.width = "60%", echo=FALSE, fig.align='center', fig.cap='Graphical representation of the minimum total reaction volume for two CSTRs in series'}
+knitr::include_graphics("figures/CSTR_series_minV.png")
 ```
 
 Generally, the optimum size ratio is dependent on the form of the reaction rate expression and on the conversion task specified. Table \@ref(tab:thumbRulesCSTRinSerie) summarizes the optimal configuration for CSTRs in series from a kinetic-order point of view. 
@@ -499,7 +493,7 @@ In engineering practice, the designer tends to select CSTRs with the same volume
 Now let us find out how to apply the general energy balance (eq.\@ref(eq:energybal)) to a CSTR.  Usually, for an ideal CSTR operating at a steady-state ($dU/dt = 0$), it is considered the work done by the stirrer neglected, so the energy balance yields to:
 
 \begin{equation}
-Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - \sum\limits_{j = 1}^r \xi_j \, \Delta H_{R_j}(T) = 0
+Q - \sum\limits_{i=1}^{\mathcal{C}} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - \sum\limits_{j = 1}^r \xi_j \, \Delta H_{R_j}(T) = 0
 (\#eq:ec003017)
 \end{equation}
 From thermodynamics, we know that for a reaction $j$
@@ -509,24 +503,24 @@ From thermodynamics, we know that for a reaction $j$
 
 Thus
 \begin{equation}
-Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \sum\limits_{j = 1}^R {\left(\frac{F_{i,0}\,X_i}{\nu_i}\right)}_j \, \Delta H_{R_j}(T) = 0
+Q - \sum\limits_{i=1}^{\mathcal{C}} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \sum\limits_{j = 1}^R {\left(\frac{F_{i,0}\,X_i}{\nu_i}\right)}_j \, \Delta H_{R_j}(T) = 0
 (\#eq:ec003018)
 \end{equation}
 
 This equation written for a reactant A ($\nu_A=-1$), considering only one chemical reaction is taken place, becomes to
 \begin{equation}
-Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
+Q - \sum\limits_{i=1}^{\mathcal{C}} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
 (\#eq:ec003019)
 \end{equation}
 or
 \begin{equation}
-Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \Delta H_{R}(T)\,r_A\,V = 0
+Q - \sum\limits_{i=1}^{\mathcal{C} F_{i0}} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \Delta H_{R}(T)\,r_A\,V = 0
 (\#eq:ec003019a)
 \end{equation}
 
 while for a product $P$
 \begin{equation}
-Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \frac{\nu_P}{\nu_A}\,F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
+Q - \sum\limits_{i=1}^{\mathcal{C}} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) + \frac{\nu_P}{\nu_A}\,F_{A,0}\,X_A \, \Delta H_{R}(T) = 0
 (\#eq:ec003020)
 \end{equation}
 
@@ -539,16 +533,13 @@ Consider the ideal CSTR shown in Figure \@ref(fig:fig003005a). Heat is added to 
 Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.
 
 ```{r fig003005a, out.width = "40%", echo=FALSE, fig.align='center', fig.cap='Schematic diagram of an ideal CSTR with heat transfer through a heating/cooling jacket', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/003_draw_000.png")
-grid.raster(img)
+knitr::include_graphics("figures/003_draw_000.png")
 ```
 The transit energy rate is $\dot{W}$. The temperature of the fluid at a point in the jacket is $T_c$. The fluid enters the jacket at $T_{c,i}$ and leaves at $T_{c,o}$. The feed enters the reactor at temperature $T_0$. The molar flow rates of each component of the feed are designated $F_{i,0}$, and its corresponding concentrations are designated $C_{i,0}$. The reactor operates at a temperature, _T_, which is the effluent temperature too. The molar flow rates in the output stream are designated $F_i$, and the corresponding concentrations are $C_i$.
 
 If a single reaction occurs in a CSTR and one mole of reactant _A_ is consumed in an elemental first-order reaction, the eq. \@ref(eq:ec003020a) yields to:
 \begin{equation}
-Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right) - F_{A0}\,X_A \, \Delta H_{R}(T) = 0
+Q - \left(\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right) - F_{A0}\,X_A \, \Delta H_{R}(T) = 0
 (\#eq:ec003020a)
 \end{equation}
 
@@ -567,11 +558,11 @@ where $\overline{T}_c$ is the constant temperature of the heat-transfer fluid, a
 Substituting in \@ref(eq:ec003020a),
 \begin{equation}
 - F_{A0}\,X_A \, \Delta H_{R}(T)
-= U\,A_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
+= U\,A_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
 (\#eq:ec003021)
 \end{equation}
 
-To understand the physical meaning of the terms in eq. \@ref(eq:ec003021), consider an exothermic reaction. The term $\left[- F_{A0}\,X_A \, \Delta H_{R}^\circ(T)\right]$ represents the enthalpy change related to change in composition because of the chemical reaction. While $U\,A_{J} \left(T - T_c\right)$ is the rate at which heat is transferred out of the CSTR. Finally, $\left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)$ represents the increase in sensible heat of the feed as it goes from $T_0$ to _T_.
+To understand the physical meaning of the terms in eq. \@ref(eq:ec003021), consider an exothermic reaction. The term $\left[- F_{A0}\,X_A \, \Delta H_{R}^\circ(T)\right]$ represents the enthalpy change related to change in composition because of the chemical reaction. While $U\,A_{J} \left(T - T_c\right)$ is the rate at which heat is transferred out of the CSTR. Finally, $\left(\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)$ represents the increase in sensible heat of the feed as it goes from $T_0$ to _T_.
 
 Now, we define two functions corresponding to the left-hand side and right-hand of eq. \@ref(eq:ec003021), respectively.
 
@@ -585,7 +576,7 @@ The function _HPR(T)_ represents the **heat generation* rate in the reactor, pro
 
 The second function, _HWR(T)_, is defined from two right-hands terms of the eq. \@ref(eq:ec003023).
 \begin{equation}
-HWR(T)  = UA_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
+HWR(T)  = UA_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}\right)\left(T - T_0\right)
 (\#eq:ec003023)
 \end{equation}
 
@@ -595,11 +586,8 @@ Both _HPR(T)_ and _HWR(T)_ allow identifying when the CSRT operates under steady
 
 Figure \@ref(fig:fig003005aaa) shows a typical _HPR(T)_ and _HRW(T)_ vs _T_ plot for an ideal CSTR, assuming an irreversible, exothermic and first-order reaction is taking place.
 
-```{r fig003005aaa, out.width = "50%", echo=FALSE, fig.align='center', fig.cap='Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for an irreversible, exothermic reaction in an ideal CSTR', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/003_draw_006.png")
-grid.raster(img)
+```{r fig003005aaa, out.width = "50%", echo=FALSE, fig.align='center', fig.cap='Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for an irreversible, exothermic reaction in an ideal CSTR'}
+knitr::include_graphics("figures/003_draw_006.png")
 ```
 
 The intersection of the _HPR(T)_ curve with the _HWR(T)_ line is the reactor's operating point. Therefore it is a **graphical** solution to the design equation and the energy balance for the CSTR.
@@ -659,13 +647,6 @@ The typical reactor design situation is given the feed conditions, the kinetic i
   The reaction is first-order in reactant $A$ and has a heat reaction given by $\Delta H_R$ which is based on reactant $A$. 
   Negligible heat losses and constant densities can be assumed. A well-mixed cooling jacket surrounds the reactor to remove the heat of reaction. 
   Cooling water is added to the jacket at a rate of $F_J$ and at an inlet temperature of $T_{J0}$.
-  
-  ```{r fig.align='center', out.width = "30%", echo=FALSE}
-      library(png)
-      library(grid)
-      img <- readPNG("figures/003_02_cstr.png")
-      grid.raster(img)
-  ```
   	 
   The volume $V$ of the contents of the reactor and the volume $V_J$ of water in the jacket are both constant. The reaction rate constant changes as function of the temperature according to the equation.
   \begin{equation*}
@@ -685,6 +666,13 @@ The typical reactor design situation is given the feed conditions, the kinetic i
   4. Solve the unsteady-state material and energy balances to identify if any of the possible multiple steady states are unstable.
 ```
 
+```{r fig.align='center', out.width = "55%", echo=FALSE}
+  library(png)
+  library(grid)
+  img<-readPNG("figures/003_02_cstr.png")
+  grid.raster(img)
+```
+  
 _Solution_
 
 (a) There are three balance equations that can be written for the reactor (respect to reactant $A$) and the cooling jacket.\@ref(exr:it003001)
@@ -731,11 +719,8 @@ f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J
 
 These equations are solved for a range from 500 to 700. Next, their results are evaluated into energy balance function on the reactor. The results obtained are plotted vs $T_R$ in figure \@ref(fig:fig003007).
 
-```{r fig003007, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical indication of multiple steady-states solutions', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/003_04_001.png")
-grid.raster(img)
+```{r fig003007, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical indication of multiple steady-states solutions'}
+knitr::include_graphics("figures/003_04_001.png")
 ```
 
 Figure \@ref(fig:fig003007) shows the system has three operating-points. Now, how a CSTR can operate at multiple steady-states is necessary to know which is (or which of them) stable for the operating condition.
@@ -743,11 +728,8 @@ Thus, the next step in designing a non-isothermal CSTR must be to carry out a st
 
 Usually, the stability analysis can be done from the plot _HPR(T)_-_HWR(T)_ vs. reaction temperature.
 
-```{r fig003008, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical solutions of the heat balance for a CSTR', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/003_04_002.png")
-grid.raster(img)
+```{r fig003008, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical solutions of the heat balance for a CSTR'}
+knitr::include_graphics("figures/003_04_002.png")
 ```
 
 Figure \@ref(fig:fig003008) shows _HPR_ is a sigmoidal curve because of the rate constant's exponential temperature dependence. The shape of the curve depends in large part on the value of the activation energy.
@@ -796,11 +778,8 @@ As the reaction change's characteristics, the shape of that curve will change, a
 
 Figure \@ref(fig:fig003009) presents qualitative forms of the HPW/HWR curve for (a) a reversible reaction, (b) a pair of consecutive exothermic reactions, and (c) for two consecutive reactions, where the first is exothermic and the second is endothermic.
 
-```{r fig003009, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Qualitative shape of HPR/HPWR curve for several kind of reactions', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/CSTR_draw_05.png")
-grid.raster(img)
+```{r fig003009, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Qualitative shape of HPR/HPWR curve for several kind of reactions'}
+knitr::include_graphics("figures/CSTR_draw_05.png")
 ```
 #### Internal Coil {-}
 If an internal coil is used, the cooling medium flows in plug flow through the coil. 
@@ -869,14 +848,14 @@ In the general energy balance (eq. \@ref(eq:energybala)), the extent of reaction
 
 Then, if only one reaction is taking place, the Eq. \@ref(eq:energybala) becomes
 \begin{equation}
-Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right) \left(T_{\text{out}} - T_{\text{in}}\right) - F_{A0}\left(X_{A,out} - X_{A,in} \right)\Delta H_{R}(T) = 0
+Q - \left(\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}\right) \left(T_{\text{out}} - T_{\text{in}}\right) - F_{A0}\left(X_{A,out} - X_{A,in} \right)\Delta H_{R}(T) = 0
 (\#eq:ec003026a)
 \end{equation}
 
 If more than one reaction occurs, and if the extents of reaction in the feed to a reactor or segment are denoted $\xi_k^0$, then eq. \@ref(eq:energybala) becomes
 
 \begin{equation}
-\frac{dU}{dt}= Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right)\left(T_\text{out} - T_\text{in}\right) - {\sum_{j=1}^R} \left(\xi_j - \xi_j^0\right) \,\Delta H_{R,j}(T)
+\frac{dU}{dt}= Q - \left(\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}\right)\left(T_\text{out} - T_\text{in}\right) - {\sum_{j=1}^R} \left(\xi_j - \xi_j^0\right) \,\Delta H_{R,j}(T)
 (\#eq:ec003026b)
 \end{equation}
 
@@ -989,13 +968,10 @@ This kind of reactor is usually used:
 4. Homogeneous or heterogeneous reactions.
 5. Continuous operations.
 
-In a PFR, the composition of the fluid varies from point to point along a flow path. Thus the material balance for a reaction component must be made for a differential element dV, as shown in Figure X.
+In a PFR, the composition of the fluid varies from point to point along a flow path. Thus the material balance for a reaction component must be made for a differential element dV, as shown in Figure \@ref(fig:fig002016).
 
-```{r fig002016, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Plug-flow reactor volume element', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/002_pfr_01.png")
-grid.raster(img)
+```{r fig002016, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Plug-flow reactor volume element'}
+knitr::include_graphics("figures/002_pfr_01.png")
 ```
 
 Under steady-state operation, the material balance is expressed in terms of the molar flow.
@@ -1007,8 +983,8 @@ Equation \@ref(eq:ec002050) is the **_design equation_** for an ideal PFR.
 
 For a single reaction, it may be convenient to write Eq. \@ref(eq:ec002050) in terms of fractional conversion of a key reactant
 \begin{align}
-  F_A =& F_{A0}\left(1-X_A\right) \\ \notag
-  dF_A =& - F_{A0}\,d X_A \\ \notag
+  F_A =& F_{A0}\left(1-X_A\right) \\
+  dF_A =& - F_{A0}\,d X_A \\
   \frac{dV}{F_{A0}} =& - \frac{dX_A}{r_A}
   (\#eq:ec002051)
 \end{align}
@@ -1033,11 +1009,9 @@ If the reacting fluid keeps its density constant during the chemical reaction, t
 
 A graphical interpretation of equations \@ref(eq:ec002051) and \@ref(eq:ec002052) is illustrated in Figure \@ref(fig:fig002017)
 
-```{r fig002017, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical interpretation of design equation for a PFR', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/002_pfr_02.png")
-grid.raster(img)
+
+```{r fig002017, out.width = "65%", echo=FALSE, fig.align='center', fig.cap='Graphical interpretation of design equation for a PFR'}
+knitr::include_graphics("figures/002_pfr_02.png")
 ```
 
 The shape of figure \@ref(fig:fig002017) is based on the assumption that $-r_A$ decreases as $X_A$ increases. Thus equation \@ref(eq:ec002051) states that $(V/F_{A0})$ for an ideal PFR is the area under the curve of $(1/-r_A)$ vs. $X_A$, between the inlet and outlet fractional conversion.
@@ -1059,7 +1033,7 @@ Thus, the equation design is
 Taking into account that, in this case, $\upsilon = \upsilon_0 \left(1 + \varepsilon_A\,X_A\right)$ then \@ref(eq:ec002054a) becomes
 \begin{equation}
 \tau = \frac{1}{k} \int_0^{X_A} \frac{\left(1 + \varepsilon_A X_A\right)}{1-X_A}\:dX_A
-  (\#eq:ec002054)
+  (\#eq:ec002054b)
 \end{equation}
 
 As it was mentioned before, for ideal PFR, all fluid elements take the same length of time in the reactor. This time is called **mean residence time** ($\overline t$) and, in general, it could be calculated by:
@@ -1105,11 +1079,8 @@ and n = 0, 1, 2, or 3 according to the reaction's order. As an initial condition
 
 Part 1 of this problem was solved in [Python](https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_007PFRisoNorders.ipynb), and the graphical results are given
 
-```{r figlect00701, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Fractional conversion vs volume for various reaction orders', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/lect007_01.png")
-grid.raster(img)
+```{r figlect00701, echo=FALSE, out.width = "60%", fig.cap='Fractional conversion vs volume for various reaction orders', fig.align='center'}
+knitr::include_graphics("figures/lect007_01.png")
 ```
 
 Figure \@ref(fig:figlect00701) shows clearly the effect of reaction on conversion in a PFR, for zero-order kinetic will obtain higher conversion than other cases. As we expect, for a zero-order kinetic, fractional conversion shows an independent behavior of concentration _A_. That is why a linear function is observed when the fractional conversion is less than one.
@@ -1122,28 +1093,25 @@ The results obtained when the initial concentration of A was increased to 2.0 mo
 
 (a) $C_{A0} = 0.5$ mol/dm$^3$           |  (b) $C_{A0} = 2.0$ mol/dm$^3$
 :-------------------------:|:-------------------------:
-![](figures/lect007_02.png)  |  ![](figures/lect007_03.png)
+![](figures/lect007_02.png) |  ![](figures/lect007_03.png)
 
 ### Energy balance
 
 This section will derive an energy balance for a PFR, considering the volume element in Figure \@ref(fig:fig003009a). Additionally, it will be assumed temperature and composition of the reaction mixture are uniform over the cross-section of the PFR and depend only on the distance L from the feed point.
 
-```{r fig003009a, out.width = "45%", echo=FALSE, fig.align='center', fig.cap='PFR reactor volume element', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/003_draw_007.png")
-grid.raster(img)
+```{r fig003009a, out.width = "45%", echo=FALSE, fig.align='center', fig.cap='PFR reactor volume element'}
+knitr::include_graphics("figures/003_draw_007.png")
 ```
 
 According to Fig. \@ref(fig:fig003009a), the steady-state energy balance over a differential volume of the reactor becomes, if any work done by the reaction mixture is neglected:
 \begin{equation}
-\frac{dQ}{dV} - \frac{d}{dV}\left(\sum\limits_{i=1}^\mathcal{C} F_{i} \, H_i \right)= 0
+\frac{dQ}{dV} - \frac{d}{dV}\left(\sum\limits_{i=1}^{\mathcal{C}} F_{i} \, H_i \right)= 0
 (\#eq:ec003027)
 \end{equation}
 
 The enthalpy term can be broken apart into two terms:
 \begin{equation}
-\frac{dQ}{dV} - \sum\limits_{i=1}^\mathcal{C} \left(\frac{dF_{i}}{dV} \, H_i\right) -\sum\limits_{i=1}^\mathcal{C} \left(F_i \, \frac{dH_{i}}{dV} \right)= 0
+\frac{dQ}{dV} - \sum\limits_{i=1}^{\mathcal{C}} \left(\frac{dF_{i}}{dV} \, H_i\right) -\sum\limits_{i=1}^{\mathcal{C}} \left(F_i \, \frac{dH_{i}}{dV} \right)= 0
 (\#eq:ec003028)
 \end{equation}
 
@@ -1167,12 +1135,12 @@ The second term in Fig. \@ref(eq:ec003027) is related to a molar balance over sp
 
 Substituting  \@ref(eq:ec003028c),  \@ref(eq:ec003028b) into  \@ref(eq:ec003028) to give
 \begin{equation}
-\frac{dQ}{dV} - \sum\limits_{i=1}^\mathcal{C} \left(H_i\,\nu_i\right)r -\sum\limits_{i=1}^\mathcal{C} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dV} = 0
+\frac{dQ}{dV} - \sum\limits_{i=1}^{\mathcal{C}} \left(H_i\,\nu_i\right)r -\sum\limits_{i=1}^{\mathcal{C}} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dV} = 0
  (\#eq:ec003028d)
 \end{equation}
 This equation is equivalent to:
 \begin{equation}
-\frac{dQ}{dV} = \Delta H_R\,r  + \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV}
+\frac{dQ}{dV} = \Delta H_R\,r  + \sum\limits_{i=1}^{\mathcal{C}} \left(F_i \, Cp_i\right)\,\frac{dT}{dV}
 (\#eq:ec003028e)
 \end{equation}
 
@@ -1180,13 +1148,13 @@ Equation \@ref(eq:ec003028e) provided the concentration and temperature profiles
 
 In most cases, the equation \@ref(eq:ec003028e)  is written in terms of 1 mole of the key reactant A.
 \begin{equation}
-\frac{dQ}{dV} = \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\:r_A , \quad r_A = - r
+\frac{dQ}{dV} = \sum\limits_{i=1}^{\mathcal{C}} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\:r_A , \quad r_A = - r
 (\#eq:ec003028f)
 \end{equation}
 
 Therefore,
 \begin{equation}
-\frac{dT}{dV} = \cfrac{\cfrac{dQ}{dV} + \Delta H_{R,A}\,r_A}{\sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)}, \quad r_A = - r
+\frac{dT}{dV} = \cfrac{\cfrac{dQ}{dV} + \Delta H_{R,A}\,r_A}{\sum\limits_{i=1}^{\mathcal{C}} \left(F_i \, Cp_i\right)}, \quad r_A = - r
 (\#eq:ec003028g)
 \end{equation}
 
@@ -1215,7 +1183,7 @@ where $u$ is the linear velocity with which the fluid flows through the tube, an
 
 Incorporating Eq. \@ref(eq:ec003028h) into the energy balance, \@ref(eq:ec003028e), gives
 \begin{equation}
-\frac{dQ}{dL} = \sum\limits_{i=1}^\mathcal{C} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dL} - \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A
+\frac{dQ}{dL} = \sum\limits_{i=1}^{\mathcal{C}} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dL} - \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A
 (\#eq:ec003028j)
 \end{equation}
 
@@ -1245,19 +1213,19 @@ Thus, for a typical PFR illustrated in Figure \@ref(fig:fig003009a), with a leng
 
 Substituting Eq. \@ref(eq:ec003029) into Eq. \@ref(eq:ec003028d)
 \begin{equation}
-U \left( T_{\infty} - T\right) \frac{4}{D}=  \sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\,r_A
+U \left( T_{\infty} - T\right) \frac{4}{D}=  \sum\limits_{i=1}^{\mathcal{C}} \left(F_i \, Cp_i\right)\,\frac{dT}{dV} - \Delta H_{R,A}\,r_A
 (\#eq:ec003030)
 \end{equation}
 
 This equation is one form of the energy balance for a PFR with external heat exchange. It is widespread to rewrite the energy balance as
 \begin{equation}
-\frac{dT}{dV} = \frac{1}{{\sum_{i=1}^\mathcal{C}} F_{i} \,C_{P_i}}\left({\frac{4U\left(T_{\infty}-T\right)}{D} + \Delta H_{R,A}\,r_A}\right)
+\frac{dT}{dV} = \frac{1}{\sum_{i=1}^{\mathcal{C}} F_{i} \,C_{P_i}}\left({\frac{4U\left(T_{\infty}-T\right)}{D} + \Delta H_{R,A}\,r_A}\right)
 (\#eq:ec003031)
 \end{equation}
 
 Writing Eq. \@ref(eq:ec003031) in terms of the length by substituting Eq. \@ref(eq:ec003028f)
 \begin{equation}
-\frac{dT}{dL} = \frac{1}{{\sum_{i=1}^\mathcal{C}} F_{i} \,C_{P_i}}\left(\pi\,U\,D\left(T_{\infty}-T\right) + \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A\right)
+\frac{dT}{dL} = \frac{1}{\sum_{i=1}^{\mathcal{C}} F_{i} \,C_{P_i}}\left(\pi\,U\,D\left(T_{\infty}-T\right) + \frac{\pi\,D^2}{4}\,\Delta H_{R,A}\,r_A\right)
 (\#eq:ec003032)
 \end{equation}
 
@@ -1327,9 +1295,10 @@ In the beginning, the temperature is high, as well as the concentration of A. La
 
 In this case, the output is at 394 K, and the conversion is 76.53%. Temperature and conversion profiles are shown in figure Y
 
-Without heat exchanger    |  With heat exchanger
-:-------------------------:|:-------------------------:
-![](figures/lect008_01.png)|![](figures/lect008_02.png)
+Without heat exchanger     |  With heat exchanger
+:-------------------------:|:---------------------------:
+![](figures/lect008_01.png){width=48%}  | ![](figures/lect008_02.png){width=48%}
+
 
 ```{exercise, it003006, name="Parallel Reactions in a PFR with Heat Effects"}
 Consider next set of reactions which occurs in gas-phase 
@@ -1361,19 +1330,18 @@ Energy balance:
 \frac{dT}{dV} = \frac{Ua\left(T_J - T\right) + r_{A1}\,\Delta H_{R1} + r_{A2}\,\Delta H_{R2}}{F_A\,C_{P_A} + F_B\,C_{P_B} + F_C\,C_{P_C} }
 \end{equation*}
 
-Temperature profile    |  Molar flowrates
+
+Temperature profile           |  Molar flowrates
 :-------------------------:|:-------------------------:
-![](figures/lect009_01.png)|![](figures/lect009_02.png)
+![](figures/lect009_01.png){width=48%}  |  ![](figures/lect009_02.png){width=48%}
+
 
 ### Recycle PFR
 
 A recycling reactor is an ideal tubular reactor that part of the effluent stream back to the reactor inlet. As shown in Figure \@ref(fig:fig002021). Recycle can control the temperature in the reactor and adjust the product distribution if more than one reaction is taking place.
 
-```{r fig002021, out.width = "55%", echo=FALSE, fig.align='center', fig.cap='Recycle PFR', fig.lp='fig:'}
-library(png)
-library(grid)
-img <- readPNG("figures/002_pfr_recycle.png")
-grid.raster(img)
+```{r fig002021, echo=FALSE, out.width = "60%", fig.cap='Recycle PFR', fig.align='center'}
+knitr::include_graphics("figures/002_pfr_recycle.png")
 ```
 
 Based on the flowsheet in Fig. \@ref(fig:fig002021), the feed to the process is denoted by the subscript ''o'' with is mixed at the point M with the recycle stream, denoted by a subscript ''R''. The mixed stream, which is denoted by a subscript ''in'', is then fed to the reactor.
@@ -1609,12 +1577,12 @@ For the design of nonisothermal operation, these necessary data are needed: [@wa
 For an adiabatic flow reactor operating at a steady-state with no shaft work, when only one reaction takes place, eq. \@ref(eq:energybalb) simplifies to 
 
 \begin{equation}
-\left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{P_i}\right)\left(T_0 - T\right) - {F_{A0}\,X_A}\,\Delta H_{R,A}(T) = 0
+\left(\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{P_i}\right)\left(T_0 - T\right) - {F_{A0}\,X_A}\,\Delta H_{R,A}(T) = 0
 (\#eq:ec003033)
 \end{equation}
 Rearranging,
 \begin{equation}
-T = T_0 - \left(\frac{{F_{A0}}\,\Delta H_{R,A}(T)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{P_i}} \right)\:X_A
+T = T_0 - \left(\frac{{F_{A0}}\,\Delta H_{R,A}(T)}{\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{P_i}} \right)\:X_A
 (\#eq:ec003034)
 \end{equation}
 
@@ -1623,7 +1591,7 @@ Equation \@ref(eq:ec003034) shows that the temperature, _T_, is proportional to 
 Let $T_\text{ad}$ be the temperature that corresponds to complete conversion (i.e., $X_A = 1$)
 
 \begin{equation}
-\Delta T_\text{ad} = \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T_\text{ad})\right)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\left(T_0 \to T_\text{ad}\right)} \right)
+\Delta T_\text{ad} = \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T_\text{ad})\right)}{\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}\left(T_0 \to T_\text{ad}\right)} \right)
 (\#eq:ec003035)
 \end{equation}
 where $\Delta T_\text{ad}$ is called **_adiabatic temperature change_**.
@@ -1641,7 +1609,7 @@ The reaction is taken place in an adiabatic PFR for $E = 30$ kcal/mol, $k_0 = 2.
 _Solution_.
 For any continuous flow reactor working under adiabatic mode, the energy balance is calculated by
 \begin{equation*}
-  T = T_0 + \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}} \right)X_A
+  T = T_0 + \left(\frac{{F_{A0}}\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^{\mathcal{C}} F_{i0}\,\overline{C}_{p,i}} \right)X_A
 \end{equation*}
   
 This equation could rewrite it, taking advantage of the reacting fluid is constant-density,
@@ -2257,19 +2225,19 @@ Thus
 (\#eq:ec003003)
 \end{equation}
 
-Doing some math, over a multicomponent system of $\mathcal{C}$ components, Eq. \@ref(eq:ec003003) becomes to
+Doing some math, over a multicomponent system of ${\mathcal{C}}$ components, Eq. \@ref(eq:ec003003) becomes to
 \begin{equation*}
-    \sum\limits_{i=1}^\mathcal{C} n_i \frac{d\,H_i}{dt} + \sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt}- v\frac{dP}{dt} = Q
+    \sum\limits_{i=1}^{\mathcal{C}} n_i \frac{d\,H_i}{dt} + \sum\limits_{i=1}^{\mathcal{C}} H_i \frac{d\,n_i}{dt}- v\frac{dP}{dt} = Q
 \end{equation*}
 
 Now, including some thermodynamic relationships over a chemically-reactive system
 \begin{equation*}
-    \sum\limits_{i=1}^\mathcal{C} n_i \,C_{P_i}\frac{dT}{dt} + \sum\limits_{i=1}^\mathcal{C} n_i \left(v_i -T {\left(\frac{\partial v_i}{\partial T}\right)}_P\right) \frac{dP}{dt} + \sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt} - v\frac{dP}{dt} = Q
+    \sum\limits_{i=1}^{\mathcal{C}} n_i \,C_{P_i}\frac{dT}{dt} + \sum\limits_{i=1}^{\mathcal{C}} n_i \left(v_i -T {\left(\frac{\partial v_i}{\partial T}\right)}_P\right) \frac{dP}{dt} + \sum\limits_{i=1}^{\mathcal{C}} H_i \frac{d\,n_i}{dt} - v\frac{dP}{dt} = Q
 \end{equation*}
 
 Thus, 
 \begin{equation}
-    \sum\limits_{i=1}^\mathcal{C} n_i \,C_{P_i}\frac{dT}{dt} - T \sum\limits_{i=1}^\mathcal{C} n_i \beta_i v_i \frac{dP}{dt} + \sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt}  = Q
+    \sum\limits_{i=1}^{\mathcal{C}} n_i \,C_{P_i}\frac{dT}{dt} - T \sum\limits_{i=1}^{\mathcal{C}} n_i \beta_i v_i \frac{dP}{dt} + \sum\limits_{i=1}^{\mathcal{C}} H_i \frac{d\,n_i}{dt}  = Q
 (\#eq:ec003004)
 \end{equation}
 where $\beta_i$ is volume expansivity of specie _i_
@@ -2280,12 +2248,12 @@ If ''_R_'' reactions are taking place into a batch reactor,
 \end{equation*}
 so that
 \begin{equation*}
-\sum\limits_{i=1}^\mathcal{C} H_i \frac{d\,n_i}{dt} = \sum\limits_{i=1}^\mathcal{C} H_i \left(V\:\sum\limits_{j=1}^{R} \nu_{j,i}\, r_j\right) = V\:\sum\limits_{j=1}^{R} \Delta H_{R_j}(T)\: r_j
+\sum\limits_{i=1}^{\mathcal{C}} H_i \frac{d\,n_i}{dt} = \sum\limits_{i=1}^{\mathcal{C}} H_i \left(V\:\sum\limits_{j=1}^{R} \nu_{j,i}\, r_j\right) = V\:\sum\limits_{j=1}^{R} \Delta H_{R_j}(T)\: r_j
 \end{equation*}
 
 Combining this relationship with Eq. \@ref(eq:ec003004), 
 \begin{equation}
- Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,v\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
+ Q = \sum\limits_{i=1}^{\mathcal{C}} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,v\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
  (\#eq:ec003005)
 \end{equation}
 where $\beta = \sum\nolimits_{i=1} n_i \beta_i$
@@ -2296,7 +2264,7 @@ The batch reactor can be operated in either constant-(e.g., in an autoclave) or 
 
 A batch reactor operating at **constant pressure** or the fluid is incompressible, then Eq. \@ref(eq:ec003005) reduces to
 \begin{equation}
-Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
+Q = \sum\limits_{i=1}^{\mathcal{C}} n_{i} \,C_{P_i}\frac{dT}{dt} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
 (\#eq:ec003006)
 \end{equation}
 
@@ -2304,19 +2272,19 @@ In general, when dealing with a batch reactor, it will be required to calculate 
 
 For a single reaction,
 \begin{equation}
-Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\:  \Delta H_{R}(T) \,r
+Q = \sum\limits_{i=1}^{\mathcal{C}} n_{i} \,C_{P_i}\frac{dT}{dt} + V\:  \Delta H_{R}(T) \,r
 \end{equation}
 
 If _A_ is the key reactant, and setting $\nu_A = -1$
 \begin{equation}
-Q = \sum\limits_{i=1}^\mathcal{C} N_{i} \,C_{P_i}\frac{dT}{dt} - \Delta H_{R,A}(T)\,r_A\,V, \quad r_A = - r
+Q = \sum\limits_{i=1}^{\mathcal{C}} N_{i} \,C_{P_i}\frac{dT}{dt} - \Delta H_{R,A}(T)\,r_A\,V, \quad r_A = - r
 \end{equation}
 where _r_ is the global reaction rate.
 
 Thus, the temperature profile is just calculated from this relationship.
    
 \begin{equation}
-\frac{dT}{dt} = \frac{q\,A_k + \Delta H_{R}(T)\,r_A\,V}{\sum\limits_{i=1}^\mathcal{C} N_{i}\,C_{P_i}} , \quad r_A = - r
+\frac{dT}{dt} = \frac{q\,A_k + \Delta H_{R}(T)\,r_A\,V}{\sum\limits_{i=1}^{\mathcal{C}} N_{i}\,C_{P_i}} , \quad r_A = - r
 (\#eq:ec003007)
 \end{equation}
 
@@ -2328,46 +2296,46 @@ where $T_r$ is the temperature of the heating or cooling medium.
 
 For adiabatic operation, $q = 0$, and it is very important to dig a little bit under this type of operation. Under this operation mode, Eq. \@ref(eq:ec003007) becomes to:
 \begin{equation}
-\frac{dT}{dt} = \frac{\Delta H_{R}(T)\,r_A\,V}{\sum\limits_{i=1}^\mathcal{C} N_{i}\,C_{P_i}} , \quad r_A = - r
+\frac{dT}{dt} = \frac{\Delta H_{R}(T)\,r_A\,V}{\sum\limits_{i=1}^{\mathcal{C}} N_{i}\,C_{P_i}} , \quad r_A = - r
 \end{equation}
 which is equivalent to
 \begin{equation*}
-    \frac{dT}{dt} = \cfrac{\Delta H_{R}(T) \left(\cfrac{dN_A}{dt}\right)}{\sum\limits_{i=1}^\mathcal{C} N_i \,C_{P_i}}
+    \frac{dT}{dt} = \cfrac{\Delta H_{R}(T) \left(\cfrac{dN_A}{dt}\right)}{\sum\limits_{i=1}^{\mathcal{C}} N_i \,C_{P_i}}
 \end{equation*}
 Eliminating the time derivative term 
 \begin{equation}
-\left(\sum\limits_{i=1}^\mathcal{C} N_i \,C_{P_i}\right)\,dT = \Delta H_{R}(T)\,{dN_A}
+\left(\sum\limits_{i=1}^{\mathcal{C}} N_i \,C_{P_i}\right)\,dT = \Delta H_{R}(T)\,{dN_A}
 (\#eq:ec003038)
 \end{equation}
 
 When only one reaction is taking place $N_i = N_{i,0} + \nu_i\,N_{A,0}\,X_A$, so 
 \begin{equation*}
-\left(\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i} + N_{A,0}\,X_A\,\sum\limits_{i=1}^\mathcal{C} \nu_{i} \,C_{P_i}\right)\,dT + \Delta H_{R}(T)\,N_{A,0}\,{dX_A}
+\left(\sum\limits_{i=1}^{\mathcal{C}} N_{i,0} \,C_{P_i} + N_{A,0}\,X_A\,\sum\limits_{i=1}^{\mathcal{C}} \nu_{i} \,C_{P_i}\right)\,dT + \Delta H_{R}(T)\,N_{A,0}\,{dX_A}
 \end{equation*} 
 
 At constant pressure,
 \begin{equation*}
-  \sum\limits_{i=1}^\mathcal{C} \nu_{i} \,C_{P_i} \approx \frac{d\,\Delta H_R(T)}{dT}
+  \sum\limits_{i=1}^{\mathcal{C}} \nu_{i} \,C_{P_i} \approx \frac{d\,\Delta H_R(T)}{dT}
 \end{equation*}
 
 Combining both equations
 \begin{equation*}
-\left(\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i} + N_{A,0}\,X_A\,\frac{d\,\Delta H_R(T)}{dT}\right)\,dT + \Delta H_{R}(T)\,N_{A,0}\,dX_A = 0
+\left(\sum\limits_{i=1}^{\mathcal{C}} N_{i,0} \,C_{P_i} + N_{A,0}\,X_A\,\frac{d\,\Delta H_R(T)}{dT}\right)\,dT + \Delta H_{R}(T)\,N_{A,0}\,dX_A = 0
 \end{equation*} 
 so
 \begin{equation}
-\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i}\,dT + N_{A,0}\,d\left[\Delta H_R(T)\,X_A\right] = 0
+\sum\limits_{i=1}^{\mathcal{C}} N_{i,0} \,C_{P_i}\,dT + N_{A,0}\,d\left[\Delta H_R(T)\,X_A\right] = 0
 (\#eq:ec003039)
 \end{equation}  
 
 Assuming that $C_{P_i}$ and $\Delta H_{R}$ are known and constant for the reaction temperature range, the integration of Eq. \@ref(eq:ec003_039) is straightforward:
 \begin{equation*}
-\left(\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,C_{P_i}\right)\left(T-T_0\right) + N_{A,0}\,\Delta H_R(T)\,X_A = 0
+\left(\sum\limits_{i=1}^{\mathcal{C}} N_{i,0} \,C_{P_i}\right)\left(T-T_0\right) + N_{A,0}\,\Delta H_R(T)\,X_A = 0
 \end{equation*}
 
 Rearranging,
 \begin{equation}
-    T = T_0 + \left(\frac{N_{A0}\,\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,\overline{C}_{P_i}}\right)X_A
+    T = T_0 + \left(\frac{N_{A0}\,\left(-\Delta H_{R}(T)\right)}{\sum\limits_{i=1}^{\mathcal{C}} N_{i,0} \,\overline{C}_{P_i}}\right)X_A
 (\#eq:ec003040)
 \end{equation}
 
@@ -2377,7 +2345,7 @@ The equation \@ref(eq:ec003040) can be used to check the maximum reactor tempera
 Physically, it is the amount that the temperature will increase or decrease as the reaction goes to completion under adiabatic conditions.
 ::::
 
-Finally, if $\left({N_{A0}(-\Delta H_{R}(T))}/{\sum\limits_{i=1}^\mathcal{C} N_{i,0} \,\overline{C}_{P_i}}\right)$ is constant, independent of temperature, the Eq. \@ref(eq:ec003040) can be written as
+Finally, if $\left({N_{A0}(-\Delta H_{R}(T))}/{\sum\limits_{i=1}^{\mathcal{C}} N_{i,0} \,\overline{C}_{P_i}}\right)$ is constant, independent of temperature, the Eq. \@ref(eq:ec003040) can be written as
 
 \begin{equation}
 T = T_0 + \Delta T_\text{ad}\,X_A
@@ -2399,7 +2367,7 @@ In a batch reactor, having a volume $V_R = 5 \text{ m}^3$, a constant-density ex
 &k = 4\cdot 10^6 \exp \left(-7900/T\right) \quad \left[\text{s}^{-1} \right]\\
 &\text{MW}_A = 100 \text{ kg/kmol}\\
 &\Delta H_R = -1.67 \cdot 10^6 \; \text{J/kg}\\
-&C_{A0} = 1 \text{ kmol/m}^3$
+&C_{A0} = 1 \text{ kmol/m}^3
 \end{align*}
 
 The initial temperature $T_0$ of the reaction is 20 $^\circ$C and the maximum allowable reaction temperature is 95 $^\circ$C. The reactor contains a spiral for heat exchange purpose; its surface area $A$ is 3.3 m$^2$ and it can be operated with steam ($T_s = 120\, ^\circ$C, $U_s$ = 1360 W/m$^2\,^\circ$C) and cooling water ($T_c = 15\, ^\circ$C, $U_c$ = 1180 W/m$^2\,^\circ$C). The time required for filling and emptying the reactor are 600 and 900 s, respectively. 
@@ -2542,7 +2510,7 @@ In (c) is shown that at $T_{R,\text{max}}$ the concentration of _A_ dropped to a
 The same problem was solved for two different diameters for the reactor to analyze the effect over reactor performance and stability of the reaction.
 The results obtained are shown in figure \@ref(fig:fig003005).
 
-```{r fig003005, out.width="65%", fig.align='center', fig.cap='Effect of size reactor over dynamic behavior of a BR', echo=FALSE, fig.lp='fig:'}
+```{r fig003005, out.width="70%", fig.align='center', fig.cap='Effect of size reactor over dynamic behavior of a BR', echo=FALSE, fig.lp='fig:'}
 library(png)
 library(grid)
 img <- readPNG("figures/003_03_02.png")
@@ -2556,7 +2524,7 @@ Figure \@ref(fig:fig003005) shows when the reactor size is decreased, its respon
 Nevertheless, when the reactor operates at constant volume, the boundary work is zero so let us rewrite the energy balance for a batch reactor (from Eq. \@ref(eq:ec003005)) in reasonable terms. The variation of the pressure can be derived from the total differential of volume.
 
 \begin{equation}
-    dV ={\left( \frac{\partial V}{\partial T}\right)}_{P,n} dT + {\left( \frac{\partial V}{\partial P}\right)}_{T,n} dP + \sum\limits_{i=1}^\mathcal{C} \overline{V}_i dn_i
+    dV ={\left( \frac{\partial V}{\partial T}\right)}_{P,n} dT + {\left( \frac{\partial V}{\partial P}\right)}_{T,n} dP + \sum\limits_{i=1}^{\mathcal{C}} \overline{V}_i dn_i
 (\#eq:ec003008)
 \end{equation}
 
@@ -2570,21 +2538,21 @@ Other uselful relationships are:
 
 Now, forming time derivatives for Eq. \@ref(eq:ec003008),
 \begin{equation}
-    \frac{dP}{dt} = -\cfrac{\left( \cfrac{\partial V}{\partial T}\right)_{P,n} \cfrac{dT}{dt} + \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \cfrac{dn_i}{dt}}{\left( \cfrac{\partial V}{\partial P}\right)_{T,n}} = \frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt}
+    \frac{dP}{dt} = -\cfrac{\left( \cfrac{\partial V}{\partial T}\right)_{P,n} \cfrac{dT}{dt} + \sum\limits_{i=1}^{\mathcal{C}} \overline{V}_i \cfrac{dn_i}{dt}}{\left( \cfrac{\partial V}{\partial P}\right)_{T,n}} = \frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^{\mathcal{C}} \overline{V}_i \frac{dn_i}{dt}
 (\#eq:ec003010)
 \end{equation}
 
 Substituting Eq. \@ref(eq:ec003010) into Eq. \@ref(eq:ec003005)
 \begin{align*}
-Q = & \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
-= & \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\left(\frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt}\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
+Q = & \sum\limits_{i=1}^{\mathcal{C}} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+= & \sum\limits_{i=1}^{\mathcal{C}} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\left(\frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^{\mathcal{C}} \overline{V}_i \frac{dn_i}{dt}\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
 \end{align*}
 
 This equation could rewrite it,
 \begin{align*}
-  Q & =\left( \,C_{P} - T\,V\,\frac{\beta^2}{\kappa_T} \right)\frac{dT}{dt} - \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
-    & =C_V\frac{dT}{dt} - \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \left(V\,\sum\limits_{j=1}^R \nu_{i,j}\,r_j\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
-     & =C_V\frac{dT}{dt} - \left(\sum\limits_{j=1}^R \left( \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^\mathcal{C} \nu_{i,j} \overline{V}_i \right)\,r_j\right) V + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+  Q & =\left( \,C_{P} - T\,V\,\frac{\beta^2}{\kappa_T} \right)\frac{dT}{dt} - \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^{\mathcal{C}} \overline{V}_i \frac{dn_i}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+    & =C_V\frac{dT}{dt} - \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^{\mathcal{C}} \overline{V}_i \left(V\,\sum\limits_{j=1}^R \nu_{i,j}\,r_j\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
+     & =C_V\frac{dT}{dt} - \left(\sum\limits_{j=1}^R \left( \frac{T\, \beta}{\kappa_T} \sum\limits_{i=1}^{\mathcal{C}} \nu_{i,j} \overline{V}_i \right)\,r_j\right) V + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
      & = C_V\frac{dT}{dt} - V \,\sum\limits_{j=1}^R \frac{T\, \beta}{\kappa_T}  \Delta V_{j} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
 \end{align*}
 
@@ -2771,14 +2739,14 @@ In principle, complex reactions are defined by parallel, consecutive reactions o
 
 <center>
 
-![](figures/complexreactions01.png)
+![](figures/complexreactions01.png){width=22%}
 </center>
 
 In series reactions, the reactants form an intermediate product, which reacts further to form another product.
 
 <center>
 
-![](figures/complexreactions02.png)
+![](figures/complexreactions02.png){width=30%}
 
 </center>
 
@@ -2786,7 +2754,7 @@ While, multiple reactions involve a combination of both series and parallel reac
 
 <center>
 
-![](figures/complexreactions03.png)
+![](figures/complexreactions03.png){width=30%}
 
 </center>
 
@@ -2794,7 +2762,7 @@ Finally, independent reactions occur when there are many reactants in feedstocks
 
 <center>
 
-![](figures/complexreactions04.png)
+![](figures/complexreactions04.png){width=30%}
 
 </center>
 
@@ -2822,7 +2790,7 @@ For a reaction system like this one
 
 <center>
 
-![](figures/complexreactions05.png)
+![](figures/complexreactions05.png){width=25%}
 
 </center>
 
@@ -2877,7 +2845,7 @@ In case there is no product $P$ present in the reactor feed, the $\rho$ of the r
 For convenient reasons, it could be rather to use a selectivity ratio instead of yield. Thus, the parameter **instantaneous selectivity** is defined as the ratio of reaction rate of the desired product $P$ to the reaction rate of the undesired product $X$.
 \begin{equation}
     S_{PX} = \frac{r_P}{r_X} = \frac{k_p\,{C_{A}}^m}{k_x\,{C_A}^n}
-(#eq:eq076)
+(\#eq:eq076)
 \end{equation} 
 
 There are other definitions of selectivity, for example, the formation of the desired product divided by the formation of all products, all based on moles.

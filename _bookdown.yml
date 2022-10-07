@@ -4,3 +4,5 @@ output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
+rmd_files: ["index.Rmd", "01-mod01.Rmd", "02-mod02.Rmd", 
+"03-mod03.Rmd", "04-summary.Rmd", "05-exercises.Rmd", "06-references.Rmd"]

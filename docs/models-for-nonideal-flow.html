@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Models for nonideal flow | Notes for CHE5314 course @ UCV</title>
   <meta name="description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Models for nonideal flow | Notes for CHE5314 course @ UCV" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-05-10" />
+<meta name="date" content="2022-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="applications-for-rtd-functions.html"/>
 <link rel="next" href="final-words.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,34 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -219,23 +243,23 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="models-for-nonideal-flow" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Models for nonideal flow</h1>
-<p>The information provided by RTD functions is essential to know if a reactor has dead zones or bypassing. These situations affect the reactor performance. Thus, the main target is answering the question “How much bypassing or dead volume is acceptable?”</p>
+<div id="models-for-nonideal-flow" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Models for nonideal flow<a href="models-for-nonideal-flow.html#models-for-nonideal-flow" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The information provided by RTD functions is essential to know if a reactor has dead zones or bypassing. These situations affect the reactor performance. Thus, the main target is answering the question “How much bypassing or dead volume is acceptable?”.</p>
 <p>For answering, the chemical engineer needs to calculate the performance of the reactor. Furthermore, to do so, two types of information are required: the flow patterns and the kinetic model.</p>
-<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-2-1.png" width="65%" style="display: block; margin: auto;" /></p>
-<p>The information provided by RTD functions is essential to know if a reactor has dead zones or bypassing. These situations affect the reactor performance. Thus, the main target is answering the question "How much bypassing or dead volume is acceptable?’’.</p>
+<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-1-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>The information provided by RTD functions is essential to know if a reactor has dead zones or bypassing. These situations affect the reactor performance. Thus, the main target is answering the question “How much bypassing or dead volume is acceptable?’’.</p>
 <p>For answering, the chemical engineer needs to calculate the performance of the reactor. Furthermore, to do so, two types of information are required: the flow patterns and the kinetic model.</p>
 <p>The RTD curves found from tracer studies are only partial information on the details of the flow patterns because all that is known is the length of time-specific fractions of the fluid stay in the vessel (macromixing), but neither what of these fractions do while in the vessel nor in what geometric locations they reside, that is, information on micromixing.</p>
-<p>As a result, several mathematical models of reactor performance have been developed to estimate the conversion levels in a nonideal reactor. <span class="citation">(<a href="references.html#ref-hill1977" role="doc-biblioref">C. Jr. Hill 1977</a>)</span></p>
+<p>As a result, several mathematical models of reactor performance have been developed to estimate the conversion levels in a nonideal reactor. <span class="citation">(<a href="#ref-hill1977" role="doc-biblioref">C. Jr. Hill 1977</a>)</span></p>
 <p>The micromixing behavior has two extremes views:</p>
 <ol style="list-style-type: decimal">
 <li>Complete segregation: any fluid element is isolated from all other fluid elements and retains its identity throughout the entire vessel. No micromixing occurs, but macromixing may occur.</li>
 <li>Complete dispersion: fluid elements interact and mix thoroughly at the microscopic level.</li>
 </ol>
-<p>Besides the degree of segregation of fluid elements, another aspect of mixing is the relative time in passage through a vessel at which fluid element mix (‘’earliness’’ of mixing). <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
+<p>Besides the degree of segregation of fluid elements, another aspect of mixing is the relative time in passage through a vessel at which fluid element mix (‘’earliness’’ of mixing). <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
 <p>In general, a mathematical model for nonideal flow in a vessel provides a characterization of mixing and flow behavior. Although it may appear to be an independent alternative to the experimental measurement of RTD, the latter may be required to determine the parameter(s) of the model.</p>
-<p>For that reason, these mathematical models can be classified in function of the number of adjustable parameters. <span class="citation">(<a href="references.html#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span></p>
+<p>For that reason, these mathematical models can be classified in function of the number of adjustable parameters. <span class="citation">(<a href="#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span></p>
 <ol style="list-style-type: decimal">
 <li>Zero adjustable parameters
 <ul>
@@ -255,29 +279,29 @@
 <p>These parameters are correlated as functions of fluid and flow properties, reactor configurations, along with other vital features, and can be used in design calculations.</p>
 <p>Generally speaking, the more adjustable parameters used in a model, the better the correlation between predicted and observed RTD would be. These adjustable parameters are often related to RTD moments and are usually expressed in terms of dimensionless moments about the mean.</p>
 <p>The usual approach is developing a model flow system with the same RTD as the existing system. Provided that the conservation equations can be written for this model system, the performance of the actual vessel can be predicted.</p>
-<div id="zero-adjustable-parameters" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Zero adjustable parameters</h2>
-<div id="segregational-or-macrofluid-model" class="section level3 unnumbered">
-<h3>Segregational or macrofluid model</h3>
+<div id="zero-adjustable-parameters" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Zero adjustable parameters<a href="models-for-nonideal-flow.html#zero-adjustable-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="segregational-or-macrofluid-model" class="section level3 unnumbered hasAnchor">
+<h3>Segregational or macrofluid model<a href="models-for-nonideal-flow.html#segregational-or-macrofluid-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This model represents the micromixing condition of complete segregation (no mixing) of fluid elements, which means that fluid flows through a vessel with no mixing between adjacent fluid elements. The feed enters the reactor as little <em>packets</em> of fluid. Each packet retains its identity as they pass through the vessel; there is no mass exchange between individual packets. However, packets can mix each other in the reactor. Thus those that enter at some time, <em>t</em>, will not all leave at the same time.</p>
-<p>Each packet can be treated as a small ideal batch reactor. A reaction (or reactions) takes place as the tiny packets move through the vessel. The composition of each packet changes while it is flowing through the vessel. However, its final conversion will depend on how long the packet has spent in the vessel. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span>.</p>
-<p>After leaving the reactor, all fluid packets are mixed on a molecular level, and the average composition is measured. This situation is represented in Figure <a href="models-for-nonideal-flow.html#fig:fig004010c">5.1</a>. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004010c"></span>
+<p>Each packet can be treated as a small ideal batch reactor. A reaction (or reactions) takes place as the tiny packets move through the vessel. The composition of each packet changes while it is flowing through the vessel. However, its final conversion will depend on how long the packet has spent in the vessel. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span>.</p>
+<p>After leaving the reactor, all fluid packets are mixed on a molecular level, and the average composition is measured. This situation is represented in Figure <a href="models-for-nonideal-flow.html#fig:fig004010c">5.1</a>. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004010c"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004010c-1.png" alt="Segregational model scheme. [@roberts2009]" width="65%" />
 <p class="caption">
-Figure 5.1: Segregational model scheme. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span>
+Figure 5.1: Segregational model scheme. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span>
 </p>
 </div>
 <p>When the packets are admitted to a CSTR, we can envisage two scenarios that involve perfect mixing: one with perfect mixing at the macroscale and the other with perfect mixing at the microscale, as is shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004010d">5.2</a></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004010d"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004010d"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004010d-1.png" alt="Different levels of mixing in a CSTR: (a) Segregational model, (b) Ideal CSTR model. [@hayes2013]" width="65%" />
 <p class="caption">
-Figure 5.2: Different levels of mixing in a CSTR: (a) Segregational model, (b) Ideal CSTR model. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+Figure 5.2: Different levels of mixing in a CSTR: (a) Segregational model, (b) Ideal CSTR model. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
 </p>
 </div>
 <p>The conversion in a segregated tank reactor can be calculated using the ideal batch reactor equation design and the RTD curve. Each batch reactor has its conversion, which depends on its time in the tank. While the RTD gives information about the mean residence time.</p>
 <p>The initial concentration of reactants in the packet is the same as the inlet concentration of the reactor. While each fluid element (assuming constant density) behaves as a batch reactor, the total reactor conversion is the average conversion of all the fluid elements at the outlet conditions. That is:</p>
-<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>where the summation is over all fluid elements in the reactor exit stream. This equation can be written analytically as:</p>
 <p><span class="math display" id="eq:ec004031">\[\begin{equation}
   \overline{C}_A = \int_0^\infty{C_A(\overline{t})\,\mathbf{E}(t)\,d\overline{t}}
@@ -294,17 +318,17 @@ Figure 5.2: Different levels of mixing in a CSTR: (a) Segregational model, (b) I
 \tag{5.2}
 or in terms of conversions
 <span class="math display" id="eq:ec004033">\[\begin{equation}
-  \overline{X}_A = \int_0^\infty{{\left(X_A(t)\right)}_\text{\footnotesize{element}}\,\mathbf{E}(t)\,dt} 
+  \overline{X}_A = \int_0^\infty{{\left(X_A(t)\right)}_\text{\footnotesize{element}}\,\mathbf{E}(t)\,dt}
 \tag{5.3}
 \end{equation}\]</span></p>
 <p>Introducing the <span class="math inline">\(\mathbf{E}(t)\)</span> curve for CSTR, Equation <a href="models-for-nonideal-flow.html#eq:ec004032">(5.2)</a> becomes,
 <span class="math display">\[\begin{equation*}
-  \frac{\overline{C}_A}{C_{A0}} = \frac{1}{\overline{t}} \int_0^\infty{ \text{e}^{-k\,t}\,\text{e}^{-t/\overline{t}}\,d\,t} = \frac{1}{1 + k\,t} 
- \end{equation*}\]</span></p>
+  \frac{\overline{C}_A}{C_{A0}} = \frac{1}{\overline{t}} \int_0^\infty{ \text{e}^{-k\,t}\,\text{e}^{-t/\overline{t}}\,d\,t} = \frac{1}{1 + k\,t}
+\end{equation*}\]</span></p>
 <p>Now, introducing the <span class="math inline">\(\mathbf{E}(t)\)</span> curve for a PFR,
 <span class="math display">\[\begin{equation*}
   \frac{\overline{C}_A}{C_{A0}} = \frac{1}{\overline{t}} \int_0^\infty{ \text{e}^{-k\,t}\,\delta \left(t - \overline{t}\right)\,d\,t} = \text{e}^{-k\,\overline{t}}
- \end{equation*}\]</span></p>
+\end{equation*}\]</span></p>
 <p>The methodology described above can be used without any flow pattern models at all, in that experimental concentration as a function of residence time and the measured RTD can be directly numerically integrated to predict the conversion in the flow reactor.</p>
 <div class="infobox info">
 <p>The segregational o macrofluid model is essential because it permits reactor behavior to be estimated directly from RTD, <span class="math inline">\(\mathbf{E}(t)\)</span>, and the reaction kinetics. No other information is necessary.</p>
@@ -316,8 +340,8 @@ or in terms of conversions
 <li>If the order of the reaction is less than 1 <span class="math inline">\(\left(n &lt; 1\right)\)</span>, we must drop the reactant concentration as low as possible, which means mix as soon as possible.</li>
 <li>Finally, if the order of the reaction is equal to 1, the order of reactors will not affect the final conversion.</li>
 </ol>
-<p>The macrofluid model represents the latest possible mixing for a given RTD because there is no mixing between fluid elements until the reaction is over. For a reaction with an effective order greater than 1, the macrofluid model represents the <em>best</em> possible situation. It provides an upper bound on conversion. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
-<p>Conversely, for a reaction with a practical order of less than 1, the macrofluid model represents the  possible situation. It provides a lower bound on conversion. In summary,</p>
+<p>The macrofluid model represents the latest possible mixing for a given RTD because there is no mixing between fluid elements until the reaction is over. For a reaction with an effective order greater than 1, the macrofluid model represents the <em>best</em> possible situation. It provides an upper bound on conversion. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>Conversely, for a reaction with a practical order of less than 1, the macrofluid model represents the possible situation. It provides a lower bound on conversion. In summary,</p>
 <table>
 <thead>
 <tr class="header">
@@ -340,12 +364,10 @@ or in terms of conversions
 </tr>
 </tbody>
 </table>
-
 <div class="exercise">
-<p><span id="exr:it004003" class="exercise"><strong>Exercise 5.1  (Calculation of conversion based on RTD)  </strong></span>
-Calculate conversion for a reaction
+<p><span id="exr:it004003" class="exercise"><strong>Exercise 5.1  (Calculation of conversion based on RTD) </strong></span>Calculate conversion for a reaction
 <span class="math display">\[\begin{equation*}
-A \rightarrow B 
+A \rightarrow B
 \end{equation*}\]</span></p>
 <p>for a given RTD and segregation model.</p>
 <table>
@@ -396,14 +418,14 @@ A \rightarrow B
 </tr>
 </tbody>
 </table>
-<span class="math display">\[\begin{equation*}
+<p><span class="math display">\[\begin{equation*}
   r_A = - k\,C_A; \quad k = 0.1 \text{ min}^{-1}
-\end{equation*}\]</span>
+\end{equation*}\]</span></p>
 </div>
 <p><em>Solution</em></p>
 <p>The solution in a Python script is available at <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_024RTDconversion.ipynb">link</a>.</p>
 <p>From data problem, the RTD is shown on the left size of Figure <a href="models-for-nonideal-flow.html#fig:fig004011">5.3</a></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004011"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004011"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004011-1.png" alt="Graphical solution for the problem. Left: E(t) curve, Right: Fractional conversion curve." width="65%" />
 <p class="caption">
 Figure 5.3: Graphical solution for the problem. Left: E(t) curve, Right: Fractional conversion curve.
@@ -416,25 +438,25 @@ Figure 5.3: Graphical solution for the problem. Left: E(t) curve, Right: Fractio
 The profile of conversion is plotted right size of Figure <a href="models-for-nonideal-flow.html#fig:fig004011">5.3</a></p>
 <p>Finally, the mean conversion is estimated by Eq. <a href="models-for-nonideal-flow.html#eq:ec004033">(5.3)</a>
 <span class="math display">\[\begin{equation*}
-  \overline{X}_i = \int_0^\infty {\left[1 - \exp(-k\,t) \right]\,\mathbf{E}(t)\,dt} = 0.3871 
+  \overline{X}_i = \int_0^\infty {\left[1 - \exp(-k\,t) \right]\,\mathbf{E}(t)\,dt} = 0.3871
 \end{equation*}\]</span></p>
 </div>
-<div id="maximum-mixedness-model-mmm" class="section level3 unnumbered">
-<h3>Maximum Mixedness Model (MMM)</h3>
+<div id="maximum-mixedness-model-mmm" class="section level3 unnumbered hasAnchor">
+<h3>Maximum Mixedness Model (MMM)<a href="models-for-nonideal-flow.html#maximum-mixedness-model-mmm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The MMM for a reactor represents the micromixing condition of complete dispersion, where fluid elements are entirely mixed at the molecular level, which is the opposite extreme of the segregational model.</p>
 <p>The MMM considers that the fluid packages of different residence times are mixed as early as possible in the flow system consistent with the observed RTD. For this reason, this model is also called <strong><em>Early mixing model</em></strong>.</p>
 <p>This behavior can be modeled using a PFR with inlet side streams, as shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004010e">5.4</a>. The feed flow rate is distributed among the side streams in such a way as to match the required RTD function. It can be seen that in this arrangement, fluid entering the reactor in a given side stream, which has a residence time of zero, will mix radially with the fluid already present in the reactor completely.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004010e"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004010e"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004010e-1.png" alt="Scheme for modeling of maximum mixedness model. [@hayes2013]" width="55%" />
 <p class="caption">
-Figure 5.4: Scheme for modeling of maximum mixedness model. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+Figure 5.4: Scheme for modeling of maximum mixedness model. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
 </p>
 </div>
 <p>The conversion in a MM model can be calculated by performing a mole balance that considers all side streams. First, it is necessary to define an alternative variable, <span class="math inline">\(\lambda\)</span>, defined as the residence time remaining for an entering particle. All particles at a given <span class="math inline">\(\lambda\)</span> have the same time left in the reactor but may have different ages.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004010f"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004010f"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004010f-1.png" alt="Control volume used to develop the mole balance for the maximum mixedness. [@hayes2013]" width="55%" />
 <p class="caption">
-Figure 5.5: Control volume used to develop the mole balance for the maximum mixedness. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+Figure 5.5: Control volume used to develop the mole balance for the maximum mixedness. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
 </p>
 </div>
 <p>The concentration at the reactor outlet can be derived from mole balance equation. Take a small control volume of the reactor, as show in Figure <a href="models-for-nonideal-flow.html#fig:fig004010f">5.5</a>. The mole balance over the discrete volumen element is
@@ -501,26 +523,26 @@ or
 \end{equation}\]</span></p>
 <p>Equation <a href="models-for-nonideal-flow.html#eq:ec004033j">(5.13)</a> is solved to determine the concentration at the reactor outlet. The equation usually requires a numerical solution. An initial condition is also required. In this case, the boundary condition is as <span class="math inline">\(\lambda \to \infty\)</span>, then <span class="math inline">\(C_A = C_{A0}\)</span>.</p>
 <p>Despite this model, it may be impossible to determine the amount of mixing in a reactor and hence obtain an exact prediction of conversion, but it could be helpful to determine the bounds on the expected conversion. This bounding may be represented by the diagram shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004010g">5.6</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004010g"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004010g"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004010g-1.png" alt="The bounding of the micro- and macromixing regions. [@hayes2013]" width="55%" />
 <p class="caption">
-Figure 5.6: The bounding of the micro- and macromixing regions. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+Figure 5.6: The bounding of the micro- and macromixing regions. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
 </p>
 </div>
 <p>The horizontal axis represents the extent of macromixing as defined by the RTD. The vertical axis represents the amount of micromixing, which may vary from zero to perfect mixing. A PFR is always a segregated flow reactor, while a CSTR can vary between perfect mixing and segregated flow.</p>
 </div>
 </div>
-<div id="one-adjustable-parameter" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> One adjustable parameter</h2>
+<div id="one-adjustable-parameter" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> One adjustable parameter<a href="models-for-nonideal-flow.html#one-adjustable-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For a first-order reaction or the flow-pattern fluid can be modeled as complete segregation or maximum mixedness, the zero-adjustable parameter models are enough to predict the conversion. However, for non-first-order reactions over fluids with good micromixing, more than just the RTD is needed.</p>
 <p>A model of reactor flow patterns is necessary to predict the conversions and product distribution for such systems. We use combinations or modifications of ideal reactors to represent actual reactors to model these patterns.</p>
 <p>However, in this course, we are dealing with two of them that are most common, each of which has one adjustable parameter: The first one is <em>the tanks-in-series model</em> and the second is <em>the dispersion model</em> which are widely used.</p>
 <p>In principle, both models can represent the flow pattern in a single vessel between the two extreme ideal models: CSTR and PFR. Additionally, they are roughly equivalent and could be applied to turbulent flow in pipes, laminar flow in very long tubes, flow in a packed bed, etc. However, the dispersion model is mainly used in catalytic reactions carried out within tubular reactors.</p>
-<div id="the-tanks-in-series-model" class="section level3 unnumbered">
-<h3>The Tanks-in-Series Model</h3>
+<div id="the-tanks-in-series-model" class="section level3 unnumbered hasAnchor">
+<h3>The Tanks-in-Series Model<a href="models-for-nonideal-flow.html#the-tanks-in-series-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The tank-in-series (TIS) model for arbitrary flow through a vessel assumes that it can be represented by flow through a series of <em>N</em> equal-sized ideal CSTRs, where <em>N</em> is the adjustable parameter of the model and describes the degree of mixing in the vessel.</p>
 <p>The value of <span class="math inline">\(N\)</span> is tailored to match an observed or expected RTD. As <span class="math inline">\(N\)</span> increases from 1 to <span class="math inline">\(\infty\)</span>, the flow represented in the vessel varies from back mix flow to plug flow. For practical purposes, a plug flow is virtually achieved for <span class="math inline">\(N&gt;30\)</span>.</p>
-<p>The volume of the vessel modeled, <span class="math inline">\(V\)</span>, is equal to the sum of the volumes of the <span class="math inline">\(N\)</span> tanks. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
+<p>The volume of the vessel modeled, <span class="math inline">\(V\)</span>, is equal to the sum of the volumes of the <span class="math inline">\(N\)</span> tanks. <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
 <span class="math display">\[\begin{equation*}
   V = \sum N\,V_i
 \end{equation*}\]</span></p>
@@ -542,7 +564,7 @@ where <span class="math inline">\(\overline{t_i}\)</span> is the mean residence 
 C_2(t) = C_0\,\frac{t}{\overline{t_2}}\,\exp{\left(-\frac{t}{\overline{t_2}}\right)}
 \tag{5.17}
 \end{equation}\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004012"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004012"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004012-1.png" alt="The tanks-in-series model uses a number of equally sized CSTRs placed in series" width="55%" />
 <p class="caption">
 Figure 5.7: The tanks-in-series model uses a number of equally sized CSTRs placed in series
@@ -570,7 +592,7 @@ taking into account that <span class="math inline">\(\overline{t} = N \: \overli
 where, again, <span class="math inline">\(\theta = t/\overline{t}\)</span>.</p>
 <p>Figure <a href="models-for-nonideal-flow.html#fig:fig004013">5.8</a> illustrates the RTDs of various numbers of CSTRs in series. As <span class="math inline">\(N\)</span> increases from 1, the spread of distribution decreases. Furthermore, when <span class="math inline">\(N&gt;2\)</span>, the peak would be an infinitive height (behavior of a PFR).</p>
 <p>The mathematical illustration is available on the following <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_025in-tank-serie.ipynb">link</a></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004013"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004013"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004013-1.png" alt="E(theta) curve using the tanks-in-series model" width="65%" />
 <p class="caption">
 Figure 5.8: E(theta) curve using the tanks-in-series model
@@ -587,7 +609,7 @@ The integral in equation <a href="models-for-nonideal-flow.html#eq:ec004041a">(5
 \tag{5.22}
 \end{equation}\]</span></p>
 <p>The result for equation <a href="models-for-nonideal-flow.html#eq:ec004041a">(5.21)</a> is shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004014">5.9</a> for several values of <span class="math inline">\(N\)</span>. For <span class="math inline">\(N=1\)</span>, the result is that for a single CSTR, as <span class="math inline">\(N\)</span> increases, the shape becomes more like a step function, corresponding to a plug-flow.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004014"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004014"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004014-1.png" alt="F(theta) curve using the tanks-in-series model" width="65%" />
 <p class="caption">
 Figure 5.9: F(theta) curve using the tanks-in-series model
@@ -609,9 +631,8 @@ The variance of the RTD is seen to be equal to the inverse of the number of tank
 <span class="math display">\[\begin{equation*}
   N = \frac{1}{\sigma_{\theta}^2} = \frac{\overline{t}^{ 2}}{\sigma^2}
 \end{equation*}\]</span></p>
-
 <div class="exercise">
-<p><span id="exr:it004004" class="exercise"><strong>Exercise 5.2  (Estimate number of tanks based in Tanks-in-serie model)  </strong></span>A step increase in the inlet trace A concentration, from 1.0 to 2.0 mmol/L, was used to determine the mixing pattern inside the fluidized-bed reactor. The response data were as follows:</p>
+<p><span id="exr:it004004" class="exercise"><strong>Exercise 5.2  (Estimate number of tanks based in Tanks-in-serie model) </strong></span>A step increase in the inlet trace A concentration, from 1.0 to 2.0 mmol/L, was used to determine the mixing pattern inside the fluidized-bed reactor. The response data were as follows:</p>
 <table>
 <thead>
 <tr class="header">
@@ -660,23 +681,23 @@ The variance of the RTD is seen to be equal to the inverse of the number of tank
 <p>The solution is available on the next <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_026numberofTanks.ipynb">link</a></p>
 <p>For each scenario, the equation <a href="models-for-nonideal-flow.html#eq:ec004041b">(5.22)</a> was applied to calculate the estimated <span class="math inline">\(\mathbf{F}(t)\)</span>, then based on Eq. <a href="distribution-of-residence-times.html#eq:ec004022">(3.24)</a>, the output tracer concentration, <span class="math inline">\(C_{out}(t)\)</span>, may be calculated from <span class="math inline">\(\mathbf{F}(t)\)</span>.</p>
 <p>Figure <a href="models-for-nonideal-flow.html#fig:fig004015">5.10</a> shows the results of E(t) curve based on several numrical tecniques. On the other hand, Figure <a href="models-for-nonideal-flow.html#fig:fig004016">5.11</a> shows the values of <span class="math inline">\(C_{out}(t)\)</span> predicted using forward and central differencing technique, and based on a curve fitting approach. The last one provides a superior representation of the experimental data.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004015"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004015"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004015-1.png" alt="E(t) curves obtained based on several numerical tecniques applied to the tanks-in-series model" width="75%" />
 <p class="caption">
 Figure 5.10: E(t) curves obtained based on several numerical tecniques applied to the tanks-in-series model
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:fig004016"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004016"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004016-1.png" alt="Selection of the best technique for the tanks-in-series model" width="65%" />
 <p class="caption">
 Figure 5.11: Selection of the best technique for the tanks-in-series model
 </p>
 </div>
 </div>
-<div id="the-dispersion-model" class="section level3 unnumbered">
-<h3>The Dispersion Model</h3>
+<div id="the-dispersion-model" class="section level3 unnumbered hasAnchor">
+<h3>The Dispersion Model<a href="models-for-nonideal-flow.html#the-dispersion-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The dispersion model describes nonideal tubular reactors based on the assumption that exists an axial dispersion of the material, governed by Fick’s law diffusion-like, superimposed on the flow.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004017"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004017"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004017-1.png" alt="The dispersion model" width="55%" />
 <p class="caption">
 Figure 5.12: The dispersion model
@@ -689,14 +710,14 @@ Figure 5.12: The dispersion model
 \end{equation*}\]</span>
 where <span class="math inline">\(C_T(x,t)\)</span> is the concentration of <span class="math inline">\(T\)</span>.</p>
 <p>Consider a material balance for <span class="math inline">\(T\)</span> around the differential control volume shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004018">5.13</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004018"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004018"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004018-1.png" alt="Control volume for continuity equation for axial dispersion" width="55%" />
 <p class="caption">
 Figure 5.13: Control volume for continuity equation for axial dispersion
 </p>
 </div>
 <p>We assume steady flow overall, but not for tracer (<span class="math inline">\(T\)</span>); there is no place.</p>
-<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-4-1.png" width="75%" /></p>
+<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-3-1.png" width="75%" /></p>
 <p>Under those assumptions, with <span class="math inline">\(C_T \equiv C_T(x,t)\)</span>, <span class="math inline">\(A_c\)</span> and <span class="math inline">\(D_L\)</span> constant, for the transient flow of a non-reacting tracer, the mole balance equation is</p>
 <p><span class="math display" id="eq:ec004042">\[\begin{equation}
   A_c\,\nu\,C_T - D_L\,A_c\,\frac{\partial C_T}{\partial x} - A_c\left[\nu C_T + \frac{\partial \left(\nu\,C_T\right)}{\partial x}\right] + D_L\,A_c\left[\frac{\partial C_T}{\partial x} + \frac{\partial}{\partial x} \left(\frac{\partial C_T}{\partial x}\right)\,dx\right] = A_c\,\frac{\partial C_T}{\partial t}\,dx
@@ -715,33 +736,33 @@ If we know the boundary conditions of the problem, solving this equation, we get
 \end{equation*}\]</span>
 Here <span class="math inline">\(C_0\)</span> is usually taken as the maximum concentration in the system.</p>
 <p><span class="math display" id="eq:ec004044">\[\begin{equation}
-\frac{\partial C^\ast}{\partial \theta} = \left(\frac{D_L}{\nu \, L}\right) \frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z} 
+\frac{\partial C^\ast}{\partial \theta} = \left(\frac{D_L}{\nu \, L}\right) \frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z}
 \tag{5.25}
 \end{equation}\]</span></p>
 <p>and <span class="math inline">\(D_L/(\nu\,L)\)</span> is named the dispersion number, when
 <span class="math display">\[\begin{align*}
 &amp;\frac{D_L}{\nu\,L} \to 0  &amp;&amp; \rightarrow &amp;&amp;\quad \text{large dispersion, hence well-mixed flow} &amp;&amp;\\
 &amp;\frac{D_L}{\nu\,L} \to \infty &amp;&amp; \rightarrow &amp;&amp;\quad \text{negligible dispersion, hence plug flow}&amp;&amp;
- \end{align*}\]</span></p>
+\end{align*}\]</span></p>
 <p>We also have a dimensionless group, denoted <em>Pe</em>, which is called <strong>Peclet number</strong> based on vessel length. The physical interpretation is that it represents the ratio of convective flux to diffusive flux:
 <span class="math display">\[\begin{equation*}
    \text{Pe} = \frac{\nu\,L}{D_L} \equiv \frac{\nu\,C_T}{D_L(C_T/L)} = \frac{\text{rate of transport by convection}}{\text{rate of transport by diffusion or dispersion}}
- \end{equation*}\]</span></p>
+\end{equation*}\]</span></p>
 <p>So, we see that
 <span class="math display" id="eq:ec004045">\[\begin{equation}
-\frac{\partial C^\ast}{\partial \theta} = \frac{1}{\text{Pe}}\frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z} 
+\frac{\partial C^\ast}{\partial \theta} = \frac{1}{\text{Pe}}\frac{\partial ^2 C^\ast}{\partial z^2} -\frac{\partial C^\ast}{\partial z}
 \tag{5.26}
 \end{equation}\]</span></p>
 <p>Now, the results of solutions of Eq. <a href="models-for-nonideal-flow.html#eq:ec004045">(5.26)</a> will depend on the choice of boundary conditions at inlet <span class="math inline">\((z = 0)\)</span> and outlet <span class="math inline">\((z = 1)\)</span>. There are several possibilities concerning ‘’closed’’ and ‘’open’’ vessels, which do not necessarily satisfy actual positions.</p>
 <p>When the flow is undisturbed as it passes the entrance and exit boundaries, we will call this the <strong>open boundary condition</strong>. While, when we have plug flow outside the vessel up to the boundaries, we call this the <strong>closed boundary condition</strong>. There are up to four combinations of boundaries, closed-closed, open-open, or mixed, based on previous conditions. Figure <a href="models-for-nonideal-flow.html#fig:fig004020">5.14</a> illustrates the closed and open extremes.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004020"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004020"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004020-1.png" alt="Boundary conditions used with dispersion model" width="65%" />
 <p class="caption">
 Figure 5.14: Boundary conditions used with dispersion model
 </p>
 </div>
 <p>For closed vessels, the flow conditions are illustrated schematically in Figure <a href="models-for-nonideal-flow.html#fig:fig004021">5.15</a>. <span class="math inline">\(D_L=0\)</span>, or <span class="math inline">\(Pe=\infty\)</span> characterizes a plug-flow upstream of the vessel inlet. Since flow inside the vessel is dispersed, and the pulse injection is at inlet <span class="math inline">\((z=0)\)</span>, will have a <span class="math inline">\(C_T\)</span> discontinuity across the inlet. In contrast, a continuity on CT across the outlet <span class="math inline">\((z=1)\)</span> is usually assumed, even though downstream flow <span class="math inline">\((z&gt;1)\)</span> is plug-flow.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004021"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004021"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004021-1.png" alt="Flow conditions for closed-closed vessel" width="65%" />
 <p class="caption">
 Figure 5.15: Flow conditions for closed-closed vessel
@@ -765,12 +786,12 @@ Additionally, the system requires an initial condition:
    \overline{\theta} = 1 \\
    \sigma_\theta^2 = \frac{2}{\text{Pe}^2}\left(\text{Pe}-1+\exp(-\text{Pe})\right)
    \tag{5.29}
- \end{gather}\]</span>
+\end{gather}\]</span>
 An approximate closed form solutions for Pe &gt; 50:
 <span class="math display">\[\begin{gather*}
    \mathbf{F}(\theta) = \frac{1}{2} \left[1 - \text{erf}\left(\frac{1-\theta}{\sqrt{\theta}}\sqrt{\frac{\text{Pe}}{4}}\right)\right] \\
    \mathbf{E}(\theta) = \frac{\exp\left(-\text{Pe}(1-\theta^2)/4\right)}{\sqrt{4\,\pi/\text{Pe}}}
- \end{gather*}\]</span>
+\end{gather*}\]</span>
 where <span class="math inline">\(\text{erf}\)</span> is the error function.</p>
 <p>As a practical matter, these mathematical complexities should probably not be taken too literally since the precise conditions at the boundaries of actual equipment cannot usually be precisely defined in any event.</p>
 <p><strong>Where to get the dispersion coefficient?</strong></p>
@@ -785,18 +806,17 @@ where <span class="math inline">\(\text{erf}\)</span> is the error function.</p>
 <li><strong>Calculation from correlations</strong>.
 <span class="math display">\[\begin{align*}
   &amp; \frac{1}{\text{Pe}_R} = \frac{1}{Re \cdot Sc} + \frac{Re \cdot Sc}{192} &amp;&amp; \text{ For } 1&lt;Re&lt; 2000 \text{ and } 0.23 &lt; Sc &lt; 1000\\
-  &amp; \frac{1}{\text{Pe}_R} = \frac{3\cdot 10^7}{Re^{2.1}} + \frac{1.35}{Re^{1/8}} &amp;&amp; \text{ For } Re &gt; 2000 
+  &amp; \frac{1}{\text{Pe}_R} = \frac{3\cdot 10^7}{Re^{2.1}} + \frac{1.35}{Re^{1/8}} &amp;&amp; \text{ For } Re &gt; 2000
 \end{align*}\]</span>
 where</li>
 </ol>
 <p><span class="math display">\[\begin{align*}
- &amp;\text{Pe}_R = \frac{wd}{D}        &amp;&amp;:  \text{Peclet number in tube} &amp;&amp;\quad \\
- &amp;Re  = \frac{wd}{\nu}      &amp;&amp;:\text{Reynolds number} &amp;&amp;\quad \\
- &amp;Sc = \frac{\nu}{D_m}      &amp;&amp;:  \text{Schmidt number} &amp;&amp;\quad
+&amp;\text{Pe}_R = \frac{wd}{D}        &amp;&amp;:  \text{Peclet number in tube} &amp;&amp;\quad \\
+&amp;Re  = \frac{wd}{\nu}      &amp;&amp;:\text{Reynolds number} &amp;&amp;\quad \\
+&amp;Sc = \frac{\nu}{D_m}      &amp;&amp;:  \text{Schmidt number} &amp;&amp;\quad
 \end{align*}\]</span></p>
-
 <div class="exercise">
-<p><span id="exr:it004005" class="exercise"><strong>Exercise 5.3  (Comparison in conversion calculation for a non-ideal flow reactor)  </strong></span>For a reaction</p>
+<p><span id="exr:it004005" class="exercise"><strong>Exercise 5.3  (Comparison in conversion calculation for a non-ideal flow reactor) </strong></span>For a reaction</p>
 <p><span class="math display">\[\begin{equation}
 A \rightarrow B; \qquad    r_A = -k\,C_A; \quad k = 0.25 \text{ min}^{-1}
 \end{equation}\]</span></p>
@@ -903,14 +923,35 @@ Then the conversion is
 3. Predictions of conversion and effluent concentrations.</p>
 </div>
 <p>We have studied models of several simple, partially mixed reactors. These are shown in Figure <a href="models-for-nonideal-flow.html#fig:fig004022">5.16</a> for increasing back mixing.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004022"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004022"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004022-1.png" alt="Residence time distributions for the nonideal reactors. [@schmidt1998]" width="65%" />
 <p class="caption">
-Figure 5.16: Residence time distributions for the nonideal reactors. <span class="citation">(<a href="references.html#ref-schmidt1998" role="doc-biblioref">Schmidt 1998</a>)</span>
+Figure 5.16: Residence time distributions for the nonideal reactors. <span class="citation">(<a href="#ref-schmidt1998" role="doc-biblioref">Schmidt 1998</a>)</span>
 </p>
 </div>
 
 </div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-fogler2008" class="csl-entry">
+Fogler, H. Scott. 2008. <em>Elementos de Ingenier<span>ı́</span>a de Las Reacciones Qu<span>ı́</span>micas</em>. 4ta ed. Pearson Prentice Hall.
+</div>
+<div id="ref-hayes2013" class="csl-entry">
+Hayes, R. E., and J. P. Mmbaga. 2013. <em>Introduction to Chemical Reactor Analysis</em>. 2nd ed. CRC Press.
+</div>
+<div id="ref-hill1977" class="csl-entry">
+Hill, C. Jr. 1977. <em>An Introduction to Chemical Engineering Kinetics &amp; Reactor Design</em>. USA: John Wiley &amp; Sons.
+</div>
+<div id="ref-missen1999" class="csl-entry">
+Missen, Ronald, Charles Mims, and Saville. Bradley. 1999. <em>Introduction to Chemical Reaction Engineering and Kinetics</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-roberts2009" class="csl-entry">
+Roberts, George. 2009. <em>Chemical Reactions and Chemical Reactors</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-schmidt1998" class="csl-entry">
+Schmidt, Lanny. 1998. <em>The Engineering of Chemical Reactors</em>. Oxford University Press.
 </div>
 </div>
             </section>
@@ -923,7 +964,6 @@ Figure 5.16: Residence time distributions for the nonideal reactors. <span class
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -942,6 +982,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -962,6 +1003,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ebook_notes_5314.pdf", "ebook_notes_5314.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -975,7 +1020,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

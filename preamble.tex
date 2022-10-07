@@ -1,12 +1,36 @@
 \usepackage{booktabs}
+\usepackage{geometry}%[showframes]
+%\geometry{paperwidth=170mm, paperheight=240mm, left=42pt, top=40pt, textwidth=280pt, marginparsep=20pt, marginparwidth=100pt, textheight=560pt, footskip=40pt}
+%\geometry{letterpaper,margin=2.25cm}
 \usepackage{amsthm}
 \usepackage{amsmath,amssymb,amsfonts}
+\usepackage{fontspec, xltxtra, xunicode} % Habilita el uso de cualquier fuente
+\usepackage{microtype} % Mejora la presentacion de las fuentes
+\usepackage[colorlinks=true, pdfborder={0 0 0}]{hyperref}
+\usepackage{tcolorbox}  % Para los text-box con colores
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{chemfig}
+\usepackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
 \makeatletter
 \def\thm@space@setup{%
   \thm@preskip=8pt plus 2pt minus 4pt
   \thm@postskip=\thm@preskip
 }
 \makeatother
+\definecolor{ocre}{RGB}{52,177,201}
+\newenvironment{blackbox}{\par\vspace{10pt}% Vertical white space above the remark and normal font size
+    \begin{list}{}{
+            \leftmargin=35pt % Indentation on the left
+            \rightmargin=25pt}\item\ignorespaces % Indentation on the right
+              \makebox[-2.5pt]{\begin{tikzpicture}[overlay]
+                      \node[draw=ocre!60,line width=1pt,circle,fill=ocre!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,0pt){\textcolor{ocre}{R}};\end{tikzpicture}} % Orange R in a circle
+              \advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
+              
+\newenvironment{infobox}{\par\vspace{10pt}% Vertical white space above the remark and normal font size
+    \begin{list}{}{
+            \leftmargin=35pt % Indentation on the left
+            \rightmargin=25pt}\item\ignorespaces % Indentation on the right
+              \makebox[-2.5pt]{\begin{tikzpicture}[overlay]
+                      \node[draw=ocre!60,line width=1pt,circle,fill=ocre!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,0pt){\textcolor{ocre}{R}};\end{tikzpicture}} % Orange R in a circle
+              \advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Ideal Chemical Reactor Design | Notes for CHE5314 course @ UCV</title>
   <meta name="description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Ideal Chemical Reactor Design | Notes for CHE5314 course @ UCV" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-05-10" />
+<meta name="date" content="2022-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="distribution-of-residence-times.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,34 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -219,25 +243,25 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ideal-chemical-reactor-design" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Ideal Chemical Reactor Design</h1>
+<div id="ideal-chemical-reactor-design" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Ideal Chemical Reactor Design<a href="ideal-chemical-reactor-design.html#ideal-chemical-reactor-design" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Process design has to do with specific matters relating to the process itself, in our cases, such as operation conditions, size, configuration, and operation mode of the reactor.</p>
-<div class="figure" style="text-align: center"><span id="fig:mindmap"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mindmap"></span>
 <img src="ebook_notes_5314_files/figure-html/mindmap-1.png" alt="Conceptual Map of Chemical Reactor Design" width="80%" />
 <p class="caption">
 Figure 2.1: Conceptual Map of Chemical Reactor Design
 </p>
 </div>
 <p>In this course, we will focus on the phenomena taking place in basic reactor types.</p>
-<p>The phenomena occurring in a reactor may be broken down into reaction, mass, heat, and momentum transfer. Therefore, reactors’ modeling and design are based on the reaction rate equation, the continuity, energy, and momentum equations. The modeling and design of reactors are based on the equations describing these phenomena: the reaction rate equation and the continuity, energy, and momentum equations <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span>.</p>
+<p>The phenomena occurring in a reactor may be broken down into reaction, mass, heat, and momentum transfer. Therefore, reactors’ modeling and design are based on the reaction rate equation, the continuity, energy, and momentum equations. The modeling and design of reactors are based on the equations describing these phenomena: the reaction rate equation and the continuity, energy, and momentum equations <span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span>.</p>
 <p>Additionally, we will study two situations (1) the design of a new chemical reactor for a new process, (2) the analysis of the performance of an existing reactor for a current process. In many cases, as chemical engineers, we must consider several items shown in figure <a href="ideal-chemical-reactor-design.html#fig:mindmap">2.1</a> when starts the design or analysis of a reactor.</p>
-<div id="fundamental-balances" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Fundamental Balances</h2>
-<div id="material-balance" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Material Balance</h3>
+<div id="fundamental-balances" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Fundamental Balances<a href="ideal-chemical-reactor-design.html#fundamental-balances" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="material-balance" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Material Balance<a href="ideal-chemical-reactor-design.html#material-balance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As a chemical engineer, our main modeling tools are the material balance and energy balance. We should remember two aspects: the material balance of a reactor must consider the rate at which species are converted from one chemical form to another and the rate at which energy is transformed by the process.</p>
 <p>We will perform a mole balance on species <span class="math inline">\(j\)</span> in a system volume, where <span class="math inline">\(j\)</span> represents the particular chemical species of interest.</p>
-<div class="figure" style="text-align: center"><span id="fig:arbitrarysystem"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arbitrarysystem"></span>
 <img src="ebook_notes_5314_files/figure-html/arbitrarysystem-1.png" alt="System volume scheme" width="30%" />
 <p class="caption">
 Figure 2.2: System volume scheme
@@ -245,7 +269,7 @@ Figure 2.2: System volume scheme
 </div>
 <p>Based on figure <a href="ideal-chemical-reactor-design.html#fig:arbitrarysystem">2.2</a>, the mole balance expressed in mole/time would be</p>
 <p><span class="math display" id="eq:continuidad">\[\begin{equation}
- F_{j0}  +  G_j   - {F_j } =  \frac{dN_j}{dt}
+F_{j0}  +  G_j   - {F_j } =  \frac{dN_j}{dt}
 \tag{2.1}
 \end{equation}\]</span>
 where <span class="math inline">\(F_{j0}\)</span> is rate flow in <span class="math inline">\(j\)</span>, <span class="math inline">\(G_j\)</span> is the generation rate of <span class="math inline">\(j\)</span> by chemical reaction, <span class="math inline">\(F_{j}\)</span> is rate flow out <span class="math inline">\(j\)</span>, and <span class="math inline">\(dN_j/dt\)</span> means accumulation rate of <span class="math inline">\(j\)</span>.</p>
@@ -261,14 +285,14 @@ where <span class="math inline">\(F_{j0}\)</span> is rate flow in <span class="m
 <p>In a plug flow reactor, all fluids elements move with equal velocity along parallel streamlines. The plug flow is the only mechanism for mass transport, and there is no mixing between fluid elements. The reaction leads to a concentration gradient in the axial flow direction.</p>
 <p>Reactors with complete mixing may be subdivided into batch and continuous types. In batch-reactor types with complete mixing, the composition is uniform throughout the reactor. Consequently, the continuity equations may be written for the entire contents, not over a volume element. As the bulk composition varies with time, a first-order ordinary differential equation is obtained, with time as a variable. The form of this equation is analogous to that for the plug flow case.</p>
 <p>In the continuous flow type, an element of the entering fluid is instantaneously mixed with the reactor’s contents so that it loses its identity. This type also operates at a constant concentration level. In the steady-state, the continuity equations are algebraic.</p>
-<p>Both types of continuous reactors considered are idealized conceptual cases. They are important cases because they are easy to calculate and give the extreme values of the conversions between those realized in a real reactor. With its intermediate level of mixing, the design of a real reactor requires information about this mixing.<span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p>Both types of continuous reactors considered are idealized conceptual cases. They are important cases because they are easy to calculate and give the extreme values of the conversions between those realized in a real reactor. With its intermediate level of mixing, the design of a real reactor requires information about this mixing.<span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
 </div>
-<div id="energy-balance" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Energy Balance</h3>
+<div id="energy-balance" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Energy Balance<a href="ideal-chemical-reactor-design.html#energy-balance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The real chemical reactors are almost operated under nonisothermal conditions because reactions generate or absorb large amounts of heat. Detailed reactor sizing and analysis require the energy balance to be solved in conjunction with one or more material balances.</p>
 <p>For a generic open system, the energy balance is:
 <span class="math display">\[\begin{equation*}
- Q -  {W_s} + \dot{H}_\text{in} - \dot{H}_\text{out}  =  \frac{dE}{dt}
+Q -  {W_s} + \dot{H}_\text{in} - \dot{H}_\text{out}  =  \frac{dE}{dt}
 \end{equation*}\]</span></p>
 <p>The terms in energy balances have the following meanings:</p>
 <ul>
@@ -283,11 +307,11 @@ where <span class="math inline">\(F_{j0}\)</span> is rate flow in <span class="m
 \frac{dU}{dt}= Q - W_s + \dot{H}_{\text{in}} - \dot{H}_\text{out}
   \tag{2.3}
 \end{equation}\]</span></p>
-<p>For single reactors, the inlet and outlet molar flow are related through the extents of reaction (<span class="math inline">\(\xi\)</span>). If “<span class="math inline">\(R\)</span>” independent reactions occur, and if the extents of reaction are zero in the stream that enters the reactor.<span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>For single reactors, the inlet and outlet molar flow are related through the extents of reaction (<span class="math inline">\(\xi\)</span>). If “<span class="math inline">\(R\)</span>” independent reactions occur, and if the extents of reaction are zero in the stream that enters the reactor.<span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p><span class="math display">\[\begin{equation*}
   F_i - F_{i0} = {\sum}_{j=1}^{R} \nu_{j,i}\,\xi_j
 \end{equation*}\]</span>
-where <span class="math inline">\(\nu_{j,i}\)</span> refers to stoichiometric coefficient of the component  in the reaction .</p>
+where <span class="math inline">\(\nu_{j,i}\)</span> refers to stoichiometric coefficient of the component in the reaction .</p>
 <p>Therefore,
 <span class="math display">\[\begin{equation*}
 \dot{H}_{\text{in}} - \dot{H}_{\text{out}} = \sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{H}_{i0} - {{\sum_{i=1}^\mathcal{C}}} \left(F_{i0} + \sum_{j=1}^{R} \nu_{j,i}\,\xi_j\right)\,\overline{H}_i
@@ -312,15 +336,15 @@ where, <span class="math inline">\(T_0\)</span> is the temperature of the inlet 
 \frac{dU}{dt}= Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) - {\sum_{j=1}^R} \xi_j\,\Delta H_{R,j}(T)
 \tag{2.4}
 \end{equation}\]</span></p>
-<p>Equation <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> is the energy balance for a whole reactor in which multiple reactions are taken place. In this equation, the term <span class="math inline">\(\left(\sum F_{i0}\,\int{C_{P_i}\,dT}\right)\)</span> represents the rate of sensible heat, and it is usually written on a <strong>molar</strong> basis. The term <span class="math inline">\(\sum \xi_j\,\Delta H_{R,j}(T)\)</span>), means the heat rate (generated or consumed) related to the reaction.<span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>Equation <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> is the energy balance for a whole reactor in which multiple reactions are taken place. In this equation, the term <span class="math inline">\(\left(\sum F_{i0}\,\int{C_{P_i}\,dT}\right)\)</span> represents the rate of sensible heat, and it is usually written on a <strong>molar</strong> basis. The term <span class="math inline">\(\sum \xi_j\,\Delta H_{R,j}(T)\)</span>), means the heat rate (generated or consumed) related to the reaction.<span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p>If only one reaction is taking place, eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> can be written in terms of the fractional conversion. For a single reaction, where <span class="math inline">\(A\)</span> is a reactant,
 <span class="math display">\[\begin{equation*}
   \xi = - \frac{F_{A0} - F_A}{\nu_A} = - \frac{F_{A0}\,X_A}{\nu_A}
 \end{equation*}\]</span></p>
-<p>Substituting this relationship into eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> and assuming steady-state condition gives <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>Substituting this relationship into eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> and assuming steady-state condition gives <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p><span class="math display" id="eq:energybalb">\[\begin{equation}
- Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) + F_{A0}\,X_A\,\frac{\Delta H_{R}(T)}{\nu_A} = 0
- \tag{2.5}
+Q - W_s - \sum\limits_{i=1}^\mathcal{C} \left(F_{i0}\,\int_{T_0}^{T} {C_{P_i}\,dT}\right) + F_{A0}\,X_A\,\frac{\Delta H_{R}(T)}{\nu_A} = 0
+\tag{2.5}
 \end{equation}\]</span>
 or
 <span class="math display">\[\begin{equation*}
@@ -333,25 +357,25 @@ i.e., the units of <span class="math inline">\(\Delta H_R\)</span> must be energ
 <p>The form of the energy balance results from considerations closely related to those for different continuity equations. When the mixing is so intense that the concentration is uniform over the reactor, it may be accepted that the temperature is also uniform.</p>
 <p>When plug flow is postulated, it is natural to accept that the concentration in a section perpendicular to flow is considered to be uniform. It is natural to also consider the temperature to be uniform in this section. It follows that when the heat is exchanged with the surroundings, the temperature gradient has to be situated entirely in a thin “film” along the wall. This also implies that the resistance to heat transfer in the central core is zero in a direction perpendicular to the flow, which is not right for certain catalytic reactors.</p>
 </div>
-<div id="momentum-balance" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Momentum Balance</h3>
+<div id="momentum-balance" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Momentum Balance<a href="ideal-chemical-reactor-design.html#momentum-balance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The momentum balance can be obtained by the application of Newton’s second law on a moving fluid.</p>
 <p>In a chemical reactor, only pressure drop and friction forces have to be considered in most cases. Several specific pressure drop equations will be discussed later on PFR and on a fixed catalytic reactor.</p>
 </div>
 </div>
-<div id="the-continuous-stirred-tank-reactor-cstr" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> The Continuous-Stirred-Tank Reactor (CSTR)</h2>
+<div id="the-continuous-stirred-tank-reactor-cstr" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> The Continuous-Stirred-Tank Reactor (CSTR)<a href="ideal-chemical-reactor-design.html#the-continuous-stirred-tank-reactor-cstr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When the demand for a single chemical product reaches a high level, there will be an economic incentive to continuously manufacture it, using a reactor dedicated to that product. One of those is The <em>Continuous-Stirred-Tank Reactor or CSTR</em>.</p>
 <p><img src="ebook_notes_5314_files/figure-html/cstrdraw-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>The CSTR is a well-mixed vessel consisting of a baffled tank with mixing induced by an impeller and operates at a steady-state. The mass flow rate into the tank is equal to the mass flow rate out of it at steady-state, and the feed and product properties are not functions of time. Furthermore, the reactor volume is constant.</p>
 <p>A well-mixed vessel means a working fluid with neither radial, axial, nor angular gradients in properties. In other words, both the composition and temperature of the fluid are uniform over the entire volume. That is, they do not vary with position. Those assumptions are</p>
-<p>The central assumption is that the incoming fluid concentration will become instantaneously equal to outgoing upon entering the vessel. As a consequence of well-mixing behavior, the effluent stream must have precisely the same composition and temperature as the contents of the reactor. The feed must be immediately mixed with the reactor’s contents in a time interval that is very small compared to the mean residence time of the fluid flowing through the vessel to meet this ideal mixing pattern. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
-<p>The CSTR is frequently chosen when temperature control is a critical aspect when the conversion must occur at constant composition, when a reaction between two phases has to be carried out, or when a catalyst must be kept in suspension. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p>The central assumption is that the incoming fluid concentration will become instantaneously equal to outgoing upon entering the vessel. As a consequence of well-mixing behavior, the effluent stream must have precisely the same composition and temperature as the contents of the reactor. The feed must be immediately mixed with the reactor’s contents in a time interval that is very small compared to the mean residence time of the fluid flowing through the vessel to meet this ideal mixing pattern. <span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p>The CSTR is frequently chosen when temperature control is a critical aspect when the conversion must occur at constant composition, when a reaction between two phases has to be carried out, or when a catalyst must be kept in suspension. <span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
 <div class="blackbox">
 <p>In practice, it is possible to reach a perfect mixing condition if the mixing time is much less than the residence time inside the reactor, usually when the fluid is low viscosity.</p>
 </div>
-<div id="the-design-equation-for-a-cstr" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> The design equation for a CSTR</h3>
+<div id="the-design-equation-for-a-cstr" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> The design equation for a CSTR<a href="ideal-chemical-reactor-design.html#the-design-equation-for-a-cstr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>An ideal CSTR is quite similar to a perfectly mixed batch reactor. The most significant difference is that mass flows into and out of a CSTR. Thus, the mass flow in and out of the reactor in eq. <a href="ideal-chemical-reactor-design.html#eq:continuidad">(2.1)</a> will not cancel.</p>
 <p>Writing the material balance for this system:
 <span class="math display" id="eq:eq002028a">\[\begin{equation}
@@ -366,13 +390,13 @@ where <span class="math inline">\(F_{\text{in},j}\)</span> is the molar flow in 
     \tag{2.7}
 \end{gather}\]</span></p>
 <p>Equation <a href="ideal-chemical-reactor-design.html#eq:eq002028b">(2.7)</a> is <strong>the design equation</strong> for an ideal CSTR. For a single reaction, it is useful to write it down in terms of the conversion of reactant A.
-<span class="math display">\[\begin{align*} 
+<span class="math display">\[\begin{align*}
     F_{A,\text{in}}   &amp; = F_{A0} {\left(1 - X_{A,\text{in}} \right) }\\
     F_{A} &amp; = F_{A0} {\left(1 - X_{A} \right)}
 \end{align*}\]</span></p>
 <p>leading to
 <span class="math display" id="eq:eq002031">\[\begin{equation}
-    \frac{V}{F_{A0}} = \frac{X_{A} - X_{A,\text{in}}}{-r_A}, \quad r_A = - r 
+    \frac{V}{F_{A0}} = \frac{X_{A} - X_{A,\text{in}}}{-r_A}, \quad r_A = - r
     \tag{2.8}
 \end{equation}\]</span>
 where <span class="math inline">\(\nu_A\)</span> represents moles of <em>A</em>, and <span class="math inline">\(r\)</span> the global rate equation.</p>
@@ -384,8 +408,8 @@ where <span class="math inline">\(\nu_A\)</span> represents moles of <em>A</em>,
   X_A = \frac{C_{A0} - C_A}{C_{A0}}
 \end{equation*}\]</span></p>
 <p>If a high conversion is desired, the reactant concentration must be small. But the reaction rate depends directly on the reactant concentration, so to compensate for this restriction, we must design larger reactors.</p>
-<div id="constant-density-system" class="section level4 unnumbered">
-<h4>Constant-Density System</h4>
+<div id="constant-density-system" class="section level4 unnumbered hasAnchor">
+<h4>Constant-Density System<a href="ideal-chemical-reactor-design.html#constant-density-system" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If the reactor volume is constant and the volumetric flow rate of the inflow and outflow streams are the same, the eq. <a href="ideal-chemical-reactor-design.html#eq:eq002028a">(2.6)</a> in terms of volumetric flow rates, is</p>
 <p><span class="math display" id="eq:eq002031a">\[\begin{gather}
     F_j = \upsilon \,C_j \notag \\
@@ -425,10 +449,10 @@ This definition of space-time applies to any continuous reactor.</p>
 <p>Space-time influences reaction behavior in a continuous reactor in the same way that real-time does on a batch reactor’s behavior. In both cases, the fractional conversion will increase if reactants spend more time or space-time increases.</p>
 <p>Therefore, if the fluid density is constant, eq. <a href="ideal-chemical-reactor-design.html#eq:eq002031">(2.8)</a> becomes
 <span class="math display">\[\begin{equation}
-    \tau = \frac{C_{A0} - C_{A}}{-r_A}, \quad r_A = - r 
+    \tau = \frac{C_{A0} - C_{A}}{-r_A}, \quad r_A = - r
 \end{equation}\]</span></p>
 <p>The equation <a href="ideal-chemical-reactor-design.html#eq:eq002031">(2.8)</a> may be interpreted graphically from a plot of reciprocal rate <span class="math inline">\(1/(−r_A)\)</span> as function of <span class="math inline">\(X_A\)</span>, as shown by curve EB in fig. <a href="ideal-chemical-reactor-design.html#fig:fig002011">2.3</a>. Point B is the <em>operating point</em> of the reactor, which represents the steady-state condition in the reactor. Area ABCD represents the ratio <span class="math inline">\(V/F_{A0}\)</span> for the CSTR.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig002011"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002011"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002011-1.png" alt="Graphical representation of the performance equations for CSTR" width="60%" />
 <p class="caption">
 Figure 2.3: Graphical representation of the performance equations for CSTR
@@ -441,22 +465,22 @@ Figure 2.3: Graphical representation of the performance equations for CSTR
 \end{gather}\]</span></p>
 <p>Space velocity is more useful in the field of heterogeneous catalysis. Its definition is not unique. For example, it can also be defined as GHSV, which means gas-hourly space velocity. It may be defined as the volumetric flow rate of gas entering the catalyst divided by the catalyst’s weight.</p>
 </div>
-<div id="variable-density-system" class="section level4 unnumbered">
-<h4>Variable-Density System</h4>
+<div id="variable-density-system" class="section level4 unnumbered hasAnchor">
+<h4>Variable-Density System<a href="ideal-chemical-reactor-design.html#variable-density-system" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For variable-density cases, the design equation for a CSTR is:
 <span class="math display">\[\begin{align}
   \frac{V}{\upsilon} = \tau &amp; = \frac{V}{\upsilon_0 \left( 1 + \varepsilon_A\, X_A \right)
 } = \frac{C_{A0} - C_A}{r_A(C_A)} \notag \\
- \tau &amp; = \left( 1 + \varepsilon_A\, X_A \right)\,\frac{C_{A0} - C_A}{r_A(C_A)}
+\tau &amp; = \left( 1 + \varepsilon_A\, X_A \right)\,\frac{C_{A0} - C_A}{r_A(C_A)}
 \end{align}\]</span></p>
 </div>
 </div>
-<div id="cstr-in-series" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> CSTR in series</h3>
-<div id="cstrs-of-equal-sizes-in-series" class="section level4 unnumbered">
-<h4>CSTRs of equal sizes in series</h4>
+<div id="cstr-in-series" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> CSTR in series<a href="ideal-chemical-reactor-design.html#cstr-in-series" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cstrs-of-equal-sizes-in-series" class="section level4 unnumbered hasAnchor">
+<h4>CSTRs of equal sizes in series<a href="ideal-chemical-reactor-design.html#cstrs-of-equal-sizes-in-series" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Consider a system of <span class="math inline">\(N\)</span> CSTRs connected in series, as shown in the figure <a href="ideal-chemical-reactor-design.html#fig:fig002012">2.4</a>. Though the concentration is uniform in each reactor, there is a change in concentration as fluid moves from one reactor to another.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig002012"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002012"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002012-1.png" alt="Sketch of ideal CSTRs in series" width="60%" />
 <p class="caption">
 Figure 2.4: Sketch of ideal CSTRs in series
@@ -472,13 +496,13 @@ Figure 2.4: Sketch of ideal CSTRs in series
     X_{A,2} = \left(F_{A0} - F_{A,2} \right)/(F_{A0}) \\
     X_{A,3} = \left(F_{A0} - F_{A,3} \right)/(F_{A0})
 \end{align*}\]</span></p>
-<p>The conversion <span class="math inline">\(X_{A1}\)</span> is the fractional conversion of A in the stream leaving the first reactor. In contrast, <span class="math inline">\(X_A2\)</span> is the overall conversion of A in the second reactor’s effluent, which means the conversion for the first and second reactors combined. Thus, the overall conversion for the series of three CSTRs is equal to <span class="math inline">\(X_{A3}\)</span>. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>The conversion <span class="math inline">\(X_{A1}\)</span> is the fractional conversion of A in the stream leaving the first reactor. In contrast, <span class="math inline">\(X_A2\)</span> is the overall conversion of A in the second reactor’s effluent, which means the conversion for the first and second reactors combined. Thus, the overall conversion for the series of three CSTRs is equal to <span class="math inline">\(X_{A3}\)</span>. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p>The mole balance for reactant <span class="math inline">\(A\)</span> can be written for any reactor <span class="math inline">\(j\)</span> in the series will be
 <span class="math display">\[\begin{equation}
 - r_{A,j} = \frac{F_{A,j-1} - F_{A,j}}{V_j}
 \end{equation}\]</span></p>
 <p>The molar flow rates from a reactor <span class="math inline">\(j\)</span> and <span class="math inline">\(j-1\)</span> expressed in terms of conversion are:
-<span class="math display">\[\begin{align*} 
+<span class="math display">\[\begin{align*}
     F_{A,j-1}   &amp; = F_{A0} {\left(1 - X_{A,j-1} \right) }\\
     F_{A,j} &amp; = F_{A0} {\left(1 - X_{A,j} \right)}
 \end{align*}\]</span></p>
@@ -533,25 +557,25 @@ C_{A0}\:{\left(1 - X_{A,N} \right)} = \frac{C_{A0}}{{\left( 1 + \tau_N\, k \righ
 \tag{2.21}
 \end{equation}\]</span></p>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig002014">2.5</a> shows the variation of conversion vs. the number of reactors in series for a first-order reaction. It also indicates that the Damkholer number is a crucial parameter to decide the optimal number of CSTRs required to reach an overall conversion.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig002014"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002014"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002014-1.png" alt="Plot of conversion as function of number of CSTRs in serie" width="60%" />
 <p class="caption">
 Figure 2.5: Plot of conversion as function of number of CSTRs in serie
 </p>
 </div>
 <p>In general, while the Damkholer number increases, the system will require fewer CSTRs to get the desired level of conversion. <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_004CSTRSeries.ipynb">(Numerical solution)</a></p>
-<p>The total capital cost is an important parameter rather than the total reactor volume in a practical situation. Increasing the number of CSTRs in series will reduce the total cost by reducing the required volume. However, it will also increase the price since more agitators, valves, piping, etc., will be required. The economic optimum usually occurs at a value of <span class="math inline">\(N\)</span> as low as 2 or 3. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>The total capital cost is an important parameter rather than the total reactor volume in a practical situation. Increasing the number of CSTRs in series will reduce the total cost by reducing the required volume. However, it will also increase the price since more agitators, valves, piping, etc., will be required. The economic optimum usually occurs at a value of <span class="math inline">\(N\)</span> as low as 2 or 3. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <div class="blackbox">
 <p>The optimal operation of a multistage CSTR can be considered from the point of view of minimizing the total volume V for a given throughput (<span class="math inline">\(F_{A0}\)</span>) and fractional conversion (<span class="math inline">\(X_A\)</span>). So it will be necessary an objective function for <span class="math inline">\(V\)</span> from the material balance together with a rate law and energy balance as required</p>
 </div>
 </div>
-<div id="cstrs-of-different-sizes-in-series" class="section level4 unnumbered">
-<h4>CSTRs of different sizes in series</h4>
+<div id="cstrs-of-different-sizes-in-series" class="section level4 unnumbered hasAnchor">
+<h4>CSTRs of different sizes in series<a href="ideal-chemical-reactor-design.html#cstrs-of-different-sizes-in-series" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For reactions with slight density change is possible to find the outlet composition from a series of CSTRs by a graphical procedure due to the design equation of each CSTRs could be written as:
 <span class="math display">\[\begin{equation}
 -\frac{1}{\tau_N} = \frac{(-r_A)_N}{C_{A,N} - C_{A,N-1}}
 \end{equation}\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig002015"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002015"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002015-1.png" alt="Graphical solution for multistage CSTRs - first-order reaction" width="60%" />
 <p class="caption">
 Figure 2.6: Graphical solution for multistage CSTRs - first-order reaction
@@ -559,7 +583,7 @@ Figure 2.6: Graphical solution for multistage CSTRs - first-order reaction
 </div>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig002015">2.6</a> shows a way to represent the material balances for each stage from a plot <span class="math inline">\(1/(-r_A)\)</span> as a function of <span class="math inline">\(C_A\)</span>.</p>
 <p>Another interesting situation is finding the best setup to achieve a given conversion. Let us illustrate the use of this method considering two CSTRs in series under isothermal conditions, as shown in the Figure <a href="ideal-chemical-reactor-design.html#fig:CSTRseriesdifV">2.7</a></p>
-<div class="figure" style="text-align: center"><span id="fig:CSTRseriesdifV"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CSTRseriesdifV"></span>
 <img src="ebook_notes_5314_files/figure-html/CSTRseriesdifV-1.png" alt="Graphical representation of two CSTRs in series" width="40%" />
 <p class="caption">
 Figure 2.7: Graphical representation of two CSTRs in series
@@ -574,14 +598,14 @@ Figure 2.7: Graphical representation of two CSTRs in series
 \frac{V_2}{F_{A0}} = \frac{X_{A2} - X_{A1}}{-r_A(X_{A2})}
 \end{equation}\]</span></p>
 <p>These relations are graphically represented in the Figure <a href="ideal-chemical-reactor-design.html#fig:CSTRseriesdifV2">2.8</a>. The cascade of CSTRs operates between known initial and final conversion levels, and the total reaction volume is represented by the sum of the shaded areas.</p>
-<div class="figure" style="text-align: center"><span id="fig:CSTRseriesdifV2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CSTRseriesdifV2"></span>
 <img src="ebook_notes_5314_files/figure-html/CSTRseriesdifV2-1.png" alt="Graphical representation of two CSTRs in series" width="40%" />
 <p class="caption">
 Figure 2.8: Graphical representation of two CSTRs in series
 </p>
 </div>
 <p>When the rectangle <em>KLMN</em> is made as large as possible, the overall volume is minimized. Therefore, point <span class="math inline">\(X_{A1}\)</span> is the critical parameter to get the reactors’ optimal size.</p>
-<p>For reaction rate expressions of the _n_th-order form, it can be shown that there is always one and only one point that minimizes the total volume when <span class="math inline">\(n&gt;0\)</span>. <span class="citation">(<a href="references.html#ref-hill2014" role="doc-biblioref">C. G. J. Hill and Root 2014</a>)</span></p>
+<p>For reaction rate expressions of the _n_th-order form, it can be shown that there is always one and only one point that minimizes the total volume when <span class="math inline">\(n&gt;0\)</span>. <span class="citation">(<a href="#ref-hill2014" role="doc-biblioref">C. G. J. Hill and Root 2014</a>)</span></p>
 <p>The total reaction volume is:
 <span class="math display" id="eq:totalVolume">\[\begin{equation}
 V_1 + V_2 = F_{A0}\:\frac{X_{A1}}{(-r_A)_1} + F_{A0}\:\frac{X_{A2} - X_{A1}}{(-r_A)_2}
@@ -596,7 +620,7 @@ simplifying leads to
 \frac{d\left(1/(-r_A)_1\right)}{dX_{A1}} = \frac{1/(-r_A)_2 - 1/(-r_A)_1}{dX_{A1}}
 \end{equation}\]</span></p>
 <p>Therefore, the minimum reaction volume will be found when the intermediate fractional conversion <span class="math inline">\(X_{A1}\)</span> is selected. The slope of the reaction rate curve at this conversion level is equal to the slope of the rectangle’s diagonal KLMN, as is shown in figure <a href="ideal-chemical-reactor-design.html#fig:CSTRseriesminV">2.9</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:CSTRseriesminV"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CSTRseriesminV"></span>
 <img src="ebook_notes_5314_files/figure-html/CSTRseriesminV-1.png" alt="Graphical representation of the minimum total reaction volume for two CSTRs in series" width="40%" />
 <p class="caption">
 Figure 2.9: Graphical representation of the minimum total reaction volume for two CSTRs in series
@@ -629,8 +653,8 @@ Figure 2.9: Graphical representation of the minimum total reaction volume for tw
 <p>In engineering practice, the designer tends to select CSTRs with the same volume to minimize installation and operational costs.</p>
 </div>
 </div>
-<div id="energy-balance-1" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Energy Balance</h3>
+<div id="energy-balance-1" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Energy Balance<a href="ideal-chemical-reactor-design.html#energy-balance-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now let us find out how to apply the general energy balance (eq.<a href="ideal-chemical-reactor-design.html#eq:energybal">(2.3)</a>) to a CSTR. Usually, for an ideal CSTR operating at a steady-state (<span class="math inline">\(dU/dt = 0\)</span>), it is considered the work done by the stirrer neglected, so the energy balance yields to:</p>
 <p><span class="math display" id="eq:ec003017">\[\begin{equation}
 Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right) - \sum\limits_{j = 1}^r \xi_j \, \Delta H_{R_j}(T) = 0
@@ -662,11 +686,11 @@ Q - \sum\limits_{i=1}^\mathcal{C} F_{i0} \left( \int_{T_0}^{T} C_{P_i} dT \right
 \end{equation}\]</span></p>
 <p>Equation <a href="ideal-chemical-reactor-design.html#eq:ec003019">(2.25)</a> (or <a href="ideal-chemical-reactor-design.html#eq:ec003020">(2.27)</a>), if the system’s heat transfer characteristic is known, requires a reaction rate expression and the design equation to determine the fluid’s temperature and composition leaving the reactor.</p>
 <p>Using the energy balance to analyze the performance or sizing an ideal CSTR is not as complicated mathematically, so let us consider some typical heat transfer modes.</p>
-<div id="jacket-cooled" class="section level4 unnumbered">
-<h4>Jacket-Cooled</h4>
+<div id="jacket-cooled" class="section level4 unnumbered hasAnchor">
+<h4>Jacket-Cooled<a href="ideal-chemical-reactor-design.html#jacket-cooled" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Consider the ideal CSTR shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005a">2.10</a>. Heat is added to or removed from the reactor by a heat-transfer fluid that flows through the jacket.
 Depending on the reactor temperature and whether the reactor is being heated or cooled, the heat-transfer fluid may be cooling water, chilled brine, chilled glycol solution, hot oil, or some other fluid. The fluid is a source of (or a sink for) the heat transferred through the reactor wall.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003005a"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003005a"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003005a-1.png" alt="Schematic diagram of an ideal CSTR with heat transfer through a heating/cooling jacket" width="40%" />
 <p class="caption">
 Figure 2.10: Schematic diagram of an ideal CSTR with heat transfer through a heating/cooling jacket
@@ -698,8 +722,8 @@ where <span class="math inline">\(\overline{T}_c\)</span> is the constant temper
 <p>Now, we define two functions corresponding to the left-hand side and right-hand of eq. <a href="ideal-chemical-reactor-design.html#eq:ec003021">(2.29)</a>, respectively.</p>
 <p>The first function is:
 <span class="math display" id="eq:ec003022">\[\begin{equation}
- HPR(T) = - F_{A0}\,X_A\,\Delta H_R(T)
- \tag{2.30}
+HPR(T) = - F_{A0}\,X_A\,\Delta H_R(T)
+\tag{2.30}
 \end{equation}\]</span></p>
 <p>The function <em>HPR(T)</em> represents the **heat generation* rate in the reactor, proportional to the reaction heat (<span class="math inline">\(\Delta H_R\)</span>) and conversion degree (<span class="math inline">\(X_A\)</span>). For an exothermic reaction, this term will be &gt; 0 and a strong temperature function.</p>
 <p>The second function, <em>HWR(T)</em>, is defined from two right-hands terms of the eq. <a href="ideal-chemical-reactor-design.html#eq:ec003023">(2.31)</a>.
@@ -710,14 +734,14 @@ HWR(T)  = UA_{J} \left(T - T_c\right) + \left(\sum\limits_{i=1}^\mathcal{C} F_{i
 <p>Eq <a href="ideal-chemical-reactor-design.html#eq:ec003023">(2.31)</a> is called the <strong>removal</strong> term because it represents the total heat transfer rate per unit volume of the reaction mixture. In summary, it represents the sensible heat from <span class="math inline">\(T_0\)</span> to <em>T</em> and the heat transferred to the heat-transfer fluid.</p>
 <p>Both <em>HPR(T)</em> and <em>HWR(T)</em> allow identifying when the CSRT operates under steady-state conditions and which of them is stable. If <em>HPR(T)</em> <span class="math inline">\(\neq\)</span> <em>HWR(T)</em>, the CSTR is <strong>not</strong> at steady-state.</p>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005aaa">2.11</a> shows a typical <em>HPR(T)</em> and <em>HRW(T)</em> vs <em>T</em> plot for an ideal CSTR, assuming an irreversible, exothermic and first-order reaction is taking place.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003005aaa"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003005aaa"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003005aaa-1.png" alt="Typical $HPR(T)$ and $HWR(T)$ curves versus temperature, $T$, for an irreversible, exothermic reaction in an ideal CSTR" width="50%" />
 <p class="caption">
 Figure 2.11: Typical <span class="math inline">\(HPR(T)\)</span> and <span class="math inline">\(HWR(T)\)</span> curves versus temperature, <span class="math inline">\(T\)</span>, for an irreversible, exothermic reaction in an ideal CSTR
 </p>
 </div>
 <p>The intersection of the <em>HPR(T)</em> curve with the <em>HWR(T)</em> line is the reactor’s operating point. Therefore it is a <strong>graphical</strong> solution to the design equation and the energy balance for the CSTR.</p>
-<p>The  is linear when <span class="math inline">\(C_P\)</span> is assumed constant, while the  curve is generated following pseudo-algorithm:</p>
+<p>The is linear when <span class="math inline">\(C_P\)</span> is assumed constant, while the curve is generated following pseudo-algorithm:</p>
 <div class="line-block"><strong>INPUT:</strong> Assumed reaction temperature, T;<br />
 <strong>OUTPUT:</strong> HPR-HWR curve;<br />
 <br />
@@ -735,10 +759,10 @@ Figure 2.11: Typical <span class="math inline">\(HPR(T)\)</span> and <span class
 <li>the heat production per unit of volume of reaction mixture: <span class="math inline">\(\left(-\Delta H_r\right) C_{A0} X_A\)</span></li>
 <li>the heat production per unit of volume of reaction mixture divided by <span class="math inline">\(\rho C_P\)</span>, the sensible heat per unit of volume of the reaction: <span class="math inline">\(\left(-\Delta H_r\right) C_{A0} X_A/\rho C_P\)</span>. This represents the fraction of the maximum possible temperature increase, which is reached in the reactor.</li>
 </ol>
-<p>For heat removal, similar expressions can be defined. As long as the HPR and HWR are unit-consistent, all will lead to the same conclusions concerning the reactor design and operation. <span class="citation">(<a href="references.html#ref-westerterp1984" role="doc-biblioref">Westertep, Van Swaaij, and Beenackers 1984</a>)</span></p>
+<p>For heat removal, similar expressions can be defined. As long as the HPR and HWR are unit-consistent, all will lead to the same conclusions concerning the reactor design and operation. <span class="citation">(<a href="#ref-westerterp1984" role="doc-biblioref">Westertep, Van Swaaij, and Beenackers 1984</a>)</span></p>
 </div>
-<div id="multiple-steady-states-analysis" class="section level4 unnumbered">
-<h4>Multiple steady-states analysis</h4>
+<div id="multiple-steady-states-analysis" class="section level4 unnumbered hasAnchor">
+<h4>Multiple steady-states analysis<a href="ideal-chemical-reactor-design.html#multiple-steady-states-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Another essential aspect of CSRT design is to determine if multiple steady-states are raised. This situation is possible because a non-linear equation can have more than one solution. Nevertheless, how is it possible to determine this particular situation?</p>
 <p>Let us consider some changes to the situation shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005aaa">2.11</a>. Suppose that the temperature of the feed, <span class="math inline">\(T_0\)</span>, or the cooling fluid temperature, <em>Tc</em>, is reduced. The result of this modification will be to increase the intercept of the HWR(T) line on the y-axis without changing the slope of the line. It means that HWR(T) line shifts to the left, parallel to the original curve, so that it could be more than one operating point. This situation is known as <strong>multiple steady-states</strong></p>
 <p>In order to determine if there are multiple steady-states for a CSTR. We are going to follow the next steps:</p>
@@ -757,15 +781,13 @@ When the left-hand side of equation <a href="ideal-chemical-reactor-design.html#
 \end{equation}\]</span>
 where <span class="math inline">\(F_c\)</span> is flow rate of coolant <span class="math inline">\(\left(\text{m}^{3}/\text{s}\right)\)</span>, <span class="math inline">\(\rho_{c}\)</span> means density of coolant <span class="math inline">\(\left(\text{kg}/\text{m}^{3}\right)\)</span>, <span class="math inline">\(C_{P_c}\)</span> is heat capacity of coolant <span class="math inline">\(\left(\text{J}\,\text{kg}^{-1}\,\text{K}^{-1}\right)\)</span>, <span class="math inline">\(T_{c,\text{in}}\)</span> represents the supply temperature of cooling medium (K), and <span class="math inline">\(T_{J}\)</span> is the output temperature of cooling medium (K).</p>
 <p>The typical reactor design situation is given the feed conditions, the kinetic information, and the desired conversion. The problem is to determine the temperature and the size of the reactor. The next illustrations show how the principles described above are applied in the design of a CSTR. See Exercise <a href="ideal-chemical-reactor-design.html#exr:it003001">2.1</a></p>
-
 <div class="exercise">
-<p><span id="exr:it003001" class="exercise"><strong>Exercise 2.1  (Operation of a cooled exothermic CSTR)  </strong></span> An irreversible exothermic reaction is carried out in a CSTR.
+<p><span id="exr:it003001" class="exercise"><strong>Exercise 2.1  (Operation of a cooled exothermic CSTR) </strong></span>An irreversible exothermic reaction is carried out in a CSTR.
 <span class="math display">\[A \xrightarrow{k} {B}\]</span></p>
-The reaction is first-order in reactant <span class="math inline">\(A\)</span> and has a heat reaction given by <span class="math inline">\(\Delta H_R\)</span> which is based on reactant <span class="math inline">\(A\)</span>.
+<p>The reaction is first-order in reactant <span class="math inline">\(A\)</span> and has a heat reaction given by <span class="math inline">\(\Delta H_R\)</span> which is based on reactant <span class="math inline">\(A\)</span>.
 Negligible heat losses and constant densities can be assumed. A well-mixed cooling jacket surrounds the reactor to remove the heat of reaction.
-Cooling water is added to the jacket at a rate of <span class="math inline">\(F_J\)</span> and at an inlet temperature of <span class="math inline">\(T_{J0}\)</span>.
-</div>
-<p><img src="ebook_notes_5314_files/figure-html/unnamed-chunk-1-1.png" width="30%" style="display: block; margin: auto;" /></p>
+Cooling water is added to the jacket at a rate of <span class="math inline">\(F_J\)</span> and at an inlet temperature of <span class="math inline">\(T_{J0}\)</span>.</p>
+<p><code>{r fig.align='center', out.width = "30%", echo=FALSE}       library(png)       library(grid)       img &lt;- readPNG("figures/003_02_cstr.png")       grid.raster(img)</code></p>
 <p>The volume <span class="math inline">\(V\)</span> of the contents of the reactor and the volume <span class="math inline">\(V_J\)</span> of water in the jacket are both constant. The reaction rate constant changes as function of the temperature according to the equation.
 <span class="math display">\[\begin{equation*}
   k = k_0\,\exp\left( -E/R\,T\right)
@@ -781,9 +803,9 @@ where <span class="math inline">\(Q\)</span> is the heat transfer rate, <span cl
 <li>Formulate the material and energy balances that apply to the CSTR and the cooling jacket.</li>
 <li>Calculate the steady-state value of <span class="math inline">\(C_A\)</span>, <span class="math inline">\(T_J\)</span>, and <span class="math inline">\(T\)</span> for the operating conditions.</li>
 <li>Identify all possible steady-state operating conditions, as this system may exhibit multiples steady states.</li>
-<li>Solve the unsteady-state material and energy balances to identify if any of the possible multiple steady states are unstable.
-```</li>
+<li>Solve the unsteady-state material and energy balances to identify if any of the possible multiple steady states are unstable.</li>
 </ol>
+</div>
 <p><em>Solution</em></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>There are three balance equations that can be written for the reactor (respect to reactant <span class="math inline">\(A\)</span>) and the cooling jacket.<a href="ideal-chemical-reactor-design.html#exr:it003001">2.1</a>
@@ -795,6 +817,12 @@ F_{0}C_{A0} - F\,C_A - k\,C_A\,V = 0 \\
 <li><p>The operation conditions for the reactor are:</p></li>
 </ol>
 <table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Sym</th>
@@ -893,7 +921,7 @@ T_J &amp;= \frac{\rho_J\,C_{P_J}F_J\,T_{J_0} + U\,A_J\,T}{\rho_J\,C_{P_J}\,F_J+ 
 f(T) = \rho\,C_P\left(F_0\,T_0 - F\,T\right) - \Delta H_R(T)\,V\,k\,C_A + U\,A_J\left(T_J - T \right)   \tag{2.33}
 \end{equation}\]</span></p>
 <p>These equations are solved for a range from 500 to 700. Next, their results are evaluated into energy balance function on the reactor. The results obtained are plotted vs <span class="math inline">\(T_R\)</span> in figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003007"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003007"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003007-1.png" alt="Graphical indication of multiple steady-states solutions" width="65%" />
 <p class="caption">
 Figure 2.12: Graphical indication of multiple steady-states solutions
@@ -902,7 +930,7 @@ Figure 2.12: Graphical indication of multiple steady-states solutions
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a> shows the system has three operating-points. Now, how a CSTR can operate at multiple steady-states is necessary to know which is (or which of them) stable for the operating condition.
 Thus, the next step in designing a non-isothermal CSTR must be to carry out a steady-state analysis.</p>
 <p>Usually, the stability analysis can be done from the plot <em>HPR(T)</em>-<em>HWR(T)</em> vs. reaction temperature.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003008"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003008"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003008-1.png" alt="Graphical solutions of the heat balance for a CSTR" width="65%" />
 <p class="caption">
 Figure 2.13: Graphical solutions of the heat balance for a CSTR
@@ -943,15 +971,15 @@ Gray dots represent stable conditions, and especially the latter point is of pra
 <p>It is important to remark that the curve HPR/HRW vs. <em>T</em> performed in Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003007">2.12</a> corresponds to a simple reaction rate expression <span class="math inline">\(r_A = - k\,C_A\)</span>.
 As the reaction change’s characteristics, the shape of that curve will change, and the resulting analysis will need to be accordingly modified.</p>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003009">2.14</a> presents qualitative forms of the HPW/HWR curve for (a) a reversible reaction, (b) a pair of consecutive exothermic reactions, and (c) for two consecutive reactions, where the first is exothermic and the second is endothermic.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003009"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003009"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003009-1.png" alt="Qualitative shape of HPR/HPWR curve for several kind of reactions" width="65%" />
 <p class="caption">
 Figure 2.14: Qualitative shape of HPR/HPWR curve for several kind of reactions
 </p>
 </div>
 </div>
-<div id="internal-coil" class="section level4 unnumbered">
-<h4>Internal Coil</h4>
+<div id="internal-coil" class="section level4 unnumbered hasAnchor">
+<h4>Internal Coil<a href="ideal-chemical-reactor-design.html#internal-coil" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If an internal coil is used, the cooling medium flows in plug flow through the coil.
 The temperature differential driving force for heat transfer is a log mean average of the differential temperatures at the coil’s two ends.</p>
 <p><span class="math display" id="eq:ec003025">\[\begin{gather}
@@ -969,18 +997,17 @@ Q_\text{coil} = U\,A_\text{coil}\Delta T_{LM}
 \tag{2.35}
 \end{equation}\]</span>
 There are several issues to be resolved in the design of a cooling coil but these will not be considered for this course.</p>
-
 <div class="exercise">
-<p><span id="exr:it003002" class="exercise"><strong>Exercise 2.2  (Non-rigorous coil design for a CSTR)  </strong></span> As illustration, let us design (non-rigorous) a coil heat exchanger for a CSTR presented in part 1 of the illustration <a href="ideal-chemical-reactor-design.html#exr:it003001">2.1</a>.
+<p><span id="exr:it003002" class="exercise"><strong>Exercise 2.2  (Non-rigorous coil design for a CSTR) </strong></span>As illustration, let us design (non-rigorous) a coil heat exchanger for a CSTR presented in part 1 of the illustration <a href="ideal-chemical-reactor-design.html#exr:it003001">2.1</a>.
 The following coil specification are used in this illustration:</p>
 <ol style="list-style-type: decimal">
 <li>the pipe diameter is 5/8 in.</li>
 <li>the loop diameter constitutes 80% of the diameter of the vessel.</li>
 <li>The spacing between the loop flights is the diameter of the pipe.</li>
 <li>Only one coil is used.</li>
-<li>The reactor vessel has an aspect ratio (L/D) of 2.
-</div></li>
+<li>The reactor vessel has an aspect ratio (L/D) of 2.</li>
 </ol>
+</div>
 <p><em>Solution.</em>
 In order to solve this problem, it is required two iterative calculations. One to determine the size of the reactor, including the coil heat exchanger, and the second one to determine the coolant flow rate required</p>
 <p>In the first iterative calculation, it must include following equations:
@@ -1006,9 +1033,9 @@ Coolant flowrate: 34.88 cm<span class="math inline">\(^3\)</span>/s</p>
 <p>The main advantage of a coil over a jacket is more transfer area.</p>
 </div>
 </div>
-<div id="reactors-in-series" class="section level3 unnumbered">
-<h3>Reactors in series</h3>
-<p>In the general energy balance (eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a>), the extent of reaction, <span class="math inline">\(\xi_j\)</span>, in the inlet stream was taken to be zero. When dealing with CSTRs in series, this balance must include the change in extension of reaction or fractional conversion per each CSRT referred to in the first reactor. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<div id="reactors-in-series" class="section level3 unnumbered hasAnchor">
+<h3>Reactors in series<a href="ideal-chemical-reactor-design.html#reactors-in-series" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the general energy balance (eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a>), the extent of reaction, <span class="math inline">\(\xi_j\)</span>, in the inlet stream was taken to be zero. When dealing with CSTRs in series, this balance must include the change in extension of reaction or fractional conversion per each CSRT referred to in the first reactor. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p>Then, if only one reaction is taking place, the Eq. <a href="ideal-chemical-reactor-design.html#eq:energybala">(2.4)</a> becomes
 <span class="math display" id="eq:ec003026a">\[\begin{equation}
 Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right) \left(T_{\text{out}} - T_{\text{in}}\right) - F_{A0}\left(X_{A,out} - X_{A,in} \right)\Delta H_{R}(T) = 0
@@ -1022,12 +1049,11 @@ Q - \left(\sum\limits_{i=1}^\mathcal{C} F_{i0}\,\overline{C}_{p,i}\right) \left(
 <p>It is essential to point out that in Eqs. <a href="ideal-chemical-reactor-design.html#eq:ec003026a">(2.36)</a> and <a href="ideal-chemical-reactor-design.html#eq:ec003026b">(2.37)</a>, <em>Q</em> is the rate at which heat is transferred into the reactor section under consideration, i.e., for which the inlet temperature is <span class="math inline">\(T_\text{in}\)</span>, and the outlet temperature is <span class="math inline">\(T_\text{out}\)</span>.</p>
 <p>Finally, it is necessary, the temperature correction for the heat of reactions is based on:
 <span class="math display">\[\begin{equation*}
- \Delta H_{R,j}(T) = \Delta H^\circ_R(T^\circ) + \int_{T^\circ}^T \sum\nu_i C_{p,i}\,dT
+\Delta H_{R,j}(T) = \Delta H^\circ_R(T^\circ) + \int_{T^\circ}^T \sum\nu_i C_{p,i}\,dT
 \end{equation*}\]</span></p>
 <p>where <span class="math inline">\(\Delta H^\circ_R(T^\circ)\)</span> is usually calculated from enthalpies of the formation of components involved in the chemical reaction.</p>
-
 <div class="exercise">
-<p><span id="exr:it003003" class="exercise"><strong>Exercise 2.3  (Heat transfer requirement for multiple CSTRs)  </strong></span>Reactant A undergoes an essentially irreversible isomerization reaction that obeys first-order kinetics.
+<p><span id="exr:it003003" class="exercise"><strong>Exercise 2.3  (Heat transfer requirement for multiple CSTRs) </strong></span>Reactant A undergoes an essentially irreversible isomerization reaction that obeys first-order kinetics.
 An irreversible exothermic reaction
 <span class="math display">\[\begin{equation*}
         A \rightarrow B
@@ -1047,9 +1073,9 @@ If each CSTR operates at 163C and if the feed stream consists of pure A entering
 <li>Heat of reaction = -83 cal/g.</li>
 <li>Molecular weight = 250.</li>
 </ol>
-The heat capacities of species A and B may be assumed to be identical and equal to 0.5 cal/g-C.
+<p>The heat capacities of species A and B may be assumed to be identical and equal to 0.5 cal/g-C.
 Their densities may be assumed to be equal to 0.9 g/cm<sup>3</sup>.
-The conversion final is 97%
+The conversion final is 97%</p>
 </div>
 <p><em>Solution</em><br />
 1. For a CSTR. From the CSTR’s design equation
@@ -1062,7 +1088,7 @@ The conversion final is 97%
 \end{equation*}\]</span></p>
 <p>So, combining two last equations with <span class="math inline">\(k\)</span> and <span class="math inline">\(X_A\)</span> values
 <span class="math display">\[\begin{equation*}
- 0.97=-\frac{1}{1+ 0.8\,\tau}+1 \Rightarrow \tau = 40.42 \;\text{h}
+0.97=-\frac{1}{1+ 0.8\,\tau}+1 \Rightarrow \tau = 40.42 \;\text{h}
 \end{equation*}\]</span></p>
 <p>From problem data given:
 <span class="math display">\[\begin{align*}
@@ -1100,8 +1126,8 @@ Thus,
 \end{align*}\]</span></p>
 </div>
 </div>
-<div id="plug-flow-reactor-pfr" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Plug-flow reactor (PFR)</h2>
+<div id="plug-flow-reactor-pfr" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Plug-flow reactor (PFR)<a href="ideal-chemical-reactor-design.html#plug-flow-reactor-pfr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Plug flow is a simplified and idealized picture of a fluid’s motion, whereby all the fluid elements move with a uniform velocity along parallel streamlines. This perfectly ordered flow is the only transport mechanism accounted for in the plug flow reactor model.</p>
 <p>In summary, the essential features of a PFR are:</p>
 <ol style="list-style-type: decimal">
@@ -1119,7 +1145,7 @@ Thus,
 <li>Continuous operations.</li>
 </ol>
 <p>In a PFR, the composition of the fluid varies from point to point along a flow path. Thus the material balance for a reaction component must be made for a differential element dV, as shown in Figure X.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig002016"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002016"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002016-1.png" alt="Plug-flow reactor volume element" width="65%" />
 <p class="caption">
 Figure 2.15: Plug-flow reactor volume element
@@ -1146,17 +1172,17 @@ Assuming that the reactor is a cylinder of radius R. The volume of the reactor f
 \end{equation}\]</span></p>
 <p>Under the traditional approach for sizing reactors, the equation <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> is rewritten depending on the reacting fluid density. As far as I understand, it is unnecessary because of software like Python or Matlab, making more straighforward numerical calculations.
 Despite that, let us study how the equation design changes on a constant- and variable- density fluid.</p>
-<div id="design-equation" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Design equation</h3>
-<div id="constant-density-system-1" class="section level4 unnumbered">
-<h4>Constant-Density System</h4>
+<div id="design-equation" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Design equation<a href="ideal-chemical-reactor-design.html#design-equation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="constant-density-system-1" class="section level4 unnumbered hasAnchor">
+<h4>Constant-Density System<a href="ideal-chemical-reactor-design.html#constant-density-system-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If the reacting fluid keeps its density constant during the chemical reaction, then Equation <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> can be written in terms of the initial concentration of limiting reactant (<span class="math inline">\(C_{A0}\)</span>) and the spacial time (<span class="math inline">\(\tau\)</span>)
 <span class="math display" id="eq:ec002052">\[\begin{equation}
     d\,\tau = - C_{A0}\frac{dX_A}{r_A} \equiv \frac{dC_A}{r_A}
     \tag{2.41}
 \end{equation}\]</span></p>
 <p>A graphical interpretation of equations <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> and <a href="ideal-chemical-reactor-design.html#eq:ec002052">(2.41)</a> is illustrated in Figure <a href="ideal-chemical-reactor-design.html#fig:fig002017">2.16</a></p>
-<div class="figure" style="text-align: center"><span id="fig:fig002017"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002017"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002017-1.png" alt="Graphical interpretation of design equation for a PFR" width="65%" />
 <p class="caption">
 Figure 2.16: Graphical interpretation of design equation for a PFR
@@ -1164,8 +1190,8 @@ Figure 2.16: Graphical interpretation of design equation for a PFR
 </div>
 <p>The shape of figure <a href="ideal-chemical-reactor-design.html#fig:fig002017">2.16</a> is based on the assumption that <span class="math inline">\(-r_A\)</span> decreases as <span class="math inline">\(X_A\)</span> increases. Thus equation <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a> states that <span class="math inline">\((V/F_{A0})\)</span> for an ideal PFR is the area under the curve of <span class="math inline">\((1/-r_A)\)</span> vs. <span class="math inline">\(X_A\)</span>, between the inlet and outlet fractional conversion.</p>
 </div>
-<div id="variable-density-system-1" class="section level4 unnumbered">
-<h4>Variable-Density System</h4>
+<div id="variable-density-system-1" class="section level4 unnumbered hasAnchor">
+<h4>Variable-Density System<a href="ideal-chemical-reactor-design.html#variable-density-system-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When the reacting system’s density is not constant throughout a PFR, the size of a PFR must be calculated using the general design equation (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002051">(2.39)</a>).</p>
 <p>For example for an irreversible first-order reaction, which <span class="math inline">\(r_A = - k\,C_A\)</span>. The kinetic equation will be written as
 <span class="math display">\[\begin{equation*}
@@ -1193,14 +1219,13 @@ For analyzing kinetic data obtained from tubular reactors, the <span class="math
 <p>For systems of constant density, the performance equations are identical for a BR and PFR, which means <span class="math inline">\(\tau\)</span> for PFR is equivalent to <span class="math inline">\(t\)</span> for the BR</p>
 </div>
 <p>To demonstrate how to use the expressions for PFR, let us solve the next problem.</p>
-
 <div class="exercise">
-<p><span id="exr:it003004" class="exercise"><strong>Exercise 2.4  (Effect of the rate laws over PFR performance)  </strong></span>Consider the effect of reaction on conversion in a PFR whose volume is <span class="math inline">\(1.5\)</span> dm<span class="math inline">\(^3\)</span>. The irreversible liquid phase reaction <span class="math inline">\(A \rightarrow B\)</span> is taking place in which the feed concentration is <span class="math inline">\(C_{A0} = 1.0\)</span> mol/dm<span class="math inline">\(^3\)</span> and the volumetric flow rate is <span class="math inline">\(\upsilon_0 = 0.9\)</span> dm<span class="math inline">\(^3\)</span>/min. The reaction rate constant for various reaction orders is fixed at 1.1 for this comparison with units consistent with the concentration mentioned above and flow rate.</p>
+<p><span id="exr:it003004" class="exercise"><strong>Exercise 2.4  (Effect of the rate laws over PFR performance) </strong></span>Consider the effect of reaction on conversion in a PFR whose volume is <span class="math inline">\(1.5\)</span> dm<span class="math inline">\(^3\)</span>. The irreversible liquid phase reaction <span class="math inline">\(A \rightarrow B\)</span> is taking place in which the feed concentration is <span class="math inline">\(C_{A0} = 1.0\)</span> mol/dm<span class="math inline">\(^3\)</span> and the volumetric flow rate is <span class="math inline">\(\upsilon_0 = 0.9\)</span> dm<span class="math inline">\(^3\)</span>/min. The reaction rate constant for various reaction orders is fixed at 1.1 for this comparison with units consistent with the concentration mentioned above and flow rate.</p>
 <ol style="list-style-type: decimal">
 <li>Plot the conversion in a PFR as a function of reactor volume for zero-, first-, second-, and third-order reaction to a reactor volume of <span class="math inline">\(1.5\)</span> dm<span class="math inline">\(^3\)</span>.</li>
-<li>Repeat for feed concentrations of <span class="math inline">\(C_{A0}\)</span> at 0.5 and 2.0 mol/dm<span class="math inline">\(^3\)</span>.
-</div></li>
+<li>Repeat for feed concentrations of <span class="math inline">\(C_{A0}\)</span> at 0.5 and 2.0 mol/dm<span class="math inline">\(^3\)</span>.</li>
 </ol>
+</div>
 <p><em>Solution</em>.
 For the PFR, a differential mole balance gives the following differential equation for converting <em>A</em>
 <span class="math display" id="eq:eq058">\[\begin{equation}
@@ -1216,7 +1241,7 @@ and n = 0, 1, 2, or 3 according to the reaction’s order. As an initial conditi
     C_A = C_{A0} \left( 1 - X_A \right)
 \end{equation*}\]</span></p>
 <p>Part 1 of this problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_007PFRisoNorders.ipynb">Python</a>, and the graphical results are given</p>
-<div class="figure" style="text-align: center"><span id="fig:figlect00701"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figlect00701"></span>
 <img src="ebook_notes_5314_files/figure-html/figlect00701-1.png" alt="Fractional conversion vs volume for various reaction orders" width="55%" />
 <p class="caption">
 Figure 2.17: Fractional conversion vs volume for various reaction orders
@@ -1227,6 +1252,10 @@ Figure 2.17: Fractional conversion vs volume for various reaction orders
 <p>The results for item 2 were plotted. When the initial concentration of A decreases to 0.5 mol/dm<span class="math inline">\(^3\)</span>, fractional conversion changes in the same way. The main difference with item 1 is that final conversion values, for order-kinetic greater than zero, are less.</p>
 <p>The results obtained when the initial concentration of A was increased to 2.0 mol/dm<span class="math inline">\(^3\)</span> are shown.</p>
 <table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center">(a) <span class="math inline">\(C_{A0} = 0.5\)</span> mol/dm<span class="math inline">\(^3\)</span></th>
@@ -1242,10 +1271,10 @@ Figure 2.17: Fractional conversion vs volume for various reaction orders
 </table>
 </div>
 </div>
-<div id="energy-balance-2" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Energy balance</h3>
+<div id="energy-balance-2" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Energy balance<a href="ideal-chemical-reactor-design.html#energy-balance-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This section will derive an energy balance for a PFR, considering the volume element in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003009a">2.18</a>. Additionally, it will be assumed temperature and composition of the reaction mixture are uniform over the cross-section of the PFR and depend only on the distance L from the feed point.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003009a"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003009a"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003009a-1.png" alt="PFR reactor volume element" width="45%" />
 <p class="caption">
 Figure 2.18: PFR reactor volume element
@@ -1279,7 +1308,7 @@ Figure 2.18: PFR reactor volume element
 <p>Substituting <a href="ideal-chemical-reactor-design.html#eq:ec003028c">(2.49)</a>, <a href="ideal-chemical-reactor-design.html#eq:ec003028b">(2.48)</a> into <a href="ideal-chemical-reactor-design.html#eq:ec003028">(2.46)</a> to give
 <span class="math display" id="eq:ec003028d">\[\begin{equation}
 \frac{dQ}{dV} - \sum\limits_{i=1}^\mathcal{C} \left(H_i\,\nu_i\right)r -\sum\limits_{i=1}^\mathcal{C} \left(F_i \, C_{Pi}\right)\,\frac{dT}{dV} = 0
- \tag{2.50}
+\tag{2.50}
 \end{equation}\]</span>
 This equation is equivalent to:
 <span class="math display" id="eq:ec003028e">\[\begin{equation}
@@ -1297,8 +1326,8 @@ This equation is equivalent to:
 \frac{dT}{dV} = \cfrac{\cfrac{dQ}{dV} + \Delta H_{R,A}\,r_A}{\sum\limits_{i=1}^\mathcal{C} \left(F_i \, Cp_i\right)}, \quad r_A = - r
 \tag{2.53}
 \end{equation}\]</span></p>
-<div id="temperature-and-concentration-profiles-as-function-of-pfr-length" class="section level4 unnumbered">
-<h4>Temperature and concentration profiles as function of PFR length</h4>
+<div id="temperature-and-concentration-profiles-as-function-of-pfr-length" class="section level4 unnumbered hasAnchor">
+<h4>Temperature and concentration profiles as function of PFR length<a href="ideal-chemical-reactor-design.html#temperature-and-concentration-profiles-as-function-of-pfr-length" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In case that the tube diameter is constant, it could be useful to express Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028e">(2.51)</a> considering the differential element of length (<em>dL</em>() rather than the differential element of volume, <em>dV</em>.</p>
 <p>The volume of the reactor is related to the axial length, <em>L</em>, and the vessel diameter, <em>D</em>. Thus, over a differential element of volume:
 <span class="math display" id="eq:ec003028h">\[\begin{equation}
@@ -1324,8 +1353,8 @@ where <span class="math inline">\(u\)</span> is the linear velocity with which t
 \end{equation}\]</span></p>
 <p>Now, the simultaneous solution of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028i">(2.55)</a> and Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003028j">(2.57)</a> gives the temperature and concentration profiles along the reactor’s axial length, provided that the rate of external heat transfer is known.</p>
 </div>
-<div id="external-heat-transfer-to-pfr" class="section level4 unnumbered">
-<h4>External Heat Transfer to PFR</h4>
+<div id="external-heat-transfer-to-pfr" class="section level4 unnumbered hasAnchor">
+<h4>External Heat Transfer to PFR<a href="ideal-chemical-reactor-design.html#external-heat-transfer-to-pfr" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In such cases, when a PFR operates with heat transfer to the surroundings to control the temperature within a specified range, it is possible to impose a constant heat flux at the reactor’s wall, which could be implemented example, electrical heating.</p>
 <p>The rate of heat transfer depends on the local temperature difference between the fluid in the reactor and the heat transfer fluid, as follow:
 <span class="math display" id="eq:ec003028k">\[\begin{equation}
@@ -1375,9 +1404,8 @@ However, in a PFR, the peak temperature usually occurs at an intermediate axial 
 <p>The primary assumption about flow pattern in a PFR is relatively reasonable for an adiabatic reactor.
 However, for non-adiabatic reactors, radial temperature gradients are inherent features.
 However, if tube diameters are kept small, the plug flow assumption is more suitable.</p>
-
 <div class="exercise">
-<p><span id="exr:it003005" class="exercise"><strong>Exercise 2.5  (Heat transfer requirement for a PFR)  </strong></span>Consider a reaction
+<p><span id="exr:it003005" class="exercise"><strong>Exercise 2.5  (Heat transfer requirement for a PFR) </strong></span>Consider a reaction
 <span class="math display">\[\begin{equation*}
         A \rightarrow B
 \end{equation*}\]</span>
@@ -1394,17 +1422,17 @@ The reaction is second order in <span class="math inline">\(A\)</span>.</p>
 </ul>
 <ol style="list-style-type: decimal">
 <li>If it is adiabatically in a PFR of 1 m<span class="math inline">\(^3\)</span>, what is conversion?</li>
-<li>If heating coil are employed, and we are given that <span class="math inline">\(U = 3\times 10^2\)</span> W m<span class="math inline">\(^{-2}\)</span>, <span class="math inline">\(A = 2\)</span>~m<span class="math inline">\(^2\)</span> per m<span class="math inline">\(^3\)</span> of PFR and <span class="math inline">\(T_J\)</span> = 500 K, what is the conversion?
-</div></li>
+<li>If heating coil are employed, and we are given that <span class="math inline">\(U = 3\times 10^2\)</span> W m<span class="math inline">\(^{-2}\)</span>, <span class="math inline">\(A = 2\)</span>~m<span class="math inline">\(^2\)</span> per m<span class="math inline">\(^3\)</span> of PFR and <span class="math inline">\(T_J\)</span> = 500 K, what is the conversion?</li>
 </ol>
+</div>
 <p><em>Solution</em>.
 The solution of this problem is available in this <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_008PFRadiabatico.ipynb">link</a></p>
 <p>Since it is a liquid-phase reaction, no significant change in density is assumed.</p>
 <ol style="list-style-type: decimal">
 <li>Under adiabatic conditions, we have to solve two equations:
 <span class="math display">\[\begin{gather*}
- \frac{dX_A}{dV} = - \frac{r_A}{F_{A0}} \\
- \cfrac{dT}{dV} = \cfrac{\Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
+\frac{dX_A}{dV} = - \frac{r_A}{F_{A0}} \\
+\cfrac{dT}{dV} = \cfrac{\Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
 \end{gather*}\]</span></li>
 </ol>
 <p>This system of equations was solved, and the reaction temperature was 351 K, while the conversion of A equals 48.89%.</p>
@@ -1413,7 +1441,7 @@ In the beginning, the temperature is high, as well as the concentration of A. La
 <ol start="2" style="list-style-type: decimal">
 <li>When the heating coil is used, the heat balance must change to include the quantity of heat-related to the heat exchanger.
 <span class="math display">\[\begin{equation*}
- \frac{dT}{dV} = \frac{U\left(\frac{A}{V_\text{max}}\right)\left(T_J-T\right) + \Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
+\frac{dT}{dV} = \frac{U\left(\frac{A}{V_\text{max}}\right)\left(T_J-T\right) + \Delta H_R \,r_A}{F_A\,C_{P_A}+F_I\,C_{P_I}+F_B\,C_{P_B}}
 \end{equation*}\]</span></li>
 </ol>
 <p>In this case, the output is at 394 K, and the conversion is 76.53%. Temperature and conversion profiles are shown in figure Y</p>
@@ -1431,16 +1459,15 @@ In the beginning, the temperature is high, as well as the concentration of A. La
 </tr>
 </tbody>
 </table>
-
 <div class="exercise">
-<span id="exr:it003006" class="exercise"><strong>Exercise 2.6  (Parallel Reactions in a PFR with Heat Effects)  </strong></span>Consider next set of reactions which occurs in gas-phase
+<p><span id="exr:it003006" class="exercise"><strong>Exercise 2.6  (Parallel Reactions in a PFR with Heat Effects) </strong></span>Consider next set of reactions which occurs in gas-phase
 <span class="math display">\[\begin{align*}
     &amp;A \xrightarrow[]{k_1} B\\
     &amp;2A \xrightarrow[]{k_2} C
 \end{align*}\]</span>
 with <span class="math inline">\(r_{1} = k_{1}\,C_A\)</span> and <span class="math inline">\(r_{2} = k_{2}\,C_A^2\)</span>
 Pure <span class="math inline">\(A\)</span> is fed at a rate of 100 mol/s, a temperature of 150 <span class="math inline">\(^\circ\)</span>C and a concentration of 0.1 mol/dm<span class="math inline">\(^3\)</span>.
-Determine the temperature and flow rate profiles down the reactor.
+Determine the temperature and flow rate profiles down the reactor.</p>
 </div>
 <p><em>Solution</em>.
 This problem was solved from following set of equations:</p>
@@ -1475,10 +1502,10 @@ Energy balance:
 </table>
 </div>
 </div>
-<div id="recycle-pfr" class="section level3" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Recycle PFR</h3>
+<div id="recycle-pfr" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Recycle PFR<a href="ideal-chemical-reactor-design.html#recycle-pfr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A recycling reactor is an ideal tubular reactor that part of the effluent stream back to the reactor inlet. As shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig002021">2.19</a>. Recycle can control the temperature in the reactor and adjust the product distribution if more than one reaction is taking place.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig002021"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002021"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002021-1.png" alt="Recycle PFR" width="55%" />
 <p class="caption">
 Figure 2.19: Recycle PFR
@@ -1487,7 +1514,7 @@ Figure 2.19: Recycle PFR
 <p>Based on the flowsheet in Fig. <a href="ideal-chemical-reactor-design.html#fig:fig002021">2.19</a>, the feed to the process is denoted by the subscript ‘’o’’ with is mixed at the point M with the recycle stream, denoted by a subscript ‘’R’‘. The mixed stream, which is denoted by a subscript’‘in’’, is then fed to the reactor.</p>
 <p>At point S, the outlet stream from the reactor, which is denoted by a subscript ‘’out’‘, is split into recycle stream and the final stream leaving the process (denoted by a subscript’‘f’’). The recycle ratio, <em>R</em>, as defined as
 <span class="math display">\[\begin{equation*}
-R = \frac{\upsilon_R}{\upsilon_f} = \frac{F_{\text{tot},R}}{F_{\text{tot},f}} = \frac{F_{A,R}}{F_{A,f}} 
+R = \frac{\upsilon_R}{\upsilon_f} = \frac{F_{\text{tot},R}}{F_{\text{tot},f}} = \frac{F_{A,R}}{F_{A,f}}
 \end{equation*}\]</span>
 where <span class="math inline">\(\upsilon\)</span> and <span class="math inline">\(F\)</span> are the volumetric and molar flow, respectively.</p>
 <p>If the fresh feed <span class="math inline">\(F_o\)</span> contains a molar fraction <span class="math inline">\(x_{Ao}\)</span>, and the reactor product a molar fraction <span class="math inline">\(x_{A}\)</span> of the specie <span class="math inline">\(A\)</span>, then the molar balance for <span class="math inline">\(A\)</span> at point <span class="math inline">\(M\)</span> is
@@ -1509,8 +1536,8 @@ F_{A,in} = F_{A,0} + R\,\frac{F_{A,out}}{1 + R}
 \end{equation}\]</span></p>
 <p>However, there are at least two ways to define the conversion of a system like this. One is the per-pass conversion given in eq. <a href="ideal-chemical-reactor-design.html#eq:ecconglobal">(2.65)</a> and the other is the overall conversion given in equation <a href="ideal-chemical-reactor-design.html#eq:ecconglobal">(2.65)</a>.</p>
 <p><span class="math display" id="eq:ecconglobal" id="eq:ecconpass">\[\begin{gather}
-X_{A,pass} = \frac{F_{A,in} - F_{A,out}}{F_{A,in}} \tag{2.64} \\ 
-X_{A,overall} = \frac{F_{A,0} - F_{A,f}}{F_{A,0}} \tag{2.65} 
+X_{A,pass} = \frac{F_{A,in} - F_{A,out}}{F_{A,in}} \tag{2.64} \\
+X_{A,overall} = \frac{F_{A,0} - F_{A,f}}{F_{A,0}} \tag{2.65}
 \end{gather}\]</span></p>
 <p>It is essential to consider that the reactor’s volumetric flow rate is greater than the volumetric flow rate entering the process when the rate expression contains concentrations.</p>
 <p>The definition of concentration (eq. <a href="ideal-chemical-reactor-design.html#eq:eccondef">(2.66)</a>) is used as usual. For a gas-phase system, the volumetric flow rate, in the denominator, is written using an appropriate equation of state.
@@ -1548,17 +1575,17 @@ Therefore, the temperature of the stream ‘’in’’
 \end{equation*}\]</span>
 Now, a balance on the reactor
 <span class="math display">\[\begin{equation*}
-  F_\text{in} = F_{out} = F_f \left(1 + R\right) \equiv F_0 \left(1 + R\right) 
+  F_\text{in} = F_{out} = F_f \left(1 + R\right) \equiv F_0 \left(1 + R\right)
 \end{equation*}\]</span>
 Therefore
 <span class="math display">\[\begin{align*}
       x_{A,\text{in}} &amp;= \frac{F_0\,x_{A,0} + F_R \,x_{A,f}}{F_\text{in}} \\
-                &amp; = \frac{F_0\,x_{A,0} + F_0\,R\,x_{A,f}}{F_{out}} = \frac{F_0\left( x_{A,0} + R\,x_{A,f}\right)}{F_0 \left(1 + R\right) } 
+                &amp; = \frac{F_0\,x_{A,0} + F_0\,R\,x_{A,f}}{F_{out}} = \frac{F_0\left( x_{A,0} + R\,x_{A,f}\right)}{F_0 \left(1 + R\right) }
 \end{align*}\]</span>
 where <span class="math inline">\(x_{A,k}\)</span> referred to molar fraction of A in the stream <span class="math inline">\(k\)</span></p>
 <p>Then, the total reactor feed contains a molar fraction <span class="math inline">\(x_{A,\text{in}}\)</span>, given by
 <span class="math display" id="eq:eq063">\[\begin{equation}
-        x_{A,\text{in}} = \frac{x_{Ao} + R\,x_{A}}{1+R} 
+        x_{A,\text{in}} = \frac{x_{Ao} + R\,x_{A}}{1+R}
         \tag{2.69}
     \end{equation}\]</span></p>
 <p>The fractional conversion in the stream entering the reactor <span class="math inline">\(X_{A,\text{in}}\)</span> is not zero since this stream is a combination of fresh feed and the recycle stream. Thus the fractional conversion at the reactor inlet is:
@@ -1583,6 +1610,10 @@ where <span class="math inline">\(x_{A,k}\)</span> referred to molar fraction of
 \end{equation}\]</span></p>
 <p>Equation <a href="ideal-chemical-reactor-design.html#eq:eq066">(2.71)</a> is the mole balance for a recycled reactor, which has two characteristic limiting cases:</p>
 <table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Limiting case</th>
@@ -1607,7 +1638,7 @@ where <span class="math inline">\(x_{A,k}\)</span> referred to molar fraction of
 <span class="math display">\[\begin{equation*}
   X_A = \frac{\text{moles of A reacted in a single pass}}{\text{mole of of A feed to the reactor}}
 \end{equation*}\]</span></p>
-<p>In this case, the total molar flow rate of <span class="math inline">\(A\)</span> into the reactor is <span class="math inline">\(F_o + R\,F_{out}\)</span>, and to set the fractional inlet conversion of <span class="math inline">\(A\)</span>, equal to zero for the combined stream that enters the reactor. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>In this case, the total molar flow rate of <span class="math inline">\(A\)</span> into the reactor is <span class="math inline">\(F_o + R\,F_{out}\)</span>, and to set the fractional inlet conversion of <span class="math inline">\(A\)</span>, equal to zero for the combined stream that enters the reactor. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p>On this basis, the design equation becomes
 <span class="math display">\[\begin{equation*}
   \frac{V}{F_o + R\,F_{out}} = - \int_0^{X_A} \frac{dX}{r_A}
@@ -1618,9 +1649,8 @@ where
   X_A = &amp; \frac{F_o - F_o\left(1 - X_A\right)}{F_o + R\,F_o\left(1 - X_A\right)} = \frac{X_A}{1 + R\left(1 - X_A\right)}
 \end{align*}\]</span></p>
 <p>This equation is difficult to solve because <span class="math inline">\(X_A\)</span> appears on both sides of it. Therefore, the previous method is much simpler. The following example may serve to illustrate this reactor type.</p>
-
 <div class="exercise">
-<p><span id="exr:it003007" class="exercise"><strong>Exercise 2.7  (Autocatalytic reaction)  </strong></span>Determine the required reactor volume to treat <span class="math inline">\(0.1\)</span> m<span class="math inline">\(^3\)</span>/min of a fluid having a <span class="math inline">\(C_{A0} = 10\)</span> mmol/m<span class="math inline">\(^3\)</span> to 90% conversion. Additionally, it is known next experimental data:</p>
+<p><span id="exr:it003007" class="exercise"><strong>Exercise 2.7  (Autocatalytic reaction) </strong></span>Determine the required reactor volume to treat <span class="math inline">\(0.1\)</span> m<span class="math inline">\(^3\)</span>/min of a fluid having a <span class="math inline">\(C_{A0} = 10\)</span> mmol/m<span class="math inline">\(^3\)</span> to 90% conversion. Additionally, it is known next experimental data:</p>
 <table>
 <thead>
 <tr class="header">
@@ -1683,11 +1713,11 @@ where
 In this reaction system, the fluid density is constant, so it is possible to rewrite <a href="ideal-chemical-reactor-design.html#eq:eq066">(2.71)</a> in terms of concentration (which is an advantage for us because the fitting of experimental data was already done).
 <span class="math display">\[\begin{align*}
     C_{A,\text{in}} &amp;= \frac{C_{Ao} + R\,C_{A}}{1+R} \\
-    \tau &amp;= - \left( 1 + R \right)\int_{ C_{A,\text{in}}}^{C_{A}} {\frac{dC_A}{r_A }} 
+    \tau &amp;= - \left( 1 + R \right)\int_{ C_{A,\text{in}}}^{C_{A}} {\frac{dC_A}{r_A }}
 \end{align*}\]</span></p>
 <p>It is necessary add a negative sign because <span class="math inline">\(A\)</span> is the reactant in the reaction.
 Those equations were implemented in a Python <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/llect_011PFRReciclo.ipynb">script</a> to solve the problem both graphically and analytically. Figure <a href="ideal-chemical-reactor-design.html#fig:figlect011">2.20</a> shows the comparison between continuous-flow reactors for an autocatalytic reaction.</p>
-<div class="figure" style="text-align: center"><span id="fig:figlect011"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figlect011"></span>
 <img src="ebook_notes_5314_files/figure-html/figlect011-1.png" alt="Comparison continuous-flow reactors with autocatalytic kinetics: (a) CSTR, (b) PFR, (c) PFR with R = 1, (d) PFR at optimal recycle" width="85%" />
 <p class="caption">
 Figure 2.20: Comparison continuous-flow reactors with autocatalytic kinetics: (a) CSTR, (b) PFR, (c) PFR with R = 1, (d) PFR at optimal recycle
@@ -1704,20 +1734,20 @@ Figure 2.20: Comparison continuous-flow reactors with autocatalytic kinetics: (a
 <p>For autocatalytic reactions, back-mixing of reacted material with fresh feed is often beneficial in optimizing the overall reactor design, as it was proved in both cases (c) and (d).</p>
 </div>
 </div>
-<div id="analysis-of-equilibrium-limited-adiabatic-reactors" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Analysis of Equilibrium-Limited Adiabatic Reactors</h2>
-<p>Suppose we are asked to analyze the behavior of a single reaction taking place in an adiabatic reactor. One of the questions we might want to answer is: "What is the maximum conversion that can be achieved?’’</p>
+<div id="analysis-of-equilibrium-limited-adiabatic-reactors" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Analysis of Equilibrium-Limited Adiabatic Reactors<a href="ideal-chemical-reactor-design.html#analysis-of-equilibrium-limited-adiabatic-reactors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose we are asked to analyze the behavior of a single reaction taking place in an adiabatic reactor. One of the questions we might want to answer is: “What is the maximum conversion that can be achieved?’’</p>
 <p>Of course, the maximum conversion is obtained when the reaction reaches chemical equilibrium. This situation will be reached for an infinite reactor volume or an infinite weight of the catalyst. Nevertheless, the composition and temperature of the effluent from any reactor will be determined by the reaction’s kinetics.</p>
 <p>In any case, a reactor’s performance is susceptible to the temperature of the inlet stream, which is especially true for PFRs, and for reactors that operate adiabatically. Thus, it is vital to consider the type of reaction we are dealing with: exothermic, endothermic, irreversible, or reversible.</p>
 <p>Temperature, composition, and reaction rate are uniquely related to any single homogeneous reaction, and this way is represented graphically in one of three ways, as shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003029">2.21</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003029"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003029"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003029-1.png" alt="General shape of the temperature-conversion plot for different reaction types [@levenspiel2004]" width="85%" />
 <p class="caption">
-Figure 2.21: General shape of the temperature-conversion plot for different reaction types <span class="citation">(<a href="references.html#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
+Figure 2.21: General shape of the temperature-conversion plot for different reaction types <span class="citation">(<a href="#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
 </p>
 </div>
-<div id="adiabatic-reactors" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Adiabatic reactors</h3>
+<div id="adiabatic-reactors" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Adiabatic reactors<a href="ideal-chemical-reactor-design.html#adiabatic-reactors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The simplest and cheapest mode of reactor design and operation is the adiabatic model. If heat is added to or withdrawn from the reactor as the reaction proceeds, the heat-exchange surface must be designed into the reactor, increasing the capital cost substantially.
 However, an adiabatic reaction is practicable when the resulting temperatures stay in a workable range. That is, when they did not drop so that the rate becomes too small or rise until the rate becomes uncontrollable. The following conditions are favorable to adiabatic operation:</p>
 <ol style="list-style-type: decimal">
@@ -1727,7 +1757,7 @@ However, an adiabatic reaction is practicable when the resulting temperatures st
 <li>When an inert material is present or introduced without harm, it can moderate temperature changes by vaporization or condensation.</li>
 </ol>
 <p>The construction of an adiabatic reactor is relatively simple, and the capital cost is relatively low, so its design should always be considered. A more complex design should be used only when there are compelling reasons.</p>
-<p>For the design of nonisothermal operation, these necessary data are needed: <span class="citation">(<a href="references.html#ref-walas1989" role="doc-biblioref">Walas 1989</a>)</span></p>
+<p>For the design of nonisothermal operation, these necessary data are needed: <span class="citation">(<a href="#ref-walas1989" role="doc-biblioref">Walas 1989</a>)</span></p>
 <ol style="list-style-type: decimal">
 <li>The specific reaction rate as a function of temperature.</li>
 <li>The system’s thermal data, such as the heat capacities and sensible and latent enthalpies of all participants and inert materials present, as functions of temperature.</li>
@@ -1751,14 +1781,13 @@ T = T_0 - \left(\frac{{F_{A0}}\,\Delta H_{R,A}(T)}{\sum\limits_{i=1}^\mathcal{C}
 \tag{2.74}
 \end{equation}\]</span>
 where <span class="math inline">\(\Delta T_\text{ad}\)</span> is called <strong><em>adiabatic temperature change</em></strong>.</p>
-
 <div class="exercise">
-<p><span id="exr:it003008" class="exercise"><strong>Exercise 2.8  (Comparing PFRs performance)  </strong></span>Plot a <span class="math inline">\(C_A\)</span> and <span class="math inline">\(T\)</span> profiles vs <span class="math inline">\(\tau\)</span> for the reaction
+<p><span id="exr:it003008" class="exercise"><strong>Exercise 2.8  (Comparing PFRs performance) </strong></span>Plot a <span class="math inline">\(C_A\)</span> and <span class="math inline">\(T\)</span> profiles vs <span class="math inline">\(\tau\)</span> for the reaction
 <span class="math display">\[\begin{equation*}
         A \xrightarrow[]{k(T)} B
 \end{equation*}\]</span>
 with <span class="math inline">\(r = k(T)\,C_A\)</span></p>
-The reaction is taken place in an adiabatic PFR for <span class="math inline">\(E = 30\)</span> kcal/mol, <span class="math inline">\(k_0 = 2.6 \times 10^{20}\)</span> min<span class="math inline">\(^{-1}\)</span>, <span class="math inline">\(\Delta H_r = -20\)</span> kcal/mol, <span class="math inline">\(\rho C_P = 1000\)</span> cal/L-K, <span class="math inline">\(T_0 = 300\)</span> K y <span class="math inline">\(C_{Ao} = 2\)</span> mol/L.
+<p>The reaction is taken place in an adiabatic PFR for <span class="math inline">\(E = 30\)</span> kcal/mol, <span class="math inline">\(k_0 = 2.6 \times 10^{20}\)</span> min<span class="math inline">\(^{-1}\)</span>, <span class="math inline">\(\Delta H_r = -20\)</span> kcal/mol, <span class="math inline">\(\rho C_P = 1000\)</span> cal/L-K, <span class="math inline">\(T_0 = 300\)</span> K y <span class="math inline">\(C_{Ao} = 2\)</span> mol/L.</p>
 </div>
 <p><em>Solution</em>.
 For any continuous flow reactor working under adiabatic mode, the energy balance is calculated by
@@ -1787,14 +1816,14 @@ where <span class="math inline">\(\upsilon\)</span> represents the volumetric fl
     k(T) &amp;= k_0 \exp(-E/R/T)
 \end{align*}\]</span></p>
 <p>This system of equations was implemented and solved with <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_012PFRadiabatico.ipynb">Python</a>, and the graphical solution for the concentration and temperature profiles are shown in Fig. <a href="ideal-chemical-reactor-design.html#fig:solprofiles">2.22</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:solprofiles"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:solprofiles"></span>
 <img src="ebook_notes_5314_files/figure-html/solprofiles-1.png" alt="Profiles for an adiabatic PFR: (a) Concentration, (b) Temperature" width="85%" />
 <p class="caption">
 Figure 2.22: Profiles for an adiabatic PFR: (a) Concentration, (b) Temperature
 </p>
 </div>
 <p>It is interesting to compare the concentration profile for the adiabatic PFR with the solution for the reactor maintained isothermally at 300 K. These solutions are plotted in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003024">2.23</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003024"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003024"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003024-1.png" alt="Comparison of concentration profile for a PFR" width="65%" />
 <p class="caption">
 Figure 2.23: Comparison of concentration profile for a PFR
@@ -1802,7 +1831,7 @@ Figure 2.23: Comparison of concentration profile for a PFR
 </div>
 <p>From Figure <a href="ideal-chemical-reactor-design.html#fig:fig003024">2.23</a>, it is worthy to point out when the PFR operates in adiabatic mode, a shorter <span class="math inline">\(\tau\)</span> to attain complete conversion is required than under isothermal operation. Otherwise, the isothermal reactor curve exhibiting a standard exponential decay, but the adiabatic reactor shows an acceleration in rate as the reaction proceeds because the temperature increases.</p>
 <p>The same problem was solved for an adiabatic CSTR, and both profiles obtained were compared with PFR profiles in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003025">2.24</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003025"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003025"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003025-1.png" alt="Comparison of concentration and temperature profile for an adiabatic CSTR and adiabatic PFR: (a) Concentration profile, (b) Temperature profile" width="85%" />
 <p class="caption">
 Figure 2.24: Comparison of concentration and temperature profile for an adiabatic CSTR and adiabatic PFR: (a) Concentration profile, (b) Temperature profile
@@ -1828,15 +1857,15 @@ Figure 2.24: Comparison of concentration and temperature profile for an adiabati
 <p>The first term of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042a">(2.75)</a> represents the removal of heat, and the second one is associated with generating heat. When both terms have the same value, then the CSTR will be operating at steady-state conditions.</p>
 <p>Now, to identify possible steady-state operating points. First, we set a residence time, in our case 1.5 min. Second, we set the evaluating temperature range, which is 300 - 340 K. Finally, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042a">(2.75)</a> is substituted into Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003042b">(2.76)</a> and the resulting equation is evaluated for each temperature from the temperature range.</p>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003026">2.25</a> shows the energy balance for our CSTR at <span class="math inline">\(\tau = 1.5\)</span> min, following the procedure described before, and it is possible to identify three operating points. These points are approximately 302.5 K, 317.5 K, and 337.5 K, respectively.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003026"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003026"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003026-1.png" alt="Locations of steady-state operating points for an adiabatic CSTR at $\tau = 1.5$ min" width="65%" />
 <p class="caption">
 Figure 2.25: Locations of steady-state operating points for an adiabatic CSTR at <span class="math inline">\(\tau = 1.5\)</span> min
 </p>
 </div>
 </div>
-<div id="selecting-the-best-reactor-for-adiabatic-operation" class="section level3" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Selecting the best reactor for adiabatic operation</h3>
+<div id="selecting-the-best-reactor-for-adiabatic-operation" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Selecting the best reactor for adiabatic operation<a href="ideal-chemical-reactor-design.html#selecting-the-best-reactor-for-adiabatic-operation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In any case, it is important to know the optimum temperature progression because it will assure the minimum <span class="math inline">\(V/F_{A0}\)</span> for a given conversion of reactant. This optimum may be isothermal, or it may be a changing temperature: in time for a batch reactor, along the length of the PFR, or from stage to stage for a series of mixed flow reactors.</p>
 <p>In order to select the best adiabatic continuous-flow reactor for carrying out a reaction, it is suitable to analyze the <span class="math inline">\(1/r\)</span> plot because either for isothermal or nonisothermal reactors, <span class="math inline">\(\tau\)</span> is still the area under curves of plots 1/r versus <span class="math inline">\(C_{A0} - C_A\)</span>.</p>
 <p>In general, the size of reactor required for a given duty and a given temperature progression is found as follows:</p>
@@ -1847,15 +1876,15 @@ Figure 2.25: Locations of steady-state operating points for an adiabatic CSTR at
 <li>Find the area under this curve, which gives <span class="math inline">\(V/F_{A0}\)</span></li>
 </ol>
 <p>This procedure is general, applicable for any kinetics, temperature progression, reactor type, or reactor series. Thus, once the operating line is known, the reactor size can be found. For exothermic reactions, this procedure is illustrated in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003028">2.26</a> for three paths.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003028"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003028"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003028-1.png" alt="Finding the reactor size for different types of flow [@levenspiel2004]" width="75%" />
 <p class="caption">
-Figure 2.26: Finding the reactor size for different types of flow <span class="citation">(<a href="references.html#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
+Figure 2.26: Finding the reactor size for different types of flow <span class="citation">(<a href="#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
 </p>
 </div>
 <p>The optimum temperature progression in any reactor is as follows: At any composition, it will always be at the temperature where the rate is a maximum. The locus of the maximum rates is found by examining the <span class="math inline">\(r(T,C)\)</span> curves of Figure W.</p>
 <p>To illustrate this procedure, let us work with the previous example. In figure <a href="ideal-chemical-reactor-design.html#fig:fig003027">2.27</a> values of <span class="math inline">\(1/r_A\)</span> are plotted versus <span class="math inline">\(C_{A0} - C_A\)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig003027"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003027"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003027-1.png" alt="Plot of $1/r_A$ vs $C_{A0} - C_A$" width="65%" />
 <p class="caption">
 Figure 2.27: Plot of <span class="math inline">\(1/r_A\)</span> vs <span class="math inline">\(C_{A0} - C_A\)</span>
@@ -1863,8 +1892,8 @@ Figure 2.27: Plot of <span class="math inline">\(1/r_A\)</span> vs <span class="
 </div>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003027">2.27</a> shows that <span class="math inline">\(r_A\)</span> increases then decreases so that <span class="math inline">\(1/r_A\)</span> has a global minimum.</p>
 </div>
-<div id="optimization-of-endothermic-equilibrium-reactions" class="section level3" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Optimization of endothermic equilibrium reactions</h3>
+<div id="optimization-of-endothermic-equilibrium-reactions" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Optimization of endothermic equilibrium reactions<a href="ideal-chemical-reactor-design.html#optimization-of-endothermic-equilibrium-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The temperature dependence of the chemical equilibrium constant is given by the van’t Hoff equation:</p>
 <p><span class="math display" id="eq:ec003043">\[\begin{equation}
 \left(\frac{\partial \left(\ln K\right)}{\partial T}\right)_P = \frac{\Delta H_R}{R\,T^2}
@@ -1872,19 +1901,19 @@ Figure 2.27: Plot of <span class="math inline">\(1/r_A\)</span> vs <span class="
 \end{equation}\]</span></p>
 <p>For endothermic reaction, the value of <span class="math inline">\(\Delta H_R &gt;0\)</span>, therefore increasing the temperature, leads to an increase in the <span class="math inline">\(K\)</span> value.</p>
 <p>As a high temperature also increases the reaction rate, high temperatures are desirable to maximize rate and conversion in endothermic reactions, and higher temperatures will lead to smaller reactors. (Figure <a href="ideal-chemical-reactor-design.html#fig:fig003030">2.28</a></p>
-<div class="figure" style="text-align: center"><span id="fig:fig003030"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003030"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003030-1.png" alt="Operating line for minimum reactor size for an endothermic reversible reaction" width="65%" />
 <p class="caption">
 Figure 2.28: Operating line for minimum reactor size for an endothermic reversible reaction
 </p>
 </div>
 </div>
-<div id="optimization-of-exothermic-equilibrium-reactions" class="section level3" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> Optimization of exothermic equilibrium reactions</h3>
+<div id="optimization-of-exothermic-equilibrium-reactions" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Optimization of exothermic equilibrium reactions<a href="ideal-chemical-reactor-design.html#optimization-of-exothermic-equilibrium-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When an exothermic reaction occurs in an adiabatic reactor, the effect of temperature on its performance is crucial.</p>
 <p>In an exothermic reaction, the <span class="math inline">\(\Delta H_R &lt; 0\)</span> ; therefore, increasing the reaction temperature decreases the equilibrium chemical constant (<em>K</em>) value, with a concomitant decrease in the equilibrium yield. This situation is disadvantageous of the kinetic side because a high reaction rate occurs at high temperatures.</p>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003013">2.29</a> shows a typical equilibrium composition line for an exothermic reaction. When the reaction temperature is low, the fractional conversion is close to unity, but while temperature increases, the conversion decreases.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003013"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003013"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003013-1.png" alt="Typical graphic for an equilibrium composition vs. reaction temperature for an exothermic reaction" width="55%" />
 <p class="caption">
 Figure 2.29: Typical graphic for an equilibrium composition vs. reaction temperature for an exothermic reaction
@@ -1895,7 +1924,7 @@ Figure 2.29: Typical graphic for an equilibrium composition vs. reaction temper
 <p>If the same reactor operates isothermally, the change of composition will follow the vertical line, and the final fractional conversion will be determined, again, for the chemical equilibrium curve.</p>
 <p>Although the final conversion (<em>X</em>) will be higher for an isothermal mode than for an adiabatic mode at the same initial temperature (<span class="math inline">\(T_0\)</span>), the isothermal operation may not be practical because of the required reactor volume.</p>
 <p>For this reason, it is necessary to determine the optimal temperature progression along the reactor to maximize the conversion for the minimum possible reactor volume, which is shown as a dashed line in figure <a href="ideal-chemical-reactor-design.html#fig:fig003014">2.30</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003014"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003014"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003014-1.png" alt="Typical lines of constant reaction rate corresponding to set of values of temperature and conversion for an exothermic reaction" width="55%" />
 <p class="caption">
 Figure 2.30: Typical lines of constant reaction rate corresponding to set of values of temperature and conversion for an exothermic reaction
@@ -1903,24 +1932,23 @@ Figure 2.30: Typical lines of constant reaction rate corresponding to set of val
 </div>
 <p>In figure <a href="ideal-chemical-reactor-design.html#fig:fig003014">2.30</a>, each solid line represents a locus of the set of temperature and conversion that gives a specified value of rate.
 At a constant reaction rate, the conversion initially rises rapidly with increasing temperature and then begins to fall due to a faster reverse reaction’s rising rate. The top line (equilibrium line) corresponds to a reaction rate of zero.</p>
-<p>The dashed line gives a trajectory of maximum reaction rates as a function of the conversion called "the locus of maximum reaction rates’’. This locus is independent of the type of reactor used, and for a given conversion, the reactor volume is minimum if the temperature of operation is selected to correspond to the maximum reaction rate.</p>
+<p>The dashed line gives a trajectory of maximum reaction rates as a function of the conversion called “the locus of maximum reaction rates’’. This locus is independent of the type of reactor used, and for a given conversion, the reactor volume is minimum if the temperature of operation is selected to correspond to the maximum reaction rate.</p>
 <p>The temperature at which the conversion rate is a maximum will be somewhat lower than Te and is determined by the condition.
 <span class="math display" id="eq:ec003044">\[\begin{equation}
 \frac{\partial r_j}{\partial T} = 0
 \tag{2.78}
 \end{equation}\]</span></p>
-
 <div class="exercise">
-<p><span id="exr:it003009" class="exercise"><strong>Exercise 2.9  (The locus of maximum reaction rates)  </strong></span>Derive an equation for the locus of maximum reaction rates for a simple reversible-exothermic reaction</p>
+<p><span id="exr:it003009" class="exercise"><strong>Exercise 2.9  (The locus of maximum reaction rates) </strong></span>Derive an equation for the locus of maximum reaction rates for a simple reversible-exothermic reaction</p>
 <p><span class="math display">\[
 A \xrightarrow[k_2]{k_1} B
 \]</span></p>
-Assuming <span class="math inline">\(C_{B0} = 0\)</span>, <span class="math inline">\(r_{1} = k_{1}\,C_A\)</span>, <span class="math inline">\(r_{2} = k_{2}\,C_B\)</span>, and
+<p>Assuming <span class="math inline">\(C_{B0} = 0\)</span>, <span class="math inline">\(r_{1} = k_{1}\,C_A\)</span>, <span class="math inline">\(r_{2} = k_{2}\,C_B\)</span>, and
 <span class="math display">\[\begin{align*}
     k_1 &amp;= k_{10} \exp\left(-Ea_1/RT\right)\\
     k_2 &amp;= k_{20} \exp\left(-Ea_2/RT\right)
 \end{align*}\]</span>
-with <span class="math inline">\(Ea_2&gt;Ea_1\)</span>
+with <span class="math inline">\(Ea_2&gt;Ea_1\)</span></p>
 </div>
 <p><em>Solution</em>.
 The corresponding maximum reaction rate can be derived as a function of temperature, which is:
@@ -1928,17 +1956,16 @@ The corresponding maximum reaction rate can be derived as a function of temperat
 r_\text{opt}(T) = \cfrac{Cao\:k_{10}\:k_{20} \left(- Ea_{1} + Ea_{2}\right)}{Ea_{1}\: k_{10}\: e^{\cfrac{Ea_{2}}{R T}} + Ea_{2}\: k_{20}\: e^{\cfrac{Ea_{1}}{R T}}}
 \end{equation*}\]</span></p>
 <p>More details about the solution of this problen is available on this link <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_013ThermoMaxExothemica.ipynb">Python</a></p>
-
 <div class="exercise">
-<p><span id="exr:it003010" class="exercise"><strong>Exercise 2.10  (Calculation of the optimal temperature)  </strong></span>Derive an equation for the optimal temperature for a simple reversible-exothermic reaction
+<p><span id="exr:it003010" class="exercise"><strong>Exercise 2.10  (Calculation of the optimal temperature) </strong></span>Derive an equation for the optimal temperature for a simple reversible-exothermic reaction
 <span class="math display">\[\begin{equation*}
         A + B \rightleftharpoons P + Q
 \end{equation*}\]</span></p>
-<span class="math display">\[\begin{align*}
+<p><span class="math display">\[\begin{align*}
 r_{1} &amp;= k_{1}\,C_A\,C_B, \qquad k_1 = k_{10} \exp\left(-E_1/RT\right) \quad \text{forward reaction}\\
 r_{2} &amp;= k_{2}\,C_P\,C_Q, \qquad    k_2 = k_{20} \exp\left(-E_2/RT\right) \quad \text{reverse reaction}
 \end{align*}\]</span>
-with <span class="math inline">\(E2&gt;E1\)</span>
+with <span class="math inline">\(E2&gt;E1\)</span></p>
 </div>
 <p><em>Solution</em>.
 Following the same procedure shown in the last illustration, the optimal temperature is
@@ -1969,7 +1996,7 @@ K = \frac{C_P\,C_Q}{C_A\,C_B} = \frac{k_{10} \exp\left(-E_1/RT\right)}{k_{20} \e
 </ol>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003015">2.31</a> shows a typical conversion path for multiple adiabatic reactors in series. Each diagonal line represents one reactor, which operates adiabatically until the fixed conversion is reached.
 For example, <span class="math inline">\(X_1\)</span> then the process stream is cooled by passing it through a heat exchanger until a predetermined temperature (in this stage, there is no conversion). Afterward, the process stream enters the next reactor (Bed 2) and so on.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003015"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003015"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003015-1.png" alt="Typical conversion path for multiple adiabatic reactors in series for exothermic reactions" width="55%" />
 <p class="caption">
 Figure 2.31: Typical conversion path for multiple adiabatic reactors in series for exothermic reactions
@@ -2007,7 +2034,7 @@ X_{A(N-1),L} &amp;= X_{AN,0}
 \tag{2.87}
 \end{align}\]</span></p>
 <p>The procedure will be illustrated using a temperature conversion diagram of a given exothermic equilibrium reaction with a given feed composition.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003016"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003016"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003016-1.png" alt="Sketch of optimal temperature progression" width="55%" />
 <p class="caption">
 Figure 2.32: Sketch of optimal temperature progression
@@ -2023,14 +2050,17 @@ When the <span class="math inline">\(T_1-X_1\)</span> line intersects with the c
 \tag{2.88}
 \end{equation}\]</span>
 to find the proper entrance temperature to the second section.</p>
-
 <div class="exercise">
-<p><span id="exr:it003011" class="exercise"><strong>Exercise 2.11  (Reversible exothermic reaction)  </strong></span>Consider next chemical reaction is taking place in a CSTR that has two feed streams, <span class="math inline">\(F_{A0}\)</span> and <span class="math inline">\(F_{B0}\)</span> (m<span class="math inline">\(^3\)</span>/s) with concentrations <span class="math inline">\(C_{A0}\)</span> and <span class="math inline">\(C_{B0}\)</span> (kmol/m<span class="math inline">\(^3\)</span>).
+<p><span id="exr:it003011" class="exercise"><strong>Exercise 2.11  (Reversible exothermic reaction) </strong></span>Consider next chemical reaction is taking place in a CSTR that has two feed streams, <span class="math inline">\(F_{A0}\)</span> and <span class="math inline">\(F_{B0}\)</span> (m<span class="math inline">\(^3\)</span>/s) with concentrations <span class="math inline">\(C_{A0}\)</span> and <span class="math inline">\(C_{B0}\)</span> (kmol/m<span class="math inline">\(^3\)</span>).
 <span class="math display">\[\begin{equation*}
         A + B \longleftrightarrow C + D
 \end{equation*}\]</span>
 Assuming a first-order kinetic, determine the operating temperature that maximize the fractional conversion of <span class="math inline">\(A\)</span> in a CSTR with volume equals to (a) 50 m<span class="math inline">\(^3\)</span>, (b) 100 m<span class="math inline">\(^3\)</span> and (c) 200 m<span class="math inline">\(^3\)</span>.</p>
 <table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -2090,7 +2120,7 @@ And assuming constant density, the volumetric flow rate of the effluent will be 
 F = F_{A0} + F_{B0}
 \end{equation*}\]</span></p>
 <p>This problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_016CSTROptimization.ipynb">Python</a>, and the results are presented in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003017">2.33</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003017"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003017"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003017-1.png" alt="Conversion vs reaction temperature for a reversible reaction in a CSTR" width="65%" />
 <p class="caption">
 Figure 2.33: Conversion vs reaction temperature for a reversible reaction in a CSTR
@@ -2128,9 +2158,8 @@ At high temperatures, the conversion is also low, this time because of a low equ
 </tbody>
 </table>
 <p>Now, let us add the same size CSTR to the previous problem and determine the optimum operating temperature and final fractional conversion.</p>
-
 <div class="exercise">
-<p><span id="exr:it003012" class="exercise"><strong>Exercise 2.12  (Reversible exothermic reaction)  </strong></span>For the elementary solid-catalyzed liquid-phase reaction
+<p><span id="exr:it003012" class="exercise"><strong>Exercise 2.12  (Reversible exothermic reaction) </strong></span>For the elementary solid-catalyzed liquid-phase reaction
 <span class="math display">\[A \leftrightarrows B\]</span></p>
 <ol style="list-style-type: decimal">
 <li>Make a plot of equilibrium conversion as a function of temperature.</li>
@@ -2139,13 +2168,14 @@ At high temperatures, the conversion is also low, this time because of a low equ
 <li>Plot the optimal operating temperature profile.</li>
 <li>Determine the heat duty of each exchanger for a molar feed rate of <span class="math inline">\(A\)</span> of 40 mol/s.</li>
 <li>Calculate the volume of each reactor to get those conversion.</li>
-<li>For a 1 m<span class="math inline">\(^3\)</span> RFP, determine the inlet temperature which maximize the fractional conversion achieved.
-</div></li>
+<li>For a 1 m<span class="math inline">\(^3\)</span> RFP, determine the inlet temperature which maximize the fractional conversion achieved.<br />
+</li>
 </ol>
+</div>
 <p><em>Solution</em>.
 This problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_018CSTRLecho.ipynb">Python</a></p>
 <p>First, the equilibrium conversion temperature and the adiabatic heat balance line are plotted in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003019">2.34</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003019"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003019"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003019-1.png" alt="Equilibrium conversion vs. reaction temperature for a reversible reaction" width="65%" />
 <p class="caption">
 Figure 2.34: Equilibrium conversion vs. reaction temperature for a reversible reaction
@@ -2155,13 +2185,13 @@ Figure 2.34: Equilibrium conversion vs. reaction temperature for a reversible r
 <p><span class="math display">\[\begin{align*}
   K &amp;= \frac{k_{10}}{k_{20}}\exp{\frac{(E_2-E_1)}{R\,T}}\\
   X_e &amp;= \frac{K}{1+K}
- \end{align*}\]</span></p>
+\end{align*}\]</span></p>
 <p>If the reactor is operated adiabatically, with <span class="math inline">\(T_{in} = 300\)</span> K, the adiabatic line (dashed green line on Fig. <a href="ideal-chemical-reactor-design.html#fig:fig003019">2.34</a>) is obtained from:</p>
 <p><span class="math display">\[\begin{equation*}
   T = T_{in} + \left(X_A-X_{A,\text{in}}\right)\frac{\left(-\Delta H_R^\circ\right)}{C_{P_A}}
 \end{equation*}\]</span></p>
 <p>Then, assuming 95% of equilibrium conversion at each stage, three reactors with interstage cooling are modeled, and the results are presented in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003020">2.35</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003020"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003020"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003020-1.png" alt="Equilibrium conversion vs. reaction temperature for a reversible reaction" width="65%" />
 <p class="caption">
 Figure 2.35: Equilibrium conversion vs. reaction temperature for a reversible reaction
@@ -2220,7 +2250,7 @@ Figure 2.35: Equilibrium conversion vs. reaction temperature for a reversible r
   \frac{dV}{dX} &amp;= \frac{F_{A0}}{r_A}
 \end{align*}\]</span></p>
 <p>In Figure <a href="ideal-chemical-reactor-design.html#fig:fig003021">2.36</a>, the fractional conversion profile as a function of volume reactor for each bed is presented.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003021"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003021"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003021-1.png" alt="Conversion profile as function of volume reactor" width="65%" />
 <p class="caption">
 Figure 2.36: Conversion profile as function of volume reactor
@@ -2228,15 +2258,15 @@ Figure 2.36: Conversion profile as function of volume reactor
 </div>
 </div>
 </div>
-<div id="the-batch-reactor-br" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> The Batch Reactor (BR)</h2>
+<div id="the-batch-reactor-br" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> The Batch Reactor (BR)<a href="ideal-chemical-reactor-design.html#the-batch-reactor-br" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A batch reactor (BR) is a spatially uniform closed system whose concentration parameters are established at time zero. To ensure that the reactor content is well mixed, they are mechanically agitated, and in most cases, it is necessary to implement a heat-transfer system to ensure an isothermal operation mode. Therefore, it is assumed that in an ideal batch reactor.</p>
 <div class="infobox info">
 <p>At any time, the batch is uniform in composition and temperature at every point in the reactor.</p>
 </div>
-<p>Batch reactors are generally used for liquid-phase reactions. When a solid catalyst has to be kept in suspension or two liquid phases, an agitator is required. Since the batch reactor (BR) has no flow streams, and as a consequence that the reaction mixture is homogeneous, that is, all contents are in a single phase. Perfect mixing is also assumed, which means that there are no spatial variations in temperature and composition. The composition changes with time, however. Temperature sequencing may be favorable for the selectivity of achieving complete conversion in a safe way. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p>Batch reactors are generally used for liquid-phase reactions. When a solid catalyst has to be kept in suspension or two liquid phases, an agitator is required. Since the batch reactor (BR) has no flow streams, and as a consequence that the reaction mixture is homogeneous, that is, all contents are in a single phase. Perfect mixing is also assumed, which means that there are no spatial variations in temperature and composition. The composition changes with time, however. Temperature sequencing may be favorable for the selectivity of achieving complete conversion in a safe way. <span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
 <p>If all reactants are charged to the reactor, its concentration initially is large, which means that the reaction rate and the heat transfer load are high at the beginning of the batch cycle unless the temperature keeps low for external heat-transfer equipment.</p>
-<p>For better control of temperature, this type of operation may not be advisable, and the reactant(s) may have to be added progressively to the vessel’s contents. The reactor is then said to operate in semi-batch mode. <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<p>For better control of temperature, this type of operation may not be advisable, and the reactant(s) may have to be added progressively to the vessel’s contents. The reactor is then said to operate in semi-batch mode. <span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
 <p><strong>Characteristics</strong>:</p>
 <ul>
 <li>These reactors usually have a cylindrical-tank shape.</li>
@@ -2258,8 +2288,8 @@ Figure 2.36: Conversion profile as function of volume reactor
 <li>Testing new processes that have not been fully developed.</li>
 <li>Manufacture of expensive products.</li>
 </ul>
-<div id="the-isothermal-batch-reactor" class="section level3" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> The isothermal batch reactor</h3>
+<div id="the-isothermal-batch-reactor" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> The isothermal batch reactor<a href="ideal-chemical-reactor-design.html#the-isothermal-batch-reactor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In spite of the perfect mixing assumption, for a single reaction the mole balance (Eq. <a href="ideal-chemical-reactor-design.html#eq:continuidad">(2.1)</a>) for the key component <em>j</em> for the entire reactor volume reduces to:</p>
 <p><span class="math display" id="eq:ec002002">\[\begin{equation}
     \frac{dN_j}{dt}= V\,r_j\left(C_j\right)
@@ -2275,8 +2305,8 @@ Figure 2.36: Conversion profile as function of volume reactor
 </li>
 <li>What is the reaction volume (size of reactor) required for a specific production flow rate?</li>
 </ol>
-<div id="constant-volume-batch-reactor" class="section level4 unnumbered">
-<h4>Constant-Volume Batch Reactor</h4>
+<div id="constant-volume-batch-reactor" class="section level4 unnumbered hasAnchor">
+<h4>Constant-Volume Batch Reactor<a href="ideal-chemical-reactor-design.html#constant-volume-batch-reactor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If the reactor volume is constant, then the mass density of the system, <span class="math inline">\(\rho\)</span> (mass/volume), must also be constant since the mass of material in a batch reactor does not change with time. In this case, it is possible to rewrite the molar balance (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a>) directly in terms of concentrations.
 <span class="math display" id="eq:ec002004">\[\begin{equation}
     r_j \left(C_j\right) = \frac{1}{V}\frac{dN_j}{dt} = \cfrac{d\left(\cfrac{N_j}{V}\right)}{dt} = \frac{dC_j}{dt}
@@ -2301,11 +2331,11 @@ t = C_{A0} \int_{0}^{X_A} \frac{dX_A}{r_A} = - \int_{C_{A0}}^{C_A} \frac{dC_A}{r
 \tag{2.93}
 \end{equation}\]</span></p>
 <div class="infobox info">
-<p>The assumption of constant volume is valid for the most industrial batch reactor. The mass density is approximately constant for a large majority of liquids, even if the temperature changes moderately as the reaction proceeds. Moreover, if a vessel is filled with gas, the gas volume will be constant because the vessel’s dimensions are fixed and do not vary with time. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>The assumption of constant volume is valid for the most industrial batch reactor. The mass density is approximately constant for a large majority of liquids, even if the temperature changes moderately as the reaction proceeds. Moreover, if a vessel is filled with gas, the gas volume will be constant because the vessel’s dimensions are fixed and do not vary with time. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 </div>
 </div>
-<div id="variable-volume-batch-reactor" class="section level4 unnumbered">
-<h4>Variable-Volume Batch Reactor</h4>
+<div id="variable-volume-batch-reactor" class="section level4 unnumbered hasAnchor">
+<h4>Variable-Volume Batch Reactor<a href="ideal-chemical-reactor-design.html#variable-volume-batch-reactor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In a variable-volume batch reactor, the volume of the reacting mixture changes over time for two reasons:</p>
 <ol style="list-style-type: decimal">
 <li>external means (e.g., filling a reaction vessel or adding a second reactant), which is often termed ‘’semi-batch’’ operation, and</li>
@@ -2313,7 +2343,7 @@ t = C_{A0} \int_{0}^{X_A} \frac{dX_A}{r_A} = - \int_{C_{A0}}^{C_A} \frac{dC_A}{r
 </ol>
 <p>If <em>V</em> change over time, Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002002">(2.89)</a> in terms of concentrations would be:
 <span class="math display">\[\begin{equation*}
-    r_j = \frac{1}{V}\,\frac{dN_j}{dt} = \frac{1}{V}\,\frac{dC_j\,V}{dt} = \frac{dC_j}{dt} + \frac{C_j}{V}\frac{dV}{dt} 
+    r_j = \frac{1}{V}\,\frac{dN_j}{dt} = \frac{1}{V}\,\frac{dC_j\,V}{dt} = \frac{dC_j}{dt} + \frac{C_j}{V}\frac{dV}{dt}
 \end{equation*}\]</span>
 which is more complex than Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002004">(2.90)</a>.</p>
 <p>However, for a critical reactant, an alternating way is to rewrite Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002006">(2.92)</a> in terms of fractional conversion because a change in the volume yields a change in concentrations.</p>
@@ -2326,12 +2356,12 @@ which is more complex than Eq. <a href="ideal-chemical-reactor-design.html#eq:ec
     r_A\left(X_A\right) = - \frac{1}{V_0 \left(1 + \varepsilon_A\,X_A \right)}\frac{dN_A}{dt}
 \end{equation}\]</span>
 and their solutions are:
-<span class="math display" id="eq:ec002024">\[\begin{equation} 
+<span class="math display" id="eq:ec002024">\[\begin{equation}
   t = N_{A0} \int_{0}^{X_A} \frac{dX_A}{\left(-r_A\right)V_0\left(1+\varepsilon_A\,X_A\right)} = C_{j0} \int_{0}^{X_A} \frac{dX_A}{\left(-r_A\right)\left(1+\varepsilon_A\,X_A\right)}
 \tag{2.94}
 \end{equation}\]</span></p>
 <p>All these equations apply to both isothermal and nonisothermal operations, and they can be represented graphically, as shown schematically in Figure <a href="ideal-chemical-reactor-design.html#fig:fig002010">2.37</a>, to know the reaction time.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig002010"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig002010"></span>
 <img src="ebook_notes_5314_files/figure-html/fig002010-1.png" alt="Graphical representation of the performance equations for batch reactors, isothermal or nonisothermal." width="55%" />
 <p class="caption">
 Figure 2.37: Graphical representation of the performance equations for batch reactors, isothermal or nonisothermal.
@@ -2339,12 +2369,12 @@ Figure 2.37: Graphical representation of the performance equations for batch rea
 </div>
 </div>
 </div>
-<div id="the-nonisothermal-batch-reactor" class="section level3" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> The nonisothermal batch reactor</h3>
+<div id="the-nonisothermal-batch-reactor" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> The nonisothermal batch reactor<a href="ideal-chemical-reactor-design.html#the-nonisothermal-batch-reactor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is not always possible, or even desirable, to carry out a reaction under isothermal conditions in practice. In this situation, both the energy and mass balances must be solved simultaneously.</p>
 <p>It is known that a batch reactor is a closed system. Otherwise, in most cases, the work done by the stirrer is neglected unless the mixture is highly viscous and the stirring operation draws significant power. Under this scenario, Eq. <a href="ideal-chemical-reactor-design.html#eq:energybal">(2.3)</a> becomes
 <span class="math display" id="eq:ec003002">\[\begin{equation}
-    \frac{dU}{dt}= Q - W_s 
+    \frac{dU}{dt}= Q - W_s
 \tag{2.95}
 \end{equation}\]</span></p>
 <p>By convenience, let us rewrite Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003002">(2.95)</a> in terms of enthalpy,
@@ -2380,16 +2410,16 @@ so that
 \end{equation*}\]</span></p>
 <p>Combining this relationship with Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003004">(2.97)</a>,
 <span class="math display" id="eq:ec003005">\[\begin{equation}
- Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,v\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
- \tag{2.98}
+Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,v\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
+\tag{2.98}
 \end{equation}\]</span>
 where <span class="math inline">\(\beta = \sum\nolimits_{i=1} n_i \beta_i\)</span></p>
 <p>The batch reactor can be operated in either constant-(e.g., in an autoclave) or variable-(e.g., in an open vessel) volume mode. The form of the energy balance equation (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003004">(2.97)</a>) depends on which of these two modes is used.</p>
-<div id="batch-reactor-at-constant-pressure" class="section level4 unnumbered">
-<h4>Batch Reactor at constant-pressure</h4>
+<div id="batch-reactor-at-constant-pressure" class="section level4 unnumbered hasAnchor">
+<h4>Batch Reactor at constant-pressure<a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-pressure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A batch reactor operating at <strong>constant pressure</strong> or the fluid is incompressible, then Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003005">(2.98)</a> reduces to
 <span class="math display" id="eq:ec003006">\[\begin{equation}
-Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
+Q = \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} + V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
 \tag{2.99}
 \end{equation}\]</span></p>
 <p>In general, when dealing with a batch reactor, it will be required to calculate the reaction temperature and fractional conversion as a function of time under given conditions of heat supply or removal, or to calculate the heating or cooling requirements for obtaining a desired temperature and reactor capacity.</p>
@@ -2463,12 +2493,11 @@ T = T_0 + \Delta T_\text{ad}\,X_A
 <div class="infobox info">
 <p>The operating point of an adiabatic CSTR at steady-state must lie somewhere on the line that represents the adiabatic energy balance. For an adiabatic PFR at a steady-state or for an adiabatic batch reactor, the energy balance describes the reaction’s path, including the exit condition for a PFR and the final condition for a batch reactor. For an adiabatic reactor, if point <span class="math inline">\((X,T)\)</span> does not lie on the line, the energy balance is not satisfied.</p>
 </div>
-
 <div class="exercise">
-<p><span id="exr:it003013" class="exercise"><strong>Exercise 2.13  (Heat requirement for a BR)  </strong></span>In a batch reactor, having a volume <span class="math inline">\(V_R = 5 \text{ m}^3\)</span>, a constant-density exothermic reaction <span class="math inline">\(A \rightarrow P\)</span> is carried out in the liquid phase. For the conversion rate we have</p>
+<p><span id="exr:it003013" class="exercise"><strong>Exercise 2.13  (Heat requirement for a BR) </strong></span>In a batch reactor, having a volume <span class="math inline">\(V_R = 5 \text{ m}^3\)</span>, a constant-density exothermic reaction <span class="math inline">\(A \rightarrow P\)</span> is carried out in the liquid phase. For the conversion rate we have</p>
 <p><span class="math display">\[\begin{align*}
 &amp;r_A = -k\,C_A \quad \left[\text{kmol/m}^3\text{s} \right]\\
-&amp;C_P = 4.2 \cdot 10^6 \, \text{J/}\text{m}^3\,^\circ \text{C}\\ 
+&amp;C_P = 4.2 \cdot 10^6 \, \text{J/}\text{m}^3\,^\circ \text{C}\\
 &amp;k = 4\cdot 10^6 \exp \left(-7900/T\right) \quad \left[\text{s}^{-1} \right]\\
 &amp;\text{MW}_A = 100 \text{ kg/kmol}\\
 &amp;\Delta H_R = -1.67 \cdot 10^6 \; \text{J/kg}\\
@@ -2492,7 +2521,7 @@ The energy balance for an incompressible fluid without external heat exchange an
 <p>Where <span class="math inline">\(T_s\)</span> and <span class="math inline">\(U_s\)</span> is the operating temperature and the global heat transfer coefficient for steam, respectively.</p>
 <p>This ODE was integrated from <span class="math inline">\(T = 20 \,^\circ\)</span>C and <span class="math inline">\(T = 55 \,^\circ\)</span>C (ec. <a href="ideal-chemical-reactor-design.html#eq:ec003013">(2.104)</a>) and it is found that the latter temperature is reached after 2015.69 seconds.
 <span class="math display" id="eq:ec003013">\[\begin{equation}
-    T (t) =T_s + \exp \left(-\frac{U\,A\,t}{C_P\,V_R}\right) \left(20 - T_s \right) 
+    T (t) =T_s + \exp \left(-\frac{U\,A\,t}{C_P\,V_R}\right) \left(20 - T_s \right)
 \tag{2.104}
 \end{equation}\]</span></p>
 <p><em>Step 2</em>. Reaction under adiabatic operation. Now, it is necessary to combine mass balance, kinetic rate with energy balance.
@@ -2507,7 +2536,7 @@ This system required 4063.6 seconds for reached 90% of conversion. The final tem
     \frac{dT(t)}{dt} =\frac {U_c\,A\left(T_c - T(t)\right)}{C_P\,V_R}
 \end{equation*}\]</span>
 In this stage, the system was cooled to 45 <span class="math inline">\(^\circ\)</span>C in 4997.43 seconds.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig0030203"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig0030203"></span>
 <img src="ebook_notes_5314_files/figure-html/fig0030203-1.png" alt="Conversion and temperature in a batch reactor (Case I)" width="65%" />
 <p class="caption">
 Figure 2.38: Conversion and temperature in a batch reactor (Case I)
@@ -2524,10 +2553,10 @@ This temperature was reached in 3442.17 seconds, and the conversion of <span cla
 <p><em>Step 2</em>. In the second step, the reaction proceeded at a constant temperature.
 The equation required to solve this step is just the mass balance of <span class="math inline">\(A\)</span> with <span class="math inline">\(k\)</span> evaluated at 95 <span class="math inline">\(^\circ\)</span>C. Under this circumstance, the conversion of 90% was reached in 609.38 seconds.</p>
 <p><span class="math display">\[\begin{equation*}
-    \frac{d X_A}{dt} = k(T)\left(1-X_A\right) 
+    \frac{d X_A}{dt} = k(T)\left(1-X_A\right)
 \end{equation*}\]</span></p>
 <p><em>Step 3</em>. The final step was cooling down the reaction mixture until 45 <span class="math inline">\(^\circ\)</span>C. This temperature was reached in 5290.39 seconds.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig0030204"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig0030204"></span>
 <img src="ebook_notes_5314_files/figure-html/fig0030204-1.png" alt="Conversion and temperature in a batch reactor (Case II)" width="65%" />
 <p class="caption">
 Figure 2.39: Conversion and temperature in a batch reactor (Case II)
@@ -2536,9 +2565,8 @@ Figure 2.39: Conversion and temperature in a batch reactor (Case II)
 <p>The total time operation in case I (including filling and emptying times) was 11676.5 seconds or 3.24 hours. For case II, the total time required was 9341.94 or 2.59 hours, which implies a decrease of 20%.</p>
 <p>However, it is essential to include an economic function to optimize the operation scheme because steam and cooling water requirements are different in both cases.</p>
 <p>The solution for this problem is avalaible in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_019BatchReactorHX.ipynb">Python</a></p>
-
 <div class="exercise">
-<p><span id="exr:it003014" class="exercise"><strong>Exercise 2.14  (Dynamic simulation of a non-isothermal batch reactor)  </strong></span>The chemical reaction is a liquid-phase, irreversible, exothermic, and first-order, which is taking place
+<p><span id="exr:it003014" class="exercise"><strong>Exercise 2.14  (Dynamic simulation of a non-isothermal batch reactor) </strong></span>The chemical reaction is a liquid-phase, irreversible, exothermic, and first-order, which is taking place
 into a BR.</p>
 <p>Let us assume that <span class="math inline">\(A\)</span> is fed to the reactor at 294 K, the diameter of the reactor is 2 m, and it is equipped with a jacket heat transfer and an additional external heat exchanger, which heat transfer area is four times the jacket area. The operating temperature is 340 K, and initially, the reactor is heated with a hot fluid until the reaction begins to generate heat, and then it is cooled by a cold fluid.</p>
 <p>A split-range-heating/cooling system is used to heat or cool the reactor as it is required. A reactor temperature controller’s setpoint is ramped up from 300 K to 340 K in 45 min. The hot-stream temperature is 373 K while the cold-stream one is 294 K. The maximum flow rate of each stream is one kg/s.</p>
@@ -2553,7 +2581,7 @@ This problem is described by following ODEs
 <span class="math display">\[\begin{gather*}
 \frac{dC_A}{dt} = - k \,C_A \\
 \frac{dT}{dt} = \frac{1}{\rho\,C_P\,V_R}\left(Q - \Delta H_R(T) \,k \,C_A \,V_R\right)\\
-\frac{dT_J}{dt} = \frac{F_\text{cold}\,T_\text{cold} + F_\text{hot}\,T_\text{hot}}{V_J} - 
+\frac{dT_J}{dt} = \frac{F_\text{cold}\,T_\text{cold} + F_\text{hot}\,T_\text{hot}}{V_J} -
 \frac{\left(F_\text{hot}+F_\text{cold}\right)T_J}{V_J} - \frac{Q}{V_J\rho_J\,C_{P_J}}
 \end{gather*}\]</span>
 where <span class="math inline">\(J\)</span> refers to jacket heat exchanger</p>
@@ -2563,7 +2591,7 @@ where <span class="math inline">\(J\)</span> refers to jacket heat exchanger</p>
     k = k_0 \exp\left(\frac{-E}{R\,T}\right)
 \end{equation*}\]</span></p>
 <p>This problem was solved in <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_020BatchReactorDyn.ipynb">Python</a>, and its results are shown in Figure <a href="ideal-chemical-reactor-design.html#fig:fig003004">2.40</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003004"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003004"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003004-1.png" alt="Dynamic simulation of a batch reactor" width="70%" />
 <p class="caption">
 Figure 2.40: Dynamic simulation of a batch reactor
@@ -2581,7 +2609,7 @@ U\,A\left(T_{R,\text{max}}-T_\text{cold}\right) = \Delta H_R(T) V_R\,r_A(T_{R,\t
 <p>In (c) is shown that at <span class="math inline">\(T_{R,\text{max}}\)</span> the concentration of <em>A</em> dropped to about half its initial value. The final conversion of <em>A</em> was reached in <strong>291.29 min</strong></p>
 <p>The same problem was solved for two different diameters for the reactor to analyze the effect over reactor performance and stability of the reaction.
 The results obtained are shown in figure <a href="ideal-chemical-reactor-design.html#fig:fig003005">2.41</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig003005"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig003005"></span>
 <img src="ebook_notes_5314_files/figure-html/fig003005-1.png" alt="Effect of size reactor over dynamic behavior of a BR" width="65%" />
 <p class="caption">
 Figure 2.41: Effect of size reactor over dynamic behavior of a BR
@@ -2589,8 +2617,8 @@ Figure 2.41: Effect of size reactor over dynamic behavior of a BR
 </div>
 <p>Figure <a href="ideal-chemical-reactor-design.html#fig:fig003005">2.41</a> shows when the reactor size is decreased, its response is unstable, with a 10K overshoot of the desired temperature, whereas when the diameter is increased to 3 m, the reactor runs away</p>
 </div>
-<div id="batch-reactor-at-constant-volume" class="section level4 unnumbered">
-<h4>Batch Reactor at constant-volume</h4>
+<div id="batch-reactor-at-constant-volume" class="section level4 unnumbered hasAnchor">
+<h4>Batch Reactor at constant-volume<a href="ideal-chemical-reactor-design.html#batch-reactor-at-constant-volume" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Nevertheless, when the reactor operates at constant volume, the boundary work is zero so let us rewrite the energy balance for a batch reactor (from Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003005">(2.98)</a>) in reasonable terms. The variation of the pressure can be derived from the total differential of volume.</p>
 <p><span class="math display" id="eq:ec003008">\[\begin{equation}
     dV ={\left( \frac{\partial V}{\partial T}\right)}_{P,n} dT + {\left( \frac{\partial V}{\partial P}\right)}_{T,n} dP + \sum\limits_{i=1}^\mathcal{C} \overline{V}_i dn_i
@@ -2611,7 +2639,7 @@ Figure 2.41: Effect of size reactor over dynamic behavior of a BR
 <p>Substituting Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003010">(2.107)</a> into Eq. <a href="ideal-chemical-reactor-design.html#eq:ec003005">(2.98)</a>
 <span class="math display">\[\begin{align*}
 Q = &amp; \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\frac{dP}{dt} +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j \\
-= &amp; \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\left(\frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt}\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j 
+= &amp; \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \beta\:\left(\frac{\beta}{\kappa_T} \frac{dT}{dt} +\frac{1}{V\,\kappa_T} \sum\limits_{i=1}^\mathcal{C} \overline{V}_i \frac{dn_i}{dt}\right) +V\: \sum\limits_{j=1}^R \Delta H_{R_j}(T) \,r_j
 \end{align*}\]</span></p>
 <p>This equation could rewrite it,
 <span class="math display">\[\begin{align*}
@@ -2631,9 +2659,9 @@ Q = &amp; \sum\limits_{i=1}^\mathcal{C} n_{i} \,C_{P_i}\frac{dT}{dt} - T\,V\, \b
 <p>The use of a jacket surrounding the reactor is probably the most common method providing heat transfer because it is relatively inexpensive in terms of equipment cost. However, the most effective heat exchange equipment configuration will be determined by the amount of heat that must be added or removed from the reactor to keep optimum conversion of the key reactant into the desired product.</p>
 </div>
 </div>
-<div id="the-semi-batch-reactor" class="section level3" number="2.5.3">
-<h3><span class="header-section-number">2.5.3</span> The Semi-Batch Reactor</h3>
-<p>When addition of reactants, together with removal of liquid and vapor, is also considered, the equations becomes for example <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span>:</p>
+<div id="the-semi-batch-reactor" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> The Semi-Batch Reactor<a href="ideal-chemical-reactor-design.html#the-semi-batch-reactor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When addition of reactants, together with removal of liquid and vapor, is also considered, the equations becomes for example <span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span>:</p>
 <p>Continuity equations for specie <em>j</em>:
 <span class="math display">\[\begin{equation*}
 \frac{C_j\,V}{dt} = F_1 C_{j,0} - F_2 C_j - F_{3,v}\,C_{j,v} - V \sum_{i=1}^R \nu_{ij}\, r_i
@@ -2695,19 +2723,19 @@ with the initial condition <span class="math inline">\(V=V_0\)</span> at <span c
 \end{align*}\]</span></p>
 <p>We need to solve this EDOs system in order to measure the performance of the reactor.</p>
 </div>
-<div id="optimal-operation-policies" class="section level3" number="2.5.4">
-<h3><span class="header-section-number">2.5.4</span> Optimal Operation Policies</h3>
-<p>Two main types of situations are considered <span class="citation">(<a href="references.html#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
+<div id="optimal-operation-policies" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Optimal Operation Policies<a href="ideal-chemical-reactor-design.html#optimal-operation-policies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Two main types of situations are considered <span class="citation">(<a href="#ref-froment2011" role="doc-biblioref">Froment, Bischoff, and De Wilde 2011</a>)</span></p>
 <ol style="list-style-type: decimal">
 <li>Optimal batch operation time for the sequence of operations in a given reactor.</li>
 <li>Optimal temperature (or other variables) variations during the reaction, aiming to minimize the reactor size.</li>
 </ol>
 <p>The volume reactor is considered constant in order to simplify the mathematical model.</p>
-<div id="optimal-batch-operation-time" class="section level4 unnumbered">
-<h4>Optimal Batch Operation Time</h4>
+<div id="optimal-batch-operation-time" class="section level4 unnumbered hasAnchor">
+<h4>Optimal Batch Operation Time<a href="ideal-chemical-reactor-design.html#optimal-batch-operation-time" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suppose the reaction (Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002025">(2.108)</a>) is taking place in a batch reactor of volumen <em>V</em> on a continual basis.
 <span class="math display" id="eq:ec002025">\[\begin{equation}
- A \rightarrow C
+A \rightarrow C
 \tag{2.108}
 \end{equation}\]</span></p>
 <p>The production rate is calculated based on reaction time, <em>t</em>, and the turnaround time, <span class="math inline">\(t_t\)</span>, between batches. This turnaround time might involve: charge the reactor with reactants, heat the contents to a specified temperature, the reaction time, cool the reactor contents down to ambient temperature, drain the contents of the reactor, cleaning and prepare the reactor for the next batch.</p>
@@ -2717,7 +2745,7 @@ with the initial condition <span class="math inline">\(V=V_0\)</span> at <span c
 \end{equation*}\]</span></p>
 <p>The rate of production of <span class="math inline">\(C\)</span> on a continual basis is then
 <span class="math display">\[\begin{align*}
-\text{Prod}(C) &amp;= \frac{\text{moles of C formed}}{\text{batch}} \times \frac{\text{batch}}{\text{time}} \\ 
+\text{Prod}(C) &amp;= \frac{\text{moles of C formed}}{\text{batch}} \times \frac{\text{batch}}{\text{time}} \\
             &amp; = \frac{n_C - n_{C0}}{t_c}
 \end{align*}\]</span></p>
 <p>This equation is, in terms of fractional conversion of <em>A</em>
@@ -2744,7 +2772,7 @@ The productivity <span class="math inline">\(\text{Pr}\)</span> will be maximize
 \end{equation}\]</span></p>
 <p>As consequence of Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002027">(2.110)</a>, it is possible to calculate the optimum time from:
 <span class="math display" id="eq:ec002028">\[\begin{equation}
- \frac{dX_A}{dt}{\left(t_\text{optimum} + t_t \right)} - X_A = 0
+\frac{dX_A}{dt}{\left(t_\text{optimum} + t_t \right)} - X_A = 0
 \tag{2.111}
 \end{equation}\]</span></p>
 <p>Specify kinetics is required to solve Eq. <a href="ideal-chemical-reactor-design.html#eq:ec002028">(2.111)</a>.</p>
@@ -2758,8 +2786,8 @@ The productivity <span class="math inline">\(\text{Pr}\)</span> will be maximize
 \end{equation*}\]</span></p>
 <p>Solving these equations is possible to calculate the optimum load of the installation.</p>
 </div>
-<div id="optimal-temperature-policies" class="section level4 unnumbered">
-<h4>Optimal Temperature Policies</h4>
+<div id="optimal-temperature-policies" class="section level4 unnumbered hasAnchor">
+<h4>Optimal Temperature Policies<a href="ideal-chemical-reactor-design.html#optimal-temperature-policies" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When you want to answer questions like:</p>
 <ol style="list-style-type: decimal">
 <li>What is the best single temperature of operation?</li>
@@ -2770,8 +2798,8 @@ The productivity <span class="math inline">\(\text{Pr}\)</span> will be maximize
 </div>
 </div>
 </div>
-<div id="dealing-with-complex-reactions" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Dealing with complex reactions</h2>
+<div id="dealing-with-complex-reactions" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Dealing with complex reactions<a href="ideal-chemical-reactor-design.html#dealing-with-complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In principle, complex reactions are defined by parallel, consecutive reactions or any combinations of them. In parallel reactions, the key reactant is consumed by two different reaction pathways to form different products.</p>
 <center>
 <img src="figures/complexreactions01.png" />
@@ -2800,7 +2828,7 @@ The productivity <span class="math inline">\(\text{Pr}\)</span> will be maximize
 <li>The first is analogous to the kind of problem associated with single reactions. In this category are questions such as: Given a system of reactions with known kinetics, what reaction time (or space-time) will be required to obtain a specified concentration of reactant or product, and what concentrations of the other species will exist at this time?</li>
 <li>The second type of problem does not involve reaction time or space-time. The question here is given a system of reactions with known kinetics, and given the concentration of one component at some (unspecified) time (or space-time), what are the concentrations of the other species at that time (or space-time)? This type of problem is referred to as a ’‘<em>time-independent</em>’’ problem. Time-independent problems can be solved by forming the ratio of various reaction rates to eliminate time (or space-time) as an explicit variable. However, the solution to such problems provides no information about the time or reactor volume required to obtain a given composition.</li>
 </ol>
-<p>Although fractional conversion still is a valid concept, even when more than one reaction takes place. However, the conversion of a single reactant is not sufficient to describe the progress of more than one reaction or to define the complete composition of a system in which more than one reaction occurs. Thus, it is more convenient to deal with concentrations rather than fractional conversions and examine product distribution. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>Although fractional conversion still is a valid concept, even when more than one reaction takes place. However, the conversion of a single reactant is not sufficient to describe the progress of more than one reaction or to define the complete composition of a system in which more than one reaction occurs. Thus, it is more convenient to deal with concentrations rather than fractional conversions and examine product distribution. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p>In industrial practice, high conversion rates are essential, but the yield of desired products plays a tremendous role in chemical reactor design.
 Thus, attempts are often made at the expense of reactor capacity to increase the production of desired products and suppress the formation of undesired ones.</p>
 <p>For a reaction system like this one</p>
@@ -2830,7 +2858,7 @@ Here, <span class="math inline">\(Y_P\)</span> will be 1 when all of the <span c
 The definitions of overall and global yield are similar. However, the last one is based on the amount of reactant that is <em>fed</em>.</p>
 <p>The sum of all global yield of all products will not equal to unity as long as some <span class="math inline">\(A\)</span> remains unconverted. The global and overall yield is related through the fractional conversion.
 <span class="math display">\[\begin{equation*}
-  \frac{\text{moles of P formed}}{\text{moles of A fed}} = \frac{\text{moles of A reacted}}{\text{moles of A fed}} \times \frac{\text{moles of P formed}}{\text{moles of A reacted}} 
+  \frac{\text{moles of P formed}}{\text{moles of A fed}} = \frac{\text{moles of A reacted}}{\text{moles of A fed}} \times \frac{\text{moles of P formed}}{\text{moles of A reacted}}
 \end{equation*}\]</span></p>
 <p><span class="math display" id="eq:ec002075">\[\begin{equation}
   \eta_{P} = X_A \, \widetilde{Y}_P
@@ -2893,6 +2921,27 @@ Y_{P,\text{max}} = \frac{p_1}{a_1}
 
 </div>
 </div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-froment2011" class="csl-entry">
+Froment, G., K. Bischoff, and Juraya De Wilde. 2011. <em>Chemical Reactor Analysis and Design</em>. John Wiley &amp; Sons, INC.
+</div>
+<div id="ref-hill2014" class="csl-entry">
+Hill, Charles G. Jr, and Thatcher W. Root. 2014. <em>Introduction to Chemical Engineering Kinetics &amp; Reactor Design</em>. Second. Wiley.
+</div>
+<div id="ref-levenspiel2004" class="csl-entry">
+Levenspiel, Octave. 2004. <em>Chemical Reaction Engineering</em>. Third. Limusa Wiley.
+</div>
+<div id="ref-roberts2009" class="csl-entry">
+Roberts, George. 2009. <em>Chemical Reactions and Chemical Reactors</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-walas1989" class="csl-entry">
+Walas, Stanley. 1989. <em>Reaction Kinetics for Chemical Engineers</em>. Butterworth Publishers.
+</div>
+<div id="ref-westerterp1984" class="csl-entry">
+Westertep, K., W. Van Swaaij, and A. Beenackers. 1984. <em>Chemical Reactor Design and Operation</em>. John Wiley &amp; Sons.
+</div>
+</div>
             </section>
 
           </div>
@@ -2903,7 +2952,6 @@ Y_{P,\text{max}} = \frac{p_1}{a_1}
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2922,6 +2970,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -2942,6 +2991,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ebook_notes_5314.pdf", "ebook_notes_5314.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -2955,7 +3008,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

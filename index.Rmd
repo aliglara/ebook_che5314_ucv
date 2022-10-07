@@ -8,13 +8,21 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela."
----
 
+---
 # Introduction {-}
 
-```{r mindmap2, out.width = "80%", echo=FALSE, fig.align='center', fig.lp='fig:'}
+```{r, echo=FALSE}
 library(png)
 library(grid)
+
+knitr::opts_template$set(fullwidth = list(
+  fig.width = 10, fig.height = 6, fig.lp='fig:', echo=FALSE, 
+  fig.retina = 1, out.width = '50%', fig.align='center'))
+
+```
+
+```{r mindmap2, out.width = "80%"}
 img <- readPNG("figures/Reactor_Design_map.png")
 grid.raster(img)
 ```

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Distribution of Residence times | Notes for CHE5314 course @ UCV</title>
   <meta name="description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Distribution of Residence times | Notes for CHE5314 course @ UCV" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is my note compilation for the course of Chemical Reaction Design at Central University of Venezuela." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Ali G. Lara" />
 
 
-<meta name="date" content="2021-05-10" />
+<meta name="date" content="2022-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="ideal-chemical-reactor-design.html"/>
 <link rel="next" href="applications-for-rtd-functions.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,34 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -219,14 +243,14 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="distribution-of-residence-times" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Distribution of Residence times</h1>
+<div id="distribution-of-residence-times" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Distribution of Residence times<a href="distribution-of-residence-times.html#distribution-of-residence-times" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Reactors treated in this course have been modeled under specific flow considerations that lead to simplicity in the mole and energy balances and are valid in many industrial reactors.</p>
 <p>Unfortunately, as it is shown in Figure <a href="distribution-of-residence-times.html#fig:fig004000">3.1</a>, there are other cases where the deviation of those industrial reactors from ideal behavior may be sufficiently large that the use of an ideal reactor model will give an unacceptably significant error because of the careless treatment that these models do to the fluid flow pattern within the reactors.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004000"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004000"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004000-1.png" alt="Examples of nonideal flow in a CSTR and packed-bed vessel. [@missen1999]" width="65%" />
 <p class="caption">
-Figure 3.1: Examples of nonideal flow in a CSTR and packed-bed vessel. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
+Figure 3.1: Examples of nonideal flow in a CSTR and packed-bed vessel. <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
 </p>
 </div>
 <p>If the flow pattern does not follow the ideal models, it must be necessary to apply a more complex methodology for the reactor performance analysis. Nevertheless, before going deeper into these methodologies, it is essential to emphasize that the factors that govern the performance of a chemical reactor can be grouped into two broad classifications:</p>
@@ -235,10 +259,10 @@ Figure 3.1: Examples of nonideal flow in a CSTR and packed-bed vessel. <span cla
 <li>The <strong>extent of mixing</strong> within the reactor. When dealing with two or more different molecules that must react, molecular collision must occur as a first step. Therefore, the concentration at the molecular level is essential.</li>
 </ol>
 <p>The degree of mixing depends not only on the reactor configuration and operating conditions but also on the fluid and reactants’ properties.</p>
-<p>Mixing is a complex phenomenon that can be analyzed on both a macroscopic and microscopic scale. The RTD functions provide a measure only of macroscopic mixing. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
+<p>Mixing is a complex phenomenon that can be analyzed on both a macroscopic and microscopic scale. The RTD functions provide a measure only of macroscopic mixing. <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
 <p>However, non-ideal flow results in irregularities relating to the micromixing of fluid elements of differing ages at the microscopic level, too. Therefore, in this section of the course, we will see how the classical approach of Residence Time Distribution (RTD) provides a method for evaluating the effect of flow patterns within the reactor on chemical conversion levels.</p>
-<div id="rtd-functions" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> RTD functions</h2>
+<div id="rtd-functions" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> RTD functions<a href="distribution-of-residence-times.html#rtd-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First of all, the study of non-ideal flow behavior is based on the RTD of non-reacting species in an arbitrary flow system with constant density fluid. From this point, it will be explained its relationship to a chemically reacting species present in the reactor.</p>
 <p>Residence time theory deals with the age of particles within a flow system. The particles may be atoms, molecules, or fluid elements conserved as they flow through the system.</p>
 <div class="infobox info">
@@ -259,10 +283,10 @@ Figure 3.1: Examples of nonideal flow in a CSTR and packed-bed vessel. <span cla
 where <span class="math inline">\(\upsilon\)</span> is the steady volumetric flow rate.</p>
 <p>It is vital to point out that a fully contained vessel has no diffusion or dispersion at the vessel’s entrance or exit so that a fluid element once inside the reactor cannot escape back into the input stream or once removed from cannot return to the vessel.</p>
 <p>This assumption is more precisely related to the boundaries of the reactor. It is assumed a plug flow in both the inlet tube and the outlet tube. Such boundary conditions are called “closed-closed.” Figure <a href="distribution-of-residence-times.html#fig:fig00400">3.2</a> gives others boundary conditions than closed-closed that they are essential for specific experimental techniques to assess the mixing parameters inside the reactor, but they will not consider in this course.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig00400"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig00400"></span>
 <img src="ebook_notes_5314_files/figure-html/fig00400-1.png" alt="Boundary conditions of reactors in relation to the residence time distribution. [@westerterp1984]" width="65%" />
 <p class="caption">
-Figure 3.2: Boundary conditions of reactors in relation to the residence time distribution. <span class="citation">(<a href="references.html#ref-westerterp1984" role="doc-biblioref">Westertep, Van Swaaij, and Beenackers 1984</a>)</span>
+Figure 3.2: Boundary conditions of reactors in relation to the residence time distribution. <span class="citation">(<a href="#ref-westerterp1984" role="doc-biblioref">Westertep, Van Swaaij, and Beenackers 1984</a>)</span>
 </p>
 </div>
 <p>Now, let us introduce some mathematical concepts. Let <span class="math inline">\(d\,V = \upsilon\, dt\)</span> represent a fluid element which entered the system <span class="math inline">\(t\)</span> time ago. Also, let <span class="math inline">\(\mathbf{P}(t)\)</span> represent the probability that the element remains in the reactor during the period <span class="math inline">\(t\)</span>. The total volume of the fluid in the reactor must be</p>
@@ -288,33 +312,33 @@ with boundary conditions of <span class="math inline">\(F(t) = 0\)</span> at <sp
 \end{equation}\]</span></p>
 <p><span class="math display">\[\begin{equation*}
   \mathbf{F}(t) \to 1 \text{ when } t \to \infty
- \end{equation*}\]</span></p>
-<p><span class="math inline">\(\mathbf{F}(t)\)</span> is called "<em>Cumulative Distribution Function</em>’’. This function is dimensionless, and <strong>represents the fraction of effluent that has been in the reactor for less time than <em>t</em>, and leaves the reactor with age less than <em>t</em></strong>.</p>
+\end{equation*}\]</span></p>
+<p><span class="math inline">\(\mathbf{F}(t)\)</span> is called “<em>Cumulative Distribution Function</em>’’. This function is dimensionless, and <strong>represents the fraction of effluent that has been in the reactor for less time than <em>t</em>, and leaves the reactor with age less than <em>t</em></strong>.</p>
 <p>The typical shape of <span class="math inline">\(\mathbf{F}(t)\)</span> function is shown on Figure <a href="distribution-of-residence-times.html#fig:fig004000a">3.3</a>. From this figure, it is possible to note that 80% of the molecules spend 40 min or less in the reactor, and 20% of the molecules spend longer than 40 min in the reactor.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004000a"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004000a"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004000a-1.png" alt="Typical cumulative distribution curve **F**. [@fogler2008]" width="55%" />
 <p class="caption">
-Figure 3.3: Typical cumulative distribution curve <strong>F</strong>. <span class="citation">(<a href="references.html#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span>
+Figure 3.3: Typical cumulative distribution curve <strong>F</strong>. <span class="citation">(<a href="#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span>
 </p>
 </div>
 <p>The distribution of residence times is represented by an external residence time distribution or an exit age distribution, <span class="math inline">\(\mathbf{E}(t)\)</span>. This function is called <strong>Residence Time Distribution Function</strong> or (RTD-function) which <strong>defines a fraction of exiting fluid elements with residence times lies between time <span class="math inline">\(t\)</span> and <span class="math inline">\(t+dt\)</span>.</strong></p>
 <p>Since <span class="math inline">\(\mathbf{E}(t)\)</span> is a fraction, <span class="math inline">\(\mathbf{E}(t)\)</span> has units of time<span class="math inline">\(^{-1}\)</span>. In addition, the fraction of fluid that leaves the reactor over all time, this means between <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=\infty\)</span> must be 1. Therefore
 <span class="math display" id="eq:ec004008">\[\begin{equation}
- \int_{0}^{\infty} \mathbf{E}(t)\,dt = 1
+\int_{0}^{\infty} \mathbf{E}(t)\,dt = 1
 \tag{3.6}
 \end{equation}\]</span></p>
 <p>The fraction of fluid <strong><em>in the effluent stream</em></strong> that was <strong><em>in the reactor</em></strong> for a time between <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=t\)</span> si given by
 <span class="math display">\[\begin{equation*}
-  \int_{0}^{t} \mathbf{E}(t)\,dt 
+  \int_{0}^{t} \mathbf{E}(t)\,dt
 \end{equation*}\]</span></p>
-<p>Another way of saying the same thing is that <span class="math inline">\(\int_{0}^{t} \mathbf{E}(t)\,dt\)</span> is the fraction of fluid in the exit stream with an  less than <span class="math inline">\(t\)</span>. This fractions can be represented graphically as shown in Figure <a href="distribution-of-residence-times.html#fig:fig004019">3.4</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004019"></span>
+<p>Another way of saying the same thing is that <span class="math inline">\(\int_{0}^{t} \mathbf{E}(t)\,dt\)</span> is the fraction of fluid in the exit stream with an less than <span class="math inline">\(t\)</span>. This fractions can be represented graphically as shown in Figure <a href="distribution-of-residence-times.html#fig:fig004019">3.4</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004019"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004019-1.png" alt="Typical RTD curve **E**. [@roberts2009]" width="70%" />
 <p class="caption">
-Figure 3.4: Typical RTD curve <strong>E</strong>. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span>
+Figure 3.4: Typical RTD curve <strong>E</strong>. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span>
 </p>
 </div>
-<p>The fraction of the fluid that spends a given duration, <span class="math inline">\(t\)</span> inside the reactor, is given by the value of <span class="math inline">\(\mathbf{E}(t)\,dt\)</span>. Therefore, <span class="math inline">\(\mathbf{E}(t)\)</span> curve is related to <span class="math inline">\(\mathbf{F}(t)\)</span> because the fraction of the fluid that leaves the reactor with age less than <span class="math inline">\(t\)</span> is equal to the sum over all times less than <span class="math inline">\(t\)</span> of <span class="math inline">\(\mathbf{E}(t) \Delta t\)</span>, or expressed continuously. <span class="citation">(<a href="references.html#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
+<p>The fraction of the fluid that spends a given duration, <span class="math inline">\(t\)</span> inside the reactor, is given by the value of <span class="math inline">\(\mathbf{E}(t)\,dt\)</span>. Therefore, <span class="math inline">\(\mathbf{E}(t)\)</span> curve is related to <span class="math inline">\(\mathbf{F}(t)\)</span> because the fraction of the fluid that leaves the reactor with age less than <span class="math inline">\(t\)</span> is equal to the sum over all times less than <span class="math inline">\(t\)</span> of <span class="math inline">\(\mathbf{E}(t) \Delta t\)</span>, or expressed continuously. <span class="citation">(<a href="#ref-roberts2009" role="doc-biblioref">Roberts 2009</a>)</span></p>
 <p><span class="math display" id="eq:ec004009">\[\begin{equation}
   \mathbf{F}(t) = \int_0^{t} \mathbf{E}(t)\,dt
 \tag{3.7}
@@ -326,18 +350,18 @@ Figure 3.4: Typical RTD curve <strong>E</strong>. <span class="citation">(<a hre
 \end{equation}\]</span></p>
 <p>Therefore from Eq. <a href="distribution-of-residence-times.html#eq:ec004005">(3.5)</a>
 <span class="math display" id="eq:ec004007">\[\begin{equation}
- \overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt
+\overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt
 \tag{3.9}
 \end{equation}\]</span></p>
 <p>This procedure is called normalizing the distribution, and Figure <a href="distribution-of-residence-times.html#fig:fig004001">3.5</a> shows that.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004001"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004001"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004001-1.png" alt="The typical exit age distribution curve **E** (RTD) [@levenspiel2004]" width="70%" />
 <p class="caption">
-Figure 3.5: The typical exit age distribution curve <strong>E</strong> (RTD) <span class="citation">(<a href="references.html#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
+Figure 3.5: The typical exit age distribution curve <strong>E</strong> (RTD) <span class="citation">(<a href="#ref-levenspiel2004" role="doc-biblioref">Levenspiel 2004</a>)</span>
 </p>
 </div>
 <p>The RTD function may be used directly to analyze reactors, or related functions may be used depending on the application.</p>
-<p>Another useful distribution curve is the Washout function, <span class="math inline">\(\mathbf{W}\)</span>, which sometimes is called "Complement function’’. This function gives <strong>the fraction of effluent that has been in reactor (with the residence times) for longer than time <span class="math inline">\(t\)</span></strong>. It could be calculated from
+<p>Another useful distribution curve is the Washout function, <span class="math inline">\(\mathbf{W}\)</span>, which sometimes is called “Complement function’’. This function gives <strong>the fraction of effluent that has been in reactor (with the residence times) for longer than time <span class="math inline">\(t\)</span></strong>. It could be calculated from
 <span class="math display" id="eq:ec004010">\[\begin{equation}
   \mathbf{W}(t) = \int_{t}^{\infty} \mathbf{E}(t)\,dt \equiv 1 - \mathbf{F}(t) = 1 - \int_0^t{\mathbf{E}(t)\,dt}
 \tag{3.10}
@@ -353,13 +377,13 @@ Furthermore, the relationship between the functions in derivative form is
 \tag{3.12}
 \end{equation}\]</span></p>
 <p>A typical <span class="math inline">\(\mathbf{F}(t)\)</span> and the corresponding <span class="math inline">\(\mathbf{W}(t)\)</span> function curve are illustrated in Figure <a href="distribution-of-residence-times.html#fig:fig004002">3.6</a></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004002"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004002"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004002-1.png" alt="The typical **F(t)** and **W(t)** curves. [@hayes2013]" width="70%" />
 <p class="caption">
-Figure 3.6: The typical <strong>F(t)</strong> and <strong>W(t)</strong> curves. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+Figure 3.6: The typical <strong>F(t)</strong> and <strong>W(t)</strong> curves. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
 </p>
 </div>
-<p>Another distribution function of interest in some application is the "Internal Age Distribution’’, <span class="math inline">\(\mathbf{I}\)</span>, which is <strong>the fraction of fluid inside the vessel with age between <span class="math inline">\(t\)</span> and <span class="math inline">\(t + dt\)</span></strong>. It has properties similar to <span class="math inline">\(\mathbf{E}(t)\)</span>, so
+<p>Another distribution function of interest in some application is the “Internal Age Distribution’’, <span class="math inline">\(\mathbf{I}\)</span>, which is <strong>the fraction of fluid inside the vessel with age between <span class="math inline">\(t\)</span> and <span class="math inline">\(t + dt\)</span></strong>. It has properties similar to <span class="math inline">\(\mathbf{E}(t)\)</span>, so
 <span class="math display">\[\begin{equation*}
     \int_0^\infty \mathbf{I}(t)\,dt = 1
 \end{equation*}\]</span>
@@ -374,7 +398,7 @@ While the fraction older than <span class="math inline">\(t\)</span> is
 \end{equation*}\]</span>
 Similar to <span class="math inline">\(\mathbf{E}(t)\)</span>, the mean age fluid elements inside the vessel is,
 <span class="math display">\[\begin{equation*}
- \overline{t}_1 =   \int_0^\infty t\,\mathbf{I}(t)\,dt = \text{ mean internal age }
+\overline{t}_1 =   \int_0^\infty t\,\mathbf{I}(t)\,dt = \text{ mean internal age }
 \end{equation*}\]</span></p>
 <p>As might be expected, there is an interrelationship between <span class="math inline">\(\mathbf{I}\)</span> and <span class="math inline">\(\mathbf{E}\)</span> since the fluid entering a vessel at a given time obviously either leaves it or stays inside. Therefore:
 <span class="math display" id="eq:ec004012a">\[\begin{equation}
@@ -392,7 +416,7 @@ or
 </center>
 <p>Therefore
 <span class="math display">\[\begin{equation}
-  \boldsymbol\Lambda (t) = \frac{1}{\overline{t}} \frac{\mathbf{E}(t)}{\mathbf{I}(t)} 
+  \boldsymbol\Lambda (t) = \frac{1}{\overline{t}} \frac{\mathbf{E}(t)}{\mathbf{I}(t)}
 \end{equation}\]</span></p>
 <p>Combining the last two equations
 <span class="math display">\[\begin{equation}
@@ -400,9 +424,9 @@ or
 }{\overline{t}\,\mathbf{I}(t)} = - \frac{d\left[\ln\left(\overline{t}\mathbf{I}(t)\right)\right]}{dt}
 \end{equation}\]</span></p>
 </div>
-<div id="means-and-moments" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Means and moments</h2>
-<p>In addition to characterizing the RTD using the three functions <span class="math inline">\(\mathbf{E}(t)\)</span>, <span class="math inline">\(\mathbf{F}(t)\)</span> and <span class="math inline">\(\mathbf{W}(t)\)</span>, the residence time can also be characterized using the moments of the RTD functions. There are several types of moments. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
+<div id="means-and-moments" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Means and moments<a href="distribution-of-residence-times.html#means-and-moments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In addition to characterizing the RTD using the three functions <span class="math inline">\(\mathbf{E}(t)\)</span>, <span class="math inline">\(\mathbf{F}(t)\)</span> and <span class="math inline">\(\mathbf{W}(t)\)</span>, the residence time can also be characterized using the moments of the RTD functions. There are several types of moments. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
 <p>The first type is the moment around the origin, which is defined in terms of density function as
 <span class="math display" id="eq:ec004013">\[\begin{equation}
   \mu_n = \int_0^{\infty} t^n\,\mathbf{E}(t)\,dt
@@ -439,19 +463,19 @@ As we already know, the mean residence time is the average time that molecules s
 \end{equation}\]</span></p>
 <p>All moments must be calculated meticulously for a complete summary of a distribution. In practice, these three parameters are typically appropriate for a good RTD characterization.</p>
 </div>
-<div id="normalized-rtd-functions" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Normalized RTD functions</h2>
-<p>It is common when using residence time theory to work with normalized RTD, defined as the residence time divided by the mean residence time. This dimensionless time is given by <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
+<div id="normalized-rtd-functions" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Normalized RTD functions<a href="distribution-of-residence-times.html#normalized-rtd-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is common when using residence time theory to work with normalized RTD, defined as the residence time divided by the mean residence time. This dimensionless time is given by <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span>
 <span class="math display">\[\begin{equation*}
   \theta = \frac{t}{\overline{t}}
 \end{equation*}\]</span>
 The density functions for the two cases are related by
 <span class="math display">\[\begin{equation*}
- \mathbf{E}(\theta)\,d\theta = \mathbf{E}(t)\,dt 
+\mathbf{E}(\theta)\,d\theta = \mathbf{E}(t)\,dt
 \end{equation*}\]</span>
 Because <span class="math inline">\(\overline{t}\,d\theta = dt\)</span>, it follows that
 <span class="math display">\[\begin{equation*}
- \mathbf{E}(\theta) = \overline{t}\,\mathbf{E}(t) = \frac{\overline{t}\;C(t)}{\displaystyle \int_0^\infty C(t)\,dt}
+\mathbf{E}(\theta) = \overline{t}\,\mathbf{E}(t) = \frac{\overline{t}\;C(t)}{\displaystyle \int_0^\infty C(t)\,dt}
 \end{equation*}\]</span>
 The other relationships do not change. The normalized cumulative distribution function is
 <span class="math display">\[\begin{equation*}
@@ -467,15 +491,15 @@ Finally, the moments about the origin and the central moments for the normalized
   &amp;\nu_{\theta}^{2} = \int_{\theta}^{\infty} {\left(\theta - \overline{\theta}\right)}^2\,\mathbf{E}(\theta)\,d\theta = \int_{\theta}^{\infty} {\theta}^2\,\mathbf{E}(\theta)\,d\theta - 1 = \frac{\theta^2}{\overline{t}^2}
 \end{align*}\]</span></p>
 <p>For numerical work with tracer data directly, it is common to use the dimensional <span class="math inline">\(\mathbf{E}(t), \overline{t}\)</span>, and <span class="math inline">\(\sigma_t^2\)</span>. The dimensionless quantities are used with the performance models. Figure <a href="distribution-of-residence-times.html#fig:tabrtd">3.7</a> shows a summary of RTD functions expressed by dimensionless time.</p>
-<div class="figure" style="text-align: center"><span id="fig:tabrtd"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tabrtd"></span>
 <img src="ebook_notes_5314_files/figure-html/tabrtd-1.png" alt="Relationships between Residence Time Functions" width="65%" />
 <p class="caption">
 Figure 3.7: Relationships between Residence Time Functions
 </p>
 </div>
 </div>
-<div id="experimental-determination-of-rtd" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Experimental determination of RTD</h2>
+<div id="experimental-determination-of-rtd" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Experimental determination of RTD<a href="distribution-of-residence-times.html#experimental-determination-of-rtd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The RTD is measured experimentally by injecting a tracer, which is an inert chemical compound into the reactor at some time <span class="math inline">\(t=0\)</span> and then measuring its concentration, <span class="math inline">\(C\)</span>, in the effluent stream as a function of time. The tracer must meet the following requirements:</p>
 <ol style="list-style-type: decimal">
 <li>it must be a nonreactive species that is easily detectable at low concentrations, e.g., by electrical conductivity, light absorption, or nuclear radiation.</li>
@@ -486,10 +510,10 @@ Figure 3.7: Relationships between Residence Time Functions
 </ol>
 <p>The two most used methods of injection are <em>pulse input</em> and <em>step input</em>.</p>
 </div>
-<div id="determination-of-et-from-pulse-input" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Determination of <strong>E(t)</strong> from Pulse input</h2>
-<p>The direct experimental determination of <strong>E(t)</strong> requires a sharp pulse of tracer to be injected into the system. Essentially, an amount of tracer <span class="math inline">\(N_0\)</span> is required to be injected into the vessel’s inlet at a single instant of time at <span class="math inline">\(t=0\)</span>. Figure <a href="distribution-of-residence-times.html#fig:fig004003">3.8</a> shows typical concentration-time curves at the inlets and outlet of an arbitrary reactor. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004003"></span>
+<div id="determination-of-et-from-pulse-input" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Determination of <strong>E(t)</strong> from Pulse input<a href="distribution-of-residence-times.html#determination-of-et-from-pulse-input" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The direct experimental determination of <strong>E(t)</strong> requires a sharp pulse of tracer to be injected into the system. Essentially, an amount of tracer <span class="math inline">\(N_0\)</span> is required to be injected into the vessel’s inlet at a single instant of time at <span class="math inline">\(t=0\)</span>. Figure <a href="distribution-of-residence-times.html#fig:fig004003">3.8</a> shows typical concentration-time curves at the inlets and outlet of an arbitrary reactor. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004003"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004003-1.png" alt="Typical pulse impulse curves for RTD measurement" width="65%" />
 <p class="caption">
 Figure 3.8: Typical pulse impulse curves for RTD measurement
@@ -515,12 +539,12 @@ where <span class="math inline">\(C(t)\)</span> is the concentration of tracer i
 \end{equation}\]</span></p>
 <p>Combining Eqs <a href="distribution-of-residence-times.html#eq:ec004019">(3.21)</a> and <a href="distribution-of-residence-times.html#eq:ec004020">(3.22)</a> into Eq. <a href="distribution-of-residence-times.html#eq:ec004018">(3.20)</a> for a constant-density system,
 <span class="math display" id="eq:ec004021">\[\begin{equation}
- \mathbf{E}(t) = \frac{c(t)}{\displaystyle\int_0^\infty{c(t)\,dt}} \approx \frac{c_i(t)}{\displaystyle\sum_i {c_i(t)\,\Delta t_i}}
+\mathbf{E}(t) = \frac{c(t)}{\displaystyle\int_0^\infty{c(t)\,dt}} \approx \frac{c_i(t)}{\displaystyle\sum_i {c_i(t)\,\Delta t_i}}
 \tag{3.23}
 \end{equation}\]</span></p>
 <p>Once <span class="math inline">\(\mathbf{E}(t)\)</span> is determined, the mean residence time, <span class="math inline">\(\overline{t}\)</span>, and the variance of distribution, <span class="math inline">\(\sigma_t^2\)</span>, may be calculated based on Eqs. <a href="distribution-of-residence-times.html#eq:ec004007">(3.9)</a> and <a href="distribution-of-residence-times.html#eq:ec004016a">(3.18)</a>
 <span class="math display">\[\begin{gather*}
- \overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt \approx \sum_i t_i E_i(t) \Delta t_i \\
+\overline{t} = \int_{0}^{\infty} t\,\mathbf{E}(t)\,dt \approx \sum_i t_i E_i(t) \Delta t_i \\
    \sigma_t^2 = \left(\int_0^{\infty} {t}^2\,\mathbf{E}(t)\,dt\right) - \overline{t}^{\,2} \approx \left[ \sum_i t_i^2 E_i(t) \Delta t_i \right] - \overline{t}^2
 \end{gather*}\]</span></p>
 <p>Advantages of using a pulse input include:</p>
@@ -543,27 +567,36 @@ where <span class="math inline">\(C(t)\)</span> is the concentration of tracer i
   \text{area} = \sum_{i=1}^{n_C} c_i(t)\,\Delta t_i \\
   \Delta t_i = \frac{t_{i+1} - t_{i-1}}{2}
 \end{gather*}\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004003a"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004003a"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004003a-1.png" alt="Basis for histogram method of area determination. [@missen1999]" width="65%" />
 <p class="caption">
-Figure 3.9: Basis for histogram method of area determination. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
+Figure 3.9: Basis for histogram method of area determination. <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
 </p>
 </div>
 <p>In the use of the trapezoid rule, Figure <a href="distribution-of-residence-times.html#fig:fig004003b">3.10</a>, the area under the response curve is given by</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004003b"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004003b"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004003b-1.png" alt="Basis for histogram method of area determination. [@missen1999]" width="65%" />
 <p class="caption">
-Figure 3.10: Basis for histogram method of area determination. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
+Figure 3.10: Basis for histogram method of area determination. <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span>
 </p>
 </div>
 <p><span class="math display">\[\begin{equation*}
   \text{area} = \sum_{i=1}^{n_c - 1} c_i(t)_\text{av}\,\Delta t_i = \sum_{i=1}^{n_c - 1} \left(\frac{c_i + c_{i+1}}{2}\right) \left(t_{i+1} - t_i\right)
 \end{equation*}\]</span></p>
 <p>The only way to determine which numerical method provides the best answer is to predict the experimental concentrations using the calculated parameters in an appropriate mixing model.</p>
-
 <div class="exercise">
-<p><span id="exr:it004001" class="exercise"><strong>Exercise 3.1  (Calculations of RTD and distribution functions curves from pulse impulse method)  </strong></span>Consider a vessel through which a fluid is flowing. The RTD function is determined utilizing a pulse injection of the tracer in the inlet stream, and its outlet concentration is monitored as a function of time. The output concentration in mol/L measured as a function of time in seconds is</p>
+<p><span id="exr:it004001" class="exercise"><strong>Exercise 3.1  (Calculations of RTD and distribution functions curves from pulse impulse method) </strong></span>Consider a vessel through which a fluid is flowing. The RTD function is determined utilizing a pulse injection of the tracer in the inlet stream, and its outlet concentration is monitored as a function of time. The output concentration in mol/L measured as a function of time in seconds is</p>
 <table>
+<colgroup>
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>t (s)</th>
@@ -639,14 +672,14 @@ Figure 3.10: Basis for histogram method of area determination. <span class="cita
   \int_0^\infty c(t)\:dt
 \end{equation*}\]</span>
 which is just the area under the <span class="math inline">\(C (t)\)</span> curve.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004005a"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004005a"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004005a-1.png" alt="Trace concentration curve" width="65%" />
 <p class="caption">
 Figure 3.11: Trace concentration curve
 </p>
 </div>
 <p>Figure <a href="distribution-of-residence-times.html#fig:fig004005b">3.12</a> shows the obtained RTD curve</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004005b"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004005b"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004005b-1.png" alt="RTD curve" width="65%" />
 <p class="caption">
 Figure 3.12: RTD curve
@@ -655,13 +688,13 @@ Figure 3.12: RTD curve
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The cumulative distribution curve, <em>F(t)</em>, and washout curve, <em>W(t)</em>, were obtained from <em>E(t)</em> curve, and Figure <a href="distribution-of-residence-times.html#fig:fig004006a">3.13</a> shows the results obtained.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:fig004006a"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004006a"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004006a-1.png" alt="Cumulative curve, F(t)" width="65%" />
 <p class="caption">
 Figure 3.13: Cumulative curve, F(t)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:fig004006b"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004006b"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004006b-1.png" alt="Washout curve, W(t)" width="65%" />
 <p class="caption">
 Figure 3.14: Washout curve, W(t)
@@ -673,9 +706,9 @@ Figure 3.14: Washout curve, W(t)
 </ol>
 <p><span class="math display">\[\begin{equation*}
    \int_{230}^{270} {\mathbf{E}(t)dt}
- \end{equation*}\]</span></p>
+\end{equation*}\]</span></p>
 <p>However, times 230 and 270 seconds are not presented in the original data. It is necessary to append our data by interpolating <em>E(t)</em> points to correspond times 230 and 270 seconds. Then, the data obtained are plotted in Figure <a href="distribution-of-residence-times.html#fig:fig004007">3.15</a>. The shaded area represents the fraction of material leaving the reactor that resided in the reactor between 230 and 270 seconds.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig004007"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004007"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004007-1.png" alt="Analysis of curve E(t)" width="65%" />
 <p class="caption">
 Figure 3.15: Analysis of curve E(t)
@@ -683,14 +716,14 @@ Figure 3.15: Analysis of curve E(t)
 </div>
 <p>Then, we learned between 230 and 270 seconds, the 37.53% of the material left into the reactor.</p>
 </div>
-<div id="determination-of-et-from-step-change" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Determination of <strong>E(t)</strong> from Step Change</h2>
-<p>In this case, a step input tracer is a step increase from one steady-state value to another. Usually, as illustrated in Figure <a href="distribution-of-residence-times.html#fig:fig004004">3.16</a>, the step increase is from a zero value, and for a <span class="math inline">\(t\to \infty\)</span>, the final concentration of the tracer will be equal to its inlet concentration. <span class="citation">(<a href="references.html#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
-<p>For a step change, a material-balance criterion is that the steady-steady inlet and outlet tracer concentrations must be equal, both before and after the step change. Then, it may be concluded that the system’s response, as shown in Fig. <a href="distribution-of-residence-times.html#fig:fig004004">3.16</a>, is linear to the tracer, and there is no loss of tracer because of reaction or adsorption. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004004"></span>
+<div id="determination-of-et-from-step-change" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Determination of <strong>E(t)</strong> from Step Change<a href="distribution-of-residence-times.html#determination-of-et-from-step-change" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this case, a step input tracer is a step increase from one steady-state value to another. Usually, as illustrated in Figure <a href="distribution-of-residence-times.html#fig:fig004004">3.16</a>, the step increase is from a zero value, and for a <span class="math inline">\(t\to \infty\)</span>, the final concentration of the tracer will be equal to its inlet concentration. <span class="citation">(<a href="#ref-hayes2013" role="doc-biblioref">Hayes and Mmbaga 2013</a>)</span></p>
+<p>For a step change, a material-balance criterion is that the steady-steady inlet and outlet tracer concentrations must be equal, both before and after the step change. Then, it may be concluded that the system’s response, as shown in Fig. <a href="distribution-of-residence-times.html#fig:fig004004">3.16</a>, is linear to the tracer, and there is no loss of tracer because of reaction or adsorption. <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004004"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004004-1.png" alt="Typical step change curves for RTD measurement. [@fogler2008]" width="65%" />
 <p class="caption">
-Figure 3.16: Typical step change curves for RTD measurement. <span class="citation">(<a href="references.html#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span>
+Figure 3.16: Typical step change curves for RTD measurement. <span class="citation">(<a href="#ref-fogler2008" role="doc-biblioref">Fogler 2008</a>)</span>
 </p>
 </div>
 <p>In comparison with pulse input, which is related to <span class="math inline">\(\mathbf{E}(t)\)</span>, the response to a step change is related to <span class="math inline">\(\mathbf{F}(t)\)</span>. The advantages of this experimental method are:</p>
@@ -708,41 +741,40 @@ Figure 3.16: Typical step change curves for RTD measurement. <span class="citati
    C_0(t) = \left\{ \begin{array}{ll}
    0 &amp; t &lt;0 \\
    {\left(C_0\right)} \,\text{ constant} &amp; t \geq 0 \end{array} \right.
- \end{equation*}\]</span></p>
+\end{equation*}\]</span></p>
 <p>Thus, in the case of a step increase from an initial value, <span class="math inline">\(C(0)\)</span>, to some final value, <span class="math inline">\(c(\infty)\)</span>, the outlet concentration as function of time gives the cumulative distribution function, <span class="math inline">\(\mathbf{F}(t)\)</span>, directly from the following equation:
 <span class="math display" id="eq:ec004022">\[\begin{equation}
    \mathbf{F}(t) = \frac{c(t) - c(0)}{C(\infty) - c(0)}
    \tag{3.24}
- \end{equation}\]</span></p>
+\end{equation}\]</span></p>
 <p>If the inlet tracer concentration has a step decrease from initial value, <span class="math inline">\(C(0)\)</span>, to a final value, <span class="math inline">\(C(\infty)\)</span>, then the effluent concentration can be used to calculate the washout function, <span class="math inline">\(\mathbf{W}(t)\)</span>:
 <span class="math display" id="eq:ec004023">\[\begin{equation}
 \mathbf{W}(t) = \frac{c(t) - c(\infty)}{c(0) - c(\infty)}
 \tag{3.25}
- \end{equation}\]</span></p>
-<p>A tracer study may use a step increase followed later by a step decrease; the transient responses in the two cases are the checked consistency. When considered separately, the washout technique has advantages: less tracer is required, and it avoids having to maintain a steady-state value of <span class="math inline">\(C_o\)</span> for a lengthy period. <span class="citation">(<a href="references.html#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
+\end{equation}\]</span></p>
+<p>A tracer study may use a step increase followed later by a step decrease; the transient responses in the two cases are the checked consistency. When considered separately, the washout technique has advantages: less tracer is required, and it avoids having to maintain a steady-state value of <span class="math inline">\(C_o\)</span> for a lengthy period. <span class="citation">(<a href="#ref-missen1999" role="doc-biblioref">Missen, Mims, and Bradley 1999</a>)</span></p>
 <p>The normalized response data may be converted to <span class="math inline">\(\mathbf{E}(t)\)</span>, since
 <span class="math display">\[\begin{equation*}
    \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt}
- \end{equation*}\]</span>
+\end{equation*}\]</span>
 Or could be estimated depending on the differencing technique used. From backward differencing:
 <span class="math display">\[\begin{equation*}
    \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt} \approx \frac{F_{i+1} - F_{i}}{t_{i+1} - t_{i}}; \quad i = 1, 2, \,\dots \, n-1
- \end{equation*}\]</span>
+\end{equation*}\]</span>
 and central differencing:
 <span class="math display">\[\begin{equation*}
    \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt} \approx \frac{F_{i+1} - F_{i-1}}{t_{i+1} - t_{i-1}}; \quad i = 2, 3,\, \dots \, n-2
- \end{equation*}\]</span></p>
+\end{equation*}\]</span></p>
 <p>Finally, based on the normalized condition of <span class="math inline">\(\mathbf{E}\)</span> curve. The mean residence time, which is calculated from~ could be approximated to:
 <span class="math display">\[\begin{equation*}
    \overline{t} \approx \sum{t_i\,\mathbf{E}_i\,\Delta t}
- \end{equation*}\]</span>
+\end{equation*}\]</span>
 and the variance <span class="math inline">\(\sigma^{2}\)</span>
 <span class="math display">\[\begin{equation*}
    \sigma_t^{2} \approx \sum{t_i^2\,\mathbf{E}_i\,\Delta t} - \overline{t}^{2}
- \end{equation*}\]</span></p>
-
+\end{equation*}\]</span></p>
 <div class="exercise">
-<p><span id="exr:it004002" class="exercise"><strong>Exercise 3.2  (Calculations of RTD and distribution functions curves from step change method)  </strong></span>The inlet concentration of helium (tracer A) was step-increased from 1.0 to 2.0 mmol/L to determine the mixing pattern in a fluidized-bed reactor. The response data were as follows:</p>
+<p><span id="exr:it004002" class="exercise"><strong>Exercise 3.2  (Calculations of RTD and distribution functions curves from step change method) </strong></span>The inlet concentration of helium (tracer A) was step-increased from 1.0 to 2.0 mmol/L to determine the mixing pattern in a fluidized-bed reactor. The response data were as follows:</p>
 <table>
 <thead>
 <tr class="header">
@@ -790,7 +822,7 @@ and the variance <span class="math inline">\(\sigma^{2}\)</span>
 <p><em>Solution</em></p>
 <p>The solution in a Python script is available at <a href="https://github.com/aliglara/ebook_che5314_ucv/blob/main/codes/lect_022RTDstep.ipynb">link</a>.</p>
 <p>The figure <a href="distribution-of-residence-times.html#fig:fig004008">3.17</a> shows results obtained for <span class="math inline">\(F(t)\)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004008"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004008"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004008-1.png" alt="Left: Trace concentration curve. Right: F(t) curve" width="80%" />
 <p class="caption">
 Figure 3.17: Left: Trace concentration curve. Right: F(t) curve
@@ -799,9 +831,9 @@ Figure 3.17: Left: Trace concentration curve. Right: F(t) curve
 <p>The RTD was calculated by
 <span class="math display">\[\begin{equation*}
    \mathbf{E}(t) = \frac{d\mathbf{F}(t)}{dt}
- \end{equation*}\]</span></p>
+\end{equation*}\]</span></p>
 <p>Which was estimated using backward differencing for <span class="math inline">\(F(t)\)</span>. The figure <a href="distribution-of-residence-times.html#fig:fig004009">3.18</a> shows results obtained for <span class="math inline">\(E(t)\)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:fig004009"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig004009"></span>
 <img src="ebook_notes_5314_files/figure-html/fig004009-1.png" alt="E(t) curve" width="65%" />
 <p class="caption">
 Figure 3.18: E(t) curve
@@ -813,7 +845,7 @@ Figure 3.18: E(t) curve
 \end{equation*}\]</span>
 From this,</p>
 <p><span class="math display">\[\begin{equation*}
- \overline{t} = 57.537 \text{ min}
+\overline{t} = 57.537 \text{ min}
 \end{equation*}\]</span></p>
 <p>Finally, the variance was obtained by,
 <span class="math display">\[\begin{equation*}
@@ -823,6 +855,27 @@ From this,</p>
 <span class="math display">\[\begin{equation*}
   \sigma^2= 530.249 \text{ min}^2
 \end{equation*}\]</span></p>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-fogler2008" class="csl-entry">
+Fogler, H. Scott. 2008. <em>Elementos de Ingenier<span>ı́</span>a de Las Reacciones Qu<span>ı́</span>micas</em>. 4ta ed. Pearson Prentice Hall.
+</div>
+<div id="ref-hayes2013" class="csl-entry">
+Hayes, R. E., and J. P. Mmbaga. 2013. <em>Introduction to Chemical Reactor Analysis</em>. 2nd ed. CRC Press.
+</div>
+<div id="ref-levenspiel2004" class="csl-entry">
+Levenspiel, Octave. 2004. <em>Chemical Reaction Engineering</em>. Third. Limusa Wiley.
+</div>
+<div id="ref-missen1999" class="csl-entry">
+Missen, Ronald, Charles Mims, and Saville. Bradley. 1999. <em>Introduction to Chemical Reaction Engineering and Kinetics</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-roberts2009" class="csl-entry">
+Roberts, George. 2009. <em>Chemical Reactions and Chemical Reactors</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-westerterp1984" class="csl-entry">
+Westertep, K., W. Van Swaaij, and A. Beenackers. 1984. <em>Chemical Reactor Design and Operation</em>. John Wiley &amp; Sons.
 </div>
 </div>
             </section>
@@ -835,7 +888,6 @@ From this,</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -854,6 +906,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -874,6 +927,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ebook_notes_5314.pdf", "ebook_notes_5314.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -887,7 +944,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
